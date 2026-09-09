@@ -1,0 +1,142 @@
+﻿---
+/**
+ * 询价表单（需求文档 板块 6：GET A QUOTE）
+ * - 5 个字段：姓名/邮箱/电话/主题/留言，邮箱和电话"二选一必填"
+ * - 通过 fetch 异步 POST 到 Web3Forms，提交后不跳页，在当前页面显示成功/失败提示
+ */
+const { compact = false } = Astro.props;
+---
+
+<section id="quote" class:list={['quote', { compact }]}>
+  <div class="container">
+    <h2 class="section-title">GET A QUOTE</h2>
+    <p class="section-sub">Tell us about your shipment — we reply within 24 hours.</p>
+
+    <!-- 询价表单提交到 Web3Forms（已接入 access_key，通知会发到你注册的邮箱） -->
+    <form class="form-grid" method="POST" action="https://api.web3forms.com/submit" novalidate>
+      <input type="hidden" name="access_key" value="2e0fa32b-865d-438c-a968-4fb1c8d85db8" />
+      <!-- Web3Forms 可选参数：自定义邮件主题 -->
+      <input type="hidden" name="subject" value="New Quote Request from Dantful Logistics Website" />
+      <!-- Web3Forms 可选参数：提交后让 From 显示为客户邮箱，直接 Reply 即可回客户 -->
+      <input type="hidden" name="from_name" value="Dantful Logistics Website" />
+      <div>
+        <label for="q-name">Your Name</label>
+        <input id="q-name" name="name" type="text" autocomplete="name" />
+      </div>
+      <div>
+        <label for="q-email">Your Email <span class="req-flag">* Email or telephone required</span></label>
+        <input id="q-email" name="email" type="email" autocomplete="email" />
+      </div>
+      <div>
+        <label for="q-phone">Telephone <span class="req-flag">* Email or telephone required</span></label>
+        <input id="q-phone" name="telephone" type="tel" autocomplete="tel" />
+      </div>
+      <div>
+        <label for="q-subject">Subject</label>
+        <input id="q-subject" name="user_subject" type="text" />
+      </div>
+      <div class="full">
+        <label for="q-message">Your Message</label>
+        <textarea id="q-message" name="message" rows="5" placeholder="Anything you want to tell us about your shipment — cargo type, weight, origin city, destination port, Incoterms, etc."></textarea>
+      </div>
+      <div class="full">
+        <button class="btn btn-primary" type="submit">
+          <span class="btn-label">SUBMIT</span>
+          <span class="btn-loading" hidden>Sending…</span>
+        </button>
+        <p class="form-msg form-msg-error" hidden>⚠ Please provide at least one contact method — email or telephone — so we can get back to you within 24 hours.</p>
+        <p class="form-msg form-msg-success" hidden>✅ Thanks! Your quote request has been sent successfully. We will review the details and reply within 24 hours.</p>
+        <p class="form-msg form-msg-fail" hidden>❌ Something went wrong while sending your request. Please try again, or email us directly at overseas.27@dantful.com. Sorry for the inconvenience.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .quote { padding-block: 72px; background: var(--blue-light); }
+  .quote.compact { padding-block: 56px; }
+  .hint { color: var(--ink-soft); font-weight: 400; font-size: 0.8rem; }
+  .req-flag { color: #b91c1c; font-weight: 600; font-size: 0.78rem; margin-left: 6px; }
+  .form-msg { font-weight: 700; margin-top: 14px; margin-bottom: 0; padding: 12px 16px; border-radius: 8px; line-height: 1.45; font-size: 0.85rem; }
+  .form-msg-error   { color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; }
+  .form-msg-success { color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .form-msg-fail    { color: #7f1d1d; background: #fff1f2; border: 1px solid #fecdd3; }
+  .input-error { border-color: #ef4444 !important; background: #fef2f2; box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+
+  /* 按钮 loading 态：禁用+变灰，文字从 SUBMIT 切换为 Sending… */
+  .btn[disabled] { opacity: 0.7; cursor: not-allowed; }
+  .btn[disabled] .btn-label  { display: none; }
+  .btn:not([disabled]) .btn-loading { display: none; }
+</style>
+
+<script>
+  document.querySelectorAll('form.form-grid').forEach((form) => {
+    const email   = form.querySelector<HTMLInputElement>('input[name="email"]');
+    const phone   = form.querySelector<HTMLInputElement>('input[name="telephone"]');
+    const btn     = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const msgErr  = form.querySelector<HTMLParagraphElement>('.form-msg-error');
+    const msgOk   = form.querySelector<HTMLParagraphElement>('.form-msg-success');
+    const msgFail = form.querySelector<HTMLParagraphElement>('.form-msg-fail');
+
+    function hideAllMsgs() {
+      [msgErr, msgOk, msgFail].forEach((m) => { if (m) m.hidden = true; });
+      if (email) email.classList.remove('input-error');
+      if (phone) phone.classList.remove('input-error');
+    }
+
+    function setLoading(on: boolean) {
+      if (!btn) return;
+      btn.disabled = on;
+      const label  = btn.querySelector<HTMLElement>('.btn-label');
+      const loadEl = btn.querySelector<HTMLElement>('.btn-loading');
+      if (label)  label.hidden  = on;
+      if (loadEl) loadEl.hidden = !on;
+    }
+
+    // 用户一开始输入就清除错误和成功提示（重新输入表示要重新提交）
+    form.querySelectorAll('input, textarea').forEach((el) => {
+      el.addEventListener('input', hideAllMsgs);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // 始终阻止原生跳页提交
+      hideAllMsgs();
+
+      // 1) 本地校验：邮箱和电话二选一必填
+      const emailOk = !!email?.value.trim();
+      const phoneOk = !!phone?.value.trim();
+      if (!emailOk && !phoneOk) {
+        if (msgErr) msgErr.hidden = false;
+        if (email)  email.classList.add('input-error');
+        if (phone)  phone.classList.add('input-error');
+        email?.focus();
+        return;
+      }
+
+      // 2) fetch 异步提交到 Web3Forms
+      const action = form.action;
+      const fd = new FormData(form);
+
+      setLoading(true);
+      try {
+        const res = await fetch(action, { method: 'POST', body: fd });
+        const data = await res.json().catch(() => ({ success: false }));
+        if (res.ok && data && (data.success === true || String(data.status).startsWith('2'))) {
+          // 成功：显示绿色提示 + 清空表单
+          if (msgOk) msgOk.hidden = false;
+          form.reset();
+        } else {
+          // Web3Forms 返回 4xx/5xx 或 success:false
+          console.warn('Web3Forms submit error:', res.status, data);
+          if (msgFail) msgFail.hidden = false;
+        }
+      } catch (err) {
+        // 网络层错误（DNS、CORS、用户离线等）
+        console.error('Web3Forms network error:', err);
+        if (msgFail) msgFail.hidden = false;
+      } finally {
+        setLoading(false);
+      }
+    });
+  });
+</script>

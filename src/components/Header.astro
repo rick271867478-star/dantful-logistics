@@ -1,0 +1,197 @@
+﻿---
+/**
+ * 页头 = 顶部信息条（可滚走） + 吸顶导航栏（sticky，带下拉菜单）
+ * - 顶部信息条：左手机号+邮箱，右三个社媒图标（需求文档 全局要求 1）
+ * - 导航栏：左 Logo + 7 个菜单项，SERVICES/SHIP BY REGION/NEWS 悬停下拉（全局要求 2）
+ * - 手机端：汉堡菜单 + 下拉改为点击展开
+ */
+import { SITE } from '../consts';
+import { services } from '../data/services';
+import { regions } from '../data/regions';
+import { newsCategories } from '../data/news';
+
+const telHref = `tel:${SITE.phone.replace(/[\s-]/g, '')}`;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => {
+  const h = href.replace(/\/$/, '') || '/';
+  return h === '/' ? currentPath === '/' : currentPath === h || currentPath.startsWith(h + '/');
+};
+const menu = [
+  { href: '/', label: 'HOME', drop: [] as { href: string; label: string }[] },
+  { href: '/about/', label: 'ABOUT', drop: [] },
+  { href: '/services/', label: 'SERVICES', drop: services.map((s) => ({ href: `/services/${s.slug}/`, label: s.title })) },
+  { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: regions.map((r) => ({ href: `/ship-by-region/#${r.id}`, label: r.name })) },
+  { href: '/case/', label: 'CASE', drop: [] },
+  { href: '/news/', label: 'NEWS', drop: newsCategories.map((c) => ({ href: `/news/#${c.toLowerCase().replace(/ /g, '-')}`, label: c })) },
+  { href: '/contact/', label: 'CONTACT', drop: [] },
+];
+---
+
+<header class="site-header">
+  <!-- 顶部信息条 -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href={telHref} class="topbar-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.9.6 2.9.7a2 2 0 011.6 2z"/></svg>
+          {SITE.phone}
+        </a>
+        <a href={`mailto:${SITE.email}`} class="topbar-contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          {SITE.email}
+        </a>
+      </div>
+      <div class="topbar-right">
+        <!-- 【待补充】三个社媒的真实链接在 src/consts.ts 里改 -->
+        <a class="social-li" href={SITE.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a class="social-fb" href={SITE.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+        </a>
+        <a class="social-yt" href={SITE.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.92 29 29 0 00.46-5.33 29 29 0 00-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- 吸顶导航栏 -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="/" class="logo" aria-label={`${SITE.name} home`}>
+        <img src="/images/logo.png" alt="" class="logo-mark" width="50" height="50" />
+        <span class="logo-text">{SITE.name}</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+      <ul class="nav-list">
+        {menu.map((item) => (
+          <li class:list={['nav-item', { 'has-drop': item.drop.length > 0 }]}>
+            <a
+              href={item.href}
+              class:list={['nav-link', { active: isActive(item.href) }]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+              {item.drop.length > 0 && <span class="caret" aria-hidden="true">▾</span>}
+            </a>
+            {item.drop.length > 0 && (
+              <ul class="dropdown">
+                {item.drop.map((d) => (
+                  <li><a href={d.href}>{d.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+<style>
+  /* ---- 顶部信息条 ---- */
+  .topbar { background: var(--navy); color: #cdd9e6; font-size: 0.84rem; }
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 7px; }
+  .topbar-left { display: flex; gap: 22px; flex-wrap: wrap; }
+  .topbar-contact { display: inline-flex; align-items: center; gap: 6px; color: #cdd9e6; min-height: 36px; }
+  .topbar-contact:hover { color: #fff; }
+  .topbar-contact svg { width: 14px; height: 14px; }
+  .topbar-right { display: flex; gap: 6px; touch-action: manipulation; }
+  .topbar-right a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: #fff; /* 白色圆底衬托品牌色 */
+  }
+  /* 三个社媒图标使用官方品牌色（而不是和背景同色） */
+  .social-li { color: #0a66c2; }   /* LinkedIn 蓝 */
+  .social-fb { color: #1877f2; }   /* Facebook 蓝 */
+  .social-yt { color: #ff0000; }   /* YouTube 红 */
+  .social-li:hover { background: #0a66c2; color: #fff; }
+  .social-fb:hover { background: #1877f2; color: #fff; }
+  .social-yt:hover { background: #ff0000; color: #fff; }
+  .topbar-right svg { width: 14px; height: 14px; }
+
+  /* ---- 吸顶导航栏 ---- */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .navbar-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 11px; gap: 20px; }
+  .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .logo:hover { text-decoration: none; }
+  .logo-mark { width: 50px; height: 50px; }
+  .logo-text { font-weight: 800; font-size: 1.02rem; color: var(--navy); }
+
+  .nav-list { display: flex; align-items: center; gap: 22px; list-style: none; }
+  .nav-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--ink); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.4px;
+    padding-block: 14px; border-bottom: 3px solid transparent;
+    min-height: 44px; touch-action: manipulation;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--blue); border-bottom-color: var(--blue); text-decoration: none; }
+  .caret { font-size: 0.7rem; }
+
+  /* 下拉菜单：桌面悬停显示 */
+  .has-drop { position: relative; }
+  .dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    min-width: 200px; background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: var(--shadow-lg); list-style: none; padding: 8px 0; z-index: 101;
+  }
+  .dropdown::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+  .has-drop:hover .dropdown, .has-drop:focus-within .dropdown { display: block; }
+  .dropdown a {
+    display: flex; align-items: center; padding: 10px 20px; color: var(--ink-soft); font-size: 0.88rem; font-weight: 600; white-space: nowrap;
+    min-height: 44px;
+  }
+  .dropdown a:hover { background: var(--blue-light); color: var(--navy); text-decoration: none; }
+
+  .nav-toggle { display: none; background: none; border: none; font-size: 1.6rem; color: var(--navy); cursor: pointer; min-width: 44px; min-height: 44px; touch-action: manipulation; }
+
+  /* ---- 手机端 ---- */
+  @media (max-width: 920px) {
+    .nav-toggle { display: block; }
+    .nav-list {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: #fff; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    }
+    .nav-list.open { display: flex; }
+    .nav-item { border-top: 1px solid var(--line); }
+    .nav-link { display: flex; justify-content: space-between; padding: 14px 5%; }
+    .dropdown {
+      display: none; position: static; transform: none; min-width: 0;
+      border: none; border-radius: 0; box-shadow: none; background: #f5f8fc; padding: 4px 0;
+    }
+    .dropdown.open { display: block; }
+    .dropdown a { padding: 10px 10%; }
+    .topbar-inner { justify-content: center; }
+  }
+</style>
+
+<script>
+  // 手机端：汉堡菜单开关 + 下拉改为点击展开
+  const toggle = document.querySelector('.nav-toggle');
+  const list = document.querySelector('.nav-list');
+  toggle?.addEventListener('click', () => {
+    const open = list?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+  document.querySelectorAll('.has-drop > .nav-link').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      if (window.matchMedia('(max-width: 920px)').matches) {
+        const item = link.parentElement;
+        const drop = item?.querySelector('.dropdown');
+        if (drop) {
+          e.preventDefault();
+          drop.classList.toggle('open');
+        }
+      }
+    });
+  });
+</script>

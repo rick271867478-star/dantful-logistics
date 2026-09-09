@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+
+# ⚠️【待补充】替换成真实域名，与 astro.config.mjs 保持一致
+Sitemap: https://dantful-logistics.pages.dev/sitemap-index.xml

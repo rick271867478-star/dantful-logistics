@@ -1,0 +1,44 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { news, newsCategories } from '../data/news';
+---
+
+<BaseLayout
+  title="News & Updates | Freight Industry Insights"
+  description="Company news, freight industry updates and practical shipping guides from China — container rates, port situations and export know-how."
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>News</span>
+      </nav>
+      <h1 class="section-title">NEWS</h1>
+      <p class="section-sub">Company updates, freight industry insights and practical shipping guides from China -- covering container rates, port situations, Amazon FBA know-how, customs regulations and export logistics best practices for importers worldwide.</p>
+
+      {newsCategories.map((cat) => (
+        <section id={cat.toLowerCase().replace(/ /g, '-')} style="padding-block: 36px;">
+          <h2 style="border-bottom: 2px solid var(--line); padding-bottom: 10px;">{cat}</h2>
+          <div class="grid grid-2">
+            {news.filter((n) => n.category === cat).map((n) => (
+              <article class="card news-card">
+                <time datetime={n.date}>{n.date}</time>
+                <h3>{n.title}</h3>
+                <p>{n.summary}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .news-card time { color: var(--blue); font-size: 0.82rem; font-weight: 700; }
+  .news-card h3 { margin: 8px 0; font-size: 1.05rem; line-height: 1.4; }
+  .news-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+  @media (max-width: 480px) {
+    .news-card h3 { font-size: 0.95rem; }
+    .news-card p { font-size: 0.85rem; }
+  }
+</style>

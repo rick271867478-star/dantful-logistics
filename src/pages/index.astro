@@ -1,0 +1,169 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Banner from '../components/Banner.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { services } from '../data/services';
+
+/* 六个优势（需求文档板块 3）：小图标 + 标题 + SEO 长文案 */
+const advantages = [
+  {
+    icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
+    title: 'Competitive Rates',
+    text:
+      'Direct carrier and airline contracts with Maersk, MSC, COSCO, Air China, Cathay Pacific and 40+ global logistics partners enable us to lock in preferential all-in FCL, LCL and air freight rates. Combined with weekly LCL consolidation hubs in Shenzhen, Shanghai and Guangzhou, our clients save 15 to 35 percent on landed shipping cost compared to average market rates, with zero hidden fuel surcharges or peak-season GRI markup.',
+  },
+  {
+    icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+    title: 'Fast Response',
+    text:
+      'Our multilingual sales and operations team guarantees detailed ocean or air freight quotes within 2 working hours during China business hours, and maximum 12 hours even on weekends, Chinese national holidays, CNY or Golden Week. WhatsApp, WeChat, Skype, email and telephone channels are all staffed 24/7 by dedicated account managers who speak fluent English, Spanish and Mandarin.',
+  },
+  {
+    icon: 'M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11',
+    title: 'Real-Time Tracking',
+    text:
+      'Every shipment is fully traceable online via our cloud logistics dashboard: ocean container BL number, vessel AIS position, ETA port and ETA door updates; air freight master AWB, flight departure and arrival status; DDP truck and last-mile courier tracking numbers linked directly to UPS, FedEx, DHL and GLS websites, with automatic email and WeChat push notifications at every milestone.',
+  },
+  {
+    icon: 'M20 8l-8-4-8 4v8l8 4 8-4V8zM12 12L4 8m8 4l8-4m-8 4v8',
+    title: 'One-Stop Service',
+    text:
+      'From factory door to overseas consignee door, our integrated single-point workflow covers: China inland pickup trucking from any factory, export customs declaration and certificates of origin, bonded warehousing with free 30-day storage, container loading and VGM, sea, air or rail main carriage, destination import clearance, duties and VAT pre-payment, Amazon FBA prep, insurance, and final-mile delivery to commercial, residential or warehouse address.',
+  },
+  {
+    icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75',
+    title: 'Experienced Team',
+    text:
+      'Founded in 2008, our NVOCC and Class-A licensed freight forwarding operation now employs 80+ certified specialists including licensed customs declarants, IATA-certified dangerous goods handlers, FBA logistics experts, project cargo engineers and ocean tariff analysts. Average industry experience per team member exceeds 9 years, with proven track records on over 45,000 shipments to 120+ countries and territories worldwide.',
+  },
+  {
+    icon: 'M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z',
+    title: 'Global Network',
+    text:
+      'Our own overseas offices and audited 10-year-plus partner network spans over 60 destination countries: USA (LA, NY, Chicago, Dallas, Seattle), Canada (Vancouver, Toronto), EU 27 via Hamburg, Rotterdam, Antwerp and Milan hubs, United Kingdom (Tilbury, Heathrow), Australia (Sydney, Melbourne), Japan, Korea, Mexico, Southeast Asia (Singapore, Bangkok, Vietnam, Philippines, Indonesia), Middle East (UAE, KSA), Turkey, India and Latin America (Brazil, Chile, Peru).',
+  },
+];
+
+/* 三条客户评价（需求文档板块 5）：头像 + 名字 + 职位 + SEO 长评价 */
+const testimonials = [
+  {
+    name: 'David Morrison',
+    title: 'Founder & CEO, Morrison Home Goods Inc., Los Angeles, USA',
+    quote:
+      'We have been shipping 40HQ FCL containers from Shenzhen to Long Beach with Dantful Logistics for over 7 years — consistent 18-day port-to-port Trans-Pacific transits, competitive all-in rates, zero missed sailings even during 2021 peak season capacity crunch, and excellent ISF-10 and AMS filings handled by their in-house licensed US customs team. Their DDP door-to-door service saved us 22% on landed cost last year compared to our previous freight forwarder, and their Amazon FBA 海派 sea-express division delivered 150 CBM of kitchenware inventory to LGB8, ONT8 and LAX9 FCs 5 days ahead of schedule ahead of our 2024 Prime Day launch. Highly recommended China freight forwarder for any US importer.',
+  },
+  {
+    name: 'Sarah Berger',
+    title: 'Head of Supply Chain, GreenTech Outdoor GmbH, Hamburg, Germany',
+    quote:
+      'As a German sustainable outdoor gear brand importing high-quality camping and hiking products from Guangzhou and Yiwu suppliers, we rely on Dantful Logistics for 100% of our ocean FCL, LCL consolidation and air express shipments from China to the EU. Their Hamburg-based overseas partner handles complete import customs clearance, EU EORI filings, ENS pre-manifest declarations and FORM E ASEAN FTA zero-tariff certificates of origin flawlessly every time, saving our company approximately EUR 48,000 per year in avoided import duties. Real-time container vessel AIS tracking, automatic shipment milestone email updates, and responsive 24/7 WhatsApp account management make them the most reliable China-EU freight forwarder we have ever worked with across 11 years in business.',
+  },
+  {
+    name: 'James Chen',
+    title: 'Owner, Oceana Living Homeware Pty Ltd., Sydney, Australia',
+    quote:
+      'Running a 6-figure Australian Shopify store selling premium handcrafted ceramic dinnerware, bamboo kitchenware and home textiles sourced from multiple factories across Fujian and Zhejiang provinces, I needed a China freight forwarder who could consolidate goods from 8 different suppliers into a single LCL shipment, perform AQL Level II quality inspections at the warehouse before export, apply MADE IN CHINA country-of-origin labels, and deliver door-to-door DDP to our Sydney warehouse with all import duties, GST and AQIS biosecurity fees fully pre-paid. Dantful Logistics has been doing exactly that for the past 4 years, delivering 12 to 16 day total door-to-door transit from China factory gate to Sydney, with 30-day free bonded warehousing consolidation, free FNSKU labeling for our Amazon Australia FBA stock, and absolutely zero customs inspection delays or unexpected hidden charges on arrival. Truly a one-stop solution for any Australian importer or e-commerce Amazon seller.',
+  },
+];
+---
+
+<BaseLayout
+  title="China Freight Forwarder | Ocean, Air & Door-to-Door Shipping"
+  description="Reliable freight forwarder from China to worldwide. Ocean freight, air freight, Amazon FBA, customs clearance and door-to-door DDP logistics. Get a quote in 24 hours."
+>
+  <!-- ===== 板块 1：BANNER 轮播 ===== -->
+  <Banner />
+
+  <!-- ===== 板块 2：OUR SERVICES（6 个，图上文下，可点击） ===== -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">OUR SERVICES <a href="/services/" style="font-size:0.85rem;font-weight:700;color:var(--blue);text-decoration:none;">View All &rarr;</a></h2>
+      <div class="grid grid-3">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="card svc-card">
+            <img src={`/images/service-${s.slug}.webp`} alt={`${s.title} service from China - freight forwarding logistics`} class="svc-img" loading="lazy" />
+            <h3>{s.title}</h3>
+            <p>{s.short}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 板块 3：OUR ADVANTAGES（6 个，图标 + 文字） ===== -->
+  <section class="section-soft" id="advantages">
+    <div class="container">
+      <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">OUR ADVANTAGES <a href="/about/" style="font-size:0.85rem;font-weight:700;color:var(--blue);text-decoration:none;">Learn More &rarr;</a></h2>
+      <div class="grid grid-3">
+        {advantages.map((a) => (
+          <div class="card adv-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={a.icon} /></svg>
+            </div>
+            <h3>{a.title}</h3>
+            <p>{a.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 板块 4：ABOUT US（左图右文） ===== -->
+  <section id="about">
+    <div class="container grid grid-2 about-grid">
+      <img src="/images/about-company.webp" alt="Shenzhen Dantful International Logistics office and team - China freight forwarder established 2008" class="about-img" loading="lazy" />
+      <div class="prose">
+        <h2 class="section-title" style="text-align:left">ABOUT US</h2>
+        <p>SHENZHEN DANTFUL INT'L LOGISTICS CO., LTD. (Shenzhen Dantful International Logistics Co. Ltd.) was established in Shenzhen, Guangdong, China in 2008. We are a NVOCC-class China freight forwarder specializing in offering comprehensive international logistics and door-to-door shipping solutions for commercial cargo, Amazon FBA sellers and E-commerce merchants importing from China to the USA, Canada, EU, United Kingdom, Australia, Japan, Mexico and over 120 countries worldwide.</p>
+        <p>With 16+ years of hands-on industry experience, 80+ in-house logistics specialists, 58,000 sqm of bonded warehousing space in Shenzhen, Shanghai and Guangzhou, and an overseas partner network covering 60+ destination countries, we deliver reliable, transparent and cost-effective ocean freight (FCL & LCL), air freight, Amazon FBA shipping, licensed customs brokerage, warehousing & distribution, and complete DDP door-to-door services for every type of shipment from general cargo to sensitive goods, DG dangerous goods and project cargo. Contact us today for a customized all-in shipping quote within 2 hours.</p>
+        <a href="/about/" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 板块 5：CLIENTS SAY（头像 + 名字 + 职位 + 评价） ===== -->
+  <section class="section-soft" id="clients">
+    <div class="container">
+      <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">CLIENTS SAY <a href="/case/" style="font-size:0.85rem;font-weight:700;color:var(--blue);text-decoration:none;">View All Cases &rarr;</a></h2>
+      <div class="grid grid-3">
+        {testimonials.map((t) => (
+          <div class="card testi-card">
+            <!-- TODO【待补充】：头像图片放 public/images/ 后，用 <img class="avatar" src="..." alt="Client name" /> 换掉下面占位 -->
+            <div class="avatar-ph" aria-hidden="true"></div>
+            <h3>{t.name}</h3>
+            <p class="testi-role">{t.title}</p>
+            <p class="quote">“{t.quote}”</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 板块 6：GET A QUOTE 表单 ===== -->
+  <QuoteForm />
+</BaseLayout>
+
+<style>
+  .svc-card { display: flex; flex-direction: column; color: inherit; text-decoration: none !important; padding: 0; overflow: hidden; }
+  .svc-img { display: block; width: 100%; height: 170px; object-fit: cover; }
+  @media (max-width: 480px) { .svc-img { height: 140px; } }
+  .svc-card h3, .svc-card p { padding-inline: 22px; }
+  .svc-card h3 { margin-top: 18px; }
+  .svc-card p { margin-bottom: 22px; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+  .about-img { display: block; width: 100%; height: 380px; object-fit: cover; border-radius: 12px; }
+  @media (max-width: 768px) { .about-img { height: 300px; } }
+  @media (max-width: 480px) { .about-img { height: 220px; } }
+
+  .about-grid { align-items: center; gap: 48px; }
+
+  .testi-card { text-align: center; }
+  .avatar-ph {
+    width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 14px;
+    background: repeating-linear-gradient(45deg, #eef3f9, #eef3f9 8px, #e6edf6 8px, #e6edf6 16px);
+    border: 2px dashed #9db6d2;
+  }
+  .testi-card :global(.avatar) { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; }
+  .testi-role { font-size: 0.82rem; color: var(--blue); font-weight: 700; margin-bottom: 12px; }
+  .quote { font-style: italic; }
+</style>

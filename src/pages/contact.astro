@@ -1,0 +1,61 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="Contact Us | Get a Free Freight Quote in 24h"
+  description={`Contact ${SITE.name} for freight quotes from China. Email, phone — we reply within 24 hours.`}
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>Contact</span>
+      </nav>
+      <h1 class="section-title">CONTACT US</h1>
+      <p class="section-sub">Tell us about your shipment and get a tailored quote within 24 hours.</p>
+
+      <div class="grid grid-2 contact-grid">
+        <div class="prose">
+          <h2>Direct Contact</h2>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+            <li><strong>Phone:</strong> <a href={`tel:${SITE.phone.replace(/[\s-]/g, '')}`}>{SITE.phone}</a></li>
+            <li><strong>Address:</strong> {SITE.address}</li>
+            <li><strong>Working Hours:</strong> Mon–Sat 9:00–19:00 Beijing Time (GMT+8)</li>
+          </ul>
+
+          
+          <iframe src="https://www.google.com/maps?q=Wenhua+Building,+No.1027+Shennan+East+Road,+Luohu,+Shenzhen&amp;output=embed" width="100%" height="260" style="border:0;border-radius:var(--radius);margin:20px 0 30px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <h2>What to Include in Your Inquiry</h2>
+          <ul>
+            <li>Pickup city / supplier address in China</li>
+            <li>Destination port or door address</li>
+            <li>Cargo description, quantity, weight &amp; volume (CBM)</li>
+            <li>Incoterms (EXW / FOB / CIF / DDP …)</li>
+          </ul>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <QuoteForm compact />
+</BaseLayout>
+
+<style>
+  .contact-grid { gap: 48px; align-items: start; }
+  .contact-list { list-style: none; padding: 0; margin: 14px 0 28px; }
+  .contact-list li { margin-bottom: 12px; color: var(--ink-soft); line-height: 1.6; }
+  .contact-list a { min-height: 44px; display: inline-flex; align-items: center; }
+  @media (max-width: 720px) {
+    .contact-grid { gap: 32px; }
+    .contact-list li { margin-bottom: 10px; font-size: 0.9rem; }
+  }
+  @media (max-width: 480px) {
+    .contact-grid { gap: 24px; }
+    iframe { height: 200px !important; }
+  }
+</style>

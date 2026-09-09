@@ -1,0 +1,58 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { regions } from '../data/regions';
+---
+
+<BaseLayout
+  title="Ship by Region | China Shipping Routes Worldwide"
+  description="Shipping routes from China to North America, Europe, Southeast Asia and Australia. Ocean and air freight with reliable transit times from major Chinese ports."
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>Ship by Region</span>
+      </nav>
+      <h1 class="section-title">SHIP BY REGION</h1>
+      <p class="section-sub">Explore our main shipping routes from China to North America, Europe, Southeast Asia and Australia -- with direct ocean FCL, LCL consolidation and air freight services from Shanghai, Shenzhen, Ningbo, Guangzhou and Hong Kong to all major destination ports worldwide.</p>
+
+      {regions.map((r, i) => (
+        <section class:list={['region-block', { 'section-soft': i % 2 === 1 }]} id={r.id} style="padding-block: 48px; margin-block: 0;">
+          <div class="container">
+            <div class="prose">
+              <h2 style="margin-top:0">{r.name}</h2>
+              <p>{r.intro}</p>
+              <a href="/contact/" class="btn btn-outline">Get a Quote for {r.name}</a>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>From</th><th>To</th><th>Mode</th><th>Transit Time</th></tr>
+                </thead>
+                <tbody>
+                  {r.routes.map((route) => (
+                    <tr><td>{route.from}</td><td>{route.to}</td><td>{route.mode}</td><td>{route.transit}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .region-block .prose { margin-bottom: 24px; }
+  .region-block .prose p { font-size: 0.92rem; line-height: 1.65; }
+  .table-wrap { -webkit-overflow-scrolling: touch; }
+  table { font-size: 0.88rem; }
+  th, td { padding: 12px 14px; }
+  @media (max-width: 720px) {
+    .region-block .prose p { font-size: 0.88rem; }
+    th, td { padding: 10px 12px; font-size: 0.82rem; }
+  }
+  @media (max-width: 480px) {
+    th, td { padding: 8px 10px; font-size: 0.78rem; }
+  }
+</style>

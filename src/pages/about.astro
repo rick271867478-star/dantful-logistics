@@ -1,0 +1,81 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout
+  title="About Dantful Logistics | China Freight Forwarder Est. 2008"
+  description={`Shenzhen Dantful International Logistics — NVOCC-class China freight forwarder established in 2008, offering ocean freight, air freight, Amazon FBA, customs clearance, warehousing and DDP door-to-door shipping from China to 120+ countries.`}
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>About Us</span>
+      </nav>
+      <h1 class="section-title">ABOUT US</h1>
+      <p class="section-sub">SHENZHEN DANTFUL INT'L LOGISTICS CO., LTD. — your trusted NVOCC freight forwarder based in Shenzhen, China since 2008, dedicated to delivering reliable ocean, air and door-to-door DDP shipping solutions from China factories to importers, Amazon sellers and wholesalers across 120+ countries worldwide.</p>
+
+      <div class="grid grid-2 about-grid">
+        <div class="prose">
+          <h2>Our Story</h2>
+          <p>SHENZHEN DANTFUL INT'L LOGISTICS CO., LTD. (Shenzhen Dantful International Logistics Co. Ltd.) was founded in 2008 in Baoan District, Shenzhen — right next to Shenzhen Baoan International Airport and Yantian International Container Terminal, China's busiest port for global containerized exports. What began as a small 8-person team focused on LCL consolidation between Guangdong and North America has grown over the past 16 years into a full-service international logistics provider with 80+ certified in-house specialists, Class-A licensed in-house customs brokerage, NVOCC qualification issued by the Ministry of Transport of China, 58,000 square meters of bonded and general 3PL warehouse space across Shenzhen Longhua, Shanghai Songjiang and Guangzhou Nansha districts, and our own overseas agent partnerships in 60+ destination countries.</p>
+          <p>Our growth milestones reflect our clients' trust: in 2012 we obtained official NVOCC license, in 2015 we launched our dedicated Amazon FBA prep and 海派 sea-express division ahead of the Chinese seller FBA boom, in 2018 we expanded air freight BSA block-space agreements with 27 major airlines to guarantee capacity during Q4 peak seasons, and in 2022 we rolled out our complete end-to-end DDP importer-of-record service covering USA, Canada, EU 27 member states, United Kingdom, Australia, Japan, Mexico, Southeast Asia and the Middle East. Today we manage over 5,200 shipments per year totaling more than 38,000 TEU of ocean freight and 4,200 tons of air cargo for 2,400+ active clients including Amazon 7-figure sellers, importers, distributors and brands.</p>
+
+          <h2>What We Do</h2>
+          <ul>
+            <li><strong>Ocean Freight (FCL &amp; LCL)</strong> from Shanghai, Ningbo, Shenzhen (Yantian, Shekou, Dachan Bay), Qingdao, Tianjin, Guangzhou Nansha and Xiamen to all major global seaports with direct Maersk, MSC, COSCO, ONE, Evergreen and CMA CGM carrier contracts.</li>
+            <li><strong>Air Freight</strong> with daily departures from Shanghai Pudong (PVG), Shenzhen Baoan (SZX), Guangzhou Baiyun (CAN) and Hong Kong (HKG) airports via Air China Cargo, Cathay Pacific, Lufthansa, Emirates, Qatar Airways and Turkish Airlines block-space agreements.</li>
+            <li><strong>Amazon FBA Shipping</strong> — 海派 Sea Express, 空派 Air Express and 快递 Direct Courier delivery to US, Canada, UK, EU, Australia, Japan and Mexico Amazon fulfillment centers with FNSKU labeling, polybagging, palletization and Seller Central shipping plan sync.</li>
+            <li><strong>Licensed Customs Clearance</strong> — Class-A GACC licensed in-house brokerage covering export and import declarations, ISF-10 (10+2), AMS, ENS and ACI pre-manifest filings plus CO, FORM A, FORM E, FORM F and FORM RCEP certificates of origin.</li>
+            <li><strong>Bonded Warehousing &amp; Distribution</strong> — 30-day free storage, consolidation from multiple China suppliers, AQL level II quality inspection, Amazon FBA prep, labeling, repack, cross-docking and domestic China express pick-pack-ship fulfillment.</li>
+            <li><strong>Complete Door-to-Door DDP Service</strong> — single all-in per-CBM or per-KG quote covering factory pickup in China, export customs declaration, sea / air / rail main carriage, destination import clearance, duties, VAT and GST payment via our own importer-of-record network, and last-mile trucking or courier delivery to your commercial, residential or warehouse address with zero extra charges on arrival.</li>
+          </ul>
+
+          <h2>Certifications &amp; Memberships</h2>
+          <p>SHENZHEN DANTFUL INT'L LOGISTICS CO., LTD. holds an official NVOCC (Non-Vessel Operating Common Carrier) license issued by the Ministry of Transport of the People's Republic of China (MOT NVOCC registration), a Class-A Customs Brokerage License issued by the General Administration of Customs of China (GACC), and is a registered member of CIFA (China International Freight Forwarders Association). Our operations are fully compliant with IATA Dangerous Goods Regulations (DGR) for lithium battery and electronics air shipments, and our overseas partner network is audited annually against WCA Family quality standards.</p>
+        </div>
+        <div class="about-media">
+          <img src="/images/about-company.webp" alt="Dantful Logistics office and warehouse team in Shenzhen China" class="about-media-img about-media-img-lg" loading="lazy" />
+          <div class="about-stat-card">
+            <div class="stat-row"><span class="stat-num">16+</span><span class="stat-label">Years since 2008</span></div>
+            <div class="stat-row"><span class="stat-num">120+</span><span class="stat-label">Countries covered</span></div>
+            <div class="stat-row"><span class="stat-num">58,000㎡</span><span class="stat-label">Bonded warehouse space</span></div>
+            <div class="stat-row"><span class="stat-num">2,400+</span><span class="stat-label">Active clients</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="container">
+      <h2 class="section-title">How We Work</h2>
+      <div class="grid grid-4">
+        <div class="card"><h3>1. Inquiry</h3><p>Send cargo details: route, volume, weight, Incoterms.</p></div>
+        <div class="card"><h3>2. Quote</h3><p>Receive a clear all-in quote within 24 hours.</p></div>
+        <div class="card"><h3>3. Shipping</h3><p>Pickup, customs, departure — with tracking updates.</p></div>
+        <div class="card"><h3>4. Delivery</h3><p>Destination clearance and final delivery.</p></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-grid { gap: 48px; align-items: start; }
+  .about-media { display: grid; gap: 20px; }
+  .about-media-img { display: block; width: 100%; object-fit: cover; border-radius: 12px; }
+  .about-media-img-lg { height: 340px; }
+  .about-stat-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 26px; box-shadow: 0 2px 10px rgba(11, 42, 74, 0.05);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px;
+  }
+  .stat-row { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--blue); line-height: 1; }
+  .stat-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); }
+  @media (max-width: 520px) {
+    .about-stat-card { grid-template-columns: 1fr 1fr; padding: 18px; }
+    .stat-num { font-size: 1.5rem; }
+    .about-media-img-lg { height: 240px; }
+  }
+</style>

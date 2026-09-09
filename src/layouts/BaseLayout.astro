@@ -1,0 +1,202 @@
+﻿---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE.description } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — China Freight Forwarder`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+/* Google SEO：Organization 结构化数据 */
+const orgJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: Astro.site?.toString(),
+  email: SITE.email,
+  telephone: SITE.phone,
+  address: SITE.address,
+  sameAs: [SITE.socials.linkedin, SITE.socials.facebook, SITE.socials.youtube].filter(Boolean),
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- 预连接外部资源，加速首屏加载 -->
+    <link rel="preconnect" href="https://api.web3forms.com" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Open Graph / Twitter 分享卡片 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={orgJsonLd} />
+
+    <!-- TODO【待补充】上线后解开注释，填入 Google Search Console 的验证码 -->
+    <!-- <meta name="google-site-verification" content="xxxxx" /> -->
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <a class="wa-float" href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet" fill="none" aria-hidden="true"><rect width="40" height="40" fill="#25D366" rx="2"/><path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M7.16 19.89a12.88 12.88 0 0 1 22-9.07 12.72 12.72 0 0 1 3.78 9.08 12.88 12.88 0 0 1-18.9 11.34l-6.46 1.69a.42.42 0 0 1-.5-.52l1.72-6.26a12.76 12.76 0 0 1-1.64-6.26Zm12.89 10.55c-1.89 0-3.73-.5-5.34-1.46l-.39-.22-3.96 1.03 1.06-3.85-.25-.4A10.37 10.37 0 0 1 9.57 20a10.47 10.47 0 0 1 17.9-7.38A10.34 10.34 0 0 1 30.52 20c0 5.76-4.7 10.44-10.48 10.44Zm3.53-8.94a52.15 52.15 0 0 1 2.31 1.1c.22.12.37.19.43.3.08.13.08.76-.18 1.5-.26.73-1.51 1.4-2.12 1.5-.54.08-1.22.11-1.97-.13a17.9 17.9 0 0 1-1.79-.66c-2.93-1.28-4.92-4.15-5.3-4.7l-.05-.07c-.17-.23-1.28-1.72-1.28-3.27 0-1.45.71-2.21 1.04-2.57l.06-.06c.29-.32.63-.4.83-.4a12.4 12.4 0 0 1 .68.01c.18 0 .4 0 .63.55l.35.84c.27.66.56 1.4.62 1.5.07.16.13.34.02.55l-.04.1a1.8 1.8 0 0 1-.27.43 12.6 12.6 0 0 0-.47.55c-.16.16-.32.33-.14.65a9.5 9.5 0 0 0 1.74 2.19 8.08 8.08 0 0 0 2.52 1.56c.32.16.5.13.68-.08.19-.2.79-.92 1-1.23.2-.32.41-.27.7-.16Z"/></svg>
+    </a>
+  </body>
+</html>
+
+<style is:global>
+  /* ============ 设计变量 ============ */
+  :root {
+    --navy: #0b2a4a;
+    --navy-2: #123a63;
+    --blue: #1e6fd9;
+    --blue-light: #eaf2fc;
+    --orange: #ff8a00;
+    --ink: #1c2b3a;
+    --ink-soft: #4a6076;
+    --line: #e3eaf2;
+    --bg-soft: #f6f9fc;
+    --radius: 12px;
+    --shadow-lg: 0 14px 40px rgba(11, 42, 74, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; } /* Banner 的 CONTACT 按钮平滑滚动到表单 */
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink); background: #fff; line-height: 1.65;
+    -webkit-tap-highlight-color: transparent; /* 去除 iOS 点击灰色高亮 */
+    -webkit-font-smoothing: antialiased; /* iOS 字体抗锯齿 */
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* 防止移动端水平溢出 */
+  }
+  /* 防止 iOS Safari 聚焦输入框时自动缩放：所有 input/textarea/select 至少 16px */
+  input, select, textarea { font-size: 16px; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--blue); }
+
+  .container { width: min(1140px, 92%); margin-inline: auto; }
+  main { min-height: 50vh; }
+
+  h1, h2, h3, h4 { color: var(--navy); line-height: 1.25; }
+  h2 { font-size: 1.7rem; }
+
+  /* ============ 通用板块 ============ */
+  section:not(.banner):not(.quote) { padding-block: 72px; }
+  .section-soft { background: var(--bg-soft); }
+  .section-title {
+    text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800;
+    margin: 0 0 10px; letter-spacing: 0.3px;
+  }
+  .section-sub { text-align: center; color: var(--ink-soft); max-width: 640px; margin: 0 auto 44px; }
+
+  /* ============ 按钮 ============ */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+    border: 2px solid transparent; cursor: pointer; text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-height: 44px; /* iOS/Android 触控目标最小 44px */
+    touch-action: manipulation; /* 禁用双击缩放，提升按钮响应速度 */
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 8px 20px rgba(255, 138, 0, 0.35); }
+  .btn-primary:hover { color: #fff; }
+  .btn-outline { border-color: var(--blue); color: var(--blue); background: transparent; }
+  .btn-outline:hover { background: var(--blue-light); }
+
+  /* ============ 网格与卡片 ============ */
+  .grid { display: grid; gap: 22px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-6 { grid-template-columns: repeat(6, 1fr); }
+  @media (max-width: 920px) { .grid-4, .grid-6 { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px) { .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 24px; box-shadow: 0 2px 10px rgba(11, 42, 74, 0.05);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+
+  .card-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: var(--blue-light); color: var(--blue);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .card-icon svg { width: 26px; height: 26px; }
+
+  /* ============ 表格 ============ */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: #fff; }
+  th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.93rem; }
+  th { background: var(--navy); color: #fff; font-weight: 700; }
+  tr:hover td { background: var(--bg-soft); }
+
+  /* ============ 表单 ============ */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 760px; margin: 0 auto; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .form-grid label { display: block; font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; color: var(--navy); }
+  .form-grid input, .form-grid select, .form-grid textarea {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px;
+    font: inherit; font-size: 0.95rem; background: #fff;
+  }
+  .form-grid input:focus, .form-grid textarea:focus { outline: none; border-color: var(--blue); }
+  @media (max-width: 620px) { .form-grid { grid-template-columns: 1fr; } }
+
+  /* ============ 面包屑 ============ */
+  .breadcrumb { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 18px; }
+
+  /* ============ 正文排版 ============ */
+  .prose h2 { margin: 28px 0 12px; }
+  .prose p, .prose li { color: var(--ink-soft); }
+  .prose ul { padding-left: 20px; }
+
+  @media (max-width: 720px) {
+    section:not(.banner):not(.quote) { padding-block: 48px; }
+    .section-sub { margin-bottom: 32px; }
+  }
+  @media (max-width: 480px) {
+    section:not(.banner):not(.quote) { padding-block: 36px; }
+    .container { width: 94%; }
+    h2 { font-size: 1.4rem; }
+    .section-title { font-size: 1.3rem; }
+    .card { padding: 20px 18px; }
+  }
+  /* ============ WhatsApp 浮动按钮（右侧垂直居中） ============ */
+  .wa-float {
+    position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    filter: drop-shadow(0 6px 18px rgba(37, 211, 102, 0.45));
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .wa-float:hover { text-decoration: none; transform: translateY(-50%) scale(1.08); filter: drop-shadow(0 10px 24px rgba(37, 211, 102, 0.6)); }
+  .wa-float svg { width: 56px; height: 56px; display: block; }
+  @media (max-width: 520px) {
+    .wa-float { right: 10px; }
+    .wa-float svg { width: 44px; height: 44px; }
+  }
+</style>

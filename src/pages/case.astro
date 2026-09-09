@@ -1,0 +1,51 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { cases } from '../data/cases';
+---
+
+<BaseLayout
+  title="Case Studies | Freight Forwarding Success Stories"
+  description="Real freight forwarding cases from China: how we helped e-commerce, machinery, furniture and electronics shippers save cost and time."
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>Case</span>
+      </nav>
+      <h1 class="section-title">CASE STUDIES</h1>
+      <p class="section-sub">Real shipping success stories from Dantful Logistics clients -- see how we helped e-commerce, machinery, furniture, textile, electronics and auto parts shippers save cost, reduce transit time and streamline China-to-worldwide logistics operations.</p>
+
+      <div class="grid grid-3">
+        {cases.map((c) => (
+          <a href="/contact/" class="card case-card">
+            <div class="case-body">
+              <span class="case-tag">{c.industry}</span>
+              <h3>{c.title}</h3>
+              <p>{c.summary}</p>
+              <span class="case-link">Request a Similar Quote &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .case-card { display: flex; flex-direction: column; color: inherit; text-decoration: none !important; padding: 0; overflow: hidden; }
+  .case-body { padding: 24px 22px; }
+  .case-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .case-card h3 { font-size: 1.05rem; line-height: 1.4; margin-bottom: 10px; }
+  .case-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+  .case-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+  @media (max-width: 480px) {
+    .case-body { padding: 18px 16px; }
+    .case-card h3 { font-size: 0.95rem; }
+    .case-card p { font-size: 0.85rem; line-height: 1.55; }
+    .case-link { font-size: 0.82rem; }
+  }
+</style>

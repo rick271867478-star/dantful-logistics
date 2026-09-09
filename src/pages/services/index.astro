@@ -1,0 +1,48 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { services } from '../../data/services';
+---
+
+<BaseLayout
+  title="Our Services | Ocean, Air, FBA & Door-to-Door"
+  description="Freight forwarding services from China: ocean freight (FCL/LCL), air freight, Amazon FBA, customs clearance, warehousing and DDP door-to-door shipping."
+>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>Services</span>
+      </nav>
+      <h1 class="section-title">OUR SERVICES</h1>
+      <p class="section-sub">Full-range freight forwarding and logistics services from China -- ocean freight FCL and LCL, air freight, Amazon FBA shipping, licensed customs clearance, bonded warehousing and complete door-to-door DDP solutions for shipments to 120+ countries worldwide.</p>
+
+      <div class="grid grid-3">
+        {services.map((s) => (
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={s.icon} /></svg>
+            </div>
+            <h3><a href={`/services/${s.slug}/`} class="svc-link">{s.title}</a></h3>
+            <p>{s.short}</p>
+            <ul class="chips">
+              {s.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+            <a class="btn btn-outline" href={`/services/${s.slug}/`}>View Details</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .svc-link { color: inherit; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 20px; padding: 0; }
+  .chips li {
+    background: var(--blue-light); color: var(--navy-2);
+    font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 999px;
+  }
+  .card .btn-outline { display: inline-flex; min-height: 44px; touch-action: manipulation; }
+  @media (max-width: 480px) {
+    .chips li { font-size: 0.72rem; padding: 3px 10px; }
+  }
+</style>
