@@ -1,5 +1,5 @@
-ï»¿User-agent: *
+User-agent: *
 Allow: /
 
-# âš ï¸ã€å¾…è¡¥å……ã€‘æ›¿æ¢æˆçœŸå®åŸŸåï¼Œä¸ astro.config.mjs ä¿æŒä¸€è‡´
-Sitemap: https://dantful-logistics.pages.dev/sitemap-index.xml
+# ??¡¾´ı²¹³ä¡¿Ìæ»»³ÉÕæÊµÓòÃû£¬Óë astro.config.mjs ±£³ÖÒ»ÖÂ
+Sitemap: https://dantfullogistics.com/sitemap-index.xml

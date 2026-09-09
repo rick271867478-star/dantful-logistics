@@ -1,10 +1,10 @@
-ï»¿import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // âš ï¸ã€å¾…è¡¥å……ã€‘ä¸Šçº¿å‰æ”¹æˆçœŸå®åŸŸåï¼Œå½±å“ canonical / sitemap / OG
-  site: 'https://dantful-logistics.pages.dev',
+  // ??¡¾´ı²¹³ä¡¿ÉÏÏßÇ°¸Ä³ÉÕæÊµÓòÃû£¬Ó°Ïì canonical / sitemap / OG
+  site: 'https://dantfullogistics.com',
   integrations: [sitemap()],
   compressHTML: true,
 });
