@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丹福物流网站运营任务时间表</title>
+<style>
+  :root {
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 40px 32px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header p { font-size: 15px; opacity: 0.9; }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .icon-daily { background: #dbeafe; }
+  .icon-weekly { background: #fef3c7; }
+  .icon-monthly { background: #dcfce7; }
+  .icon-semrush { background: #ede9fe; }
+  .icon-action { background: #fee2e2; }
+  .card-grid { display: grid; gap: 16px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-time {
+    font-size: 12px;
+    color: var(--text-light);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: auto;
+  }
+  .card ul { list-style: none; }
+  .card li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card li:last-child { border-bottom: none; }
+  .card li::before {
+    content: "\25B8";
+    color: var(--accent);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .step-card {
+    background: var(--card);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .step-num {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+  .step-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+  .step-desc strong { color: var(--text); }
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-week { font-size: 13px; color: var(--accent-dark); font-weight: 600; margin-bottom: 4px; }
+  .timeline-text { font-size: 14px; color: var(--text); }
+  .tip-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .tip-box.warn {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-color: #fca5a5;
+  }
+  .tip-title { font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .tip-content { font-size: 14px; color: var(--text); line-height: 1.7; }
+  .footer {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>&#128674; 丹福物流网站运营任务时间表</h1>
+    <p>Dantful Logistics Website Operation Schedule</p>
+    <span class="badge">&#128197; 上线日期：2026-09-09 | 域名：dantfullogistics.com</span>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-daily">&#9728;&#65039;</span>
+      每日任务（10-15 分钟）
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card">
+        <div class="card-title">早上 <span class="card-time">10-15 min</span></div>
+        <ul>
+          <li>检查 Web3Forms 转发的询盘邮件</li>
+          <li>24 小时内回复所有客户询盘</li>
+          <li>看 Google Analytics 昨天访客数和来源国家</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">中午 <span class="card-time">5 min</span></div>
+        <ul>
+          <li>打开 Google Search Console</li>
+          <li>查看是否有红色警告（收录错误等）</li>
+          <li>有问题截图发给技术人员处理</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">随时 <span class="card-time">5 min</span></div>
+        <ul>
+          <li>回复 LinkedIn / Facebook 评论</li>
+          <li>及时互动提升账号活跃度</li>
+          <li>专业回复建立公司形象</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">&#128161; 温馨提示</div>
+      <div class="tip-content">网站刚上线 1-2 周数据很少，看到 0 不要急，这是正常的。SEO 是长期游戏，3 个月后才能看到明显效果。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-weekly">&#128197;</span>
+      每周任务（1-2 小时）
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card">
+        <div class="card-title">周一：内容更新 &#11088;</div>
+        <ul>
+          <li>写 1 篇英文 News 文章（300-500 字）</li>
+          <li>发给技术人员发布到网站</li>
+          <li>选题：运价、港口、FBA、空海运对比等</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">周三：Semrush 检查</div>
+        <ul>
+          <li>跑一次 Site Audit 网站体检</li>
+          <li>看有没有 Errors（必须修）</li>
+          <li>有问题截图发给技术人员</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">周五：外链建设</div>
+        <ul>
+          <li>LinkedIn 发 1 条动态（带网站链接）</li>
+          <li>Facebook 发 1 条帖子（带网站链接）</li>
+          <li>YouTube 发 1 条短视频（简介放链接）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 16px;">
+      <div class="card-title">&#9997;&#65039; 每周文章选题参考</div>
+      <div class="card-grid grid-2" style="margin-top: 12px;">
+        <ul style="border: none;">
+          <li>Shanghai Container Rates This Week</li>
+          <li>Top 5 Ports in China for Export 2026</li>
+          <li>How to Ship from China to Amazon FBA</li>
+        </ul>
+        <ul style="border: none;">
+          <li>Air Freight vs Sea Freight Comparison</li>
+          <li>Customs Clearance Process in China</li>
+          <li>DDP Shipping: What Importers Need to Know</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-monthly">&#128202;</span>
+      每月任务（2-3 小时）
+    </div>
+    <div class="card-grid grid-3">
+      <div class="card">
+        <div class="card-title">月初：数据复盘</div>
+        <ul>
+          <li>Google Analytics：访客数、热门页面、流量来源</li>
+          <li>GSC：搜索关键词、点击量、排名上升词</li>
+          <li>Semrush：关键词排名变化、外链增长</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">月中：新增案例</div>
+        <ul>
+          <li>把本月做成的 1-2 票货写成 Case</li>
+          <li>包含：货种、起运港、目的港、时效、结果</li>
+          <li>真实案例对 SEO 和转化都很有用</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">月末：技术检查</div>
+        <ul>
+          <li>网站打开速度（PageSpeed Insights）</li>
+          <li>死链接检查（Semrush Site Audit）</li>
+          <li>手机端逐页测试</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-semrush">&#128295;</span>
+      Semrush 入门教程（只用 4 个功能）
+    </div>
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">1</span>Domain Overview — 看自己网站表现</div>
+      <div class="step-desc">
+        顶部搜索栏输入 <strong>dantfullogistics.com</strong>，看 3 个指标：<br>
+        &bull; <strong>Organic Traffic</strong>：Google 搜索带来的访客数<br>
+        &bull; <strong>Organic Keywords</strong>：你网站在 Google 排第几页<br>
+        &bull; <strong>Backlinks</strong>：其他网站链接到你网站的数量<br>
+        <em>刚上线这些数字是 0，1-2 个月后开始有数据。</em>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">2</span>Site Audit — 网站体检 &#11088; 最重要</div>
+      <div class="step-desc">
+        左侧菜单 &rarr; <strong>Site Audit</strong> &rarr; <strong>New audit</strong> &rarr; 输入域名 &rarr; 等几分钟。<br>
+        结果显示：<br>
+        &bull; <strong>Errors（红色）</strong>：必须修，比如死链接<br>
+        &bull; <strong>Warnings（黄色）</strong>：建议修，比如标题太长<br>
+        &bull; <strong>Notices（蓝色）</strong>：可以忽略<br>
+        <em>每周跑一次，有 Errors 截图发给我，我帮你修。</em>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">3</span>Keyword Research — 关键词研究</div>
+      <div class="step-desc">
+        左侧菜单 &rarr; <strong>Keyword Overview</strong> &rarr; 输入关键词（如 freight forwarder china）。<br>
+        看 3 个指标：<br>
+        &bull; <strong>Volume</strong>：每月搜索次数<br>
+        &bull; <strong>Difficulty</strong>：竞争难度（0-100，越低越容易）<br>
+        &bull; <strong>Keyword Variations</strong>：相关词推荐<br>
+        <em>选词：Volume &gt; 100、Difficulty &lt; 60，然后写一篇围绕这个词的文章。</em>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-title"><span class="step-num">4</span>Position Tracking — 排名监控</div>
+      <div class="step-desc">
+        左侧菜单 &rarr; <strong>Position Tracking</strong> &rarr; <strong>Set up tracking</strong>。<br>
+        添加你想监控的关键词，比如：<br>
+        &bull; china freight forwarder<br>
+        &bull; shipping from china to usa<br>
+        &bull; ocean freight china to europe<br>
+        <em>每周看排名变化，有没有上升。</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-action">&#128640;</span>
+      30 天行动计划
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">第 1 周</div>
+        <div class="timeline-text">熟悉工具 &middot; 写第一篇 News 文章 &middot; 完善 LinkedIn / Facebook 主页</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">第 2 周</div>
+        <div class="timeline-text">写第二篇 News &middot; 跑第一次 Semrush Site Audit &middot; 发 YouTube 第一条视频</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">第 3 周</div>
+        <div class="timeline-text">写第三篇 News &middot; 在 B2B 平台留网站链接（阿里巴巴国际站、Made-in-China）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">第 4 周</div>
+        <div class="timeline-text">数据复盘 &middot; 看哪些词开始有排名 &middot; 调整内容方向</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <span class="section-icon icon-action">&#9888;&#65039;</span>
+      新手最容易犯的 3 个错误
+    </div>
+    <div class="tip-box warn">
+      <div class="tip-title">&#10060; 错误 1：每天盯着排名看，没数据就焦虑</div>
+      <div class="tip-content">SEO 是长期游戏，<strong>3 个月后</strong>才能看到明显效果。前 1-2 周数据为 0 完全正常。</div>
+    </div>
+    <div class="tip-box warn">
+      <div class="tip-title">&#10060; 错误 2：只堆关键词，不写有用内容</div>
+      <div class="tip-content">Google 喜欢对用户真正有用的内容，关键词应该<strong>自然融入</strong>文章，而不是生硬堆砌。</div>
+    </div>
+    <div class="tip-box warn">
+      <div class="tip-title">&#10060; 错误 3：花钱买垃圾外链</div>
+      <div class="tip-content">只发<strong>真实、相关</strong>的外链（如 B2B 平台、行业目录），购买垃圾链接会被 Google 惩罚降权。</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Dantful Logistics &middot; 网站运营任务手册 &middot; 版本 1.0</p>
+    <p style="margin-top: 4px;">坚持每天 15 分钟，3 个月后见效果 &#128674;&#9992;&#65039;</p>
+  </div>
+</div>
+</body>
+</html>

@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 ---
 
-<BaseLayout title={`${service.title} from China | Freight Service`} description={service.description}>
+<BaseLayout title={`${service.title} from China`} description={service.description}>
   <section>
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -27,7 +27,7 @@ const { service } = Astro.props;
 
       <div class="grid grid-4" style="margin-bottom: 48px">
         {service.highlights.map((h) => (
-          <div class="card"><h3 style="font-size: 0.98rem">{h}</h3></div>
+          <div class="card"><h2 style="font-size: 0.98rem">{h}</h2></div>
         ))}
       </div>
 

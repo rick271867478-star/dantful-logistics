@@ -23,9 +23,9 @@ export const SITE = {
 
   /* 【待补充】三个社交媒体链接（顶部信息条右侧图标） */
   socials: {
-    linkedin: 'https://www.linkedin.com/company/your-company',
-    facebook: 'https://www.facebook.com/your-company',
-    youtube: 'https://www.youtube.com/@your-company',
+    linkedin: 'https://www.linkedin.com/in/rick-hu-952303368/',
+    facebook: 'https://www.facebook.com/profile.php?id=61573187717721',
+    youtube: 'https://www.youtube.com/@RICKHu-k3s8b',
   },
 
   since: '2008',
