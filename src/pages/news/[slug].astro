@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { news } from '../../data/news';
+
+export function getStaticPaths() {
+  return news
+    .filter((n) => n.body)
+    .map((n) => ({ params: { slug: n.slug }, props: { item: n } }));
+}
+
+const { item } = Astro.props;
+const relatedNews = news.filter((n) => n.slug !== item.slug && n.category === item.category).slice(0, 3);
+---
+
+<BaseLayout title={item.title} description={item.summary}>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/news/">News</a> / <span>{item.category}</span>
+      </nav>
+
+      <span class="news-cat">{item.category}</span>
+      <time class="news-date">{item.date}</time>
+      <h1 class="section-title" style="text-align:left;max-width:760px">{item.title}</h1>
+
+      <div class="prose article-body" style="max-width: 760px">
+        {item.body!.map((html) => <Fragment set:html={html} />)}
+      </div>
+
+      <div class="article-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote in 2 Hours</a>
+        <a href="/services/ocean-freight/" class="btn btn-outline">Ocean Freight</a>
+        <a href="/services/amazon-fba/" class="btn btn-outline">Amazon FBA Prep</a>
+      </div>
+    </div>
+  </section>
+
+  {relatedNews.length > 0 && (
+    <section class="section-soft">
+      <div class="container">
+        <h2 class="section-title">Related Articles</h2>
+        <div class="grid grid-3">
+          {relatedNews.map((n) => (
+            <a class="card news-card" href={`/news/${n.slug}/`}>
+              <time>{n.date}</time>
+              <h3>{n.title}</h3>
+              <p>{n.summary}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .news-cat {
+    display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--blue);
+    background: var(--blue-light); padding: 3px 12px; border-radius: 10px;
+  }
+  .news-date { font-size: 0.82rem; color: var(--ink-soft); margin-left: 10px; }
+  .article-body { margin-top: 24px; }
+  .article-body :global(h2) { margin: 28px 0 12px; font-size: 1.4rem; color: var(--navy); }
+  .article-body :global(h3) { margin: 22px 0 8px; font-size: 1.15rem; color: var(--navy); }
+  .article-body :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.7; }
+  .article-body :global(a) { color: var(--blue); text-decoration: underline; }
+  .article-body :global(a:hover) { color: var(--orange); }
+  .article-cta { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .news-card { color: inherit; text-decoration: none !important; }
+  .news-card time { color: var(--blue); font-size: 0.82rem; font-weight: 700; }
+  .news-card h3 { margin: 8px 0; font-size: 1.05rem; line-height: 1.4; }
+  .news-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+</style>

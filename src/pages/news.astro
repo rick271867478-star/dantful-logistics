@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { news, newsCategories } from '../data/news';
 ---
@@ -24,6 +24,7 @@ import { news, newsCategories } from '../data/news';
                 <time datetime={n.date}>{n.date}</time>
                 <h3>{n.title}</h3>
                 <p>{n.summary}</p>
+                {n.body && <a href={`/news/${n.slug}/`} class="read-more">Read more &rarr;</a>}
               </article>
             ))}
           </div>
@@ -37,6 +38,8 @@ import { news, newsCategories } from '../data/news';
   .news-card time { color: var(--blue); font-size: 0.82rem; font-weight: 700; }
   .news-card h3 { margin: 8px 0; font-size: 1.05rem; line-height: 1.4; }
   .news-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+  .read-more { display: inline-block; margin-top: 10px; font-size: 0.88rem; font-weight: 700; color: var(--blue); text-decoration: none; }
+  .read-more:hover { color: var(--orange); }
   @media (max-width: 480px) {
     .news-card h3 { font-size: 0.95rem; }
     .news-card p { font-size: 0.85rem; }
