@@ -7,20 +7,33 @@ import { regions } from '../data/regions';
   title="Shipping Routes from China Worldwide"
   description="Shipping routes from China to North America, Europe, Middle East, Africa, Australia, Southeast Asia and South America. Ocean and air freight with reliable transit times from major Chinese ports."
 >
-  <section>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+  <section class="hub-hero">
+    <div class="hub-hero-bg">
+      <img src="/images/ship-by-region-hero.jpg" alt="Worldwide shipping routes from China - global freight network" loading="eager" />
+    </div>
+    <div class="hub-hero-overlay"></div>
+    <div class="container hub-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
         <a href="/">Home</a> / <span>Ship by Region</span>
       </nav>
-      <h1 class="section-title">SHIP BY REGION</h1>
-      <p class="section-sub">Explore our main shipping routes from China to 7 regions worldwide -- North America, Europe, Middle East, Africa, Australia & Oceania, Southeast Asia and South America. Direct ocean FCL, LCL consolidation and air freight services from Shanghai, Shenzhen, Ningbo, Guangzhou and Hong Kong to all major destination ports.</p>
+      <h1 class="hub-hero-title">SHIP BY REGION</h1>
+      <p class="hub-hero-sub">Explore our main shipping routes from China to 7 regions worldwide -- North America, Europe, Middle East, Africa, Australia & Oceania, Southeast Asia and South America. Direct ocean FCL, LCL consolidation and air freight services from Shanghai, Shenzhen, Ningbo, Guangzhou and Hong Kong to all major destination ports.</p>
+    </div>
+  </section>
 
+  <section>
+    <div class="container">
       <div class="grid grid-3">
         {regions.map((r) => (
           <a href={`/ship-by-region/${r.slug}/`} class="card region-card">
-            <h3>{r.name}</h3>
-            <p>{r.intro}</p>
-            <span class="region-link">View {r.name} Routes &rarr;</span>
+            <div class="region-card-img">
+              <img src={`/images/region-${r.slug}.jpg`} alt={`Shipping to ${r.name} from China`} loading="lazy" />
+            </div>
+            <div class="region-card-body">
+              <h3>{r.name}</h3>
+              <p>{r.intro}</p>
+              <span class="region-link">View {r.name} Routes &rarr;</span>
+            </div>
           </a>
         ))}
       </div>
@@ -29,6 +42,25 @@ import { regions } from '../data/regions';
 </BaseLayout>
 
 <style>
+  .hub-hero {
+    position: relative; min-height: 320px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .hub-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hub-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hub-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%);
+  }
+  .hub-hero-content { position: relative; z-index: 2; max-width: 760px; }
+  .hub-hero-title {
+    color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+    margin: 16px 0 14px; letter-spacing: 0.3px;
+  }
+  .hub-hero-sub { color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7; margin: 0; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
   .region-block .prose { margin-bottom: 24px; }
   .region-block .prose p { font-size: 0.92rem; line-height: 1.65; }
   .table-wrap { -webkit-overflow-scrolling: touch; }
@@ -46,7 +78,12 @@ import { regions } from '../data/regions';
     color: inherit; text-decoration: none !important;
     display: flex; flex-direction: column;
     transition: all 0.2s ease;
+    padding: 0; overflow: hidden;
   }
+  .region-card-img { height: 160px; overflow: hidden; }
+  .region-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .region-card:hover .region-card-img img { transform: scale(1.05); }
+  .region-card-body { padding: 22px 20px; }
   .region-card:hover {
     box-shadow: var(--shadow-lg); transform: translateY(-3px);
   }

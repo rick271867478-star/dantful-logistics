@@ -10,13 +10,22 @@ const regionName = (slug: string) => regions.find(r => r.slug === slug)?.name ||
   title="Freight Case Studies from China"
   description="Real freight forwarding cases from China: how we helped e-commerce, machinery, furniture and electronics shippers save cost and time."
 >
-  <section>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+  <section class="case-hero">
+    <div class="case-hero-bg">
+      <img src="/images/case-hero.jpg" alt="Freight forwarding case studies - successful shipping solutions from China" loading="eager" />
+    </div>
+    <div class="case-hero-overlay"></div>
+    <div class="container case-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
         <a href="/">Home</a> / <span>Case</span>
       </nav>
-      <h1 class="section-title">CASE STUDIES</h1>
-      <p class="section-sub">Real shipping success stories from Dantful Logistics clients -- see how we helped e-commerce, machinery, furniture, textile, electronics and auto parts shippers save cost, reduce transit time and streamline China-to-worldwide logistics operations.</p>
+      <h1 class="case-hero-title">CASE STUDIES</h1>
+      <p class="case-hero-sub">Real shipping success stories from Dantful Logistics clients -- see how we helped e-commerce, machinery, furniture, textile, electronics and auto parts shippers save cost, reduce transit time and streamline China-to-worldwide logistics operations.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
 
       {featuredRegions.map((region) => (
         <section id={region} style="padding-block: 36px;">
@@ -82,6 +91,22 @@ const regionName = (slug: string) => regions.find(r => r.slug === slug)?.name ||
 </BaseLayout>
 
 <style>
+  .case-hero {
+    position: relative; min-height: 300px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .case-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .case-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .case-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%);
+  }
+  .case-hero-content { position: relative; z-index: 2; max-width: 760px; }
+  .case-hero-title { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 16px 0 14px; letter-spacing: 0.3px; }
+  .case-hero-sub { color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7; margin: 0; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
   .case-card { display: flex; flex-direction: column; color: inherit; text-decoration: none !important; padding: 0; overflow: hidden; }
   .case-body { padding: 24px 22px; }
   .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }

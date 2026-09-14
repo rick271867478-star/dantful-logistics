@@ -28,15 +28,23 @@ const relatedNews = news
 ---
 
 <BaseLayout title={item.title} description={item.summary}>
-  <section>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+  <section class="article-hero">
+    <div class="article-hero-bg">
+      <img src={item.region ? `/images/region-${item.region}.jpg` : "/images/news-hero.jpg"} alt={item.title} loading="eager" />
+    </div>
+    <div class="article-hero-overlay"></div>
+    <div class="container article-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
         <a href="/">Home</a> / <a href="/news/">News</a> / <span>{item.category}</span>{regionName && <Fragment> / <span>{regionName}</span></Fragment>}
       </nav>
-
       <span class="news-cat">{item.category}</span>
       <time class="news-date">{item.date}</time>
-      <h1 class="section-title" style="text-align:left;max-width:760px">{item.title}</h1>
+      <h1 class="article-hero-title">{item.title}</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
 
       <div class="prose article-body" style="max-width: 760px">
         {item.body!.map((html) => <Fragment set:html={html} />)}
@@ -77,6 +85,23 @@ const relatedNews = news
 </BaseLayout>
 
 <style>
+  .article-hero {
+    position: relative; min-height: 320px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .article-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .article-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .article-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%);
+  }
+  .article-hero-content { position: relative; z-index: 2; max-width: 820px; }
+  .article-hero-title {
+    color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800;
+    margin: 14px 0 0; line-height: 1.3; max-width: 760px;
+  }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
   .news-cat {
     display: inline-block; font-size: 0.82rem; font-weight: 700; color: var(--blue);
     background: var(--blue-light); padding: 3px 12px; border-radius: 10px;
