@@ -1,4 +1,4 @@
-﻿---
+---
 /**
  * 页头 = 顶部信息条（可滚走） + 吸顶导航栏（sticky，带下拉菜单）
  * - 顶部信息条：左手机号+邮箱，右三个社媒图标（需求文档 全局要求 1）
@@ -9,6 +9,7 @@ import { SITE } from '../consts';
 import { services } from '../data/services';
 import { regions } from '../data/regions';
 import { newsCategories } from '../data/news';
+import { featuredRegions } from '../data/cases';
 
 const telHref = `tel:${SITE.phone.replace(/[\s-]/g, '')}`;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -20,8 +21,12 @@ const menu = [
   { href: '/', label: 'HOME', drop: [] as { href: string; label: string }[] },
   { href: '/about/', label: 'ABOUT', drop: [] },
   { href: '/services/', label: 'SERVICES', drop: services.map((s) => ({ href: `/services/${s.slug}/`, label: s.title })) },
-  { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: regions.map((r) => ({ href: `/ship-by-region/#${r.id}`, label: r.name })) },
-  { href: '/case/', label: 'CASE', drop: [] },
+  { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: regions.map((r) => ({ href: `/ship-by-region/${r.slug}/`, label: r.name })) },
+  { href: '/case/', label: 'CASE', drop: featuredRegions.map((rslug) => {
+      const reg = regions.find(x => x.slug === rslug);
+      return { href: `/case/#${rslug}`, label: reg?.name || rslug };
+    })
+  },
   { href: '/news/', label: 'NEWS', drop: newsCategories.map((c) => ({ href: `/news/#${c.toLowerCase().replace(/ /g, '-')}`, label: c })) },
   { href: '/contact/', label: 'CONTACT', drop: [] },
 ];

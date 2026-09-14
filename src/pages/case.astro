@@ -1,6 +1,9 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { cases } from '../data/cases';
+import { cases, featuredRegions } from '../data/cases';
+import { regions } from '../data/regions';
+
+const regionName = (slug: string) => regions.find(r => r.slug === slug)?.name || slug;
 ---
 
 <BaseLayout
@@ -15,18 +18,65 @@ import { cases } from '../data/cases';
       <h1 class="section-title">CASE STUDIES</h1>
       <p class="section-sub">Real shipping success stories from Dantful Logistics clients -- see how we helped e-commerce, machinery, furniture, textile, electronics and auto parts shippers save cost, reduce transit time and streamline China-to-worldwide logistics operations.</p>
 
-      <div class="grid grid-3">
-        {cases.map((c) => (
-          <a href="/contact/" class="card case-card">
-            <div class="case-body">
-              <span class="case-tag">{c.industry}</span>
-              <h3>{c.title}</h3>
-              <p>{c.summary}</p>
-              <span class="case-link">Request a Similar Quote &rarr;</span>
-            </div>
-          </a>
-        ))}
-      </div>
+      {featuredRegions.map((region) => (
+        <section id={region} style="padding-block: 36px;">
+          <h2 style="border-bottom: 2px solid var(--line); padding-bottom: 10px;">{regionName(region)} Cases</h2>
+          <div class="grid grid-3">
+            {cases.filter((c) => c.region === region).map((c) => (
+              <article id={c.slug} class="card case-card">
+                <div class="case-body">
+                  <div class="case-tags">
+                    <span class="case-tag case-tag-region">{regionName(c.region)}</span>
+                    <span class="case-tag">{c.industry}</span>
+                  </div>
+                  <h3>{c.title}</h3>
+                  <p>{c.summary}</p>
+                  {c.results && c.results.length > 0 && (
+                    <div class="case-results">
+                      {c.results.map((r) => (
+                        <span class="case-result-chip">{r}</span>
+                      ))}
+                    </div>
+                  )}
+                  <div class="case-links">
+                    <a href={`/ship-by-region/${c.region}/`} class="case-link">View {regionName(c.region)} Routes &rarr;</a>
+                    <a href="/contact/" class="case-link">Request a Similar Quote &rarr;</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <section style="padding-block: 36px;">
+        <h2 style="border-bottom: 2px solid var(--line); padding-bottom: 10px;">More Case Studies</h2>
+        <div class="grid grid-3">
+          {cases.filter((c) => !featuredRegions.includes(c.region)).map((c) => (
+            <article id={c.slug} class="card case-card">
+              <div class="case-body">
+                <div class="case-tags">
+                  <span class="case-tag case-tag-region">{regionName(c.region)}</span>
+                  <span class="case-tag">{c.industry}</span>
+                </div>
+                <h3>{c.title}</h3>
+                <p>{c.summary}</p>
+                {c.results && c.results.length > 0 && (
+                  <div class="case-results">
+                    {c.results.map((r) => (
+                      <span class="case-result-chip">{r}</span>
+                    ))}
+                  </div>
+                )}
+                <div class="case-links">
+                  <a href={`/ship-by-region/${c.region}/`} class="case-link">View {regionName(c.region)} Routes &rarr;</a>
+                  <a href="/contact/" class="case-link">Request a Similar Quote &rarr;</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   </section>
 </BaseLayout>
@@ -34,13 +84,24 @@ import { cases } from '../data/cases';
 <style>
   .case-card { display: flex; flex-direction: column; color: inherit; text-decoration: none !important; padding: 0; overflow: hidden; }
   .case-body { padding: 24px 22px; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
   .case-tag {
     display: inline-block; background: var(--blue-light); color: var(--blue);
-    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px;
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+  }
+  .case-tag-region {
+    background: #fff3e0; color: var(--orange);
   }
   .case-card h3 { font-size: 1.05rem; line-height: 1.4; margin-bottom: 10px; }
   .case-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
-  .case-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .case-results { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .case-result-chip {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+  }
+  .case-links { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+  .case-link { color: var(--blue); font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+  .case-link:hover { color: var(--orange); }
   .case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
   @media (max-width: 480px) {
     .case-body { padding: 18px 16px; }

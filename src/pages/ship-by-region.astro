@@ -1,11 +1,11 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { regions } from '../data/regions';
 ---
 
 <BaseLayout
   title="Shipping Routes from China Worldwide"
-  description="Shipping routes from China to North America, Europe, Southeast Asia and Australia. Ocean and air freight with reliable transit times from major Chinese ports."
+  description="Shipping routes from China to North America, Europe, Middle East, Africa, Australia, Southeast Asia and South America. Ocean and air freight with reliable transit times from major Chinese ports."
 >
   <section>
     <div class="container">
@@ -13,31 +13,17 @@ import { regions } from '../data/regions';
         <a href="/">Home</a> / <span>Ship by Region</span>
       </nav>
       <h1 class="section-title">SHIP BY REGION</h1>
-      <p class="section-sub">Explore our main shipping routes from China to North America, Europe, Southeast Asia and Australia -- with direct ocean FCL, LCL consolidation and air freight services from Shanghai, Shenzhen, Ningbo, Guangzhou and Hong Kong to all major destination ports worldwide.</p>
+      <p class="section-sub">Explore our main shipping routes from China to 7 regions worldwide -- North America, Europe, Middle East, Africa, Australia & Oceania, Southeast Asia and South America. Direct ocean FCL, LCL consolidation and air freight services from Shanghai, Shenzhen, Ningbo, Guangzhou and Hong Kong to all major destination ports.</p>
 
-      {regions.map((r, i) => (
-        <section class:list={['region-block', { 'section-soft': i % 2 === 1 }]} id={r.id} style="padding-block: 48px; margin-block: 0;">
-          <div class="container">
-            <div class="prose">
-              <h2 style="margin-top:0">{r.name}</h2>
-              <p>{r.intro}</p>
-              <a href="/contact/" class="btn btn-outline">Get a Quote for {r.name}</a>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th>From</th><th>To</th><th>Mode</th><th>Transit Time</th></tr>
-                </thead>
-                <tbody>
-                  {r.routes.map((route) => (
-                    <tr><td>{route.from}</td><td>{route.to}</td><td>{route.mode}</td><td>{route.transit}</td></tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      ))}
+      <div class="grid grid-3">
+        {regions.map((r) => (
+          <a href={`/ship-by-region/${r.slug}/`} class="card region-card">
+            <h3>{r.name}</h3>
+            <p>{r.intro}</p>
+            <span class="region-link">View {r.name} Routes &rarr;</span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -54,5 +40,27 @@ import { regions } from '../data/regions';
   }
   @media (max-width: 480px) {
     th, td { padding: 8px 10px; font-size: 0.78rem; }
+  }
+
+  .region-card {
+    color: inherit; text-decoration: none !important;
+    display: flex; flex-direction: column;
+    transition: all 0.2s ease;
+  }
+  .region-card:hover {
+    box-shadow: var(--shadow-lg); transform: translateY(-3px);
+  }
+  .region-card h3 { font-size: 1.15rem; margin: 0 0 10px; color: var(--navy); }
+  .region-card p {
+    font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft);
+    margin: 0 0 16px; flex: 1;
+  }
+  .region-link {
+    display: inline-block; color: var(--blue); font-weight: 700; font-size: 0.88rem;
+  }
+  .region-card:hover .region-link { color: var(--orange); }
+  @media (max-width: 480px) {
+    .region-card h3 { font-size: 1rem; }
+    .region-card p { font-size: 0.85rem; }
   }
 </style>

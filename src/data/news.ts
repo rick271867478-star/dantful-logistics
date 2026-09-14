@@ -7,18 +7,21 @@ export interface NewsItem {
   title: string;
   slug: string;
   category: string;
+  region?: string;
   date: string;
   summary: string;
   body?: string[];
 }
 
 export const newsCategories = ['Company News', 'Industry Updates', 'Shipping Guides'];
+export const newsRegions = ['north-america', 'europe', 'middle-east', 'africa', 'australia', 'southeast-asia', 'south-america'];
 
 export const news: NewsItem[] = [
   {
     title: 'Dantful Logistics Opens New European Consolidation Hub in Hamburg',
     slug: 'european-consolidation-hub-hamburg',
     category: 'Company News',
+    region: 'europe',
     date: '2026-08-15',
     summary:
       'Dantful Logistics has expanded its European network with a new bonded consolidation hub in Hamburg, Germany, strengthening our China-EU ocean freight FCL, LCL and DDP door-to-door logistics capabilities. The 4,000 sqm warehouse offers customs clearance, cross-docking, and Amazon FBA prep services for clients shipping from Shanghai, Ningbo and Shenzhen to all 27 EU member states.',
@@ -35,6 +38,7 @@ export const news: NewsItem[] = [
     title: '2026 Trans-Pacific Container Freight Rate Forecast: What Shippers Should Expect',
     slug: 'trans-pacific-freight-rate-forecast-2026',
     category: 'Industry Updates',
+    region: 'north-america',
     date: '2026-08-28',
     summary:
       'Container freight rates on the Trans-Pacific eastbound route (Shanghai to Los Angeles) are projected to remain volatile through Q4 2026 due to ongoing capacity reallocation and peak-season GRI surcharges. We analyze the impact on FCL 40HQ rates, LCL consolidation pricing, and Amazon FBA sea-express shipping costs, plus strategies to lock in preferential all-in rates with NVOCC contracts.',
@@ -43,6 +47,7 @@ export const news: NewsItem[] = [
     title: 'China-Europe Rail Freight Corridor Expands with New Xian to Duisburg Route',
     slug: 'china-europe-rail-freight-xian-duisburg',
     category: 'Industry Updates',
+    region: 'europe',
     date: '2026-08-10',
     summary:
       'The China-Europe Railway Express has added a direct corridor from Xian to Duisburg, Germany, offering a 14-18 day transit alternative between ocean and air freight. This rail freight service is ideal for high-value electronics, automotive parts and e-commerce goods requiring faster delivery than sea freight but at 60% lower cost than air freight from China to Europe.',
@@ -51,6 +56,7 @@ export const news: NewsItem[] = [
     title: 'How to File ISF-10 for US Imports: A Complete Guide for Chinese Exporters',
     slug: 'isf-10-filing-guide-us-imports',
     category: 'Shipping Guides',
+    region: 'north-america',
     date: '2026-09-01',
     summary:
       'ISF-10 (Importer Security Filing) is mandatory for all ocean freight shipments to the United States. This guide explains the 24-hour pre-sailing filing requirement, the 10+2 data elements, HS code classification, how to avoid CBP penalties for late or incorrect filings, and how Dantful licensed US customs brokerage team handles the entire ISF process for FCL and LCL shipments from China.',
@@ -59,6 +65,7 @@ export const news: NewsItem[] = [
     title: 'Amazon FBA Prep Checklist: Labeling, Packaging and Pallet Requirements for Chinese Sellers',
     slug: 'amazon-fba-prep-checklist',
     category: 'Shipping Guides',
+    region: 'north-america',
     date: '2026-08-22',
     summary:
       'Shipping to Amazon FBA fulfillment centers requires strict compliance with Amazon packaging and prep guidelines. This checklist covers FNSKU labeling, suffocation warning labels on polybags, ISPM-15 heat-treated pallets, box weight and dimension limits, ASIN shipping plan setup in Seller Central, and how our FBA prep team in Shenzhen ensures 100% compliance for LGB8, ONT8, LAX9, DFW6 and other US FCs.',
@@ -67,6 +74,7 @@ export const news: NewsItem[] = [
     title: 'Shipping from China to USA: Complete Guide 2026',
     slug: 'shipping-from-china-to-usa-guide-2026',
     category: 'Shipping Guides',
+    region: 'north-america',
     date: '2026-09-14',
     summary:
       'Importing from China to the USA? This guide covers everything you need. Learn the top US ports: Los Angeles, Long Beach, Oakland, New York, Savannah and Houston. Compare ocean freight (FCL and LCL) vs air freight transit times and costs. Understand ISF-10 filing, Section 301 tariffs, and US customs clearance requirements. Discover DDP door-to-door shipping with all duties pre-paid. Find out how Amazon FBA sellers ship directly from Shenzhen and Yiwu to US fulfillment centers like ONT8 and LGB8. Get a quote within 2 hours from Dantful Logistics.',

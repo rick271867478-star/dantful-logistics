@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { regions } from '../../data/regions';
+import { cases } from '../../data/cases';
+import { news } from '../../data/news';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return regions.map((r) => ({ params: { region: r.slug }, props: { region: r } }));
+}
+
+const { region } = Astro.props;
+const relatedCases = cases.filter((c) => c.region === region.slug);
+const regionNews = news.filter((n) => n.region === region.slug);
+const otherRegions = regions.filter((r) => r.slug !== region.slug);
+const regionServices = region.relatedServices
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter(Boolean);
+---
+
+<BaseLayout title={region.seoTitle} description={region.seoDescription}>
+  <section>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <span>{region.name}</span>
+      </nav>
+
+      <h1 class="page-title">Shipping from China to {region.name}</h1>
+
+      <h2 class="block-title">Route Overview</h2>
+      <div class="prose region-overview">
+        {region.overview.map((html) => <p set:html={html} />)}
+      </div>
+
+      <h2 class="block-title">Popular Shipping Routes</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>From</th><th>To</th><th>Mode</th><th>Transit Time</th></tr>
+          </thead>
+          <tbody>
+            {region.routes.map((route) => (
+              <tr><td>{route.from}</td><td>{route.to}</td><td>{route.mode}</td><td>{route.transit}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="block-title">Why Choose Us for {region.name}</h2>
+      <div class="chip-row">
+        {region.highlights.map((h) => <span class="chip">{h}</span>)}
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3">
+        {regionServices.map((s) => (
+          <a href={`/services/${s.slug}/`} class="card svc-card">
+            <h3>{s.title}</h3>
+            <p>{s.short}</p>
+            <span class="card-link">View Service &rarr;</span>
+          </a>
+        ))}
+      </div>
+
+      {relatedCases.length > 0 && (
+        <Fragment>
+          <h2 class="block-title">Related Case Studies</h2>
+          <div class="grid grid-3">
+            {relatedCases.map((c) => (
+              <a href={`/case/#${c.slug}`} class="card case-card">
+                <span class="case-tag">{c.industry}</span>
+                <h3>{c.title}</h3>
+                <p>{c.summary}</p>
+                <div class="chip-row">
+                  {c.results.map((r) => <span class="chip">{r}</span>)}
+                </div>
+              </a>
+            ))}
+          </div>
+        </Fragment>
+      )}
+
+      {regionNews.length > 0 && (
+        <Fragment>
+          <h2 class="block-title">Latest News for {region.name}</h2>
+          <div class="grid grid-3">
+            {regionNews.map((n) => (
+              <a href={n.body ? `/news/${n.slug}/` : `/news/#${n.category.toLowerCase().replace(/ /g, '-')}`} class="card news-card">
+                <time>{n.date}</time>
+                <h3>{n.title}</h3>
+                <p>{n.summary}</p>
+              </a>
+            ))}
+          </div>
+        </Fragment>
+      )}
+
+      <h2 class="block-title">Explore Other Regions</h2>
+      <div class="chip-row">
+        {otherRegions.map((r) => (
+          <a href={`/ship-by-region/${r.slug}/`} class="chip region-chip">{r.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft region-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ready to Ship to {region.name}?</h2>
+      <p class="section-sub">Get a quote within 2 hours. Tell us your cargo details and destination port -- we will recommend the best shipping mode and all-in rate.</p>
+      <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title {
+    text-align: left; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800;
+    margin: 0 0 28px; letter-spacing: 0.3px; color: var(--navy);
+  }
+  .block-title {
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line);
+  }
+  .region-overview { max-width: 820px; }
+  .region-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .region-overview :global(a) { color: var(--blue); text-decoration: underline; }
+  .region-overview :global(a:hover) { color: var(--orange); }
+
+  /* 表格样式（复用 ship-by-region.astro） */
+  .table-wrap { -webkit-overflow-scrolling: touch; margin-bottom: 8px; }
+  table { font-size: 0.88rem; }
+  th, td { padding: 12px 14px; }
+  @media (max-width: 720px) {
+    th, td { padding: 10px 12px; font-size: 0.82rem; }
+  }
+  @media (max-width: 480px) {
+    th, td { padding: 8px 10px; font-size: 0.78rem; }
+  }
+
+  /* chips */
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+    margin: 4px 6px 4px 0; text-decoration: none;
+  }
+  .region-chip {
+    background: rgba(255, 138, 0, 0.12);
+    color: var(--orange);
+  }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+
+  /* 卡片 */
+  .svc-card, .case-card, .news-card {
+    color: inherit; text-decoration: none !important;
+    display: flex; flex-direction: column;
+  }
+  .svc-card h3, .case-card h3, .news-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p, .case-card p, .news-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .card-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .svc-card:hover, .case-card:hover, .news-card:hover {
+    box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease;
+  }
+  .case-tag {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .news-card time { color: var(--blue); font-size: 0.82rem; font-weight: 700; }
+
+  @media (max-width: 480px) {
+    .page-title { font-size: 1.4rem; }
+    .block-title { font-size: 1.2rem; }
+    .chip { font-size: 0.75rem; padding: 3px 10px; }
+    .svc-card h3, .case-card h3, .news-card h3 { font-size: 0.95rem; }
+    .svc-card p, .case-card p, .news-card p { font-size: 0.85rem; }
+  }
+</style>

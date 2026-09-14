@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { news, newsCategories } from '../data/news';
+import { news, newsCategories, newsRegions } from '../data/news';
+import { regions } from '../data/regions';
+
+const regionName = (slug: string) => regions.find(r => r.slug === slug)?.name || slug;
 ---
 
 <BaseLayout
@@ -22,6 +25,7 @@ import { news, newsCategories } from '../data/news';
             {news.filter((n) => n.category === cat).map((n) => (
               <article class="card news-card">
                 <time datetime={n.date}>{n.date}</time>
+                {n.region && <span class="news-region-chip">{regionName(n.region)}</span>}
                 <h3>{n.title}</h3>
                 <p>{n.summary}</p>
                 {n.body && <a href={`/news/${n.slug}/`} class="read-more">Read more &rarr;</a>}
@@ -32,14 +36,36 @@ import { news, newsCategories } from '../data/news';
       ))}
     </div>
   </section>
+
+  <section class="section-soft" style="padding-block: 36px;">
+    <div class="container">
+      <h2 class="section-title" style="text-align:left;font-size:1.4rem;">Browse News by Region</h2>
+      <div class="region-chips">
+        {newsRegions.map((slug) => (
+          <a href={`/ship-by-region/${slug}/`} class="region-chip">{regionName(slug)}</a>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
   .news-card time { color: var(--blue); font-size: 0.82rem; font-weight: 700; }
+  .news-region-chip {
+    display: inline-block; background: #fff3e0; color: var(--orange);
+    font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-top: 8px;
+  }
   .news-card h3 { margin: 8px 0; font-size: 1.05rem; line-height: 1.4; }
   .news-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
   .read-more { display: inline-block; margin-top: 10px; font-size: 0.88rem; font-weight: 700; color: var(--blue); text-decoration: none; }
   .read-more:hover { color: var(--orange); }
+  .region-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .region-chip {
+    display: inline-block; background: var(--blue-light); color: var(--navy);
+    font-size: 0.88rem; font-weight: 700; padding: 6px 16px; border-radius: 999px;
+    margin: 6px; text-decoration: none; transition: all 0.2s;
+  }
+  .region-chip:hover { background: var(--blue); color: white; }
   @media (max-width: 480px) {
     .news-card h3 { font-size: 0.95rem; }
     .news-card p { font-size: 0.85rem; }
