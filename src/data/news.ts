@@ -54,4 +54,11 @@ export const news: NewsItem[] = [
     summary:
       'Shipping to Amazon FBA fulfillment centers requires strict compliance with Amazon packaging and prep guidelines. This checklist covers FNSKU labeling, suffocation warning labels on polybags, ISPM-15 heat-treated pallets, box weight and dimension limits, ASIN shipping plan setup in Seller Central, and how our FBA prep team in Shenzhen ensures 100% compliance for LGB8, ONT8, LAX9, DFW6 and other US FCs.',
   },
+  {
+    title: 'Shipping from China to USA: Complete Guide 2026',
+    category: 'Shipping Guides',
+    date: '2026-09-14',
+    summary:
+      'Importing from China to the USA? This guide covers everything you need. Learn the top US ports: Los Angeles, Long Beach, Oakland, New York, Savannah and Houston. Compare ocean freight (FCL and LCL) vs air freight transit times and costs. Understand ISF-10 filing, Section 301 tariffs, and US customs clearance requirements. Discover DDP door-to-door shipping with all duties pre-paid. Find out how Amazon FBA sellers ship directly from Shenzhen and Yiwu to US fulfillment centers like ONT8 and LGB8. Get a quote within 2 hours from Dantful Logistics.',
+  },
 ];
