@@ -1,0 +1,345 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+
+const faqs = [
+  {
+    category: 'About Dantful Logistics',
+    items: [
+      {
+        q: 'Who is Dantful Logistics?',
+        a: 'Dantful Logistics (SHENZHEN DANTFUL INT\'L LOGISTICS CO., LTD.) is a licensed NVOCC freight forwarder headquartered in Shenzhen, China. Since 2008, we have helped importers, Amazon sellers and wholesalers ship from Chinese factories to 120+ countries. We handle 80,000+ TEUs of ocean freight and 12,000+ tons of air cargo per year for 3,200+ active clients.',
+      },
+      {
+        q: 'What licenses and certifications do you hold?',
+        a: 'We hold: (1) NVOCC qualification filed with China\'s Ministry of Transport; (2) Class A Customs Brokerage License issued by China Customs; (3) ISO 9001 Quality Management Certification; (4) US AMS / ISF-10 filer registration; (5) EU EORI registration; (6) China Customs AEO certified export declaration agent.',
+      },
+      {
+        q: 'How long has Dantful been in business?',
+        a: '17+ years. Founded in 2008 in Shenzhen, we have grown from a 5-person team to 80+ dedicated logistics specialists. Track record: 80,000+ TEUs shipped, 3,200+ active clients in 120+ countries, 98.6% on-time delivery rate, claims rate below 0.3%.',
+      },
+      {
+        q: 'Where is your office located?',
+        a: 'Our headquarters is at ' + SITE.address + '. Shenzhen is China\'s largest export port and a major air cargo hub. Clients are welcome to visit by appointment. We also have partner offices in Shanghai, Ningbo, Guangzhou, Qingdao and Hong Kong.',
+      },
+    ],
+  },
+  {
+    category: 'Services & Coverage',
+    items: [
+      {
+        q: 'What shipping services do you offer from China?',
+        a: 'Six core services: (1) Ocean freight FCL & LCL consolidation; (2) Air freight (express/economy/charter); (3) Amazon FBA prep & shipping; (4) Licensed customs clearance; (5) Bonded warehousing (30,000 sqm in Shenzhen); (6) Door-to-door DDP solutions. Coverage: 120+ countries across 7 regions - North America, Europe, Middle East, Africa, Oceania, Southeast Asia, South America.',
+      },
+      {
+        q: 'Which China ports and airports can you ship from?',
+        a: 'All major China ports: Shanghai, Ningbo, Shenzhen (Yantian, Shekou, Chiwan), Qingdao, Tianjin, Guangzhou Nansha, Xiamen, Fuzhou and Hong Kong. Airports: PVG (Shanghai Pudong), CAN (Guangzhou Baiyun), SZX (Shenzhen Bao\'an), HKG (Hong Kong). We also do factory pickup from any city in mainland China.',
+      },
+      {
+        q: 'Can you handle special cargo (batteries, magnets, cosmetics, food, branded goods)?',
+        a: 'Yes. Team trained and certified for: (1) Lithium batteries (MSDS + UN38.3 reports, UN3480/3481/3090/3091); (2) Magnetic items (degaussing certificate); (3) Cosmetics (CIQ health cert + FDA pre-notification); (4) Food & beverages (CIQ + health cert); (5) Medical devices (NMPA, CE, FDA); (6) Branded goods (trademark authorization letter). DG cargo (Class 3, 4, 5, 6, 8, 9) also accepted.',
+      },
+    ],
+  },
+  {
+    category: 'Pricing & Quoting',
+    items: [
+      {
+        q: 'How do I get a quote?',
+        a: 'Submit cargo details via our Contact form, email (overseas.27@dantful.com), or WhatsApp (+86 15143552568). Please provide: cargo name, weight (KG), volume (CBM), origin city, destination port/airport/address, Incoterm (FOB/EXW/DDP), special handling needs. We send an all-in quote within 2 working hours.',
+      },
+      {
+        q: 'Are there any hidden charges?',
+        a: 'No. Our DDP all-in pricing is fully itemized: factory pickup, trucking, export customs declaration, origin port charges, ocean/air freight, destination port charges, import customs clearance, duties/taxes, and last-mile delivery. Every cost shown on the quote - no surprise add-ons after booking. LCL quotes also specify per-CBM rate, minimum chargeable weight, and LCL consolidation fee.',
+      },
+      {
+        q: 'What payment methods do you accept?',
+        a: 'T/T bank transfer (most common), PayPal, Western Union, and Alipay for RMB. Credit terms (NET 15/30) available for verified repeat clients with a 3-shipment track record. For new clients, 50% deposit before vessel/flight departure and 50% balance against B/L copy.',
+      },
+    ],
+  },
+  {
+    category: 'Amazon FBA Shipping',
+    items: [
+      {
+        q: 'Do you ship to Amazon FBA fulfillment centers worldwide?',
+        a: 'Yes. We deliver to major FBA warehouses globally - US (ONT8, LGB8, LAX9, EWR4, BFI3, MEM1, FTW1, MIA1), Canada (YYZ4, YVR2), UK (BHX4, LTN4), Germany (DTM1, MST1, LEJ1, XDEB), France (ORY1), Italy (MXP1), Japan (NRT1, KIX1), Australia (SYD1, MEL1). Direct FC appointments via UPS, FedEx and Amazon-partnered trucking.',
+      },
+      {
+        q: 'What FBA prep services do you offer?',
+        a: 'Full FBA prep at our Shenzhen bonded warehouse: FNSKU labeling, poly-bagging, bubble wrap, palletization, product inspection, stickering, bundling, repackaging, quality control. Free 30-day storage while you accumulate stock from multiple suppliers. All prep meets Amazon\'s FBA Inventory Requirements (TIPP).',
+      },
+      {
+        q: 'How does DDP shipping to Amazon FBA work?',
+        a: 'We pre-pay all US import duties, Merchandise Processing Fee (MPF), Harbor Maintenance Fee (HMF), customs bond, ISF-10 filing, and freight. Cargo clears US customs under our brokerage, then trucks direct to the FBA FC appointment. You get a hands-off delivery to FBA - no customs paperwork, no duty payments, no port coordination. Same service for EU (DDP + EORI), UK, Canada, Australia and Japan FBA.',
+      },
+    ],
+  },
+  {
+    category: 'Tracking & Insurance',
+    items: [
+      {
+        q: 'How can I track my shipment?',
+        a: 'Every shipment gets a tracking number (B/L or AWB) within 24 hours of vessel/flight departure. You receive: (1) weekly progress emails with vessel position, ETA, clearance status; (2) WeChat/WhatsApp real-time alerts for key milestones (pickup, sailing, arrival, customs, delivery); (3) 24/7 access to your dedicated coordinator via phone/email/WhatsApp. Container tracking supports Maersk, MSC, COSCO, ONE, Evergreen, CMA CGM directly.',
+      },
+      {
+        q: 'Is my cargo insured? What coverage is included?',
+        a: 'Yes. Basic coverage included free: USD 2/kg for air freight, USD 500/shipment for ocean freight (limited liability). For full protection, we offer All-Risks insurance at 0.1-0.3% of declared cargo value, underwritten by Ping An Insurance, PICC, or Lloyd\'s of London syndicates. We strongly recommend All-Risks for high-value or fragile cargo.',
+      },
+      {
+        q: 'What happens if my cargo is damaged or lost?',
+        a: 'File a claim within 7 days of delivery with photos and brief description. Our team responds within 48 hours. Insurance settlements typically resolve in 15-30 days. Over 17 years and 80,000+ TEUs shipped, our claims rate is below 0.3% - well below industry average. We also help with carrier claims (3-month SOL) for ocean freight and airway bill disputes.',
+      },
+    ],
+  },
+  {
+    category: 'Order Process',
+    items: [
+      {
+        q: 'What is your order process?',
+        a: '7-step process: (1) Send inquiry with cargo details; (2) Receive all-in quote within 2 working hours; (3) Confirm booking with PI; (4) Factory pickup by our trucking; (5) Export customs declaration + CIQ inspection; (6) Vessel/flight departs with tracking activated; (7) Destination import clearance + last-mile delivery. You get one dedicated coordinator throughout - no hand-offs between departments.',
+      },
+      {
+        q: 'What is your minimum order volume?',
+        a: 'No strict minimum. LCL consolidation starts from 0.1 CBM. Air freight from 1 kg. For FCL, we recommend 8+ CBM to be cost-effective. Sample orders, small e-commerce parcels, and personal effects are all welcome. We consolidate multiple suppliers\' cargo into single shipments to lower per-unit shipping cost.',
+      },
+      {
+        q: 'Can you consolidate multiple suppliers into one shipment?',
+        a: 'Yes - one of our core strengths. Our 30,000 sqm bonded warehouse in Shenzhen consolidates cargo from unlimited suppliers. Services include: free 30-day storage, cargo inspection, repacking, relabeling, quality control, carton sorting. Consolidation cuts per-CBM LCL cost by 30-60% vs. shipping each supplier separately. Ideal for Amazon sellers, dropshippers, SMEs sourcing from Yiwu, Dongguan, Shenzhen, Foshan.',
+      },
+      {
+        q: 'How far in advance should I book?',
+        a: 'For FCL ocean freight: 7-10 days before vessel ETD. For LCL consolidation: 5 days. For air freight: 1-3 days. Peak season (Pre-CNY in Jan-Feb, Prime Day in July, Black Friday in Nov): 14-21 days recommended to secure vessel/airline space and avoid surcharges. We also offer space-reservation contracts for clients with regular monthly volume.',
+      },
+    ],
+  },
+];
+
+// 生成 FAQ Schema 结构化数据（Google 富片段关键）
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.flatMap((group) =>
+    group.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    }))
+  ),
+});
+
+const tocItems = faqs.map((group) => ({
+  id: group.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+  label: group.category,
+  count: group.items.length,
+}));
+---
+
+<BaseLayout
+  title="FAQ - Freight Forwarding from China | Dantful"
+  description="Answers to common questions about Dantful Logistics - China freight forwarder since 2008. Services, pricing, Amazon FBA shipping, tracking, insurance and order process."
+>
+  <section class="faq-hero">
+    <div class="faq-hero-bg">
+      <img src="/images/services-hero.jpg" alt="Dantful Logistics freight forwarding services - FAQ" loading="eager" />
+    </div>
+    <div class="faq-hero-overlay"></div>
+    <div class="container faq-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>FAQ</span>
+      </nav>
+      <h1 class="faq-hero-title">FREQUENTLY ASKED QUESTIONS</h1>
+      <p class="faq-hero-sub">Everything you need to know about shipping from China with Dantful Logistics - company credentials, services, pricing transparency, Amazon FBA, cargo protection and order process. Find clear answers below, or contact us for a personalized quote within 2 working hours.</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-layout">
+        <aside class="faq-toc" aria-label="FAQ categories">
+          <h2 class="faq-toc-title">Categories</h2>
+          <ul>
+            {tocItems.map((t) => (
+              <li>
+                <a href={`#${t.id}`}>
+                  <span>{t.label}</span>
+                  <span class="faq-toc-count">{t.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/contact/" class="btn btn-primary faq-toc-cta">Get a Quote</a>
+        </aside>
+
+        <div class="faq-content">
+          {faqs.map((group) => {
+            const groupId = group.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            return (
+              <div class="faq-group" id={groupId}>
+                <h2 class="faq-group-title">{group.category}</h2>
+                {group.items.map((item) => (
+                  <details class="faq-item">
+                    <summary class="faq-q">
+                      <span class="faq-q-text">{item.q}</span>
+                      <span class="faq-q-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      </span>
+                    </summary>
+                    <div class="faq-a">
+                      <p>{item.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-cta">
+    <div class="container">
+      <h2 class="cta-title">Still have questions?</h2>
+      <p class="cta-sub">Get a tailored quote within 2 working hours. Our logistics coordinators reply to every inquiry - no auto-responses, no spam.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+        <a href={`https://wa.me/${SITE.phone.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  /* ============ Hero Banner ============ */
+  .faq-hero {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  .faq-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .faq-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .faq-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11, 42, 74, 0.92) 0%, rgba(18, 58, 99, 0.85) 50%, rgba(30, 111, 217, 0.78) 100%);
+  }
+  .faq-hero-content { position: relative; z-index: 2; padding-block: 48px; }
+  .faq-hero-title {
+    color: #fff; font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800; margin: 0 0 14px; letter-spacing: 0.5px;
+  }
+  .faq-hero-sub {
+    color: #e7eff7; font-size: 1rem; max-width: 760px;
+    margin: 0; line-height: 1.65;
+  }
+  .breadcrumb-light { color: #cdd9e6; }
+  .breadcrumb-light a { color: #fff; }
+
+  /* ============ FAQ 主布局 ============ */
+  .faq-section { padding-block: 64px; background: var(--bg-soft); }
+  .faq-layout { display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: start; }
+
+  /* ============ 左侧目录 ============ */
+  .faq-toc {
+    position: sticky; top: 100px;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px 18px; box-shadow: 0 2px 10px rgba(11, 42, 74, 0.05);
+  }
+  .faq-toc-title { font-size: 1.05rem; margin: 0 0 14px; }
+  .faq-toc ul { list-style: none; padding: 0; margin: 0 0 20px; }
+  .faq-toc li { margin: 0; }
+  .faq-toc a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 12px; border-radius: 6px; color: var(--ink-soft);
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .faq-toc a:hover { background: var(--blue-light); color: var(--navy); }
+  .faq-toc-count {
+    background: var(--blue-light); color: var(--blue);
+    font-size: 0.78rem; padding: 2px 8px; border-radius: 10px;
+  }
+  .faq-toc-cta { width: 100%; }
+
+  /* ============ 右侧 FAQ 内容 ============ */
+  .faq-group { margin-bottom: 36px; }
+  .faq-group:last-child { margin-bottom: 0; }
+  .faq-group-title {
+    font-size: 1.35rem; margin: 0 0 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--blue);
+    color: var(--navy);
+  }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 10px; overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .faq-item[open] {
+    border-color: var(--blue);
+    box-shadow: 0 4px 14px rgba(11, 42, 74, 0.08);
+  }
+  .faq-item:last-child { margin-bottom: 0; }
+
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 16px 20px; cursor: pointer; list-style: none;
+    font-weight: 700; color: var(--navy); font-size: 0.98rem;
+    line-height: 1.4; user-select: none;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q-text { flex: 1; }
+  .faq-q-icon {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--blue-light); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+  .faq-q-icon svg { width: 16px; height: 16px; }
+  .faq-item[open] .faq-q-icon {
+    transform: rotate(45deg); background: var(--orange); color: #fff;
+  }
+
+  .faq-a { padding: 0 20px 18px; color: var(--ink-soft); line-height: 1.7; }
+  .faq-a p { margin: 0; font-size: 0.94rem; }
+
+  /* ============ CTA 板块 ============ */
+  .faq-cta {
+    background: var(--navy); color: #fff; padding-block: 64px;
+    text-align: center;
+  }
+  .cta-title { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+  .cta-sub { color: #cdd9e6; max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .faq-cta .btn-outline { border-color: #fff; color: #fff; }
+  .faq-cta .btn-outline:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+  /* ============ 响应式 ============ */
+  @media (max-width: 880px) {
+    .faq-layout { grid-template-columns: 1fr; gap: 24px; }
+    .faq-toc { position: static; }
+    .faq-toc ul { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .faq-toc li { flex: 1 0 auto; }
+    .faq-toc a { padding: 6px 10px; font-size: 0.82rem; }
+    .faq-toc-count { display: none; }
+    .faq-toc-cta { width: auto; }
+    .faq-hero { min-height: 280px; }
+    .faq-hero-content { padding-block: 36px; }
+  }
+  @media (max-width: 520px) {
+    .faq-section { padding-block: 44px; }
+    .faq-group-title { font-size: 1.15rem; }
+    .faq-q { padding: 14px 16px; font-size: 0.92rem; }
+    .faq-a { padding: 0 16px 14px; }
+    .faq-a p { font-size: 0.9rem; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+    .faq-cta .btn { width: 100%; }
+  }
+</style>
