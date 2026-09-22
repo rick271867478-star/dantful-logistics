@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Global Shipping Routes from China | Dantful';
+const description = 'Direct shipping routes from China to USA, Canada, UK, Europe, Australia, Singapore and 120+ countries. FCL, LCL, air freight and DDP door-to-door from Shenzhen, Shanghai, Ningbo.';
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: '/routes/' }
+  ]
+});
+
+const routeGroups = [
+  {
+    region: 'North America',
+    routes: [
+      { slug: 'china-to-usa', name: 'China to USA', desc: 'FCL to Los Angeles, Long Beach, New York. DDP to Amazon FBA. Sea 14-32 days, air 3-5 days.' },
+      { slug: 'china-to-canada', name: 'China to Canada', desc: 'Vancouver, Prince Rupert, Toronto. Sea 16-22 days, air 3-5 days, rail intermodal.' },
+    ],
+  },
+  {
+    region: 'Europe & United Kingdom',
+    routes: [
+      { slug: 'china-to-uk', name: 'China to UK', desc: 'Felixstowe, Tilbury, Southampton. Sea 28-35 days. DDP with EORI registration.' },
+    ],
+  },
+  {
+    region: 'Asia Pacific',
+    routes: [
+      { slug: 'china-to-singapore', name: 'China to Singapore', desc: 'Port Klang, Singapore. Sea 7-12 days. Fastest intra-Asia lane with daily sailings.' },
+      { slug: 'china-to-australia', name: 'China to Australia', desc: 'Sydney, Melbourne, Brisbane. Sea 18-26 days, air 5-8 days. DDP to FBA.' },
+    ],
+  },
+];
+
+const allRoutes = routeGroups.flatMap(g => g.routes);
+const routeJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Global Shipping Routes from China',
+  itemListElement: allRoutes.map((r, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: r.name,
+    description: r.desc,
+    url: `/routes/${r.slug}/`
+  }))
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/routes-hero.webp" alt="Global shipping routes from China - cargo ships at Shenzhen Yantian port" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <span>Routes</span>
+      </nav>
+      <h1>Global Shipping Routes from China</h1>
+      <p class="route-hero-sub">Direct FCL, LCL, air freight and DDP door-to-door shipping from Shenzhen, Shanghai, Ningbo, Guangzhou, Qingdao and Hong Kong to 120+ countries. Select your destination below for transit times, price factors, required documents and a 5-step shipping workflow.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="/services/ocean-freight/" class="btn btn-outline">Ocean Freight Service</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Dantful Logistics operates dedicated shipping lanes from every major Chinese port and airport to destinations across North America, Europe, Asia Pacific, the Middle East, Africa and South America. We hold direct carrier contracts with Maersk, MSC, COSCO, ONE, Evergreen, CMA CGM and Hapag-Lloyd, and block-space agreements with 40+ airlines. This secures preferential rates and guaranteed space even during Pre-CNY, Prime Day and Q4 peak season windows.</p>
+        <p>Each route page below includes a transit time table by origin and destination port, price ranges for FCL and LCL, a 5-step shipping workflow, the documents you need to prepare, and answers to the questions shippers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP or FOB rate within 2 working hours.</p>
+      </div>
+
+      {routeGroups.map((group) => (
+        <div class="route-region-group">
+          <h2 class="block-title">{group.region}</h2>
+          <div class="route-card-grid">
+            {group.routes.map((r) => (
+              <a href={`/routes/${r.slug}/`} class="route-card">
+                <h3>{r.name}</h3>
+                <p>{r.desc}</p>
+                <span class="route-card-link">View Route Details &rarr;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="route-region-group">
+        <h2 class="block-title">More Destinations</h2>
+        <div class="prose route-overview">
+          <p>Don't see your destination? We ship to 120+ countries including Mexico, Brazil, Germany, France, Italy, Spain, Netherlands, Poland, Japan, South Korea, India, Vietnam, Thailand, Malaysia, Indonesia, Philippines, UAE, Saudi Arabia, Israel, Egypt, South Africa, Nigeria, Kenya, Ghana, Russia, Kazakhstan and Uzbekistan. <a href="/ship-by-region/">Browse by region</a> or <a href="/contact/">contact us</a> for a custom route quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-cta">
+    <div class="container">
+      <h2 class="cta-title">Ready to ship?</h2>
+      <p class="cta-sub">Get an all-in DDP or FOB quote within 2 working hours. No hidden charges, no surcharge surprises.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+        <a href={`https://wa.me/${SITE.phone.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={routeJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11, 42, 74, 0.92) 0%, rgba(18, 58, 99, 0.85) 50%, rgba(30, 111, 217, 0.78) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; padding-block: 48px; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800; margin: 0 0 14px; letter-spacing: 0.5px;
+  }
+  .route-hero-sub {
+    color: #e7eff7; font-size: 1rem; max-width: 760px;
+    margin: 0 0 22px; line-height: 1.65;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light { color: #cdd9e6; margin-bottom: 12px; }
+  .breadcrumb-light a { color: #fff; }
+  .route-overview { margin-bottom: 32px; }
+  .route-overview p { color: var(--ink-soft); line-height: 1.75; margin-bottom: 14px; }
+  .route-overview a { color: var(--blue); }
+  .route-region-group { margin-bottom: 40px; }
+  .block-title {
+    color: var(--navy); font-size: 1.5rem; margin: 0 0 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--blue);
+  }
+  .route-card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .route-card {
+    display: block; background: #fff; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px;
+    text-decoration: none; transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .route-card:hover {
+    border-color: var(--blue); box-shadow: 0 6px 20px rgba(11, 42, 74, 0.1);
+    transform: translateY(-2px);
+  }
+  .route-card h3 { color: var(--navy); font-size: 1.2rem; margin: 0 0 10px; }
+  .route-card p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.6; margin: 0 0 14px; }
+  .route-card-link { color: var(--blue); font-weight: 600; font-size: 0.88rem; }
+  .route-cta {
+    background: var(--navy); color: #fff; padding-block: 56px;
+    text-align: center;
+  }
+  .cta-title { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+  .cta-sub { color: #cdd9e6; max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .route-cta .btn-outline { border-color: #fff; color: #fff; }
+  .route-cta .btn-outline:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  @media (max-width: 640px) {
+    .route-hero { min-height: 280px; }
+    .route-hero-content { padding-block: 36px; }
+    .route-card-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+  }
+</style>

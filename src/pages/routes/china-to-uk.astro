@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Freight Forwarder China to UK | Dantful';
+const description = 'China to UK freight forwarder. Sea freight 28-40 days, air freight 3-7 days. DDP to Felixstowe, Southampton, Tilbury. Get a quote in 2 hours.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ship by Region', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'China to UK', item: '/routes/china-to-uk/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'China to UK Freight Forwarding',
+  serviceType: 'Freight Forwarding',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['United Kingdom', 'China'],
+  description: 'Sea and air freight forwarding from China to UK ports including Felixstowe, Southampton and Tilbury with DDP customs clearance.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long does sea freight from China to UK take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight from China to UK takes 28 to 40 days port-to-port. Door-to-door DDP including UK customs clearance and delivery takes 33 to 45 days depending on the origin port and destination city.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to ship from China to UK?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight FCL 40HQ starts around [USD XXXX per container]. LCL starts around [USD X.X per CBM]. Air freight starts around [USD X.X per KG]. DDP all-in quotes include UK VAT (20%), duty, clearance and delivery. Request a quote for an exact rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between FOB and CIF shipping to UK?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FOB (Free On Board) means the seller is responsible until the cargo is loaded on the vessel in China. You handle freight, insurance, UK clearance and delivery. CIF (Cost Insurance Freight) adds sea freight and insurance to the UK port, but you still handle UK customs and delivery. DDP covers everything to your door. We offer all three.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need an EORI number to import from China to UK?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, UK importers need an EORI (Economic Operators Registration and Identification) number for customs declarations after Brexit. If you do not have one, we can act as your IOR using our own UK entity and EORI. The DDP service covers this.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed for shipping from China to UK?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commercial invoice, packing list, Bill of Lading, ENS filing (Entry Summary Declaration) for UK customs, Certificate of Origin if claiming preferential duty, and UK customs declaration (SAD/C88). For restricted goods: CE/UKCA marking, REACH compliance, or health certificates.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/route-china-to-uk.webp" alt="China to UK freight forwarder - container ship arriving at Felixstowe port with gantry cranes" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <span>China to UK</span>
+      </nav>
+      <h1>Freight Forwarder China to UK</h1>
+      <p class="route-hero-sub">China to UK shipping: sea freight in [28-40 days] from [USD XXXX per 40HQ], air freight in [3-7 days] from [USD X.X per KG]. DDP delivery to Felixstowe, Southampton, Tilbury, London, Manchester and Birmingham. EORI and UK customs handled.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>We are an NVOCC licensed freight forwarder based in Shenzhen since 2008, moving cargo from China to the United Kingdom on weekly sailings and daily flights. Our UK lanes cover Felixstowe, Southampton, Tilbury, Liverpool and London Gateway ports, with door-to-door DDP delivery to London, Manchester, Birmingham, Leeds, Glasgow and Bristol. We serve importers, Amazon UK FBA sellers, and B2B distributors who need a single all-in rate from a Chinese factory to a UK address.</p>
+        <p>This page covers transit times, price ranges, the 5-step shipping workflow, the documents you need, and the questions UK importers ask most. Request a quote and you will receive an all-in DDP rate within 2 hours.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times: China to UK</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin Port</th><th>UK Destination</th><th>Sea Freight (days)</th><th>Door-to-Door (days)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen (Yantian)</td><td>Felixstowe</td><td>[28-32]</td><td>[33-40]</td><td>Direct vessel, weekly</td></tr>
+            <tr><td>Shanghai</td><td>Felixstowe</td><td>[30-35]</td><td>[35-42]</td><td>Asia-Europe loop</td></tr>
+            <tr><td>Ningbo</td><td>Southampton</td><td>[30-35]</td><td>[35-42]</td><td>Direct call</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>Tilbury</td><td>[32-38]</td><td>[37-45]</td><td>Transshipment</td></tr>
+            <tr><td>Qingdao</td><td>London Gateway</td><td>[33-40]</td><td>[38-45]</td><td>Weekly sailing</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>All UK ports</td><td>[28-33]</td><td>[33-40]</td><td>Air: 3-7 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Sea freight times are port-to-port. Door-to-door includes export clearance, sailing, UK customs (SAD/C88), duty and delivery. Air freight door-to-door is [3-7 days] via London Heathrow (LHR) or Manchester (MAN). <a href="/contact/">Request a quote</a> for a confirmed schedule.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>China to UK shipping is priced by volume (CBM) for sea freight and by chargeable weight (1 CBM = 167 KG) for air freight. We quote all-in DDP rates 鈥?no separate customs, VAT or delivery invoices.</p>
+        <ul>
+          <li><strong>Sea freight (LCL):</strong> [USD X.X per CBM] 鈥?best for shipments under 15 CBM. Minimum [1 CBM].</li>
+          <li><strong>Sea freight (FCL 40HQ):</strong> [USD XXXX to XXXX per container] 鈥?best for 25+ CBM shipments to Felixstowe, Southampton or Tilbury.</li>
+          <li><strong>Sea freight (FCL 20GP):</strong> [USD XXXX per container] 鈥?for smaller volumes that fill a 20ft container.</li>
+          <li><strong>Air freight:</strong> [USD X.X per KG] 鈥?3-7 days door-to-door via LHR or MAN.</li>
+          <li><strong>Rail freight:</strong> [USD X.X per CBM] 鈥?18-25 days via China-Europe railway to Duisburg, then trucked to UK.</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>UK VAT:</strong> 20% on CIF value plus duty. Under DDP, we pay this on your behalf.</li>
+          <li><strong>Duty rate:</strong> Depends on HS code and origin. Most consumer goods fall in 0-12% MFN rates. UK Global Tariff applies post-Brexit.</li>
+          <li><strong>Season:</strong> Pre-CNY (Jan-Feb), Q4 holiday rush (Sep-Dec) see 15-30% rate spikes.</li>
+          <li><strong>Bunker Adjustment Factor (BAF):</strong> Carriers revise fuel surcharges quarterly.</li>
+          <li><strong>Peak Season Surcharge (PSS):</strong> Applied from June to October on Asia-Europe lanes.</li>
+          <li><strong>Currency:</strong> Quotes in USD. GBP conversion at settling day rate.</li>
+          <li><strong>Port congestion:</strong> Felixstowe and Southampton experience periodic delays; we route via alternative ports if needed.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step Shipping Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send us your factory address, product details, carton count, dimensions, weight and UK delivery address. You receive an all-in DDP rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Book &amp; Pickup</h3>
+          <p>Confirm the booking. We dispatch a pickup truck to the supplier factory anywhere in mainland China. Cargo arrives at our warehouse for consolidation.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Load &amp; Export</h3>
+          <p>We load cargo into container or air pallet. Our licensed customs team handles export declaration, ENS filing for UK customs, and Certificate of Origin if needed.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Sail &amp; Track</h3>
+          <p>Cargo sails on schedule with live tracking and weekly email updates. Air freight departs daily from HKG, PVG, SZX or CAN.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>UK Clearance &amp; Delivery</h3>
+          <p>We file the UK SAD/C88 customs declaration, pay VAT and duty using our EORI, and deliver to your door or Amazon UK FC. You sign with zero extra charges.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?value, currency, Incoterm (DDP), HS code, shipper and consignee.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, dimensions, weight per carton and total.</li>
+          <li><strong>Bill of Lading (B/L)</strong> or Air Waybill (AWB) 鈥?we issue House B/L as an NVOCC.</li>
+          <li><strong>ENS filing (Entry Summary Declaration)</strong> 鈥?we file this for UK customs before vessel loading.</li>
+          <li><strong>EORI number</strong> 鈥?if you have one; if not, we use our UK EORI under DDP.</li>
+          <li><strong>UK Customs Declaration (SAD/C88)</strong> 鈥?we file this on arrival.</li>
+          <li><strong>Certificate of Origin (CO)</strong> 鈥?if claiming preferential duty under UK GSP or FTA.</li>
+          <li><strong>Compliance docs (if applicable):</strong> CE/UKCA marking for electronics, REACH for chemicals, UKCA for toys, phytosanitary certs for plants.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="prose faq-block">
+        <h3>How long does sea freight from China to UK take?</h3>
+        <p>Sea freight from Shenzhen or Shanghai to Felixstowe takes [28-35 days] port-to-port. Door-to-door DDP including UK customs clearance and delivery takes [33-45 days] depending on your origin port and destination city. Rail via China-Europe railway takes [18-25 days] to Duisburg then trucked to UK. Air freight takes [3-7 days] door-to-door. <a href="/contact/">Request a quote</a> for a confirmed schedule.</p>
+
+        <h3>How much does it cost to ship from China to UK?</h3>
+        <p>Sea freight FCL 40HQ starts around [USD XXXX per container]. LCL starts around [USD X.X per CBM]. Air freight starts around [USD X.X per KG]. The all-in DDP rate covers factory pickup, export clearance, ocean/air freight, UK customs, 20% VAT, duty and delivery 鈥?no hidden charges. Request a quote with your cargo details for an exact rate.</p>
+
+        <h3>What is the difference between FOB and CIF shipping to UK?</h3>
+        <p>FOB (Free On Board) means the seller is responsible until the cargo is loaded on the vessel in China. You handle sea freight, insurance, UK customs, VAT, duty and delivery. CIF (Cost Insurance Freight) adds sea freight and marine insurance to the UK port, but you still handle UK customs and delivery. DDP covers everything from factory to your door 鈥?one quote, one invoice, one contact. We offer all three Incoterms. See our <a href="/services/customs-clearance/">customs clearance service</a> for details.</p>
+
+        <h3>Do I need an EORI number to import from China to UK?</h3>
+        <p>Yes. After Brexit, UK importers need an EORI (Economic Operators Registration and Identification) number starting with GB for customs declarations. If you do not have one, we can act as your Importer of Record using our own UK entity and EORI number. The DDP service covers this 鈥?you do not need to register for an EORI yourself. We also handle the SAD/C88 customs declaration and pay the 20% VAT and duty on your behalf.</p>
+
+        <h3>What documents are needed for shipping from China to UK?</h3>
+        <p>Commercial invoice, packing list, Bill of Lading (or AWB), ENS filing for UK customs before vessel loading, UK customs declaration (SAD/C88) on arrival, and a Certificate of Origin if claiming preferential duty. For restricted goods: CE/UKCA marking for electronics and toys, REACH compliance for chemicals, phytosanitary certificates for plants, and health certificates for food. Check our <a href="/faq/">FAQ page</a> for the full list.</p>
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3">
+        <a href="/services/ocean-freight/" class="card svc-card">
+          <h3>Ocean Freight</h3>
+          <p>FCL and LCL ocean freight from China to UK and global ports with weekly sailings.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/air-freight/" class="card svc-card">
+          <h3>Air Freight</h3>
+          <p>Daily air cargo departures to London Heathrow and Manchester with block-space agreements.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/door-to-door/" class="card svc-card">
+          <h3>Door to Door (DDP)</h3>
+          <p>All-in DDP shipping from Chinese factory to UK address 鈥?VAT, duty and delivery included.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/europe/" class="chip region-chip">Europe</a>
+        <a href="/ship-by-region/north-america/" class="chip region-chip">North America</a>
+        <a href="/ship-by-region/australia/" class="chip region-chip">Australia</a>
+        <a href="/ship-by-region/southeast-asia/" class="chip region-chip">Southeast Asia</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ready to Ship to the UK?</h2>
+      <p class="section-sub">Get an all-in DDP quote within 2 hours. Send your factory address, cargo details and UK delivery address 鈥?we reply with the best shipping mode and all-in rate.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.82) 0%, rgba(11,42,74,0.55) 60%, rgba(11,42,74,0.3) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+    margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2;
+  }
+  .route-hero-sub {
+    color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7;
+    max-width: 640px; margin: 0 0 24px;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
+  .block-title {
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line);
+  }
+  .route-overview { max-width: 820px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(a) { color: var(--blue); text-decoration: underline; }
+  .route-overview :global(a:hover) { color: var(--orange); }
+  .route-overview :global(ul) { padding-left: 20px; margin: 0 0 14px; }
+  .route-overview :global(li) { color: var(--ink-soft); line-height: 1.75; margin-bottom: 6px; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+
+  .step-grid { margin-bottom: 8px; }
+  .step-card { position: relative; padding-top: 56px; }
+  .step-num {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--orange); color: #fff; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+  }
+  .step-card h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .step-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .doc-list { padding-left: 20px; }
+  .doc-list li { color: var(--ink-soft); line-height: 1.75; margin-bottom: 8px; }
+
+  .faq-block h3 {
+    font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px;
+    font-weight: 700; line-height: 1.4;
+  }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+    margin: 4px 6px 4px 0; text-decoration: none;
+  }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+
+  .svc-card {
+    color: inherit; text-decoration: none !important;
+    display: flex; flex-direction: column;
+  }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .card-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  @media (max-width: 720px) {
+    .step-card { padding-top: 48px; }
+    .step-num { width: 32px; height: 32px; font-size: 0.95rem; }
+    .block-title { font-size: 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .block-title { font-size: 1.1rem; }
+    .chip { font-size: 0.75rem; padding: 3px 10px; }
+    .cta-row { flex-direction: column; }
+  }
+</style>

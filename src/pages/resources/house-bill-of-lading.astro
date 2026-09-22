@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'House Bill of Lading (HBL) Guide | Dantful';
+const description = 'What is a House Bill of Lading (HBL)? Difference between HBL and MBL, telex release vs original, how to claim cargo at destination. Guide by NVOCC freight forwarder Dantful Logistics.';
+
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: '/resources/' },
+    { '@type': 'ListItem', position: 3, name: 'House Bill of Lading', item: '/resources/house-bill-of-lading/' }
+  ]
+});
+
+const articleJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'House Bill of Lading (HBL) Guide: HBL vs MBL, Telex Release',
+  description: 'Complete guide to House Bill of Lading: definition, functions, difference between HBL and Master B/L, telex release vs original, and how to claim cargo at destination.',
+  author: { '@type': 'Organization', name: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  datePublished: '2026-09-17',
+  dateModified: '2026-09-17'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is a House Bill of Lading (HBL)?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A House Bill of Lading (HBL) is a transport document issued by an NVOCC freight forwarder to the shipper. It serves as a receipt for cargo received, evidence of the contract of carriage, and a document of title. The HBL is distinct from the Master Bill of Lading (MBL), which is issued by the actual ocean carrier (Maersk, MSC, COSCO) to the NVOCC.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between HBL and MBL?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The MBL (Master Bill of Lading) is issued by the carrier to the NVOCC (forwarder). The HBL (House Bill of Lading) is issued by the NVOCC to the actual shipper. On the MBL, the shipper is the forwarder and the consignee is the forwarder agent at destination. On the HBL, the shipper is the actual exporter and the consignee is the actual importer. The consignee uses the HBL to claim cargo from the forwarder agent.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is telex release on a House Bill of Lading?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Telex release (also called electric release or e-release) means the forwarder at origin instructs the forwarder agent at destination to release cargo without requiring the original HBL to be presented. The consignee simply identifies themselves and pays destination charges to collect cargo. Telex release is faster and avoids the risk of original B/L documents getting lost in international courier. It is the standard for most DDP and FCL shipments today.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need original HBL documents to claim my cargo?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Only if the HBL is issued as an original B/L (not telex release). In that case, the consignee must present the endorsed original HBL to the forwarder agent at destination. If you chose telex release, no original document is needed. For most DDP shipments through Dantful, we default to telex release unless you specifically request original B/L.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I get a telex release on an LCL shipment?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Telex release is available for both FCL and LCL shipments. For LCL, the forwarder issues a House Bill of Lading per shipment, and telex release instructs the destination warehouse to release cargo without original B/L. This is standard practice for LCL consolidation through Dantful.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/resource-house-bl-hero.webp" alt="House Bill of Lading guide - cargo documentation and container shipping" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/resources/">Resources</a> / <span>House Bill of Lading</span>
+      </nav>
+      <h1>House Bill of Lading (HBL) Guide</h1>
+      <p class="route-hero-sub">A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder to the shipper. This guide explains what an HBL is, the difference between HBL and Master B/L, telex release vs original, and how to claim cargo at destination.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="/services/ocean-freight/" class="btn btn-outline">Ocean Freight</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>If you are shipping ocean freight from China, your freight forwarder will issue you a document called a <strong>House Bill of Lading (HBL)</strong>. This is one of the most important documents in international shipping - it proves the forwarder received your cargo, evidences the contract of carriage, and serves as a document of title that lets you claim cargo at destination. Understanding how the HBL works, the difference between HBL and Master B/L, and telex release vs original is essential for every importer.</p>
+      </div>
+
+      <h2 class="block-title">What is a House Bill of Lading?</h2>
+      <div class="prose route-overview">
+        <p>A House Bill of Lading (HBL) is a transport document issued by an NVOCC (Non-Vessel Operating Common Carrier) freight forwarder like Dantful Logistics to the actual shipper. The HBL serves three legal functions under international maritime law:</p>
+        <ul>
+          <li><strong>Receipt for cargo:</strong> Confirms the forwarder has received the cargo in the stated condition. The HBL shows cargo description, number of packages, weight, volume, container number and seal number.</li>
+          <li><strong>Evidence of contract of carriage:</strong> Proves a transport agreement exists between the shipper and the forwarder. The HBL terms and conditions govern liability, claims and dispute resolution.</li>
+          <li><strong>Document of title:</strong> The holder of an original HBL has the right to claim cargo at destination. A negotiable HBL (order B/L) can transfer title by endorsement; a straight B/L is non-negotiable and only the named consignee can claim cargo.</li>
+        </ul>
+        <p>The HBL is issued by the NVOCC because the NVOCC does not own the vessel. The actual carrier (Maersk, MSC, COSCO, etc.) issues a <strong>Master Bill of Lading (MBL)</strong> to the NVOCC. The NVOCC then issues its own HBL to the shipper. This two-layer B/L system is standard in NVOCC freight forwarding.</p>
+      </div>
+
+      <h2 class="block-title">HBL vs MBL: Key Differences</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Field</th><th>House Bill (HBL)</th><th>Master Bill (MBL)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Issuer</td><td>NVOCC freight forwarder</td><td>Actual ocean carrier</td></tr>
+            <tr><td>Shipper</td><td>Actual exporter (you)</td><td>NVOCC (forwarder)</td></tr>
+            <tr><td>Consignee</td><td>Actual importer (you)</td><td>Forwarder agent at destination</td></tr>
+            <tr><td>Notify Party</td><td>Buyer or customs broker</td><td>Forwarder agent at destination</td></tr>
+            <tr><td>Used to claim cargo</td><td>Yes - by consignee</td><td>No - used between carrier and NVOCC</td></tr>
+            <tr><td>Number of originals</td><td>3 originals (or telex release)</td><td>1-3 originals</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">At destination, the consignee presents the HBL to the forwarder agent to claim cargo. The forwarder agent then uses the MBL to claim cargo from the carrier. The two-layer system separates the forwarder relationship (HBL) from the carrier relationship (MBL).</p>
+
+      <h2 class="block-title">Telex Release vs Original HBL</h2>
+      <div class="prose route-overview">
+        <p>When your HBL is issued, you choose one of two release methods at destination:</p>
+        <ul>
+          <li><strong>Telex release (electric release):</strong> The origin forwarder sends an electronic message to the destination forwarder agent instructing them to release cargo without the original HBL. The consignee simply identifies themselves and pays destination charges. This is faster (no courier delay), safer (no document loss risk) and is the standard for most DDP and FCL shipments today.</li>
+          <li><strong>Original HBL:</strong> The forwarder issues 3 original HBL copies. The shipper courier's one original to the consignee, who must present the endorsed original to the forwarder agent to claim cargo. Used for letter of credit shipments or when the buyer requires original documents for their bank or customs.</li>
+        </ul>
+        <p>For most shipments through Dantful, we default to telex release unless you specifically request original B/L. Letter of credit (L/C) shipments typically require original B/L per the L/C terms.</p>
+      </div>
+
+      <h2 class="block-title">Straight B/L vs Order B/L</h2>
+      <div class="prose route-overview">
+        <p>The HBL can be issued in two forms:</p>
+        <ul>
+          <li><strong>Straight B/L (non-negotiable):</strong> The consignee field shows a specific named party. Only that party can claim cargo at destination. Title cannot transfer by endorsement. This is the most common form for standard import/export shipments.</li>
+          <li><strong>Order B/L (negotiable):</strong> The consignee field shows "To Order" or "To Order of [Bank]". Title can transfer by endorsement on the back of the B/L. Used for letter of credit transactions where the bank holds title until payment is confirmed.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Information on a House Bill of Lading</h2>
+      <div class="prose route-overview">
+        <p>A standard HBL contains the following fields:</p>
+        <ul>
+          <li><strong>Shipper:</strong> Name and address of the exporter</li>
+          <li><strong>Consignee:</strong> Name and address of the importer (or "To Order")</li>
+          <li><strong>Notify Party:</strong> Party to be notified on arrival (buyer, broker or bank)</li>
+          <li><strong>Vessel / Voyage:</strong> Ship name and voyage number</li>
+          <li><strong>Port of Loading:</strong> Chinese departure port (Shenzhen, Shanghai, Ningbo)</li>
+          <li><strong>Port of Discharge:</strong> Destination port (Los Angeles, Rotterdam, Felixstowe)</li>
+          <li><strong>Container No. &amp; Seal No.:</strong> Container identifier and tamper-proof seal</li>
+          <li><strong>Cargo Description:</strong> Commodity, number of packages, gross weight, volume (CBM)</li>
+          <li><strong>Freight Terms:</strong> Prepaid or Collect</li>
+          <li><strong>Incoterm:</strong> FOB, CIF, DDP, etc.</li>
+          <li><strong>Number of Originals:</strong> Usually 3, or "Telex Release"</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is a House Bill of Lading (HBL)?</span></summary>
+          <div class="faq-a"><p>A House Bill of Lading (HBL) is a transport document issued by an NVOCC freight forwarder to the shipper. It serves as a receipt for cargo received, evidence of the contract of carriage, and a document of title. The HBL is distinct from the Master Bill of Lading (MBL), which is issued by the actual ocean carrier (Maersk, MSC, COSCO) to the NVOCC.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is the difference between HBL and MBL?</span></summary>
+          <div class="faq-a"><p>The MBL (Master Bill of Lading) is issued by the carrier to the NVOCC (forwarder). The HBL (House Bill of Lading) is issued by the NVOCC to the actual shipper. On the MBL, the shipper is the forwarder and the consignee is the forwarder agent at destination. On the HBL, the shipper is the actual exporter and the consignee is the actual importer. The consignee uses the HBL to claim cargo from the forwarder agent.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is telex release on a House Bill of Lading?</span></summary>
+          <div class="faq-a"><p>Telex release (also called electric release or e-release) means the forwarder at origin instructs the forwarder agent at destination to release cargo without requiring the original HBL to be presented. The consignee simply identifies themselves and pays destination charges to collect cargo. Telex release is faster and avoids the risk of original B/L documents getting lost in international courier. It is the standard for most DDP and FCL shipments today.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Do I need original HBL documents to claim my cargo?</span></summary>
+          <div class="faq-a"><p>Only if the HBL is issued as an original B/L (not telex release). In that case, the consignee must present the endorsed original HBL to the forwarder agent at destination. If you chose telex release, no original document is needed. For most DDP shipments through Dantful, we default to telex release unless you specifically request original B/L.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Can I get a telex release on an LCL shipment?</span></summary>
+          <div class="faq-a"><p>Yes. Telex release is available for both FCL and LCL shipments. For LCL, the forwarder issues a House Bill of Lading per shipment, and telex release instructs the destination warehouse to release cargo without original B/L. This is standard practice for LCL consolidation through Dantful.</p></div>
+        </details>
+      </div>
+
+      <div class="prose route-overview">
+        <p>Need a House Bill of Lading for your next shipment? As a licensed NVOCC, Dantful Logistics issues HBLs with telex release or original options for FCL, LCL and DDP shipments. <a href="/contact/">Request a quote</a> or <a href="/services/ocean-freight/">learn about our ocean freight service</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-cta">
+    <div class="container">
+      <h2 class="cta-title">Ship with a licensed NVOCC</h2>
+      <p class="cta-sub">Get a House Bill of Lading from a licensed freight forwarder. Telex release, original B/L, FCL and LCL all supported.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={articleJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px;
+    display: flex; align-items: center; color: #fff; overflow: hidden;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11, 42, 74, 0.92) 0%, rgba(18, 58, 99, 0.85) 50%, rgba(30, 111, 217, 0.78) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; padding-block: 48px; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800; margin: 0 0 14px; letter-spacing: 0.5px;
+  }
+  .route-hero-sub {
+    color: #e7eff7; font-size: 1rem; max-width: 760px;
+    margin: 0 0 22px; line-height: 1.65;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light { color: #cdd9e6; margin-bottom: 12px; }
+  .breadcrumb-light a { color: #fff; }
+  .route-overview { margin-bottom: 24px; }
+  .route-overview p, .route-overview ul { color: var(--ink-soft); line-height: 1.75; }
+  .route-overview ul { padding-left: 20px; }
+  .route-overview li { margin-bottom: 8px; }
+  .route-overview a { color: var(--blue); }
+  .block-title {
+    color: var(--navy); font-size: 1.5rem; margin: 36px 0 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--blue);
+  }
+  .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+  .table-wrap table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(11,42,74,0.05); }
+  .table-wrap th, .table-wrap td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .table-wrap th { background: var(--navy); color: #fff; font-weight: 600; }
+  .table-wrap tr:last-child td { border-bottom: none; }
+  .table-wrap tr:nth-child(even) td { background: var(--bg-soft); }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 24px; }
+  .faq-block { margin-bottom: 20px; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .faq-item[open] { border-color: var(--blue); box-shadow: 0 4px 14px rgba(11, 42, 74, 0.08); }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 16px 20px; cursor: pointer; list-style: none;
+    font-weight: 700; color: var(--navy); font-size: 0.98rem; line-height: 1.4;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-a { padding: 0 20px 18px; color: var(--ink-soft); line-height: 1.7; }
+  .faq-a p { margin: 0; font-size: 0.94rem; }
+  .route-cta {
+    background: var(--navy); color: #fff; padding-block: 56px; text-align: center;
+  }
+  .cta-title { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+  .cta-sub { color: #cdd9e6; max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .route-cta .btn-outline { border-color: #fff; color: #fff; }
+  .route-cta .btn-outline:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  @media (max-width: 640px) {
+    .route-hero { min-height: 280px; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+  }
+</style>

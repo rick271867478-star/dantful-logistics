@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Incoterms Guide: FOB, CIF, DAP, DDP | Dantful';
+const description = 'Incoterms 2020 guide: difference between FOB and CIF, DAP vs DDP shipping from China. Who pays freight, insurance, duties. Choose the right Incoterm for your shipment.';
+
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: '/resources/' },
+    { '@type': 'ListItem', position: 3, name: 'Incoterms Guide', item: '/resources/incoterms/' }
+  ]
+});
+
+const articleJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Incoterms 2020 Guide: FOB, CIF, DAP, DDP Explained',
+  description: 'Complete guide to Incoterms 2020: FOB vs CIF, DAP vs DDP, who pays freight insurance and duties. Choose the right Incoterm for shipping from China.',
+  author: { '@type': 'Organization', name: SITE.name },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  datePublished: '2026-09-17',
+  dateModified: '2026-09-17'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the difference between FOB and CIF?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FOB (Free On Board) means the seller delivers cargo loaded on board the vessel at the named Chinese port. The buyer pays ocean freight, insurance, import clearance and duties from that point. CIF (Cost, Insurance & Freight) means the seller pays ocean freight and minimum insurance to the destination port, but the buyer still pays import clearance and duties. FOB is common for FCL where the buyer controls routing. CIF is used when the buyer wants the seller to arrange freight.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between DAP and DDP shipping?',
+      acceptedAnswer: { '@type': 'Answer', text: 'DAP (Delivered at Place) means the seller delivers to the named destination, but the buyer pays import duties, VAT and customs clearance. DDP (Delivered Duty Paid) means the seller pays everything including duties and taxes. DDP is more hands-off. DAP is preferred when the buyer wants to control customs or claim input VAT. For Amazon FBA, DDP is effectively mandatory because Amazon does not act as importer of record.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which Incoterm is best for shipping from China?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For Amazon FBA: DDP is the standard because Amazon does not act as importer of record. For first-time importers: DDP is recommended for a hands-off experience. For experienced importers with their own customs broker: FOB (FCL) or EXW (if you want the forwarder to handle factory pickup) gives you control over freight routing. For LCL consolidation: DDP or DAP is typical because the forwarder handles the entire LCL process.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What does EXW mean when shipping from China?',
+      acceptedAnswer: { '@type': 'Answer', text: 'EXW (Ex Works) means the seller makes goods available at their premises (factory or warehouse). The buyer bears all costs and risks from the factory door: pickup, export customs, freight, insurance, import clearance, duties, delivery. In practice, the buyer freight forwarder like Dantful handles all of this on behalf of the buyer. EXW is common when the buyer wants the forwarder to manage everything from factory pickup onward.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Does DDP include customs duties and taxes?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Under DDP (Delivered Duty Paid), the seller pays all costs including import customs duties, VAT/GST, and any other taxes. The buyer receives goods at their door with zero customs paperwork. This is why DDP is the preferred Incoterm for Amazon FBA and first-time importers - no surprises, no hidden customs charges.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/resource-incoterms-hero.webp" alt="Incoterms 2020 guide - FOB CIF DAP DDP shipping terms from China" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/resources/">Resources</a> / <span>Incoterms Guide</span>
+      </nav>
+      <h1>Incoterms 2020: FOB, CIF, DAP, DDP</h1>
+      <p class="route-hero-sub">Incoterms define who pays freight, insurance, duties and customs clearance when shipping from China. This guide explains the difference between FOB and CIF, DAP and DDP, and which Incoterm to choose for your shipment.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="/services/ocean-freight/" class="btn btn-outline">Ocean Freight</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Incoterms (International Commercial Terms) are a set of 11 rules published by the International Chamber of Commerce (ICC) that define the responsibilities of buyers and sellers in international trade. They specify who pays for freight, insurance, customs clearance, duties, and at what point risk transfers from seller to buyer. When shipping from China, the four most commonly used Incoterms are <strong>FOB, CIF, DAP and DDP</strong>. Choosing the right Incoterm affects your landed cost, customs process and risk exposure.</p>
+      </div>
+
+      <h2 class="block-title">FOB (Free On Board)</h2>
+      <div class="prose route-overview">
+        <p>Under FOB, the seller (Chinese factory or trading company) delivers cargo loaded on board the vessel at the named Chinese port. The risk transfers from seller to buyer the moment cargo crosses the ship's rail at the port of loading.</p>
+        <p><strong>Seller pays:</strong> Factory pickup, trucking to port, export customs declaration, origin port charges, loading on vessel.</p>
+        <p><strong>Buyer pays:</strong> Ocean freight, insurance, destination port charges, import customs clearance, duties and taxes, inland delivery to final destination.</p>
+        <p><strong>Best for:</strong> FCL shipments where the buyer wants to control carrier routing and negotiate their own freight rates. Common for large importers with their own carrier contracts or forwarder at destination.</p>
+      </div>
+
+      <h2 class="block-title">CIF (Cost, Insurance &amp; Freight)</h2>
+      <div class="prose route-overview">
+        <p>Under CIF, the seller pays ocean freight and minimum marine insurance to the destination port. Risk still transfers at the port of loading (same as FOB), but the seller arranges and pays for freight and insurance to the destination port.</p>
+        <p><strong>Seller pays:</strong> Everything in FOB, plus ocean freight and minimum marine insurance to destination port.</p>
+        <p><strong>Buyer pays:</strong> Destination port charges, import customs clearance, duties and taxes, inland delivery.</p>
+        <p><strong>Best for:</strong> Buyers who want the seller to arrange freight but handle their own import clearance. Common for bulk cargo and commodity shipments.</p>
+      </div>
+
+      <h2 class="block-title">DAP (Delivered at Place)</h2>
+      <div class="prose route-overview">
+        <p>Under DAP, the seller delivers to the named destination place (buyer's warehouse, Amazon FBA FC, etc.). The seller pays all costs up to delivery, but the buyer pays import duties, VAT and customs clearance.</p>
+        <p><strong>Seller pays:</strong> Factory pickup, export customs, ocean/air freight, destination port charges, inland delivery to named place.</p>
+        <p><strong>Buyer pays:</strong> Import customs duties, VAT/GST, customs clearance fees.</p>
+        <p><strong>Best for:</strong> Buyers who want the forwarder to handle freight and delivery but prefer to control their own customs, claim input VAT, or use their own broker.</p>
+      </div>
+
+      <h2 class="block-title">DDP (Delivered Duty Paid)</h2>
+      <div class="prose route-overview">
+        <p>Under DDP, the seller delivers to the named destination place with all costs paid, including import duties, VAT and customs clearance. This is the most hands-off Incoterm for the buyer.</p>
+        <p><strong>Seller pays:</strong> Everything in DAP, plus import customs clearance, duties, VAT/GST, and any other taxes.</p>
+        <p><strong>Buyer pays:</strong> Nothing - goods arrive at door ready for use.</p>
+        <p><strong>Best for:</strong> Amazon FBA (Amazon does not act as importer of record), first-time importers, and clients who want a fully hands-off experience. Dantful offers DDP to USA, EU 27, UK, Canada, Australia, Japan and Mexico.</p>
+      </div>
+
+      <h2 class="block-title">FOB vs CIF vs DAP vs DDP Comparison</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Cost / Responsibility</th><th>FOB</th><th>CIF</th><th>DAP</th><th>DDP</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Factory pickup &amp; trucking</td><td>Seller</td><td>Seller</td><td>Seller</td><td>Seller</td></tr>
+            <tr><td>Export customs clearance</td><td>Seller</td><td>Seller</td><td>Seller</td><td>Seller</td></tr>
+            <tr><td>Ocean / air freight</td><td>Buyer</td><td>Seller</td><td>Seller</td><td>Seller</td></tr>
+            <tr><td>Insurance</td><td>Buyer</td><td>Seller</td><td>Buyer</td><td>Seller</td></tr>
+            <tr><td>Destination port charges</td><td>Buyer</td><td>Buyer</td><td>Seller</td><td>Seller</td></tr>
+            <tr><td>Import customs clearance</td><td>Buyer</td><td>Buyer</td><td>Buyer</td><td>Seller</td></tr>
+            <tr><td>Import duties &amp; VAT</td><td>Buyer</td><td>Buyer</td><td>Buyer</td><td>Seller</td></tr>
+            <tr><td>Inland delivery to door</td><td>Buyer</td><td>Buyer</td><td>Seller</td><td>Seller</td></tr>
+            <tr><td>Risk transfer point</td><td>Load port</td><td>Load port</td><td>Destination</td><td>Destination</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">In practice, when a buyer chooses FOB or EXW, their freight forwarder like Dantful handles all the buyer-side costs on their behalf. The Incoterm defines the commercial contract between buyer and seller; the forwarder executes the logistics.</p>
+
+      <h2 class="block-title">EXW (Ex Works) - Also Common</h2>
+      <div class="prose route-overview">
+        <p>Under EXW, the seller makes goods available at their premises (factory or warehouse). The buyer bears all costs and risks from the factory door. In practice, the buyer's freight forwarder like Dantful handles everything: factory pickup, export customs, freight, insurance, import clearance, duties, delivery. EXW is common when the buyer wants the forwarder to manage the entire door-to-door process but the seller refuses to handle any export procedures.</p>
+      </div>
+
+      <h2 class="block-title">Which Incoterm Should You Choose?</h2>
+      <div class="prose route-overview">
+        <ul>
+          <li><strong>Amazon FBA:</strong> DDP is effectively mandatory. Amazon does not act as importer of record, so the shipper (or forwarder) must clear customs and pay duties.</li>
+          <li><strong>First-time importers:</strong> DDP is recommended. No customs paperwork, no surprise duty bills, fully hands-off.</li>
+          <li><strong>Experienced importers with own broker:</strong> FOB (for FCL) or EXW (if you want the forwarder to handle factory pickup) gives you control over freight routing and customs.</li>
+          <li><strong>Buyers claiming input VAT:</strong> DAP may be preferred. The buyer controls import clearance to register VAT properly for deduction.</li>
+          <li><strong>LCL consolidation:</strong> DDP or DAP is typical. The forwarder handles the entire LCL process including origin consolidation and destination deconsolidation.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is the difference between FOB and CIF?</span></summary>
+          <div class="faq-a"><p>FOB (Free On Board) means the seller delivers cargo loaded on board the vessel at the named Chinese port. The buyer pays ocean freight, insurance, import clearance and duties from that point. CIF (Cost, Insurance & Freight) means the seller pays ocean freight and minimum insurance to the destination port, but the buyer still pays import clearance and duties. FOB is common for FCL where the buyer controls routing. CIF is used when the buyer wants the seller to arrange freight.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is the difference between DAP and DDP shipping?</span></summary>
+          <div class="faq-a"><p>DAP (Delivered at Place) means the seller delivers to the named destination, but the buyer pays import duties, VAT and customs clearance. DDP (Delivered Duty Paid) means the seller pays everything including duties and taxes. DDP is more hands-off. DAP is preferred when the buyer wants to control customs or claim input VAT. For Amazon FBA, DDP is effectively mandatory because Amazon does not act as importer of record.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Which Incoterm is best for shipping from China?</span></summary>
+          <div class="faq-a"><p>For Amazon FBA: DDP is the standard because Amazon does not act as importer of record. For first-time importers: DDP is recommended for a hands-off experience. For experienced importers with their own customs broker: FOB (FCL) or EXW (if you want the forwarder to handle factory pickup) gives you control over freight routing. For LCL consolidation: DDP or DAP is typical because the forwarder handles the entire LCL process.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What does EXW mean when shipping from China?</span></summary>
+          <div class="faq-a"><p>EXW (Ex Works) means the seller makes goods available at their premises (factory or warehouse). The buyer bears all costs and risks from the factory door: pickup, export customs, freight, insurance, import clearance, duties, delivery. In practice, the buyer freight forwarder like Dantful handles all of this on behalf of the buyer. EXW is common when the buyer wants the forwarder to manage everything from factory pickup onward.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Does DDP include customs duties and taxes?</span></summary>
+          <div class="faq-a"><p>Yes. Under DDP (Delivered Duty Paid), the seller pays all costs including import customs duties, VAT/GST, and any other taxes. The buyer receives goods at their door with zero customs paperwork. This is why DDP is the preferred Incoterm for Amazon FBA and first-time importers - no surprises, no hidden customs charges.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-cta">
+    <div class="container">
+      <h2 class="cta-title">Need help choosing an Incoterm?</h2>
+      <p class="cta-sub">Get an all-in DDP or FOB quote within 2 working hours. We handle all Incoterms from FOB to DDP.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={articleJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px;
+    display: flex; align-items: center; color: #fff; overflow: hidden;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11, 42, 74, 0.92) 0%, rgba(18, 58, 99, 0.85) 50%, rgba(30, 111, 217, 0.78) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; padding-block: 48px; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800; margin: 0 0 14px; letter-spacing: 0.5px;
+  }
+  .route-hero-sub {
+    color: #e7eff7; font-size: 1rem; max-width: 760px;
+    margin: 0 0 22px; line-height: 1.65;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light { color: #cdd9e6; margin-bottom: 12px; }
+  .breadcrumb-light a { color: #fff; }
+  .route-overview { margin-bottom: 24px; }
+  .route-overview p, .route-overview ul { color: var(--ink-soft); line-height: 1.75; }
+  .route-overview ul { padding-left: 20px; }
+  .route-overview li { margin-bottom: 8px; }
+  .route-overview a { color: var(--blue); }
+  .block-title {
+    color: var(--navy); font-size: 1.5rem; margin: 36px 0 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--blue);
+  }
+  .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+  .table-wrap table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(11,42,74,0.05); }
+  .table-wrap th, .table-wrap td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .table-wrap th { background: var(--navy); color: #fff; font-weight: 600; }
+  .table-wrap tr:last-child td { border-bottom: none; }
+  .table-wrap tr:nth-child(even) td { background: var(--bg-soft); }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 24px; }
+  .faq-block { margin-bottom: 20px; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .faq-item[open] { border-color: var(--blue); box-shadow: 0 4px 14px rgba(11, 42, 74, 0.08); }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 16px 20px; cursor: pointer; list-style: none;
+    font-weight: 700; color: var(--navy); font-size: 0.98rem; line-height: 1.4;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-a { padding: 0 20px 18px; color: var(--ink-soft); line-height: 1.7; }
+  .faq-a p { margin: 0; font-size: 0.94rem; }
+  .route-cta {
+    background: var(--navy); color: #fff; padding-block: 56px; text-align: center;
+  }
+  .cta-title { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+  .cta-sub { color: #cdd9e6; max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .route-cta .btn-outline { border-color: #fff; color: #fff; }
+  .route-cta .btn-outline:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  @media (max-width: 640px) {
+    .route-hero { min-height: 280px; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+  }
+</style>

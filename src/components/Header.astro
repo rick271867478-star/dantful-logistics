@@ -19,18 +19,27 @@ const isActive = (href: string) => {
 };
 const menu = [
   { href: '/', label: 'HOME', drop: [] as { href: string; label: string }[] },
-  { href: '/about/', label: 'ABOUT', drop: [] },
+  { href: '/about/', label: 'ABOUT', drop: [
+    { href: '/about/', label: 'About Us' },
+    { href: '/about/credentials/', label: 'Credentials' },
+    { href: '/case/', label: 'Client Cases' },
+  ] },
   { href: '/services/', label: 'SERVICES', drop: services.map((s) => ({ href: `/services/${s.slug}/`, label: s.title })) },
-  { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: regions.map((r) => ({ href: `/ship-by-region/${r.slug}/`, label: r.name })) },
-  { href: '/case/', label: 'CASE', drop: featuredRegions.map((rslug) => {
-      const reg = regions.find(x => x.slug === rslug);
-      return { href: `/case/#${rslug}`, label: reg?.name || rslug };
-    })
-  },
+  { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: [
+    ...regions.map((r) => ({ href: `/ship-by-region/${r.slug}/`, label: r.name })),
+    { href: '/routes/', label: 'All Country Routes' },
+  ] },
+  { href: '/resources/', label: 'RESOURCES', drop: [
+    { href: '/resources/house-bill-of-lading/', label: 'House Bill of Lading' },
+    { href: '/resources/incoterms/', label: 'Incoterms Guide' },
+    { href: '/services/fcl-vs-lcl/', label: 'FCL vs LCL' },
+    { href: '/faq/', label: 'Shipping FAQ' },
+    { href: '/fba/china-to-usa/', label: 'Amazon FBA Guide' },
+  ] },
   { href: '/news/', label: 'NEWS', drop: newsCategories.map((c) => ({ href: `/news/#${c.toLowerCase().replace(/ /g, '-')}`, label: c })) },
-  { href: '/faq/', label: 'FAQ', drop: [] },
   { href: '/contact/', label: 'CONTACT', drop: [] },
 ];
+
 ---
 
 <header class="site-header">

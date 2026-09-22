@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Customs Clearance & Freight Forwarding | Dantful';
+const description = 'Customs clearance and freight forwarding from China. Class-A licensed brokerage. ISF, AMS, ENS, CO, FORM A/E, HS classification, DDP clearance and duty optimization.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: 'Customs Clearance', item: '/services/customs-clearance/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Customs Clearance and Freight Forwarding',
+  serviceType: 'Customs Brokerage',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['United States', 'European Union', 'United Kingdom', 'Australia', 'Canada', 'China'],
+  description: 'Class-A licensed China customs brokerage. Export and import declarations, ISF-10/AMS/ENS filings, CO/FORM A/E certificates, HS classification and FTA duty optimization.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is customs clearance?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Customs clearance is the process of declaring goods to customs authorities, paying applicable duties and taxes, and obtaining release for import or export. It involves filing entry declarations (ISF, AMS, ENS, B3, FID), providing documents (commercial invoice, packing list, B/L or AWB, certificate of origin), paying duty and VAT, and clearing any inspections (CIQ, FDA, agricultural). A licensed customs broker like Dantful handles the entire process on your behalf.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is ISF-10 filing?',
+      acceptedAnswer: { '@type': 'Answer', text: 'ISF-10 (Importer Security Filing) is required by US CBP for ocean imports, due 24 hours before vessel sailing from the foreign port. It includes 10 data elements from the importer (seller, buyer, importer of record, consignee, manufacturer, country of origin, HS code, ship-to-party) plus 2 from the carrier (vessel name, voyage number). Late or missing ISF filings carry a USD 5,000 penalty per violation from CBP. We file ISF on your behalf with confirmed sailing schedules.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between DDP and DDU?',
+      acceptedAnswer: { '@type': 'Answer', text: 'DDP (Delivered Duty Paid) means the seller pays all import duties, taxes and customs clearance fees - buyer receives goods cleared at their door. DDU (Delivered Duty Unpaid) means the buyer pays duties and clears customs on arrival. DDP is recommended for first-time importers, e-commerce sellers, and Amazon FBA shipments because it eliminates surprise fees and customs delays. DDU may suit experienced importers with their own broker and duty deferment.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is a Certificate of Origin and why do I need it?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A Certificate of Origin (CO) proves the country where goods were manufactured. It is required by customs to determine duty rate, quota eligibility, and anti-dumping applicability. FTA certificates (FORM A GSP, FORM E ASEAN-China, FORM F Chile, RCEP) enable preferential duty rates under Free Trade Agreements - saving 0 to 100% duty versus the standard MFN rate. Without a valid CO, you pay full duty even if your goods qualify for FTA preference.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How to reduce import duty legally?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Legal duty reduction strategies include: (1) correct HS classification - we classify under 3 alternative codes to find the lowest legal rate; (2) FTA origin preference - using FORM A/E/F/RCEP to claim 0-100% duty savings; (3) duty drawback - refunds on duties paid for goods re-exported; (4) bonded warehouse - duty deferral until goods are sold or re-exported; (5) first-sale valuation - using earlier sale in the supply chain as the customs value. We review each shipment for the lowest legal landed duty.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/service-customs-clearance-hero.webp" alt="Customs clearance and freight forwarding from China - customs officers reviewing shipping documents at a major Chinese port" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/">Services</a> / <span>Customs Clearance</span>
+      </nav>
+      <h1>Customs Clearance and Freight Forwarding</h1>
+      <p class="route-hero-sub">Class-A licensed China customs brokerage. Export and import declarations, ISF-10/AMS/ENS filings, CO/FORM A/E certificates, HS classification. 96% of declarations cleared within [4 hours]. DDP clearance and duty optimization.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Clearance Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Dantful Logistics is a Class-A licensed customs broker based in Shenzhen since 2008. We hold direct EDI connections with China GACC, US CBP, EU ICS, Canada CBSA and Australia ABF. This lets us file declarations in real time, with 96% of shipments cleared within 4 hours. We are also a licensed NVOCC and IATA air freight forwarder, so we handle both clearance and carriage under one roof - no finger-pointing between broker and forwarder.</p>
+        <p>This page covers clearance times by destination and filing type, price ranges for export and import declarations, the 5-step customs workflow, the documents you need to prepare, and the questions shippers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in clearance quote within 2 hours.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Customs Clearance Times: China &amp; Global Destinations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Service</th><th>Destination</th><th>Filing Deadline</th><th>Clearance Time</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ISF-10 Filing</td><td>USA</td><td>24h before vessel sailing</td><td>[2-4h]</td><td>Mandatory for US ocean imports</td></tr>
+            <tr><td>AMS Filing</td><td>USA (air)</td><td>Before departure</td><td>[1-2h]</td><td>US air cargo pre-manifest</td></tr>
+            <tr><td>ENS Filing</td><td>EU</td><td>24h before loading</td><td>[2-4h]</td><td>EU Import Control System</td></tr>
+            <tr><td>ACI Filing</td><td>Canada</td><td>24h before arrival</td><td>[2-4h]</td><td>CBSA eManifest</td></tr>
+            <tr><td>Export Declaration</td><td>China</td><td>Before departure</td><td>[2-4h]</td><td>GACC EDI filing</td></tr>
+            <tr><td>Import Declaration</td><td>China</td><td>Within 14 days of arrival</td><td>[4-8h]</td><td>CIQ inspection may apply</td></tr>
+            <tr><td>B3 Entry</td><td>Canada</td><td>Within 40 days</td><td>[4-8h]</td><td>CBSA clearance</td></tr>
+            <tr><td>FID Filing</td><td>Australia</td><td>Within 14 days</td><td>[4-8h]</td><td>ABF Full Import Declaration</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Clearance times assume documents are complete and HS code is confirmed before filing. Times may extend if CIQ, FDA, agricultural or anti-dumping inspection is triggered. We pre-screen your documents to avoid hold-ups. <a href="/contact/">Request a quote</a> for a confirmed clearance timeline.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>Customs clearance is priced per entry or per shipment. We quote transparent flat fees with no hidden disbursement markups.</p>
+        <ul>
+          <li><strong>Export declaration (China):</strong> [USD XX per shipment] 鈥?flat fee, includes GACC EDI filing and CIQ coordination if needed.</li>
+          <li><strong>Import clearance (USA):</strong> [USD XXX per entry] 鈥?includes ISF-10 filing, CBP entry, duty filing, and coordination with FDA/APHIS if applicable.</li>
+          <li><strong>Import clearance (EU):</strong> [USD XXX per entry] 鈥?includes ENS filing, import entry, and coordination with national customs (DE, NL, FR, UK).</li>
+          <li><strong>CO / FORM A/E/F/RCEP:</strong> [USD XX per certificate] 鈥?issued by CCPIT or GACC. Required for FTA duty preference.</li>
+          <li><strong>Customs bond (USA single entry):</strong> [USD XXX] 鈥?covers single shipment, required for DDP entries.</li>
+          <li><strong>Customs bond (USA continuous):</strong> [USD XXXX per year] 鈥?covers unlimited entries, recommended for shippers with 12+ USA imports per year.</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>HS code complexity:</strong> High-tech, chemical, or multi-component goods need careful classification. We classify under 3 alternative codes to find the lowest legal rate.</li>
+          <li><strong>Number of line items:</strong> Each HS code on the entry is a separate line item. Mixed cargo with 10+ items takes longer to file.</li>
+          <li><strong>Restricted goods:</strong> Food, plants, wood, chemicals, batteries, medical devices may trigger CIQ/FDA inspection and add 1 to 2 days.</li>
+          <li><strong>Duty rate:</strong> Determined by HS code and country of origin. Ranges from 0% (FTA preference) to 25%+ (anti-dumping). We optimize classification to land the lowest legal rate.</li>
+          <li><strong>FTA preference:</strong> FORM A/E/F/RCEP can save 0 to 100% duty. We confirm your goods qualify and issue the right certificate before sailing.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step Customs Clearance Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send your commercial invoice, packing list, B/L or AWB, HS code (if known), and Incoterm (DDP/DDU). You receive a clearance fee quote within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Document Check</h3>
+          <p>Our licensed brokers pre-screen your documents for accuracy: HS classification, value declaration, origin certificate, restricted goods docs. We flag and fix issues before filing.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Filing &amp; Declaration</h3>
+          <p>We file ISF-10, AMS, ENS, ACI, export or import declaration electronically via EDI. Acknowledgment typically returns within 1 to 4 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Inspection (if needed)</h3>
+          <p>If CIQ, FDA, APHIS or anti-dumping inspection is triggered, we coordinate on your behalf, attend exams, and submit additional docs to expedite release.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>Release &amp; Duty Payment</h3>
+          <p>Customs issues release. We pay duty and VAT on your behalf (DDP terms) or remit to you (DDU terms), and arrange delivery to your warehouse or 3PL.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">+</span>
+          <h3>FTA Duty Optimization</h3>
+          <p>We classify your goods under 3 alternative HS codes to find the lowest legal duty rate. Combined with FORM A/E/F/RCEP origin certificates, this can save 3 to 15% of landed duty. <a href="/contact/">Get a duty optimization review</a>.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?full seller and buyer details, HS code, unit price, Incoterm, currency, country of origin.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, gross weight, net weight, dimensions per carton and total CBM.</li>
+          <li><strong>Bill of Lading (B/L) or Air Waybill (AWB)</strong> 鈥?carrier or forwarder-issued transport document. We use it to file entry and claim release.</li>
+          <li><strong>Certificate of Origin (CO/FORM A/E/F/RCEP)</strong> 鈥?CCPIT-issued general CO, or FTA certificates for preferential duty. We issue on your behalf.</li>
+          <li><strong>Import License</strong> 鈥?for restricted goods: chemicals, batteries, food, plants, medical devices. We confirm if your goods need a license.</li>
+          <li><strong>Inspection Certificate (CIQ)</strong> 鈥?for goods requiring pre-shipment inspection. We arrange inspection and obtain certificates.</li>
+          <li><strong>Customs Bond</strong> 鈥?required for US imports (single entry or continuous). We purchase on your behalf from a licensed surety.</li>
+          <li><strong>Power of Attorney (POA)</strong> 鈥?authorizes Dantful to file customs entries on your behalf. Required for DDP service and ongoing broker relationship.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>What is customs clearance?</h3>
+        <p>Customs clearance is the process of declaring goods to customs authorities, paying applicable duties and taxes, and obtaining release for import or export. It involves filing entry declarations (ISF, AMS, ENS, B3, FID), providing documents (commercial invoice, packing list, B/L or AWB, certificate of origin), paying duty and VAT, and clearing any inspections (CIQ, FDA, agricultural). A licensed customs broker like Dantful handles the entire process on your behalf.</p>
+
+        <h3>What is ISF-10 filing?</h3>
+        <p>ISF-10 (Importer Security Filing) is required by US CBP for ocean imports, due 24 hours before vessel sailing from the foreign port. It includes 10 data elements from the importer (seller, buyer, importer of record, consignee, manufacturer, country of origin, HS code, ship-to-party) plus 2 from the carrier (vessel name, voyage number). Late or missing ISF filings carry a USD 5,000 penalty per violation from CBP. We file ISF on your behalf with confirmed sailing schedules.</p>
+
+        <h3>What is the difference between DDP and DDU?</h3>
+        <p>DDP (Delivered Duty Paid) means the seller pays all import duties, taxes and customs clearance fees - buyer receives goods cleared at their door. DDU (Delivered Duty Unpaid) means the buyer pays duties and clears customs on arrival. DDP is recommended for first-time importers, e-commerce sellers, and Amazon FBA shipments because it eliminates surprise fees and customs delays. DDU may suit experienced importers with their own broker and duty deferment.</p>
+
+        <h3>What is a Certificate of Origin and why do I need it?</h3>
+        <p>A Certificate of Origin (CO) proves the country where goods were manufactured. It is required by customs to determine duty rate, quota eligibility, and anti-dumping applicability. FTA certificates (FORM A GSP, FORM E ASEAN-China, FORM F Chile, RCEP) enable preferential duty rates under Free Trade Agreements - saving 0 to 100% duty versus the standard MFN rate. Without a valid CO, you pay full duty even if your goods qualify for FTA preference.</p>
+
+        <h3>How to reduce import duty legally?</h3>
+        <p>Legal duty reduction strategies include: (1) correct HS classification - we classify under 3 alternative codes to find the lowest legal rate; (2) FTA origin preference - using FORM A/E/F/RCEP to claim 0-100% duty savings; (3) duty drawback - refunds on duties paid for goods re-exported; (4) bonded warehouse - duty deferral until goods are sold or re-exported; (5) first-sale valuation - using earlier sale in the supply chain as the customs value. We review each shipment for the lowest legal landed duty.</p>
+      </div>
+
+      <h2 class="block-title">Related Routes &amp; Services</h2>
+      <div class="grid grid-3 chip-row">
+        <a href="/services/ocean-freight/" class="card svc-card">
+          <h3>Ocean Freight</h3>
+          <p>FCL 20GP/40HQ and LCL consolidation to USA, EU, UK, Australia, Canada. Direct carrier contracts, weekly sailings, DDP clearance.</p>
+        </a>
+        <a href="/services/air-freight/" class="card svc-card">
+          <h3>Air Freight</h3>
+          <p>Express, economy and charter air cargo from PVG, CAN, HKG to 200+ destinations. Daily departures, DDP door-to-door.</p>
+        </a>
+        <a href="/routes/china-to-usa/" class="card svc-card">
+          <h3>Door-to-Door</h3>
+          <p>EXW factory pickup to your warehouse, 3PL or Amazon FBA. DDP clearance, duty and inland delivery in one rate.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-row">
+      <div class="cta-text">
+        <h2>Get a Customs Clearance Quote for Your Shipment</h2>
+        <p>Send your commercial invoice, packing list and B/L or AWB. You receive a confirmed clearance fee and timeline within 2 hours.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+
+  <style>
+    .route-hero { position: relative; min-height: 540px; display: flex; align-items: center; color: #fff; overflow: hidden; }
+    .route-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .route-hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(8, 30, 64, 0.82) 0%, rgba(12, 50, 110, 0.7) 100%); }
+    .route-hero-content { position: relative; z-index: 2; padding: 80px 24px; max-width: 960px; }
+    .breadcrumb { font-size: 14px; margin-bottom: 16px; }
+    .breadcrumb-light a { color: #d9e6ff; text-decoration: none; }
+    .breadcrumb-light a:hover { text-decoration: underline; }
+    .breadcrumb-light span { color: #fff; }
+    .route-hero h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; }
+    .route-hero-sub { font-size: 18px; line-height: 1.55; max-width: 820px; margin: 0 0 28px; }
+    .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; transition: background 0.2s, color 0.2s, border 0.2s; }
+    .btn-primary { background: #ff6b35; color: #fff; }
+    .btn-primary:hover { background: #e55a2a; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn-outline:hover { background: #fff; color: #0c326e; }
+    .btn-whatsapp { background: #25d366; color: #fff; }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+    .block-title { font-size: 26px; margin: 36px 0 16px; color: #0c326e; font-weight: 700; }
+    .route-overview { font-size: 16px; line-height: 1.7; color: #2c3e50; margin: 16px 0 24px; }
+    .route-overview p { margin: 0 0 14px; }
+    .route-overview ul { padding-left: 22px; margin: 8px 0 16px; }
+    .route-overview li { margin: 6px 0; }
+    .route-overview a { color: #0c5fa8; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 8px; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+    .table-wrap th, .table-wrap td { border: 1px solid #e0e6ed; padding: 10px 12px; text-align: left; }
+    .table-wrap th { background: #0c326e; color: #fff; font-weight: 600; }
+    .table-wrap tbody tr:nth-child(even) { background: #f6f8fb; }
+    .table-note { font-size: 13px; color: #5a6b7c; margin: 0 0 20px; }
+    .step-grid { gap: 16px; margin: 16px 0 24px; }
+    .step-card { position: relative; padding: 28px 20px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; }
+    .step-card .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #ff6b35; color: #fff; font-weight: 700; font-size: 18px; margin-bottom: 12px; }
+    .step-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 18px; }
+    .step-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .step-card a { color: #0c5fa8; }
+    .doc-list { list-style: none; padding: 0; margin: 12px 0 24px; }
+    .doc-list li { padding: 10px 14px 10px 32px; margin: 6px 0; border-left: 3px solid #ff6b35; background: #f6f8fb; position: relative; }
+    .doc-list li::before { content: "OK"; position: absolute; left: 10px; top: 10px; font-size: 12px; color: #25a04a; font-weight: 700; }
+    .faq-block { margin: 16px 0 24px; }
+    .faq-block h3 { font-size: 17px; color: #0c326e; margin: 20px 0 8px; cursor: pointer; }
+    .faq-block p { font-size: 15px; line-height: 1.7; color: #2c3e50; margin: 0 0 12px; padding-left: 16px; border-left: 3px solid #e0e6ed; }
+    .faq-block a { color: #0c5fa8; }
+    .chip-row { gap: 16px; margin: 16px 0 24px; }
+    .svc-card { padding: 22px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+    .svc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(12, 50, 110, 0.12); }
+    .svc-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 17px; }
+    .svc-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .cta-section { background: #0c326e; color: #fff; padding: 56px 0; margin-top: 40px; }
+    .cta-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-text h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+    .cta-text p { margin: 0; color: #d9e6ff; }
+    .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .grid { display: grid; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card { background: #fff; border-radius: 8px; }
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .route-hero { min-height: 420px; }
+      .route-hero h1 { font-size: 30px; }
+      .route-hero-sub { font-size: 16px; }
+      .cta-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</BaseLayout>

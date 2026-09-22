@@ -181,4 +181,52 @@ export const regions: Region[] = [
       { from: 'Guangzhou', to: 'Callao (Peru)', mode: 'Air', transit: '5-7 days' },
     ],
   },
+  {
+    slug: 'russia',
+    name: 'Russia',
+    intro:
+      'Ocean FCL, LCL consolidation, China-Europe Railway Express and air freight from China to Russia. Direct sailings to Vladivostok and Vostochny. Weekly block trains to Moscow. EAC customs clearance and GOST R conformity certification with DDP door-to-door delivery.',
+    seoTitle: 'Shipping from China to Russia | Dantful',
+    seoDescription:
+      'Shipping from China to Russia: ocean FCL to Vladivostok, Vostochny. China-Europe Railway to Moscow. Air freight to SVO. EAC customs clearance, GOST R. DDP door-to-door.',
+    overview: [
+      'We ship direct ocean FCL and LCL consolidation from China to Russian Far East ports. Vladivostok is the largest container port in Russia\'s Far East. Transit from Shanghai to Vladivostok is 10 to 14 days with weekly sailings by FESCO, SASCO and Maersk.',
+      'China-Europe Railway Express (CRE) is the fastest growing mode to Russia. Block trains run from Yiwu, Xi\'an, Chengdu, Chongqing and Shijiazhuang to Moscow (Kuntsevo and Voronino stations). Transit is 12 to 15 days - half the time of ocean shipping and one-third the cost of air freight.',
+      'Russian West (Moscow, St. Petersburg) is also served via St. Petersburg seaport by ocean freight through the Suez Canal. Transit from Shanghai to St. Petersburg is 35 to 42 days. For time-sensitive cargo to Moscow, block train or air freight is recommended.',
+      'Air freight serves Moscow Sheremetyevo (SVO), Domodedovo (DME) and St. Petersburg Pulkovo (LED). Carriers include AirBridgeCargo, Aeroflot Cargo and China Eastern Cargo. Transit from Guangzhou to Moscow is 4 to 6 days door-to-door.',
+      'EAC (Eurasian Economic Union) customs clearance requires EAC declaration, EAC certificate of conformity and GOST R certification for regulated products. Our team handles full EAC clearance, import duties (5-15% depending on HS code) and VAT (20%) under DDP terms.',
+      'E-commerce and Ozon/Wildberries sellers ship from Yiwu, Guangzhou and Shenzhen warehouses to Moscow distribution centers via block train + last-mile trucking. Consolidation, FNSKU-style labeling and repacking available at our Shenzhen bonded warehouse.',
+    ],
+    highlights: ['Weekly FCL to Vladivostok', 'Block train to Moscow (12-15 days)', 'EAC customs & GOST R certification', 'E-commerce to Ozon & Wildberries'],
+    relatedServices: ['ocean-freight', 'air-freight', 'customs-clearance', 'door-to-door', 'warehousing'],
+    routes: [
+      { from: 'Shanghai', to: 'Vladivostok', mode: 'Ocean FCL', transit: '10-14 days' },
+      { from: 'Yiwu', to: 'Moscow', mode: 'Block Train', transit: '12-15 days' },
+      { from: 'Guangzhou', to: 'Moscow (SVO)', mode: 'Air', transit: '4-6 days' },
+    ],
+  },
+  {
+    slug: 'central-asia',
+    name: 'Central Asia',
+    intro:
+      'China-Europe Railway, ocean+rail intermodal and air freight from China to the five Central Asian states - Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan and Turkmenistan. Direct block trains to Almaty, Tashkent and Bishkek with EAC and national customs clearance plus DDP delivery.',
+    seoTitle: 'Shipping from China to Central Asia | Dantful',
+    seoDescription:
+      'Shipping from China to Central Asia: China-Europe Railway to Almaty, Tashkent, Bishkek. Ocean+rail via Lianyungang. Air freight to ALA, TAS. EAC & national customs. DDP door-to-door.',
+    overview: [
+      'Central Asia is served primarily by the China-Europe Railway Express via the Khorgos and Alashankou border crossings. Block trains run from Lianyungang, Xi\'an, Chengdu, Chongqing and Urumqi to Almaty (Kazakhstan), Tashkent (Uzbekistan) and Bishkek (Kyrgyzstan).',
+      'Kazakhstan is the largest market. Main destinations: Almaty, Astana, Shymkent and Aktau (Caspian Sea port). Transit from Lianyungang to Almaty is 8 to 12 days by rail. Direct air freight from Urumqi (URC) to Almaty (ALA) takes 1 to 2 days.',
+      'Uzbekistan service covers Tashkent, Samarkand and Bukhara. Block trains enter via Khorgos-Kazakhstan corridor. Transit from Xi\'an to Tashkent is 12 to 16 days. We also offer trucking via the Irkeshtam and Karasu border crossings for LCL and e-commerce cargo.',
+      'Kyrgyzstan, Tajikistan and Turkmenistan are served via transit through Kazakhstan or direct trucking via the Torugart and Irkeshtam passes. Transit to Bishkek is 10 to 14 days by rail. Turkmenistan transshipment via Aktau port and Caspian Sea ferry.',
+      'EAC customs clearance applies for Kazakhstan, Kyrgyzstan and Russia. Uzbekistan, Tajikistan and Turkmenistan have separate customs regimes - we handle national conformity certs, GOST and import VAT (12% in Uzbekistan, 12% in Kazakhstan, 18% in Tajikistan).',
+      'Intermodal ocean+rail service: cargo ships from south China ports to Lianyungang or Qingdao, then block train to Central Asia. Combines cost-efficiency of LCL consolidation with railway speed. Ideal for steel, machinery, building materials, electronics and e-commerce.',
+    ],
+    highlights: ['Block train to Almaty (8-12 days)', 'Khorgos & Alashankou border crossings', 'EAC & national customs clearance', 'Intermodal ocean+rail service'],
+    relatedServices: ['ocean-freight', 'air-freight', 'customs-clearance', 'door-to-door', 'warehousing'],
+    routes: [
+      { from: 'Lianyungang', to: 'Almaty', mode: 'Block Train', transit: '8-12 days' },
+      { from: 'Xi\'an', to: 'Tashkent', mode: 'Block Train', transit: '12-16 days' },
+      { from: 'Urumqi', to: 'Almaty (ALA)', mode: 'Air', transit: '1-2 days' },
+    ],
+  },
 ];

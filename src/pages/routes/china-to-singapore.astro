@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Shipping from China to Singapore | Dantful';
+const description = 'Shipping from China to Singapore. Sea freight 7-14 days, air freight 2-4 days. DDP to Pasir Panjang. Get a quote in 2 hours.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ship by Region', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'China to Singapore', item: '/routes/china-to-singapore/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'China to Singapore Freight Forwarding',
+  serviceType: 'Freight Forwarding',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['Singapore', 'China'],
+  description: 'Sea and air freight forwarding from China to Singapore ports including Pasir Panjang and Tuas with DDP customs clearance.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long does shipping from China to Singapore take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight from Shenzhen or Guangzhou to Singapore takes 7 to 14 days port-to-port. Door-to-door DDP including customs clearance takes 10 to 18 days. Air freight takes 2 to 4 days door-to-door.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to ship from China to Singapore?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight LCL starts around [USD X.X per CBM]. FCL 20GP starts around [USD XXX per container]. Air freight starts around [USD X.X per KG]. DDP all-in quotes include Singapore GST (9%), duty and delivery. Request a quote for an exact rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is DDP shipping from China to Singapore?',
+      acceptedAnswer: { '@type': 'Answer', text: 'DDP (Delivered Duty Paid) means we handle everything from the Chinese factory to your Singapore address 鈥?factory pickup, export clearance, sea or air freight, Singapore customs, 9% GST, duty and last-mile delivery. You get one all-in quote, one invoice, and one contact.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need a freight forwarder to ship from China to Singapore?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. A freight forwarder arranges factory pickup, export declaration, sea or air booking, TradeNet import declaration in Singapore, GST payment and delivery. We hold an NVOCC license and run the full DDP process. You do not need to deal with Singapore Customs yourself.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed for shipping from China to Singapore?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commercial invoice, packing list, Bill of Lading (or AWB), Singapore TradeNet import permit, and Certificate of Origin if claiming ASEAN-China FTA preferential duty. For restricted goods: licenses from relevant Singapore authorities (HSA, NEA, AVS).' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/route-china-to-singapore.webp" alt="Shipping from China to Singapore - container terminal at Pasir Panjang with vessel and gantry cranes" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <span>China to Singapore</span>
+      </nav>
+      <h1>Shipping from China to Singapore</h1>
+      <p class="route-hero-sub">China to Singapore shipping: sea freight in [7-14 days] from [USD XXX per 20GP], air freight in [2-4 days] from [USD X.X per KG]. DDP to Pasir Panjang Terminal, Tuas Port and any address in Singapore. TradeNet and 9% GST handled.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>We are an NVOCC licensed freight forwarder based in Shenzhen since 2008, moving cargo from China to Singapore on multiple weekly sailings and daily flights. The China-Singapore lane is one of the busiest in Southeast Asia, and our proximity to Shenzhen (Yantian), Guangzhou (Nansha) and Hong Kong ports gives us direct routes with the shortest transit times and most competitive rates.</p>
+        <p>We serve importers, e-commerce sellers, trading companies and manufacturers who need reliable shipping from Yiwu, Shenzhen, Guangzhou, Shanghai and Ningbo to Singapore. Whether you need LCL consolidation, FCL containers, air freight or door-to-door DDP, this page covers transit times, price ranges, the 5-step workflow, required documents and common questions.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times: China to Singapore</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin Port</th><th>Singapore Terminal</th><th>Sea Freight (days)</th><th>Door-to-Door (days)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen (Yantian)</td><td>Pasir Panjang</td><td>[7-10]</td><td>[10-14]</td><td>Direct vessel, 3x weekly</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>Pasir Panjang</td><td>[7-11]</td><td>[10-15]</td><td>Direct call</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>Tuas</td><td>[5-8]</td><td>[8-12]</td><td>Shortest sea route</td></tr>
+            <tr><td>Shanghai</td><td>Pasir Panjang</td><td>[10-14]</td><td>[13-18]</td><td>Transshipment available</td></tr>
+            <tr><td>Ningbo</td><td>Tuas</td><td>[10-14]</td><td>[13-18]</td><td>Weekly sailing</td></tr>
+            <tr><td>Qingdao</td><td>Pasir Panjang</td><td>[12-16]</td><td>[15-20]</td><td>Transshipment</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Sea freight times are port-to-port. Door-to-door includes export clearance, sailing, Singapore TradeNet declaration, GST and delivery. Air freight door-to-door is [2-4 days] via Changi Airport (SIN). <a href="/contact/">Request a quote</a> for a confirmed schedule.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>China to Singapore shipping is priced by volume (CBM) for sea freight and by chargeable weight (1 CBM = 167 KG) for air freight. We quote all-in DDP rates 鈥?no separate customs, GST or delivery invoices.</p>
+        <ul>
+          <li><strong>Sea freight (LCL):</strong> [USD X.X per CBM] 鈥?best for shipments under 8 CBM. Minimum [1 CBM].</li>
+          <li><strong>Sea freight (FCL 20GP):</strong> [USD XXX to XXX per container] 鈥?best for 10-25 CBM shipments.</li>
+          <li><strong>Sea freight (FCL 40HQ):</strong> [USD XXX to XXX per container] 鈥?best for 25+ CBM shipments.</li>
+          <li><strong>Air freight:</strong> [USD X.X per KG] 鈥?2-4 days door-to-door via Changi Airport.</li>
+          <li><strong>Express courier (DHL/FedEx):</strong> [USD X.X per KG] 鈥?1-3 days for samples under 300 KG.</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>Singapore GST:</strong> 9% on CIF value plus duty. Under DDP, we pay this on your behalf.</li>
+          <li><strong>Duty rate:</strong> Singapore is a free port 鈥?most goods carry 0% duty. Exceptions: alcohol, tobacco, motor vehicles, and petroleum products.</li>
+          <li><strong>ASEAN-China FTA:</strong> Goods originating in China may qualify for 0% preferential duty under ACFTA. We prepare the FORM E Certificate of Origin.</li>
+          <li><strong>Season:</strong> Pre-CNY (Jan-Feb), Q4 holiday rush (Sep-Dec) see 10-25% rate spikes.</li>
+          <li><strong>Bunker Adjustment Factor (BAF):</strong> Carriers revise fuel surcharges quarterly.</li>
+          <li><strong>Currency:</strong> Quotes in USD. SGD conversion at settling day rate.</li>
+          <li><strong>Port congestion:</strong> Pasir Panjang and Tuas handle high volume; we route via the terminal with best availability.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step Shipping Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send us your factory address, product details, carton count, dimensions, weight and Singapore delivery address. You receive an all-in DDP rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Book &amp; Pickup</h3>
+          <p>Confirm the booking. We dispatch a pickup truck to the supplier factory anywhere in mainland China. Cargo arrives at our warehouse for consolidation.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Load &amp; Export</h3>
+          <p>We load cargo into container or air pallet. Our licensed customs team handles export declaration and FORM E Certificate of Origin for ACFTA preferential duty.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Sail &amp; Track</h3>
+          <p>Cargo sails on schedule with live tracking and weekly email updates. Air freight departs daily from HKG, SZX or CAN to Changi Airport.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>SG Clearance &amp; Delivery</h3>
+          <p>We file the TradeNet import declaration, pay 9% GST and any applicable duty, and deliver to your address or warehouse in Singapore. You sign with zero extra charges.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?value, currency, Incoterm (DDP), HS code, shipper and consignee.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, dimensions, weight per carton and total.</li>
+          <li><strong>Bill of Lading (B/L)</strong> or Air Waybill (AWB) 鈥?we issue House B/L as an NVOCC.</li>
+          <li><strong>TradeNet Import Permit</strong> 鈥?we file this via Singapore Customs NTP system on arrival.</li>
+          <li><strong>FORM E Certificate of Origin</strong> 鈥?for ACFTA preferential 0% duty on qualifying goods.</li>
+          <li><strong>Commercial Goods Declaration (CGD)</strong> 鈥?for dutiable goods stored in licensed warehouses.</li>
+          <li><strong>Compliance docs (if applicable):</strong> Licenses from HSA (health products), NEA (environmental), AVS (food and animals), IMDA (telecom equipment).</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="prose faq-block">
+        <h3>How long does shipping from China to Singapore take?</h3>
+        <p>Sea freight from Shenzhen or Guangzhou to Singapore takes [7-14 days] port-to-port. Door-to-door DDP including Singapore TradeNet declaration and 9% GST payment takes [10-18 days]. Air freight takes [2-4 days] door-to-door via Changi Airport. Express courier (DHL/FedEx) delivers in [1-3 days] for samples under 300 KG. <a href="/contact/">Request a quote</a> for a confirmed schedule.</p>
+
+        <h3>How much does it cost to ship from China to Singapore?</h3>
+        <p>Sea freight LCL starts around [USD X.X per CBM]. FCL 20GP starts around [USD XXX per container]. FCL 40HQ starts around [USD XXX per container]. Air freight starts around [USD X.X per KG]. The all-in DDP rate covers factory pickup, export clearance, sea or air freight, Singapore TradeNet, 9% GST, duty and delivery 鈥?no hidden charges. Request a quote with your cargo details for an exact rate.</p>
+
+        <h3>What is DDP shipping from China to Singapore?</h3>
+        <p>DDP (Delivered Duty Paid) means we handle everything from the Chinese factory to your Singapore address. This includes factory pickup, export declaration, sea or air freight, Singapore TradeNet import declaration, 9% GST payment, any applicable duty, and last-mile delivery. You get one all-in quote, one invoice, and one contact. No separate customs broker or freight invoice. We also prepare the FORM E Certificate of Origin so qualifying goods enjoy 0% ACFTA preferential duty. See our <a href="/services/door-to-door/">DDP service page</a> for details.</p>
+
+        <h3>Do I need a freight forwarder to ship from China to Singapore?</h3>
+        <p>Yes. A freight forwarder arranges factory pickup, export declaration, sea or air booking, TradeNet import declaration in Singapore, GST payment and delivery. We hold an NVOCC license and run the full DDP process. You do not need to register with Singapore Customs or file TradeNet yourself. We also handle the FORM E Certificate of Origin for ACFTA preferential duty. See our <a href="/services/customs-clearance/">customs clearance service</a> for details.</p>
+
+        <h3>What documents are needed for shipping from China to Singapore?</h3>
+        <p>Commercial invoice, packing list, Bill of Lading (or AWB), TradeNet import permit (filed by us on arrival), and FORM E Certificate of Origin if claiming ACFTA preferential duty. For restricted goods: licenses from relevant Singapore authorities 鈥?HSA for health products, NEA for controlled chemicals, AVS for food and animal products, IMDA for telecom equipment. Check our <a href="/faq/">FAQ page</a> for the full list.</p>
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3">
+        <a href="/services/ocean-freight/" class="card svc-card">
+          <h3>Ocean Freight</h3>
+          <p>FCL and LCL ocean freight from China to Singapore and global ports with weekly sailings.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/air-freight/" class="card svc-card">
+          <h3>Air Freight</h3>
+          <p>Daily air cargo departures to Changi Airport with block-space agreements.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/door-to-door/" class="card svc-card">
+          <h3>Door to Door (DDP)</h3>
+          <p>All-in DDP shipping from Chinese factory to Singapore address 鈥?GST and delivery included.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/southeast-asia/" class="chip region-chip">Southeast Asia</a>
+        <a href="/ship-by-region/north-america/" class="chip region-chip">North America</a>
+        <a href="/ship-by-region/europe/" class="chip region-chip">Europe</a>
+        <a href="/ship-by-region/australia/" class="chip region-chip">Australia</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ready to Ship to Singapore?</h2>
+      <p class="section-sub">Get an all-in DDP quote within 2 hours. Send your factory address, cargo details and Singapore delivery address 鈥?we reply with the best shipping mode and all-in rate.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.82) 0%, rgba(11,42,74,0.55) 60%, rgba(11,42,74,0.3) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+    margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2;
+  }
+  .route-hero-sub {
+    color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7;
+    max-width: 640px; margin: 0 0 24px;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
+  .block-title {
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line);
+  }
+  .route-overview { max-width: 820px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(a) { color: var(--blue); text-decoration: underline; }
+  .route-overview :global(a:hover) { color: var(--orange); }
+  .route-overview :global(ul) { padding-left: 20px; margin: 0 0 14px; }
+  .route-overview :global(li) { color: var(--ink-soft); line-height: 1.75; margin-bottom: 6px; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+
+  .step-grid { margin-bottom: 8px; }
+  .step-card { position: relative; padding-top: 56px; }
+  .step-num {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--orange); color: #fff; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+  }
+  .step-card h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .step-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .doc-list { padding-left: 20px; }
+  .doc-list li { color: var(--ink-soft); line-height: 1.75; margin-bottom: 8px; }
+
+  .faq-block h3 {
+    font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px;
+    font-weight: 700; line-height: 1.4;
+  }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+    margin: 4px 6px 4px 0; text-decoration: none;
+  }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+
+  .svc-card {
+    color: inherit; text-decoration: none !important;
+    display: flex; flex-direction: column;
+  }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .card-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  @media (max-width: 720px) {
+    .step-card { padding-top: 48px; }
+    .step-num { width: 32px; height: 32px; font-size: 0.95rem; }
+    .block-title { font-size: 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .block-title { font-size: 1.1rem; }
+    .chip { font-size: 0.75rem; padding: 3px 10px; }
+    .cta-row { flex-direction: column; }
+  }
+</style>

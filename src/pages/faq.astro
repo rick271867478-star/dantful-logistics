@@ -8,7 +8,7 @@ const faqs = [
     items: [
       {
         q: 'Who is Dantful Logistics?',
-        a: 'Dantful Logistics (SHENZHEN DANTFUL INT\'L LOGISTICS CO., LTD.) is a licensed NVOCC freight forwarder headquartered in Shenzhen, China. Since 2008, we have helped importers, Amazon sellers and wholesalers ship from Chinese factories to 120+ countries. We handle 80,000+ TEUs of ocean freight and 12,000+ tons of air cargo per year for 3,200+ active clients.',
+        a: 'Dantful Logistics (SHENZHEN DANTFUL INT\'L LOGISTICS CO., LTD.) is a licensed NVOCC freight forwarder headquartered in Shenzhen, China. Since 2008, we have helped importers, Amazon sellers and wholesalers ship from Chinese factories to 120+ countries. We handle 38,000+ TEUs of ocean freight and 4,200+ tons of air cargo per year for 2,400+ active clients.',
       },
       {
         q: 'What licenses and certifications do you hold?',
@@ -16,7 +16,7 @@ const faqs = [
       },
       {
         q: 'How long has Dantful been in business?',
-        a: '17+ years. Founded in 2008 in Shenzhen, we have grown from a 5-person team to 80+ dedicated logistics specialists. Track record: 80,000+ TEUs shipped, 3,200+ active clients in 120+ countries, 98.6% on-time delivery rate, claims rate below 0.3%.',
+        a: '16+ years. Founded in 2008 in Shenzhen, we have grown from a small team to 80+ dedicated logistics specialists. Track record: 38,000+ TEUs shipped, 2,400+ active clients in 120+ countries, 98.6% on-time delivery rate, claims rate below 0.3%.',
       },
       {
         q: 'Where is your office located?',
@@ -54,7 +54,7 @@ const faqs = [
       },
       {
         q: 'What payment methods do you accept?',
-        a: 'T/T bank transfer (most common), PayPal, Western Union, and Alipay for RMB. Credit terms (NET 15/30) available for verified repeat clients with a 3-shipment track record. For new clients, 50% deposit before vessel/flight departure and 50% balance against B/L copy.',
+        a: 'We accept Alipay, Western Union, Hong Kong bank transfers, and local African bank accounts (Nigeria, Kenya, Ghana, South Africa and other African markets). Full payment is required before vessel/flight departure - no balance-against-B/L copy option. This simplifies customs and ensures smooth on-time sailing.',
       },
     ],
   },
@@ -84,7 +84,7 @@ const faqs = [
       },
       {
         q: 'Is my cargo insured? What coverage is included?',
-        a: 'Yes. Basic coverage included free: USD 2/kg for air freight, USD 500/shipment for ocean freight (limited liability). For full protection, we offer All-Risks insurance at 0.1-0.3% of declared cargo value, underwritten by Ping An Insurance, PICC, or Lloyd\'s of London syndicates. We strongly recommend All-Risks for high-value or fragile cargo.',
+        a: 'Cargo insurance is optional and can be purchased separately based on your needs. The premium rate is calculated according to your declared cargo value - higher value goods carry a proportionally adjusted rate. We offer All-Risks coverage underwritten by Ping An Insurance, PICC, or Lloyd\'s syndicates. To add insurance, simply inform your coordinator when booking - the premium will be itemized on your quote. We strongly recommend purchasing insurance for high-value, fragile, or time-sensitive cargo.',
       },
       {
         q: 'What happens if my cargo is damaged or lost?',
@@ -110,6 +110,77 @@ const faqs = [
       {
         q: 'How far in advance should I book?',
         a: 'For FCL ocean freight: 7-10 days before vessel ETD. For LCL consolidation: 5 days. For air freight: 1-3 days. Peak season (Pre-CNY in Jan-Feb, Prime Day in July, Black Friday in Nov): 14-21 days recommended to secure vessel/airline space and avoid surcharges. We also offer space-reservation contracts for clients with regular monthly volume.',
+      },
+    ],
+  },
+  {
+    category: 'Shipping Times & Routes',
+    items: [
+      {
+        q: 'How long does shipping from China to USA take?',
+        a: 'Sea FCL to US West Coast (Los Angeles, Long Beach) takes 14-20 days. To US East Coast (New York, Savannah) 26-32 days via Panama Canal. Air freight 3-5 days. Sea express + truck DDP to Amazon FBA fulfillment centers 22-30 days. See our <a href="/routes/china-to-usa/">China to USA shipping route</a> for a full transit time table and price factors.',
+      },
+      {
+        q: 'How long does sea freight from China to Europe take?',
+        a: 'North Europe (Rotterdam, Hamburg, Antwerp) 30-38 days port-to-port. Mediterranean (Genoa, Barcelona, Piraeus) 32-40 days. UK (Felixstowe, Tilbury) 28-35 days. Door-to-door DDP adds 4-7 days for import clearance and inland trucking. See our <a href="/services/ocean-freight/">Ocean Freight service page</a> for the full transit time table by origin and destination port.',
+      },
+      {
+        q: 'How long does air freight from China take?',
+        a: 'Express air 1-3 days direct flight with priority handling. Economy air 3-7 days consolidated at lower rates. Our block-space agreements with 40+ airlines (Air China Cargo, Lufthansa, Emirates, Qatar Airways, Turkish Cargo, Cargolux) guarantee uplift even during Q4 peak season. See <a href="/services/air-freight/">Air Freight service</a> for service levels, pricing and special cargo capabilities.',
+      },
+      {
+        q: 'What is the fastest shipping method from China?',
+        a: 'Air express via DHL, UPS or FedEx delivers in 3-5 days door-to-door for parcels under 300 KG. For urgent Amazon FBA replenishment we also offer air charter options on B737, B767 or B747 freighters - a charter can be airborne within 24 hours of booking. For heavy or bulky cargo where air is too costly, sea express + expedited trucking reaches US FBA in 22-25 days at a fraction of the air rate.',
+      },
+    ],
+  },
+  {
+    category: 'Incoterms & Documentation',
+    items: [
+      {
+        q: 'What documents are needed for shipping from China?',
+        a: 'Standard set: (1) Commercial Invoice; (2) Packing List; (3) Sales Contract or Proforma Invoice; (4) Booking Note; (5) Bill of Lading (sea) or Air Waybill (air); (6) Certificate of Origin (CO, FORM A, FORM E, FORM F or FORM RCEP for FTA duty preference); (7) Export Customs Declaration; (8) CIQ inspection certificate for restricted goods. Special cargo adds: MSDS + UN38.3 for lithium batteries, degaussing certificate for magnetic items, trademark authorization for branded goods, NMPA/CE/FDA for medical devices. Our <a href="/services/customs-clearance/">licensed customs brokerage</a> prepares all documents on your behalf.',
+      },
+      {
+        q: 'What is DDP shipping from China?',
+        a: 'DDP (Delivered Duty Paid) means the seller - in this case Dantful - covers all costs and risks to the named destination: factory pickup, trucking, export customs, ocean or air freight, destination port charges, import customs clearance, duties and taxes, and last-mile delivery. The buyer receives goods at their door with zero customs paperwork. DDP is ideal for Amazon FBA sellers, first-time importers, and clients who want a fully hands-off experience. We offer DDP to USA, EU 27, UK, Canada, Australia, Japan and Mexico.',
+      },
+      {
+        q: 'What is the difference between FOB and CIF?',
+        a: 'FOB (Free On Board): the seller delivers cargo loaded on board the vessel at the named Chinese port. From that point the buyer pays ocean freight, insurance, import clearance and duties. CIF (Cost, Insurance & Freight): the seller pays ocean freight and minimum insurance to the destination port, but the buyer still pays import clearance and duties. FOB is common for FCL shipments where the buyer controls carrier routing. CIF is preferred when the buyer wants the seller to arrange freight. Read our <a href="/resources/incoterms/">Incoterms guide</a> for a full comparison of FOB, CIF, DAP and DDP.',
+      },
+      {
+        q: 'What is the difference between DAP and DDP shipping?',
+        a: 'DAP (Delivered at Place): the seller delivers to the named destination, but the buyer pays import duties, VAT and customs clearance. DDP (Delivered Duty Paid): the seller pays everything including duties and taxes. DDP is more hands-off for the buyer. DAP is preferred when the buyer wants to control customs, claim input VAT, or use their own broker. For Amazon FBA shipments DDP is effectively mandatory because Amazon does not act as importer of record. See our <a href="/resources/incoterms/">Incoterms guide</a> for the full FOB / CIF / DAP / DDP comparison.',
+      },
+      {
+        q: 'What is a House Bill of Lading (HBL)?',
+        a: 'A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder like Dantful to the shipper. It serves three functions: (1) receipt for cargo received; (2) evidence of the contract of carriage; (3) document of title. The Master Bill of Lading (MBL) is issued by the actual carrier (Maersk, MSC, COSCO) to the NVOCC. At destination, the consignee uses the HBL to claim cargo from the forwarder agent. As a licensed NVOCC, we issue HBLs with telex release or original options. Read our <a href="/resources/house-bill-of-lading/">House B/L guide</a> for the full HBL vs MBL breakdown and when to use telex release.',
+      },
+    ],
+  },
+  {
+    category: 'Choosing a Freight Forwarder',
+    items: [
+      {
+        q: 'How to choose a freight forwarder in China?',
+        a: 'Check for: (1) NVOCC qualification filed with China Ministry of Transport; (2) Class A Customs Brokerage License from GACC; (3) 5+ years in business with verifiable client references; (4) transparent all-in pricing with no hidden surcharges; (5) a dedicated coordinator - not a rotating support queue; (6) real-time shipment tracking with B/L or AWB numbers; (7) a bonded warehouse for consolidation and FBA prep; (8) FMC OTI registration if shipping to USA. Avoid forwarders who cannot show an NVOCC number, quote suspiciously low rates, or refuse to itemize charges. See our <a href="/about/credentials/">credentials page</a> for our licenses and certifications.',
+      },
+      {
+        q: 'Do I need a freight forwarder to import from China?',
+        a: 'Legally no, but practically yes. A freight forwarder consolidates carrier booking, customs brokerage, warehousing, trucking and insurance into one contract. Doing it yourself means coordinating 4-6 vendors, filing ISF-10, AMS and ENS yourself, and missing out on volume discounts. A forwarder like Dantful typically saves 20-40% on landed cost versus DIY, and reduces the risk of customs holds, missed sailings and duty overpayment. For Amazon FBA, a forwarder with FBA prep capability is essential - Amazon rejects non-compliant shipments at the FC dock.',
+      },
+      {
+        q: 'What is the difference between FCL and LCL shipping?',
+        a: 'FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. Transit is faster because there is no consolidation or deconsolidation. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM (cubic meter). LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers lower per-CBM cost. See our <a href="/services/fcl-vs-lcl/">FCL vs LCL guide</a> for a detailed cost and transit comparison.',
+      },
+      {
+        q: 'How much does it cost to ship a container from China to USA?',
+        a: 'A 40HQ container from Shenzhen Yantian to Los Angeles starts around [USD XXXX per 40HQ] in low season, rising 30-60% during Q4 peak season (Sep-Dec). A 20GP starts around [USD XXXX per 20GP]. LCL consolidation starts around [USD X.X per CBM] with a 1 CBM minimum. Rates vary by destination, season, carrier, BAF and PSS. We quote transparent all-in rates with no hidden surcharges. <a href="/contact/">Request a quote</a> for a confirmed rate within 2 working hours.',
+      },
+      {
+        q: 'How much does a freight forwarder charge?',
+        a: 'Freight forwarder charges depend on service scope. For FCL ocean freight, the forwarder adds a margin on top of the carrier rate - typically 5-15% for standard lanes, lower for high-volume clients under annual contracts. For LCL, the forwarder charges per CBM including origin charges, ocean freight and destination charges. For DDP door-to-door, the all-in rate covers pickup, export, freight, import clearance, duties and delivery. Air freight is charged per KG (actual or volumetric, whichever is higher). We provide fully itemized quotes so every cost line is visible before booking.',
       },
     ],
   },
@@ -144,7 +215,7 @@ const tocItems = faqs.map((group) => ({
 >
   <section class="faq-hero">
     <div class="faq-hero-bg">
-      <img src="/images/services-hero.jpg" alt="Dantful Logistics freight forwarding services - FAQ" loading="eager" />
+      <img src="/images/faq-hero.webp" alt="Dantful Logistics freight forwarding services - FAQ" loading="eager" />
     </div>
     <div class="faq-hero-overlay"></div>
     <div class="container faq-hero-content">
@@ -189,7 +260,7 @@ const tocItems = faqs.map((group) => ({
                       </span>
                     </summary>
                     <div class="faq-a">
-                      <p>{item.a}</p>
+                      <p set:html={item.a} />
                     </div>
                   </details>
                 ))}

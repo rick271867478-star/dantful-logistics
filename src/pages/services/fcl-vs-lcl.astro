@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'FCL vs LCL Shipping: Which Is Cheaper? | Dantful';
+const description = 'FCL vs LCL shipping comparison: cost per CBM, transit time, when to choose FCL or LCL. Full container load vs less than container load from China. Guide by NVOCC Dantful Logistics.';
+
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: 'FCL vs LCL', item: '/services/fcl-vs-lcl/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'FCL vs LCL Shipping Comparison',
+  serviceType: 'Ocean Freight Consulting',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: 'Global',
+  description: 'FCL (Full Container Load) vs LCL (Less than Container Load) shipping comparison: cost, transit time, when to choose each option.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the difference between FCL and LCL shipping?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FCL (Full Container Load) means your cargo fills an entire 20GP, 40GP or 40HQ container. You pay a flat rate per container. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM (cubic meter). FCL is faster (no consolidation) and cheaper per CBM for large shipments. LCL is cheaper for small shipments under 15 CBM.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which is cheaper: FCL or LCL?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For shipments under 15 CBM, LCL is cheaper because you only pay for the space you use. For shipments over 15 CBM, FCL is cheaper because the flat container rate beats the per-CBM LCL rate. The break-even point is typically 12-15 CBM depending on the destination and current rates. LCL has additional origin and destination charges (CFS fees) that FCL does not, so the effective break-even is higher than the raw rate comparison suggests.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does FCL shipping take vs LCL?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FCL is typically 5-10 days faster than LCL to the same destination. LCL requires consolidation at origin (3-5 days) and deconsolidation at destination (2-4 days), adding a week to the total transit time. FCL containers are loaded at the factory, sealed, and shipped direct with no consolidation or deconsolidation.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I choose FCL over LCL?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Choose FCL when: (1) your cargo is 15 CBM or more; (2) you need faster transit (no consolidation); (3) your cargo is fragile or high-value (no mixing with other cargo); (4) you need a sealed container for security; (5) you are shipping to Amazon FBA (FCL simplifies FC appointments). Choose LCL when your cargo is under 15 CBM and transit time is not critical.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/service-fcl-vs-lcl-hero.webp" alt="FCL vs LCL shipping comparison - full container load vs less than container load" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/">Services</a> / <span>FCL vs LCL</span>
+      </nav>
+      <h1>FCL vs LCL Shipping: Which Is Cheaper?</h1>
+      <p class="route-hero-sub">FCL (Full Container Load) and LCL (Less than Container Load) are the two main ocean freight options from China. FCL is cheaper for shipments over 15 CBM; LCL is cheaper under 15 CBM. This guide compares cost, transit time, and when to choose each.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="/services/ocean-freight/" class="btn btn-outline">Ocean Freight</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>When shipping ocean freight from China, the first decision is <strong>FCL (Full Container Load) or LCL (Less than Container Load)</strong>. This choice affects your cost, transit time, cargo safety and customs process. The general rule: FCL is cheaper per CBM for large shipments, LCL is cheaper for small shipments. But the break-even point, transit difference and handling considerations deserve a closer look.</p>
+      </div>
+
+      <h2 class="block-title">FCL (Full Container Load)</h2>
+      <div class="prose route-overview">
+        <p>FCL means your cargo fills an entire container - typically a 20GP (28-30 CBM capacity), 40GP (54-58 CBM) or 40HQ (65-76 CBM). You pay a flat rate per container regardless of how full it is. The container is loaded at your supplier's factory, sealed, trucked to the port, shipped, and trucked to your destination. No other cargo is mixed in.</p>
+        <ul>
+          <li><strong>Pros:</strong> Cheapest per CBM for large volumes. Fastest transit (no consolidation). Sealed container for security and cargo safety. No CFS handling charges at origin or destination. Simplifies Amazon FBA FC appointments.</li>
+          <li><strong>Cons:</strong> You pay for the full container even if it is half empty. Not cost-effective for small shipments under 15 CBM.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">LCL (Less than Container Load)</h2>
+      <div class="prose route-overview">
+        <p>LCL means your cargo shares a container with other shipments. The forwarder consolidates multiple suppliers' cargo into one container at a Container Freight Station (CFS) warehouse. At destination, the container is deconsolidated and each shipment is released to its consignee. You pay per CBM (cubic meter) or per ton (whichever is greater).</p>
+        <ul>
+          <li><strong>Pros:</strong> Cheapest for small shipments under 15 CBM. Only pay for the space you use. Flexible - ship any volume from 0.1 CBM upward. Can consolidate multiple suppliers into one LCL shipment.</li>
+          <li><strong>Cons:</strong> Slower transit (3-5 days consolidation at origin, 2-4 days deconsolidation at destination). Additional CFS charges per CBM at origin and destination. Cargo mixes with other shipments (risk of damage if not packed properly). LCL rates per CBM are higher than FCL per-CBM equivalent.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Cost Comparison: FCL vs LCL</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Shipment Size</th><th>FCL 20GP Rate</th><th>LCL Rate</th><th>Recommendation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5 CBM</td><td>[USD XXXX per 20GP]</td><td>[USD X.X per CBM]</td><td>LCL (much cheaper)</td></tr>
+            <tr><td>10 CBM</td><td>[USD XXXX per 20GP]</td><td>[USD X.X per CBM]</td><td>LCL (still cheaper)</td></tr>
+            <tr><td>15 CBM</td><td>[USD XXXX per 20GP]</td><td>[USD X.X per CBM]</td><td>Break-even (compare rates)</td></tr>
+            <tr><td>20 CBM</td><td>[USD XXXX per 20GP]</td><td>[USD X.X per CBM]</td><td>FCL (cheaper per CBM)</td></tr>
+            <tr><td>28+ CBM</td><td>[USD XXXX per 20GP]</td><td>N/A - use FCL</td><td>FCL</td></tr>
+            <tr><td>65+ CBM</td><td>[USD XXXX per 40HQ]</td><td>N/A - use FCL</td><td>FCL 40HQ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">LCL rates include origin CFS charges, ocean freight and destination CFS charges. FCL rates include origin port charges, ocean freight and destination port charges - but not customs clearance, duties or inland delivery. For a true comparison, request both FCL and LCL all-in DDP quotes from us.</p>
+
+      <h2 class="block-title">Transit Time Comparison</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Route</th><th>FCL Transit</th><th>LCL Transit</th><th>Difference</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>China to USA West Coast</td><td>[14-20] days</td><td>[20-28] days</td><td>+6-8 days</td></tr>
+            <tr><td>China to USA East Coast</td><td>[26-32] days</td><td>[32-40] days</td><td>+6-8 days</td></tr>
+            <tr><td>China to Europe</td><td>[30-38] days</td><td>[36-44] days</td><td>+6-8 days</td></tr>
+            <tr><td>China to UK</td><td>[28-35] days</td><td>[34-42] days</td><td>+6-7 days</td></tr>
+            <tr><td>China to Australia</td><td>[18-26] days</td><td>[24-32] days</td><td>+6-7 days</td></tr>
+            <tr><td>China to Southeast Asia</td><td>[7-12] days</td><td>[12-18] days</td><td>+5-6 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">LCL transit is 5-8 days longer than FCL due to origin consolidation (3-5 days) and destination deconsolidation (2-4 days). If your deadline is tight, FCL is the safer choice.</p>
+
+      <h2 class="block-title">When to Choose FCL</h2>
+      <div class="prose route-overview">
+        <ul>
+          <li><strong>Volume over 15 CBM:</strong> FCL flat rate is cheaper than LCL per-CBM rate at this threshold.</li>
+          <li><strong>Fast transit needed:</strong> FCL saves 5-8 days vs LCL.</li>
+          <li><strong>Fragile or high-value cargo:</strong> Sealed container prevents damage from mixing with other cargo.</li>
+          <li><strong>Amazon FBA:</strong> FCL simplifies FC appointments and reduces handling at destination.</li>
+          <li><strong>Cargo requires temperature control:</strong> Reefer containers are FCL only.</li>
+          <li><strong>Security-sensitive cargo:</strong> Sealed container from factory to destination.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">When to Choose LCL</h2>
+      <div class="prose route-overview">
+        <ul>
+          <li><strong>Volume under 15 CBM:</strong> LCL per-CBM rate is cheaper than FCL flat rate.</li>
+          <li><strong>Small orders or samples:</strong> Ship from 0.1 CBM without filling a container.</li>
+          <li><strong>Multiple suppliers:</strong> Consolidate cargo from different factories into one LCL shipment.</li>
+          <li><strong>Flexible delivery timeline:</strong> If you can absorb the extra 5-8 days, LCL saves cost.</li>
+          <li><strong>Testing a new product:</strong> Small first order before committing to FCL volume.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Container Sizes &amp; Capacities</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Container</th><th>Internal Dimensions</th><th>Max Capacity</th><th>Max Payload</th><th>Best For</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>20GP</td><td>5.89 x 2.35 x 2.39 m</td><td>28-30 CBM</td><td>~28 tons</td><td>Heavy dense cargo (tiles, machinery)</td></tr>
+            <tr><td>40GP</td><td>12.03 x 2.35 x 2.39 m</td><td>54-58 CBM</td><td>~26 tons</td><td>Standard volume cargo</td></tr>
+            <tr><td>40HQ</td><td>12.03 x 2.35 x 2.69 m</td><td>65-76 CBM</td><td>~26 tons</td><td>Light bulky cargo (furniture, electronics)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <details class="faq-item">
+          <summary class="faq-q"><span>What is the difference between FCL and LCL shipping?</span></summary>
+          <div class="faq-a"><p>FCL (Full Container Load) means your cargo fills an entire 20GP, 40GP or 40HQ container. You pay a flat rate per container. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM (cubic meter). FCL is faster (no consolidation) and cheaper per CBM for large shipments. LCL is cheaper for small shipments under 15 CBM.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Which is cheaper: FCL or LCL?</span></summary>
+          <div class="faq-a"><p>For shipments under 15 CBM, LCL is cheaper because you only pay for the space you use. For shipments over 15 CBM, FCL is cheaper because the flat container rate beats the per-CBM LCL rate. The break-even point is typically 12-15 CBM depending on the destination and current rates. LCL has additional origin and destination charges (CFS fees) that FCL does not, so the effective break-even is higher than the raw rate comparison suggests.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>How long does FCL shipping take vs LCL?</span></summary>
+          <div class="faq-a"><p>FCL is typically 5-10 days faster than LCL to the same destination. LCL requires consolidation at origin (3-5 days) and deconsolidation at destination (2-4 days), adding a week to the total transit time. FCL containers are loaded at the factory, sealed, and shipped direct with no consolidation or deconsolidation.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>When should I choose FCL over LCL?</span></summary>
+          <div class="faq-a"><p>Choose FCL when: (1) your cargo is 15 CBM or more; (2) you need faster transit (no consolidation); (3) your cargo is fragile or high-value (no mixing with other cargo); (4) you need a sealed container for security; (5) you are shipping to Amazon FBA (FCL simplifies FC appointments). Choose LCL when your cargo is under 15 CBM and transit time is not critical.</p></div>
+        </details>
+      </div>
+
+      <div class="prose route-overview">
+        <p>Still not sure whether FCL or LCL is right for your shipment? <a href="/contact/">Send us your cargo details</a> and we will quote both options with an all-in DDP rate so you can compare. Or <a href="/services/ocean-freight/">learn more about our ocean freight service</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-cta">
+    <div class="container">
+      <h2 class="cta-title">Get FCL and LCL quotes</h2>
+      <p class="cta-sub">We quote both FCL and LCL options for your shipment so you can compare cost and transit time side by side.</p>
+      <div class="cta-buttons">
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px;
+    display: flex; align-items: center; color: #fff; overflow: hidden;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11, 42, 74, 0.92) 0%, rgba(18, 58, 99, 0.85) 50%, rgba(30, 111, 217, 0.78) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; padding-block: 48px; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 800; margin: 0 0 14px; letter-spacing: 0.5px;
+  }
+  .route-hero-sub {
+    color: #e7eff7; font-size: 1rem; max-width: 760px;
+    margin: 0 0 22px; line-height: 1.65;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light { color: #cdd9e6; margin-bottom: 12px; }
+  .breadcrumb-light a { color: #fff; }
+  .route-overview { margin-bottom: 24px; }
+  .route-overview p, .route-overview ul { color: var(--ink-soft); line-height: 1.75; }
+  .route-overview ul { padding-left: 20px; }
+  .route-overview li { margin-bottom: 8px; }
+  .route-overview a { color: var(--blue); }
+  .block-title {
+    color: var(--navy); font-size: 1.5rem; margin: 36px 0 18px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--blue);
+  }
+  .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+  .table-wrap table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 8px rgba(11,42,74,0.05); }
+  .table-wrap th, .table-wrap td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .table-wrap th { background: var(--navy); color: #fff; font-weight: 600; }
+  .table-wrap tr:last-child td { border-bottom: none; }
+  .table-wrap tr:nth-child(even) td { background: var(--bg-soft); }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 24px; }
+  .faq-block { margin-bottom: 20px; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .faq-item[open] { border-color: var(--blue); box-shadow: 0 4px 14px rgba(11, 42, 74, 0.08); }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    padding: 16px 20px; cursor: pointer; list-style: none;
+    font-weight: 700; color: var(--navy); font-size: 0.98rem; line-height: 1.4;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-a { padding: 0 20px 18px; color: var(--ink-soft); line-height: 1.7; }
+  .faq-a p { margin: 0; font-size: 0.94rem; }
+  .route-cta {
+    background: var(--navy); color: #fff; padding-block: 56px; text-align: center;
+  }
+  .cta-title { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 12px; }
+  .cta-sub { color: #cdd9e6; max-width: 560px; margin: 0 auto 24px; font-size: 1rem; }
+  .cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .route-cta .btn-outline { border-color: #fff; color: #fff; }
+  .route-cta .btn-outline:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+  @media (max-width: 640px) {
+    .route-hero { min-height: 280px; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+  }
+</style>

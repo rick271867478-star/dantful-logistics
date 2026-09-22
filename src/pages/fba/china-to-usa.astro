@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'China to USA Amazon FBA Freight Forwarder | Dantful';
+const description = 'Amazon FBA freight forwarder from China to USA. Sea express 22-35 days, air express 7-12 days. DDP, FNSKU labeling, FBA prep. Get a quote in 2 hours.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Amazon FBA', item: '/services/amazon-fba/' },
+    { '@type': 'ListItem', position: 3, name: 'China to USA Amazon FBA', item: '/fba/china-to-usa/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'China to USA Amazon FBA Freight Forwarding',
+  serviceType: 'Freight Forwarding',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['United States', 'China'],
+  description: 'Amazon FBA freight forwarding from China to USA fulfillment centers with DDP, FNSKU labeling and FBA prep.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long does shipping from China to Amazon FBA USA take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea express takes 22 to 35 days door-to-door to Amazon FC. Air express via UPS or FedEx takes 7 to 12 days. Direct courier (DHL/UPS/FedEx) takes 3 to 6 days for samples under 300 KG.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to ship from China to Amazon FBA USA?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea express starts around [USD X.X per CBM] or [USD XXXX per 40HQ]. Air express starts around [USD X.X per KG]. Final cost depends on volume, weight, season, and destination FC zone. Request a quote for an all-in DDP rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How to ship from China to Amazon FBA warehouse?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Create a shipping plan in Seller Central, send cargo details to your freight forwarder, arrange FNSKU labeling and FBA prep, book sea or air freight, and your forwarder handles export, customs, DDP clearance and delivery appointment to the Amazon FC.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need a freight forwarder to import from China to Amazon FBA?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Amazon FCs do not act as importer of record. You need a freight forwarder with a US IOR (Importer of Record) to handle customs clearance, duties, and delivery appointment. We hold IOR numbers and book Amazon Delivery appointments on your behalf.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed for shipping from China to Amazon FBA USA?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commercial invoice, packing list, Bill of Lading (or AWB), ISF-10 filing (48h before sailing), FNSKU-labeled cartons, and a US customs bond. For restricted goods: MSDS, UN38.3, FDA pre-notification, FCC or CPSIA compliance docs.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/route-fba-china-to-usa.webp" alt="China to USA Amazon FBA freight forwarder - container loading at Shenzhen port for Amazon fulfillment" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/amazon-fba/">Amazon FBA</a> / <span>China to USA</span>
+      </nav>
+      <h1>Freight Forwarder China to USA Amazon FBA</h1>
+      <p class="route-hero-sub">China to USA Amazon FBA shipping: sea express in [22-35 days] from [USD XXXX per 40HQ], air express in [7-12 days] from [USD X.X per KG]. DDP clearance, FNSKU labeling and FBA prep included 鈥?your cargo lands at the correct FC, fully compliant.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>As an NVOCC licensed freight forwarder based in Shenzhen since 2008, we move thousands of containers and air shipments from China to Amazon fulfillment centers across the United States every year. We serve 2,400+ private-label sellers and wholesale distributors who need reliable, compliant, all-in DDP shipping from Yiwu, Shenzhen, Shanghai, Ningbo and Guangzhou factories directly into Amazon FCs in California, New Jersey, Texas, Washington, Illinois and Pennsylvania.</p>
+        <p>This page covers transit times, price ranges, the 5-step FBA shipping workflow, the documents you need to prepare, and the questions sellers ask most. Request a quote and you will receive an all-in DDP rate within 2 hours.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times: China to USA Amazon FBA</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin Port</th><th>Amazon FC Zone</th><th>Sea Express (days)</th><th>Air Express (days)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen (Yantian)</td><td>LAX9, ONT8, SBD3 (West)</td><td>[22-28]</td><td>[7-10]</td><td>Direct vessel, weekly sailing</td></tr>
+            <tr><td>Shanghai</td><td>EWR4, JFK7, AVP1 (East)</td><td>[28-35]</td><td>[8-12]</td><td>Trans-Pacific via Panama</td></tr>
+            <tr><td>Ningbo</td><td>GYR3, PHX7 (Southwest)</td><td>[25-32]</td><td>[7-11]</td><td>Amazon Delivery appointment</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>MDW6, ORD2 (Central)</td><td>[28-35]</td><td>[8-12]</td><td>IPI rail to inland FCs</td></tr>
+            <tr><td>Qingdao</td><td>SEA7, BFI1 (Northwest)</td><td>[30-38]</td><td>[9-13]</td><td>Seasonal space limits</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>All US FCs</td><td>[24-30]</td><td>[3-6] courier</td><td>DHL/UPS direct for samples</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Transit times are port-to-FC door-to-door including export, ocean/air carriage, US customs clearance and Amazon Delivery appointment. Times vary by season, carrier space and FC congestion. <a href="/contact/">Request a quote</a> for a confirmed schedule.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>FBA shipping from China to the USA is priced by volume (CBM) for sea freight and by chargeable weight (actual or volumetric, 1 CBM = 167 KG) for air freight. We quote all-in DDP rates 鈥?no separate customs, duty or delivery invoices.</p>
+        <ul>
+          <li><strong>Sea express (LCL):</strong> [USD X.X per CBM] 鈥?best for shipments under 8 CBM. Minimum [1 CBM].</li>
+          <li><strong>Sea express (FCL 40HQ):</strong> [USD XXXX to XXXX per container] 鈥?best for 25+ CBM shipments. Includes ocean freight, clearance, duties and Amazon FC delivery.</li>
+          <li><strong>Air express (UPS/FedEx):</strong> [USD X.X per KG] 鈥?7-12 days door-to-FC. Best for Q4 replenishment.</li>
+          <li><strong>Direct courier (DHL/UPS):</strong> [USD X.X per KG] 鈥?3-6 days for samples under 300 KG.</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>Season:</strong> Pre-CNY (Jan-Feb), Prime Day (Jul), Q4 holiday rush (Sep-Dec) see 15-35% rate spikes and tighter space.</li>
+          <li><strong>Bunker Adjustment Factor (BAF):</strong> Carriers revise fuel surcharges quarterly. We absorb minor changes; major shifts pass through with written notice.</li>
+          <li><strong>Peak Season Surcharge (PSS):</strong> Applied by carriers from June to October on Trans-Pacific lanes.</li>
+          <li><strong>Currency:</strong> Quotes in USD. If you pay in CNY, we use the settling day central parity rate.</li>
+          <li><strong>FC congestion:</strong> Amazon Delivery appointment availability varies. Q4 and Prime Day windows may add 3-7 days to delivery.</li>
+          <li><strong>Duty rate:</strong> We classify your goods under the correct HS code to legally minimize duty. Most consumer goods fall in 0-25% MFN rates; Section 301 tariffs may apply to China-origin goods 鈥?we confirm before quoting.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step FBA Shipping Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send us your factory address, product description, carton count, dimensions, weight and destination Amazon FC. You receive an all-in DDP rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Book &amp; Create Shipping Plan</h3>
+          <p>Create the shipping plan in Amazon Seller Central. Send us the FBA shipment ID and label prep type. We book vessel or airline space and dispatch factory pickup.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>FBA Prep &amp; Loading</h3>
+          <p>Cargo arrives at our Shenzhen warehouse. We do FNSKU labeling, poly-bagging, bubble wrap, carton bundling, MADE IN CHINA marking and photo proof 鈥?free of charge. Then load into container or air pallet.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Export &amp; Sail</h3>
+          <p>Our licensed customs team handles export declaration, ISF-10 filing (48h before sailing), and CIQ inspection. Cargo ships with live tracking and weekly email updates.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>US Clearance &amp; FC Delivery</h3>
+          <p>We clear US customs as your IOR, pay duties and Amazon Delivery bond, book the FC appointment, and truck via UPS/FedEx/GLS to the FC. You get POD and closure.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?value, currency, Incoterm (DDP), HS code, shipper and consignee.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, dimensions, weight per carton and total.</li>
+          <li><strong>Amazon Shipping Plan</strong> 鈥?FBA shipment ID, destination FC code, label prep type.</li>
+          <li><strong>FNSKU-labeled cartons</strong> 鈥?or authorize us to label for free.</li>
+          <li><strong>ISF-10 filing (10+2)</strong> 鈥?we file this 48 hours before vessel sailing on your behalf.</li>
+          <li><strong>US Customs Bond</strong> 鈥?continuous or single-entry; we arrange if you do not have one.</li>
+          <li><strong>Compliance docs (if applicable):</strong> MSDS and UN38.3 for batteries, FDA pre-notification for food/cosmetics, FCC for electronics, CPSIA for children products.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">Frequently Asked Questions</h2>
+      <div class="prose faq-block">
+        <h3>How long does shipping from China to Amazon FBA USA take?</h3>
+        <p>Sea express takes [22-35 days] door-to-FC including US customs and Amazon Delivery appointment. Air express via UPS or FedEx takes [7-12 days]. For urgent samples under 300 KG, direct courier (DHL/UPS/FedEx) delivers in [3-6 days]. Plan 4-6 weeks ahead for Q4 and Prime Day replenishment to secure carrier space and FC slots.</p>
+
+        <h3>How much does it cost to ship from China to Amazon FBA USA?</h3>
+        <p>Sea express LCL starts around [USD X.X per CBM]. FCL 40HQ starts around [USD XXXX per container]. Air express starts around [USD X.X per KG]. The all-in DDP rate covers factory pickup, export clearance, ocean/air freight, US customs, duties, bond and FC delivery 鈥?no hidden charges. <a href="/contact/">Request a quote</a> with your cargo details for an exact rate.</p>
+
+        <h3>How to ship from China to Amazon FBA warehouse?</h3>
+        <p>The workflow: (1) create a shipping plan in Amazon Seller Central and get the FBA shipment ID; (2) send the shipment ID plus cargo details to your freight forwarder; (3) the forwarder arranges factory pickup, FNSKU labeling and FBA prep; (4) cargo ships by sea or air with ISF-10 filed; (5) the forwarder clears US customs as your IOR, pays duties, books the FC appointment, and delivers to Amazon. We handle steps 2-5 end-to-end.</p>
+
+        <h3>Do I need a freight forwarder to import from China to Amazon FBA?</h3>
+        <p>Yes. Amazon FCs do not act as Importer of Record and will not clear customs for you. You need a freight forwarder with a US IOR to file customs entries, pay duties, hold a customs bond, and book the Amazon Delivery appointment. We hold IOR numbers and run the full DDP process for sellers who do not have a US customs broker. See our <a href="/services/customs-clearance/">customs clearance service</a> for details.</p>
+
+        <h3>What documents are needed for shipping from China to Amazon FBA USA?</h3>
+        <p>Commercial invoice, packing list, Bill of Lading (or AWB), ISF-10 filing 48 hours before sailing, FNSKU-labeled cartons (or we label for free), and a US customs bond. For restricted goods: MSDS and UN38.3 for lithium batteries, FDA pre-notification for food and cosmetics, FCC compliance for electronics, CPSIA for children products. Check our <a href="/faq/">FAQ page</a> for the full list.</p>
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3">
+        <a href="/services/amazon-fba/" class="card svc-card">
+          <h3>Amazon FBA Service</h3>
+          <p>End-to-end FBA prep and shipping to US, EU, UK, CA, AU, MX and JP fulfillment centers.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/ocean-freight/" class="card svc-card">
+          <h3>Ocean Freight</h3>
+          <p>FCL and LCL ocean freight with weekly sailings and guaranteed peak-season space.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+        <a href="/services/air-freight/" class="card svc-card">
+          <h3>Air Freight</h3>
+          <p>Daily air cargo departures to 200+ destinations with block-space agreements.</p>
+          <span class="card-link">View Service &rarr;</span>
+        </a>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/north-america/" class="chip region-chip">North America</a>
+        <a href="/ship-by-region/europe/" class="chip region-chip">Europe</a>
+        <a href="/ship-by-region/australia/" class="chip region-chip">Australia</a>
+        <a href="/ship-by-region/southeast-asia/" class="chip region-chip">Southeast Asia</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ready to Ship to Amazon FBA USA?</h2>
+      <p class="section-sub">Get an all-in DDP quote within 2 hours. Send your factory address, cargo details and destination Amazon FC 鈥?we reply with the best shipping mode and all-in rate.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero {
+    position: relative; min-height: 380px; display: flex; align-items: center;
+    overflow: hidden; padding: 60px 0 48px;
+  }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(11,42,74,0.82) 0%, rgba(11,42,74,0.55) 60%, rgba(11,42,74,0.3) 100%);
+  }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 {
+    color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+    margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2;
+  }
+  .route-hero-sub {
+    color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7;
+    max-width: 640px; margin: 0 0 24px;
+  }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
+  .block-title {
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line);
+  }
+  .route-overview { max-width: 820px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(a) { color: var(--blue); text-decoration: underline; }
+  .route-overview :global(a:hover) { color: var(--orange); }
+  .route-overview :global(ul) { padding-left: 20px; margin: 0 0 14px; }
+  .route-overview :global(li) { color: var(--ink-soft); line-height: 1.75; margin-bottom: 6px; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+
+  .step-grid { margin-bottom: 8px; }
+  .step-card { position: relative; padding-top: 56px; }
+  .step-num {
+    position: absolute; top: 18px; right: 18px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--orange); color: #fff; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: 1.05rem;
+  }
+  .step-card h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .step-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .doc-list { padding-left: 20px; }
+  .doc-list li { color: var(--ink-soft); line-height: 1.75; margin-bottom: 8px; }
+
+  .faq-block h3 {
+    font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px;
+    font-weight: 700; line-height: 1.4;
+  }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip {
+    display: inline-block; background: var(--blue-light); color: var(--blue);
+    font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+    margin: 4px 6px 4px 0; text-decoration: none;
+  }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+
+  .svc-card {
+    color: inherit; text-decoration: none !important;
+    display: flex; flex-direction: column;
+  }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .card-link { display: inline-block; margin-top: 14px; color: var(--blue); font-weight: 700; font-size: 0.88rem; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  @media (max-width: 720px) {
+    .step-card { padding-top: 48px; }
+    .step-num { width: 32px; height: 32px; font-size: 0.95rem; }
+    .block-title { font-size: 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .block-title { font-size: 1.1rem; }
+    .chip { font-size: 0.75rem; padding: 3px 10px; }
+    .cta-row { flex-direction: column; }
+  }
+</style>

@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Freight Forwarder China to Australia | Dantful';
+const description = 'Freight forwarder China to Australia. Sea FCL 18-28 days from [USD XXXX per 40HQ], LCL consolidation, air freight 5-9 days. DDP clearance, Amazon FBA delivery to Sydney, Melbourne, Brisbane.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Routes', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'China to Australia', item: '/routes/china-to-australia/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'China to Australia Freight Forwarding',
+  serviceType: 'Freight Forwarding',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['Australia', 'China'],
+  description: 'Freight forwarding from China to Australia with sea FCL/LCL, air freight, DDP clearance and Amazon FBA delivery to Sydney, Melbourne, Brisbane and Perth.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long does shipping from China to Australia take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea FCL from Shenzhen or Shanghai to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 16 to 22 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to ship a container from China to Australia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ container from Shenzhen Yantian to Sydney starts around [USD XXXX per 40HQ] in low season, rising 20 to 40% during Q4 and pre-Chinese New Year. LCL starts around [USD X.X per CBM] with a 1 CBM minimum. Air freight starts around [USD X.X per KG]. Australian duties range from 0 to 10% depending on HS code; we confirm duty before quoting an all-in DDP rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need a freight forwarder to ship from China to Australia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Australian Border Force (ABF) requires a Full Import Declaration (FID) for cargo over AUD 1,000, a licensed customs broker, and an Importer of Record with a valid ABN. Amazon FCs in Australia do not act as importer. A licensed NVOCC freight forwarder like Dantful handles export from China, ocean booking, FID filing, ABF clearance, GST and duty payment and last-mile delivery to your warehouse or Amazon FC.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between DDP and FOB shipping from China to Australia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FOB (Free On Board) means the seller delivers loaded cargo on board the vessel at a named Chinese port. The Australian buyer pays ocean freight, insurance, ABF clearance, GST, duties and inland delivery. DDP (Delivered Duty Paid) means the forwarder quotes an all-in rate covering ocean freight, ABF clearance, GST and duty and door delivery. DDP is recommended for first-time buyers and Amazon FBA sellers shipping to Australian FCs (SYD1, MEL1, BNE1).' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed to ship from China to Australia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commercial invoice, packing list, Bill of Lading (or AWB for air), Full Import Declaration (FID), and a power of attorney authorizing your broker. For restricted goods: MSDS and UN38.3 for lithium batteries, DAFF import permits for food, plants and wood, TGA registration for medical devices and pharmaceuticals, ACMA RCM compliance for electronics.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/route-china-to-australia.webp" alt="Freight forwarder China to Australia - 40HQ container unloading at Sydney Port Botany terminal with Trans-Pacific route logistics" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Routes</a> / <span>China to Australia</span>
+      </nav>
+      <h1>Freight Forwarder China to Australia</h1>
+      <p class="route-hero-sub">Ship from China to Australia with an NVOCC-licensed forwarder. Sea FCL in [18-24 days] port-to-port from [USD XXXX per 40HQ], LCL consolidation, air freight in [5-9 days], DDP clearance, ABF FID filing and Amazon FBA delivery to Sydney, Melbourne, Brisbane and Perth.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Dantful Logistics has operated the China to Australia trade lane since 2008 as a licensed NVOCC based in Shenzhen. We move containers and air shipments every week from Shenzhen Yantian, Shanghai Yangshan, Ningbo, Guangzhou Nansha, Qingdao and Hong Kong to Sydney (Port Botany), Melbourne (Port of Melbourne), Brisbane (Port of Brisbane), Adelaide (Port Adelaide) and Fremantle (Fremantle Ports). We serve importers, Amazon FBA sellers (SYD1, MEL1, BNE1, ADL1, PER1), wholesalers and project cargo owners across New South Wales, Victoria, Queensland, South Australia and Western Australia.</p>
+        <p>This page covers transit times by port, price ranges for FCL, LCL and air freight, the 5-step shipping workflow, the documents you need to prepare, and the questions Australian buyers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP rate within 2 hours.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times: China to Australia</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin Port</th><th>Australian Port</th><th>Sea FCL (days)</th><th>Door-to-Door (days)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen (Yantian)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Direct, weekly sailing</td></tr>
+            <tr><td>Shenzhen (Yantian)</td><td>Melbourne (VIC)</td><td>[20-26]</td><td>[24-30]</td><td>Direct, weekly</td></tr>
+            <tr><td>Shanghai (Yangshan)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Direct Trans-Pacific</td></tr>
+            <tr><td>Ningbo</td><td>Brisbane (QLD)</td><td>[18-24]</td><td>[22-28]</td><td>Direct, weekly</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>Fremantle (WA)</td><td>[16-22]</td><td>[20-26]</td><td>Fastest to Perth</td></tr>
+            <tr><td>Qingdao</td><td>Adelaide (SA)</td><td>[22-28]</td><td>[26-32]</td><td>Direct, weekly</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Air alternative: [5-9] days</td></tr>
+            <tr><td>All China airports</td><td>SYD / MEL / BNE / PER</td><td>Air: [5-9]</td><td>Air DDP: [7-12]</td><td>PVG, CAN, HKG departures</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Transit times are port-to-port and door-to-door including export clearance, ocean carriage, ABF clearance and inland rail or truck delivery. Times vary by carrier, season, port congestion and rail availability. <a href="/contact/">Request a quote</a> for a confirmed sailing schedule.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>China to Australia freight is priced by volume (CBM) or per container for sea, and by chargeable weight (1 CBM = 167 KG) for air. We quote transparent all-in rates with no hidden surcharges.</p>
+        <ul>
+          <li><strong>Sea FCL 20GP:</strong> [USD XXXX to XXXX per container] 鈥?best for 28-30 CBM shipments.</li>
+          <li><strong>Sea FCL 40HQ:</strong> [USD XXXX to XXXX per container] 鈥?best for 65-76 CBM shipments, lowest per-CBM cost.</li>
+          <li><strong>Sea LCL consolidation:</strong> [USD X.X per CBM] 鈥?best for shipments under 15 CBM, minimum 1 CBM, weekly from Shenzhen, Shanghai and Ningbo.</li>
+          <li><strong>Air freight (PVG/CAN/HKG to SYD/MEL/BNE/PER):</strong> [USD X.X per KG] 鈥?5 to 9 days airport-to-airport, door-to-door DDP available.</li>
+          <li><strong>Air express (DHL/UPS/FedEx):</strong> [USD X.X per KG] 鈥?4 to 7 days for samples under 300 KG.</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>Season:</strong> Pre-CNY (Jan-Feb), Click Frenzy and Black Friday (Nov), Christmas rush (Sep-Dec) see 20 to 40% rate spikes and tighter container space.</li>
+          <li><strong>Bunker Adjustment Factor (BAF):</strong> Carriers revise fuel surcharges quarterly. We absorb minor changes; major shifts pass through with written notice.</li>
+          <li><strong>Peak Season Surcharge (PSS):</strong> Applied by carriers from September to December on China-Australia lanes.</li>
+          <li><strong>Currency:</strong> Quotes in USD or AUD. We use the settling day Reserve Bank of Australia exchange rate.</li>
+          <li><strong>Australian port congestion:</strong> Sydney Port Botany and Melbourne experience periodic congestion. Brisbane and Fremantle offer alternative routings.</li>
+          <li><strong>Australian duty:</strong> Most general goods attract 5% duty, with 0% for many HS codes under Free Trade Agreement (ChAFTA). We classify your goods under the correct HS code and apply ChAFTA preference to legally minimize duty before quoting.</li>
+          <li><strong>Goods and Services Tax (GST):</strong> 10% GST applies to the customs value plus duty plus freight and insurance. Included in DDP quotes.</li>
+          <li><strong>Inland delivery:</strong> Rail from Sydney to Melbourne and Brisbane is cheaper than truck. Door delivery to Amazon FCs (SYD1, MEL1, BNE1) is included in DDP quotes.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step Shipping Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send your factory zip code, product description, carton count, dimensions, weight, HS code, Incoterm (FOB/EXW/CIF/DDP) and destination postal code. You receive an all-in DDP or FOB rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Book &amp; Pickup</h3>
+          <p>We issue a shipping order, book vessel space, and dispatch factory pickup with our own trucking fleet. For EXW terms, we collect from any factory in mainland China within 24 to 48 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Export &amp; FID Filing</h3>
+          <p>Our licensed customs team handles export declaration, CIQ inspection, CO or FORM E (ChAFTA) origin certificates, and prepares Australian Full Import Declaration (FID) data 24 hours before vessel arrival.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Sail &amp; Track</h3>
+          <p>Container sails on the booked vessel. You receive weekly tracking emails with carrier link, ETA, and customs status. Air freight shipments track in real time via AWB number.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>Clearance &amp; Delivery</h3>
+          <p>We file FID with ABF, pay GST and duty on your behalf, and arrange rail or truck delivery to your warehouse, 3PL or Amazon FC. Delivery appointment booked before container discharge.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">+</span>
+          <h3>Need Amazon FBA Delivery?</h3>
+          <p>For Amazon FBA shipments to Australian FCs (SYD1, MEL1, BNE1, ADL1, PER1), we handle FNSKU labeling, FBA prep, and book Amazon Delivery appointments. <a href="/fba/china-to-usa/">See FBA page</a>.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?full seller and buyer details, HS code, unit price, Incoterm, currency, country of origin.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, gross weight, net weight, dimensions per carton and total CBM.</li>
+          <li><strong>Bill of Lading (B/L)</strong> 鈥?we issue a House B/L as NVOCC, or use carrier Master B/L. Original or telex release available.</li>
+          <li><strong>Full Import Declaration (FID)</strong> 鈥?filed with ABF for cargo valued over AUD 1,000. Buyer provides Australian Business Number (ABN).</li>
+          <li><strong>ChAFTA Certificate of Origin</strong> 鈥?issued by CCPIT or AQSIQ. Required to claim preferential duty under ChAFTA.</li>
+          <li><strong>Power of Attorney (POA)</strong> 鈥?authorizes Dantful as your customs broker. One-time setup.</li>
+          <li><strong>Restricted goods docs:</strong> MSDS and UN38.3 for lithium batteries, DAFF import permits for food, plants, wood and animal products, TGA registration for medical devices and pharmaceuticals, ACMA RCM compliance for electronics, fumigation certificate for ISPM-15 wood packaging.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>How long does shipping from China to Australia take?</h3>
+        <p>Sea FCL from Shenzhen Yantian to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 16 to 22 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+
+        <h3>How much does it cost to ship a container from China to Australia?</h3>
+        <p>A 40HQ container from Shenzhen Yantian to Sydney starts around [USD XXXX per 40HQ] in low season, rising 20 to 40% during Q4 and pre-Chinese New Year. LCL starts around [USD X.X per CBM] with a 1 CBM minimum. Air freight starts around [USD X.X per KG]. Australian duty is 5% for most general goods, 0% under ChAFTA for many HS codes; we confirm duty before quoting an all-in DDP rate.</p>
+
+        <h3>Do I need a freight forwarder to ship from China to Australia?</h3>
+        <p>Yes. Australian Border Force (ABF) requires a Full Import Declaration (FID) for cargo over AUD 1,000, a licensed customs broker, and an Importer of Record with a valid ABN. Amazon FCs in Australia do not act as importer. A licensed NVOCC freight forwarder like Dantful handles export from China, ocean booking, FID filing, ABF clearance, GST and duty payment and last-mile delivery to your warehouse or Amazon FC. <a href="/contact/">Request a quote</a> for an all-in DDP rate.</p>
+
+        <h3>What is the difference between DDP and FOB shipping from China to Australia?</h3>
+        <p>FOB (Free On Board) means the seller delivers loaded cargo on board the vessel at a named Chinese port. The Australian buyer pays ocean freight, insurance, ABF clearance, GST, duties and inland delivery. DDP (Delivered Duty Paid) means the forwarder quotes an all-in rate covering ocean freight, ABF clearance, GST and duty and door delivery. DDP is recommended for first-time buyers and Amazon FBA sellers shipping to Australian FCs (SYD1, MEL1, BNE1). <a href="/services/customs-clearance/">See our customs clearance service</a>.</p>
+
+        <h3>What documents are needed to ship from China to Australia?</h3>
+        <p>Commercial invoice, packing list, Bill of Lading (or AWB for air), Full Import Declaration (FID), ChAFTA Certificate of Origin to claim preferential duty, and a power of attorney authorizing your broker. For restricted goods: MSDS and UN38.3 for lithium batteries, DAFF import permits for food, plants and wood, TGA registration for medical devices, ACMA RCM compliance for electronics, fumigation certificate for ISPM-15 wood packaging.</p>
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3 chip-row">
+        <a href="/services/ocean-freight/" class="card svc-card">
+          <h3>Ocean Freight (FCL &amp; LCL)</h3>
+          <p>Direct carrier contracts with Maersk, MSC, COSCO and ANL for stable Trans-Pacific space. FCL, LCL and project cargo from all China ports.</p>
+        </a>
+        <a href="/services/air-freight/" class="card svc-card">
+          <h3>Air Freight</h3>
+          <p>Block-space agreements with Air China, Cathay Pacific, Qantas and Emirates. Express, economy and charter options to SYD, MEL, BNE and PER.</p>
+        </a>
+        <a href="/services/customs-clearance/" class="card svc-card">
+          <h3>Australian Customs Clearance</h3>
+          <p>ABF FID filing, ChAFTA origin preference, HS classification, GST and duty payment handled in-house by our licensed team.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-row">
+      <div class="cta-text">
+        <h2>Get an All-In DDP Rate for Your China to Australia Shipment</h2>
+        <p>Send your cargo details, destination postal code and Incoterm. You receive a confirmed all-in rate within 2 hours.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+
+  <style>
+    .route-hero { position: relative; min-height: 540px; display: flex; align-items: center; color: #fff; overflow: hidden; }
+    .route-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .route-hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(8, 30, 64, 0.82) 0%, rgba(12, 50, 110, 0.7) 100%); }
+    .route-hero-content { position: relative; z-index: 2; padding: 80px 24px; max-width: 960px; }
+    .breadcrumb { font-size: 14px; margin-bottom: 16px; }
+    .breadcrumb-light a { color: #d9e6ff; text-decoration: none; }
+    .breadcrumb-light a:hover { text-decoration: underline; }
+    .breadcrumb-light span { color: #fff; }
+    .route-hero h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; }
+    .route-hero-sub { font-size: 18px; line-height: 1.55; max-width: 820px; margin: 0 0 28px; }
+    .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; transition: background 0.2s, color 0.2s, border 0.2s; }
+    .btn-primary { background: #ff6b35; color: #fff; }
+    .btn-primary:hover { background: #e55a2a; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn-outline:hover { background: #fff; color: #0c326e; }
+    .btn-whatsapp { background: #25d366; color: #fff; }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+    .block-title { font-size: 26px; margin: 36px 0 16px; color: #0c326e; font-weight: 700; }
+    .route-overview { font-size: 16px; line-height: 1.7; color: #2c3e50; margin: 16px 0 24px; }
+    .route-overview p { margin: 0 0 14px; }
+    .route-overview ul { padding-left: 22px; margin: 8px 0 16px; }
+    .route-overview li { margin: 6px 0; }
+    .route-overview a { color: #0c5fa8; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 8px; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+    .table-wrap th, .table-wrap td { border: 1px solid #e0e6ed; padding: 10px 12px; text-align: left; }
+    .table-wrap th { background: #0c326e; color: #fff; font-weight: 600; }
+    .table-wrap tbody tr:nth-child(even) { background: #f6f8fb; }
+    .table-note { font-size: 13px; color: #5a6b7c; margin: 0 0 20px; }
+    .step-grid { gap: 16px; margin: 16px 0 24px; }
+    .step-card { position: relative; padding: 28px 20px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; }
+    .step-card .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #ff6b35; color: #fff; font-weight: 700; font-size: 18px; margin-bottom: 12px; }
+    .step-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 18px; }
+    .step-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .step-card a { color: #0c5fa8; }
+    .doc-list { list-style: none; padding: 0; margin: 12px 0 24px; }
+    .doc-list li { padding: 10px 14px 10px 32px; margin: 6px 0; border-left: 3px solid #ff6b35; background: #f6f8fb; position: relative; }
+    .doc-list li::before { content: "OK"; position: absolute; left: 10px; top: 10px; font-size: 12px; color: #25a04a; font-weight: 700; }
+    .faq-block { margin: 16px 0 24px; }
+    .faq-block h3 { font-size: 17px; color: #0c326e; margin: 20px 0 8px; cursor: pointer; }
+    .faq-block p { font-size: 15px; line-height: 1.7; color: #2c3e50; margin: 0 0 12px; padding-left: 16px; border-left: 3px solid #e0e6ed; }
+    .faq-block a { color: #0c5fa8; }
+    .chip-row { gap: 16px; margin: 16px 0 24px; }
+    .svc-card { padding: 22px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+    .svc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(12, 50, 110, 0.12); }
+    .svc-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 17px; }
+    .svc-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .cta-section { background: #0c326e; color: #fff; padding: 56px 0; margin-top: 40px; }
+    .cta-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-text h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+    .cta-text p { margin: 0; color: #d9e6ff; }
+    .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .grid { display: grid; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card { background: #fff; border-radius: 8px; }
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .route-hero { min-height: 420px; }
+      .route-hero h1 { font-size: 30px; }
+      .route-hero-sub { font-size: 16px; }
+      .cta-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</BaseLayout>

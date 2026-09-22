@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Ocean Freight Forwarding from China | Dantful';
+const description = 'Ocean freight forwarding from China. FCL 20GP/40HQ and LCL consolidation to USA, EU, UK, Australia, Canada. Direct carrier contracts, weekly sailings, DDP clearance.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: 'Ocean Freight', item: '/services/ocean-freight/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ocean Freight Forwarding from China',
+  serviceType: 'Ocean Freight Forwarding',
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['United States', 'European Union', 'United Kingdom', 'Australia', 'Canada', 'Southeast Asia'],
+  description: 'Ocean freight forwarding from China with FCL, LCL consolidation, direct carrier contracts and DDP clearance to global ports.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long does sea freight from China take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight from China to US West Coast (Los Angeles, Long Beach) takes 14 to 20 days. To US East Coast (New York, Savannah) 26 to 32 days. To Europe (Rotterdam, Hamburg) 30 to 38 days. To UK (Felixstowe) 28 to 35 days. To Australia (Sydney) 18 to 24 days. To Southeast Asia (Singapore) 7 to 12 days. Door-to-door adds 4 to 7 days for customs and inland delivery.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between FCL and LCL shipping?',
+      acceptedAnswer: { '@type': 'Answer', text: 'FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM. LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers faster transit (no consolidation or deconsolidation delay).' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does ocean freight from China cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ container from Shenzhen Yantian to Los Angeles starts around [USD XXXX per 40HQ] in low season, rising 30 to 60% during Q4 peak. LCL consolidation starts around [USD X.X per CBM] with a 1 CBM minimum. Rates vary by destination, season, carrier, BAF and PSS. We quote transparent all-in rates with no hidden surcharges. Request a quote for a confirmed rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is a House Bill of Lading (HBL)?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder like Dantful to the shipper. It serves as a receipt for cargo, evidence of the contract of carriage, and a document of title. The Master Bill of Lading (MBL) is issued by the carrier (Maersk, MSC, etc.) to the NVOCC. The HBL is what you use to claim your cargo at destination. As a licensed NVOCC, we issue HBLs with telex release or original options.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need cargo insurance for ocean freight from China?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cargo insurance is optional but recommended. Carrier liability is limited under the Hague-Visby Rules to 2 SDR per kg or 666.67 SDR per package, whichever is lower. This means a USD 50,000 shipment insured by the carrier may only recover USD 1,000 if lost. We offer all-risk cargo insurance at 0.3 to 0.5% of declared value. For high-value or fragile cargo, insurance is strongly recommended.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="/images/service-ocean-freight-hero.webp" alt="Ocean freight forwarding from China - container terminal at Shanghai Yangshan port with FCL and LCL shipping" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/">Services</a> / <span>Ocean Freight</span>
+      </nav>
+      <h1>Ocean Freight Forwarding from China</h1>
+      <p class="route-hero-sub">FCL 20GP/40HQ and LCL consolidation from Shenzhen, Shanghai, Ningbo, Guangzhou, Qingdao and Hong Kong to USA, EU, UK, Australia, Canada and Southeast Asia. Direct carrier contracts, weekly sailings, guaranteed peak-season space, DDP clearance from [USD XXXX per 40HQ].</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit Times</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Dantful Logistics is a licensed NVOCC (Non-Vessel Operating Common Carrier) based in Shenzhen since 2008. We hold long-term direct contracts with Maersk, MSC, COSCO, ONE, Evergreen, CMA CGM and Hapag-Lloyd. This secures preferential rates and guaranteed container space even during Pre-CNY, Amazon Prime Day and Q4 holiday rush windows. We move thousands of containers every year across Trans-Pacific, North Europe, Mediterranean, UK, Australia, Canada, Mexico and Latin America lanes.</p>
+        <p>This page covers transit times by destination region, price ranges for FCL and LCL, the 5-step ocean freight workflow, the documents you need to prepare, and the questions shippers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP or FOB rate within 2 hours.</p>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times: China to Global Ports</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin Port</th><th>Destination Region</th><th>Sea FCL (days)</th><th>Door-to-Door (days)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen (Yantian)</td><td>USA West Coast (LAX, LGB)</td><td>[14-20]</td><td>[18-24]</td><td>Direct, weekly</td></tr>
+            <tr><td>Shanghai (Yangshan)</td><td>USA East Coast (NYC, SAV)</td><td>[26-32]</td><td>[30-36]</td><td>Via Panama Canal</td></tr>
+            <tr><td>Ningbo</td><td>Europe (Rotterdam, Hamburg)</td><td>[30-38]</td><td>[34-42]</td><td>Asia-North Europe loop</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>UK (Felixstowe, Tilbury)</td><td>[28-35]</td><td>[32-40]</td><td>Direct, weekly</td></tr>
+            <tr><td>Qingdao</td><td>Australia (Sydney, Melbourne)</td><td>[18-26]</td><td>[22-30]</td><td>Trans-Pacific direct</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>Canada (Vancouver, Prince Rupert)</td><td>[16-22]</td><td>[20-28]</td><td>Direct, weekly</td></tr>
+            <tr><td>Shenzhen (Yantian)</td><td>Southeast Asia (Singapore, Port Klang)</td><td>[7-12]</td><td>[10-16]</td><td>Intra-Asia feeder</td></tr>
+            <tr><td>Shanghai (Yangshan)</td><td>Mediterranean (Genoa, Barcelona)</td><td>[32-40]</td><td>[36-44]</td><td>Via Suez Canal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Transit times are port-to-port and door-to-door including export clearance, ocean carriage, import clearance and inland delivery. Times vary by carrier, season, port congestion and canal transit. <a href="/contact/">Request a quote</a> for a confirmed sailing schedule.</p>
+
+      <h2 class="block-title">Price Range &amp; Cost Factors</h2>
+      <div class="prose route-overview">
+        <p>Ocean freight from China is priced per container (FCL) or per CBM (LCL). We quote transparent all-in rates with no hidden surcharges.</p>
+        <ul>
+          <li><strong>FCL 20GP:</strong> [USD XXXX to XXXX per container] 鈥?best for 28-30 CBM shipments.</li>
+          <li><strong>FCL 40HQ:</strong> [USD XXXX to XXXX per container] 鈥?best for 65-76 CBM shipments, lowest per-CBM cost.</li>
+          <li><strong>LCL consolidation:</strong> [USD X.X per CBM] 鈥?best for shipments under 15 CBM, minimum 1 CBM, weekly from Shenzhen, Shanghai and Ningbo.</li>
+          <li><strong>OOG / project cargo:</strong> flat-rack, open-top or ISO-tank solutions. <a href="/contact/">Request a quote</a> for custom pricing.</li>
+          <li><strong>Reefer container:</strong> for temperature-controlled cargo. Starts around [USD XXXX per 40HQ reefer].</li>
+        </ul>
+        <p><strong>Factors that move your price:</strong></p>
+        <ul>
+          <li><strong>Season:</strong> Pre-CNY (Jan-Feb), Prime Day (Jul), Black Friday and Q4 (Sep-Dec) see 30 to 60% rate spikes and tighter container space.</li>
+          <li><strong>Bunker Adjustment Factor (BAF):</strong> Carriers revise fuel surcharges quarterly. We absorb minor changes; major shifts pass through with written notice.</li>
+          <li><strong>Peak Season Surcharge (PSS):</strong> Applied by carriers from June to October on major lanes.</li>
+          <li><strong>Currency Adjustment Factor (CAF):</strong> Applied to USD quotes paid in other currencies. We quote in USD to avoid CAF.</li>
+          <li><strong>Port congestion:</strong> LAX/LGB, NYC/NJ, Rotterdam, Felixstowe and Sydney experience periodic congestion. We offer alternative ports to keep your cargo moving.</li>
+          <li><strong>Canal transit:</strong> Panama (Americas East Coast), Suez (Europe, Mediterranean). Delays or route changes impact transit time and cost.</li>
+          <li><strong>Container type:</strong> General purpose (GP), High Cube (HQ), Reefer (RF), Open Top (OT), Flat Rack (FR), ISO Tank (TK). Special equipment costs 15 to 40% more.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title">5-Step Ocean Freight Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Get a Quote</h3>
+          <p>Send your origin port or factory ZIP, destination port or warehouse ZIP, cargo details, HS code and Incoterm (FOB/EXW/CIF/DDP). You receive an all-in rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>Book &amp; Pickup</h3>
+          <p>We issue a shipping order, book vessel space, and dispatch factory pickup. For EXW terms, we collect from any factory in mainland China within 24 to 48 hours with our own trucking fleet.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Export &amp; Document</h3>
+          <p>Our licensed customs team handles export declaration, CIQ inspection, and issues CO, FORM A, FORM E, FORM F or RCEP certificates to claim FTA duty preference at destination.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Sail &amp; Track</h3>
+          <p>Container sails on the booked vessel. You receive weekly tracking emails with carrier link, ETA, vessel name and customs status. Telex release or original B/L issued per your instruction.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>Clearance &amp; Delivery</h3>
+          <p>We file import customs entry, pay duties on your behalf (DDP terms), and arrange truck or rail delivery to your warehouse, 3PL or Amazon FC. Delivery appointment booked before vessel arrival.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">+</span>
+          <h3>LCL Consolidation</h3>
+          <p>For shipments under 15 CBM, our weekly LCL hubs in Shenzhen, Shanghai and Guangzhou combine multiple supplier cargo into single containers. This cuts per-CBM cost by 30 to 60% versus FCL. <a href="/contact/">Get an LCL rate</a>.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">Documents You Need to Prepare</h2>
+      <div class="prose route-overview">
+        <ul class="doc-list">
+          <li><strong>Commercial Invoice</strong> 鈥?full seller and buyer details, HS code, unit price, Incoterm, currency, country of origin.</li>
+          <li><strong>Packing List</strong> 鈥?carton count, gross weight, net weight, dimensions per carton and total CBM.</li>
+          <li><strong>Bill of Lading (B/L)</strong> 鈥?we issue a House B/L as NVOCC, or use carrier Master B/L. Original, telex release or Sea Waybill available.</li>
+          <li><strong>Certificate of Origin (CO)</strong> 鈥?CCPIT-issued general CO, or FORM A (GSP), FORM E (ASEAN-China), FORM F (Chile), RCEP for FTA duty preference.</li>
+          <li><strong>Export Declaration</strong> 鈥?filed by us via EDI with GACC. Requires your business license and foreign exchange registration.</li>
+          <li><strong>CIQ Inspection</strong> 鈥?for restricted goods: food, plants, wood, chemicals, batteries. We arrange inspection and issue certificates.</li>
+          <li><strong>Restricted goods docs:</strong> MSDS and UN38.3 for lithium batteries, DG packing list for dangerous goods, phytosanitary certificate for wood packaging (ISPM-15).</li>
+          <li><strong>Marine cargo insurance</strong> 鈥?optional. All-risk coverage at 0.3 to 0.5% of declared value. Recommended for high-value or fragile cargo.</li>
+        </ul>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>How long does sea freight from China take?</h3>
+        <p>Sea freight from China to US West Coast (Los Angeles, Long Beach) takes 14 to 20 days port-to-port. To US East Coast (New York, Savannah) 26 to 32 days via Panama. To Europe (Rotterdam, Hamburg) 30 to 38 days. To UK (Felixstowe) 28 to 35 days. To Australia (Sydney) 18 to 24 days. To Southeast Asia (Singapore) 7 to 12 days. Door-to-door adds 4 to 7 days for customs and inland delivery. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+
+        <h3>What is the difference between FCL and LCL shipping?</h3>
+        <p>FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM. LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers faster transit, as there is no consolidation or deconsolidation delay. FCL also reduces handling damage risk since the container stays sealed from origin to destination.</p>
+
+        <h3>How much does ocean freight from China cost?</h3>
+        <p>A 40HQ container from Shenzhen Yantian to Los Angeles starts around [USD XXXX per 40HQ] in low season, rising 30 to 60% during Q4 peak. LCL consolidation starts around [USD X.X per CBM] with a 1 CBM minimum. Rates vary by destination, season, carrier, BAF and PSS. We quote transparent all-in rates with no hidden surcharges. <a href="/contact/">Request a quote</a> for a confirmed rate.</p>
+
+        <h3>What is a House Bill of Lading (HBL)?</h3>
+        <p>A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder like Dantful to the shipper. It serves as a receipt for cargo, evidence of the contract of carriage, and a document of title. The Master Bill of Lading (MBL) is issued by the carrier (Maersk, MSC, etc.) to the NVOCC. The HBL is what you use to claim your cargo at destination. As a licensed NVOCC, we issue HBLs with telex release (electronic) or original paper B/L options. <a href="/services/customs-clearance/">See our customs clearance service</a>.</p>
+
+        <h3>Do I need cargo insurance for ocean freight from China?</h3>
+        <p>Cargo insurance is optional but recommended. Carrier liability is limited under the Hague-Visby Rules to 2 SDR per kg or 666.67 SDR per package, whichever is lower. This means a USD 50,000 shipment insured by the carrier may only recover around USD 1,000 if lost. We offer all-risk cargo insurance at 0.3 to 0.5% of declared value with immediate claim support. For high-value, fragile or temperature-sensitive cargo, insurance is strongly recommended.</p>
+      </div>
+
+      <h2 class="block-title">Related Routes &amp; Services</h2>
+      <div class="grid grid-3 chip-row">
+        <a href="/routes/china-to-usa/" class="card svc-card">
+          <h3>China to USA</h3>
+          <p>Trans-Pacific FCL and LCL to Los Angeles, Long Beach, New York and Savannah. DDP clearance and Amazon FBA delivery.</p>
+        </a>
+        <a href="/routes/china-to-uk/" class="card svc-card">
+          <h3>China to UK</h3>
+          <p>FCL and LCL to Felixstowe and Tilbury. DDP clearance with VAT and duty included.</p>
+        </a>
+        <a href="/services/customs-clearance/" class="card svc-card">
+          <h3>Customs Clearance</h3>
+          <p>Class-A licensed brokerage. ISF, AMS, ENS, CO, FORM A/E, HS classification and FTA duty optimization.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-row">
+      <div class="cta-text">
+        <h2>Get an All-In Rate for Your Ocean Freight from China</h2>
+        <p>Send your cargo details, origin and destination. You receive a confirmed all-in FCL, LCL or DDP rate within 2 hours.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+
+  <style>
+    .route-hero { position: relative; min-height: 540px; display: flex; align-items: center; color: #fff; overflow: hidden; }
+    .route-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .route-hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(8, 30, 64, 0.82) 0%, rgba(12, 50, 110, 0.7) 100%); }
+    .route-hero-content { position: relative; z-index: 2; padding: 80px 24px; max-width: 960px; }
+    .breadcrumb { font-size: 14px; margin-bottom: 16px; }
+    .breadcrumb-light a { color: #d9e6ff; text-decoration: none; }
+    .breadcrumb-light a:hover { text-decoration: underline; }
+    .breadcrumb-light span { color: #fff; }
+    .route-hero h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; }
+    .route-hero-sub { font-size: 18px; line-height: 1.55; max-width: 820px; margin: 0 0 28px; }
+    .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; transition: background 0.2s, color 0.2s, border 0.2s; }
+    .btn-primary { background: #ff6b35; color: #fff; }
+    .btn-primary:hover { background: #e55a2a; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+    .btn-outline:hover { background: #fff; color: #0c326e; }
+    .btn-whatsapp { background: #25d366; color: #fff; }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+    .block-title { font-size: 26px; margin: 36px 0 16px; color: #0c326e; font-weight: 700; }
+    .route-overview { font-size: 16px; line-height: 1.7; color: #2c3e50; margin: 16px 0 24px; }
+    .route-overview p { margin: 0 0 14px; }
+    .route-overview ul { padding-left: 22px; margin: 8px 0 16px; }
+    .route-overview li { margin: 6px 0; }
+    .route-overview a { color: #0c5fa8; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 8px; }
+    .table-wrap table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+    .table-wrap th, .table-wrap td { border: 1px solid #e0e6ed; padding: 10px 12px; text-align: left; }
+    .table-wrap th { background: #0c326e; color: #fff; font-weight: 600; }
+    .table-wrap tbody tr:nth-child(even) { background: #f6f8fb; }
+    .table-note { font-size: 13px; color: #5a6b7c; margin: 0 0 20px; }
+    .step-grid { gap: 16px; margin: 16px 0 24px; }
+    .step-card { position: relative; padding: 28px 20px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; }
+    .step-card .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #ff6b35; color: #fff; font-weight: 700; font-size: 18px; margin-bottom: 12px; }
+    .step-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 18px; }
+    .step-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .step-card a { color: #0c5fa8; }
+    .doc-list { list-style: none; padding: 0; margin: 12px 0 24px; }
+    .doc-list li { padding: 10px 14px 10px 32px; margin: 6px 0; border-left: 3px solid #ff6b35; background: #f6f8fb; position: relative; }
+    .doc-list li::before { content: "OK"; position: absolute; left: 10px; top: 10px; font-size: 12px; color: #25a04a; font-weight: 700; }
+    .faq-block { margin: 16px 0 24px; }
+    .faq-block h3 { font-size: 17px; color: #0c326e; margin: 20px 0 8px; cursor: pointer; }
+    .faq-block p { font-size: 15px; line-height: 1.7; color: #2c3e50; margin: 0 0 12px; padding-left: 16px; border-left: 3px solid #e0e6ed; }
+    .faq-block a { color: #0c5fa8; }
+    .chip-row { gap: 16px; margin: 16px 0 24px; }
+    .svc-card { padding: 22px 20px; border: 1px solid #e0e6ed; border-radius: 8px; background: #fff; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+    .svc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(12, 50, 110, 0.12); }
+    .svc-card h3 { margin: 0 0 8px; color: #0c326e; font-size: 17px; }
+    .svc-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #2c3e50; }
+    .cta-section { background: #0c326e; color: #fff; padding: 56px 0; margin-top: 40px; }
+    .cta-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-text h2 { margin: 0 0 8px; font-size: 24px; color: #fff; }
+    .cta-text p { margin: 0; color: #d9e6ff; }
+    .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .grid { display: grid; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card { background: #fff; border-radius: 8px; }
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .route-hero { min-height: 420px; }
+      .route-hero h1 { font-size: 30px; }
+      .route-hero-sub { font-size: 16px; }
+      .cta-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</BaseLayout>
