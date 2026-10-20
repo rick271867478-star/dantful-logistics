@@ -26,7 +26,7 @@ export const news: NewsItem[] = [
     summary:
       'How a Montreal importer verified our credentials and shipped a 40HQ container from Shenzhen to Montreal door-to-door. Full case study with timeline.',
     body: [
-      '<p><strong>Client:</strong> a home and garden products importer based in Montreal, Quebec. <strong>Cargo:</strong> one 40HQ container of outdoor furniture sets. <strong>Route:</strong> factory pickup in Foshan, export through Shenzhen Yantian, door-to-door delivery to a warehouse in Montreal. This case study walks through how a first email became a closed deal, and what importers can learn from the process.</p>',
+      '<p><strong>Client:</strong> a home and garden products importer based in Montreal, Quebec. <strong>Cargo:</strong> one 40HQ container of outdoor furniture sets. <strong>Route:</strong> factory pickup in Foshan, export through Shenzhen Yantian, door-to-door delivery to a warehouse in Montreal. This case study walks through the full journey of shipping from China to Canada, from a first email to a closed deal, and what importers can learn from the process.</p>',
       '<h2>The Client and the Cargo</h2>',
       '<p>The client is a family-owned importer in Montreal that has been sourcing outdoor furniture from factories in Guangdong for several years. Rising rates and missed sailings with their previous forwarder pushed them to look for a new long-term partner. Their search was simple: freight forwarder China to Canada. That search led them to our <a href="/routes/china-to-canada/">China to Canada shipping guide</a>, and a first inquiry email arrived the same day.</p>',
       '<h2>Step 1: The First Email</h2>',
