@@ -34,7 +34,7 @@ export const news: NewsItem[] = [
       '<h2>Step 2: Quotation and Negotiation</h2>',
       '<p>Over the next two weeks we exchanged about a dozen emails and WhatsApp messages. The client compared our offer with three other forwarders. The negotiation focused on three points:</p>',
       '<ul>',
-      '<li><strong>Price:</strong> an all-in DDP quote of around USD 11,800 for the 40HQ, covering ocean freight, Canadian duties and taxes, and last-mile delivery. It was not the lowest offer they received, but it was the most transparent.</li>',
+      '<li><strong>Price:</strong> an all-in DDP quote for the 40HQ, covering ocean freight, Canadian duties and taxes, and last-mile delivery. It was not the lowest offer they received, but it was the most transparent.</li>',
       '<li><strong>Transit time:</strong> 30-38 days door-to-door. We presented two routings, an all-water service to Montreal, and a Vancouver arrival with rail transfer, so the client could balance cost against speed.</li>',
       '<li><strong>Terms:</strong> DDP versus FOB. The client finally chose DDP so that all duties and taxes were settled in one price with no surprise bills. See our <a href="/services/door-to-door/">DDP door-to-door service</a> for details.</li>',
       '</ul>',
