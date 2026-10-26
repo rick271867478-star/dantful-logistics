@@ -4,6 +4,19 @@ import Banner from '../components/Banner.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import { services } from '../data/services';
 import { regions } from '../data/regions';
+import { SITE } from '../consts';
+
+const websiteJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: 'https://dantfullogistics.com/',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://dantfullogistics.com/services/',
+    'query-input': 'search_term_string'
+  }
+});
 
 /* 六个优势（需求文档板块 3）：小图标 + 标题 + SEO 长文案 */
 const advantages = [
@@ -158,6 +171,7 @@ const testimonials = [
 
   <!-- ===== 板块 6：GET A QUOTE 表单 ===== -->
   <QuoteForm />
+  <script type="application/ld+json" set:html={websiteJsonLd} />
 </BaseLayout>
 
 <style>

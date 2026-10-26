@@ -1,5 +1,6 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -7,6 +8,25 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: service.title, item: `/services/${service.slug}/` }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.title,
+  serviceType: service.title,
+  provider: { '@type': 'Organization', name: SITE.name },
+  description: service.description
+});
 ---
 
 <BaseLayout title={`${service.title} from China`} description={service.description}>
@@ -51,6 +71,8 @@ const { service } = Astro.props;
       </div>
     </div>
   </section>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
 </BaseLayout>
 
 <style>
