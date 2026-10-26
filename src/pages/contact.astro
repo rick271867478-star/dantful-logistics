@@ -2,6 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import { SITE } from '../consts';
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: '/contact/' }
+  ]
+});
 ---
 
 <BaseLayout
@@ -52,6 +60,7 @@ import { SITE } from '../consts';
   </section>
 
   <QuoteForm compact />
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
 </BaseLayout>
 
 <style>

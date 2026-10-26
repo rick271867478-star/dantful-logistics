@@ -1,6 +1,15 @@
 ---
+import { SITE } from '../../consts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { services } from '../../data/services';
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' }
+  ]
+});
 ---
 
 <BaseLayout
@@ -45,6 +54,7 @@ import { services } from '../../data/services';
       </div>
     </div>
   </section>
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
 </BaseLayout>
 
 <style>
