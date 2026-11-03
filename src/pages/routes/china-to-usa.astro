@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
-const title = 'China to USA Freight Forwarder | Dantful';
-const description = 'Freight forwarder China to USA. Sea FCL 14-30 days from from USD 2,000 per 40HQ, LCL consolidation, air freight 3-7 days. DDP clearance, ISF filing, Amazon FBA delivery.';
+const title = 'Freight Forwarder China to USA & United States | Dantful';
+const description = 'Freight forwarder China to USA and United States. Sea FCL 14-30 days from USD 2,000 per 40HQ, container shipping from China, cn to US shipping, LCL consolidation, air freight 3-7 days. DDP clearance, ISF filing, Amazon FBA delivery.';
 const waNumber = SITE.phone.replace(/[^\d]/g, '');
 
 const breadcrumbJsonLd = JSON.stringify({
@@ -37,8 +37,13 @@ const faqJsonLd = JSON.stringify({
     },
     {
       '@type': 'Question',
-      name: 'How much does it cost to ship a container from China to USA?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ container from Shenzhen Yantian to Los Angeles starts around from USD 2,000 per 40HQ in low season, rising 30 to 60% during Q4 and pre-Chinese New Year peaks. LCL starts around from USD 2.5 per CBM with a 1 CBM minimum. Air freight starts around from USD 3.5 per KG. Section 301 tariffs apply to many China-origin HS codes; we confirm duty before quoting an all-in DDP rate.' }
+      name: 'What is the shipping from China to USA price?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Shipping from China to USA price starts from USD 2,000 per 40HQ for sea FCL from Shenzhen Yantian to Los Angeles in low season. LCL consolidation starts from USD 2.5 per CBM with a 1 CBM minimum. Air freight starts from USD 3.5 per KG. Prices rise 30 to 60% during Q4 and pre-Chinese New Year peaks due to carrier space shortage and PSS surcharges. Section 301 tariffs may add 7.5% to 25% duty on China-origin goods; we confirm the HTS code and applicable duty before quoting an all-in DDP rate.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why choose Dantful as your best freight forwarder China to USA?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Dantful has operated the China to USA trade lane since 2008 as a licensed NVOCC. We hold direct contracts with Maersk, MSC, COSCO and Air China, locking in preferential all-in rates. As your China forwarder to USA, we handle export customs, ocean booking, ISF-10 filing 24 hours before sailing, US customs clearance, duty payment and door delivery from a single point of contact. Our team replies within 2 hours during China business hours and has delivered 5,000+ containers and 10,000+ air shipments to all 50 US states.' }
     },
     {
       '@type': 'Question',
@@ -70,7 +75,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/">Home</a> / <a href="/ship-by-region/">Routes</a> / <span>China to USA</span>
       </nav>
       <h1>Freight Forwarder China to USA</h1>
-      <p class="route-hero-sub">Ship from China to the USA with an NVOCC-licensed forwarder. Sea FCL in [14-20 days] port-to-port from from USD 2,000 per 40HQ, LCL consolidation, air freight in [3-7 days], DDP clearance, ISF-10 filing and Amazon FBA delivery to all 50 states.</p>
+      <p class="route-hero-sub">As a licensed freight forwarder China to United States, we handle container shipping from China to all 50 states. Sea FCL in 14-20 days port-to-port from USD 2,000 per 40HQ, cn to US shipping LCL consolidation, air freight in 3-7 days. DDP clearance, ISF-10 filing and Amazon FBA delivery. Trusted by 500+ importers as a top China forwarder to USA.</p>
       <div class="route-hero-cta">
         <a href="/contact/" class="btn btn-primary">Get a Quote</a>
         <a href="#transit" class="btn btn-outline">View Transit Times</a>
@@ -81,8 +86,8 @@ const faqJsonLd = JSON.stringify({
   <section>
     <div class="container">
       <div class="prose route-overview">
-        <p>Dantful Logistics has operated the China to USA trade lane since 2008 as a licensed NVOCC based in Shenzhen. We move thousands of containers and air shipments every year across the Trans-Pacific route, serving importers, Amazon FBA sellers, wholesalers and project cargo owners shipping from Shenzhen Yantian, Shanghai Yangshan, Ningbo, Guangzhou Nansha, Qingdao and Hong Kong to Los Angeles, Long Beach, Oakland, Seattle, Tacoma, New York, New Jersey, Savannah, Charleston, Houston, Chicago and Norfolk.</p>
-        <p>This page covers transit times by port and FC zone, price ranges for FCL, LCL and air freight, the 5-step shipping workflow, the documents you need to prepare, and the questions US buyers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP rate within 2 hours.</p>
+        <p>Dantful Logistics has operated the China to USA trade lane since 2008 as a licensed NVOCC based in Shenzhen. As your freight forwarder China to US and logistics partner, we move thousands of containers and air shipments every year across the Trans-Pacific route, serving importers, Amazon FBA sellers, wholesalers and project cargo owners shipping from Shenzhen Yantian, Shanghai Yangshan, Ningbo, Guangzhou Nansha, Qingdao and Hong Kong to Los Angeles, Long Beach, Oakland, Seattle, Tacoma, New York, New Jersey, Savannah, Charleston, Houston, Chicago and Norfolk.</p>
+        <p>Whether you need container shipping from China, sea freight to USA, air cargo from China, or a complete DDP solution, this page covers transit times by port and FC zone, price ranges for shipping from China to USA cost, the 5-step shipping workflow, and the documents you need. As your best freight forwarder China to USA for importers and e-commerce sellers, we also cover freight to USA for any cargo type. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP rate within 2 hours.</p>
       </div>
 
       <h2 class="block-title" id="transit">Transit Times: China to USA</h2>
@@ -177,10 +182,13 @@ const faqJsonLd = JSON.stringify({
       <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
       <div class="faq-block">
         <h3>How long does shipping from China to USA take?</h3>
-        <p>Sea FCL from Shenzhen Yantian to Los Angeles takes 14 to 18 days port-to-port, 18 to 22 days door-to-door. To the East Coast (New York, Savannah) via Panama, 22 to 30 days. Air freight from PVG, CAN or HKG to LAX or JFK takes 3 to 7 days. LCL consolidation adds 5 to 7 days for container stuffing and deconsolidation at destination. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+        <p>Sea FCL from Shenzhen Yantian to Los Angeles takes 14 to 18 days port-to-port, 18 to 22 days door-to-door. To the East Coast (New York, Savannah) via Panama, 22 to 30 days. Air freight from PVG, CAN or HKG to LAX or JFK takes 3 to 7 days. LCL consolidation adds 5 to 7 days for container stuffing and deconsolidation at destination. Whether you search for how long does shipping from China to USA take or time to ship from China to US, our transit table below gives port-by-port detail.</p>
 
-        <h3>How much does it cost to ship a container from China to USA?</h3>
-        <p>A 40HQ container from Shenzhen Yantian to Los Angeles starts around from USD 2,000 per 40HQ in low season, rising 30 to 60% during Q4 and pre-Chinese New Year peaks. LCL consolidation starts around from USD 2.5 per CBM with a 1 CBM minimum. Air freight starts around from USD 3.5 per KG. Section 301 tariffs may add 7.5% to 25% duty on China-origin goods; we confirm the HTS code and applicable duty before quoting an all-in DDP rate.</p>
+        <h3>What's the shipping from China to USA price?</h3>
+        <p>Shipping from China to USA price starts from USD 2,000 per 40HQ for sea FCL from Shenzhen Yantian to Los Angeles in low season. LCL consolidation starts from USD 2.5 per CBM with a 1 CBM minimum. Air freight starts from USD 3.5 per KG. Prices rise 30 to 60% during Q4 and pre-Chinese New Year peaks due to carrier space shortage and Peak Season Surcharges. Section 301 tariffs may add 7.5% to 25% duty on China-origin goods; we confirm the HTS code and applicable duty before quoting an all-in DDP rate.</p>
+
+        <h3>Why choose Dantful as your best freight forwarder China to USA?</h3>
+        <p>Dantful has operated the China to USA trade lane since 2008 as a licensed NVOCC. We hold direct contracts with Maersk, MSC, COSCO and Air China, locking in preferential all-in rates. As your China forwarder to USA, we handle export customs, ocean booking, ISF-10 filing 24 hours before sailing, US customs clearance, duty payment and door delivery from a single point of contact. Our team replies within 2 hours during China business hours and has delivered 5,000+ containers and 10,000+ air shipments to all 50 US states.</p>
 
         <h3>Do I need a freight forwarder to ship from China to USA?</h3>
         <p>Yes. US customs requires an ISF-10 filing 24 hours before vessel sailing, a US customs bond, and an Importer of Record with a valid EIN. Amazon FCs do not act as importer. A licensed NVOCC freight forwarder like Dantful handles export from China, ocean booking, ISF filing, US customs clearance, duty payment and last-mile delivery to your warehouse, 3PL or Amazon FC. <a href="/contact/">Request a quote</a> for an all-in DDP rate.</p>

@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
 const title = 'China Air Freight Forwarder | Dantful';
-const description = 'China air freight forwarder. Express, economy and charter air cargo from PVG, CAN, HKG to 200+ global destinations. Daily departures, DDP door-to-door.';
+const description = 'China air freight forwarder offering cheap air shipping from China, air freight from China to US and 200+ global destinations. Express, economy and charter cargo from PVG, CAN, HKG. Daily departures, DDP door-to-door.';
 const waNumber = SITE.phone.replace(/[^\d]/g, '');
 
 const breadcrumbJsonLd = JSON.stringify({
@@ -37,23 +37,28 @@ const faqJsonLd = JSON.stringify({
     },
     {
       '@type': 'Question',
+      name: 'What is the China to USA flight time for shipping?',
+      acceptedAnswer: { '@type': 'Answer', text: 'China to USA flight time for shipping varies by route and service level. Express air freight from PVG or HKG to LAX takes 3 to 5 days with direct flights daily. Economy air freight via hub or consolidation takes 5 to 7 days. To East Coast destinations (JFK, ORD), add 1 to 2 days for connection. Door-to-door service adds 1 to 2 days for factory pickup and US customs clearance.' }
+    },
+    {
+      '@type': 'Question',
       name: 'How much does air freight from China cost?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Air freight from China starts around from USD 3.5 per KG on economy service and from USD 3.5 per KG on express. Chargeable weight is the higher of actual gross weight or volumetric weight, where 1 CBM = 167 KG. Rates vary by season (Q4 +30 to 50%), fuel surcharge (FSC), security surcharge (SSC), currency, hazardous goods surcharge, and oversized cargo. Request a quote for a confirmed all-in rate.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Air freight from China starts from USD 3.5 per KG on economy service and from USD 3.5 per KG on express. Chargeable weight is the higher of actual gross weight or volumetric weight, where 1 CBM = 167 KG. Rates vary by season (Q4 +30 to 50%), fuel surcharge, security surcharge, hazardous goods surcharge, and oversized cargo. Request a quote for a confirmed all-in rate.' }
     },
     {
       '@type': 'Question',
       name: 'What is the difference between express and economy air freight?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Express air freight uses a direct flight and takes 1 to 3 days. It costs more but is best for urgent or time-sensitive cargo. Economy air freight consolidates multiple shipments onto one flight via a hub, taking 3 to 7 days. It is cheaper per KG and ideal for shipments over 100 KG with flexible timing. Express is recommended for samples, electronics, and high-value goods. Economy is recommended for cargo over 100 KG that is not time-critical.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Express air freight uses a direct flight and takes 1 to 3 days. It costs more but is best for urgent or time-sensitive cargo. Economy air freight consolidates multiple shipments onto one flight via a hub, taking 3 to 7 days. It is cheaper per KG and ideal for shipments over 100 KG with flexible timing.' }
     },
     {
       '@type': 'Question',
       name: 'Can I ship batteries and electronics by air from China?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes, batteries and electronics can ship by air from China with the correct documentation. Lithium-ion and lithium-metal batteries require MSDS, UN38.3 test report, and IATA-compliant packaging. IATA rules include Section IA (large cells over 35 kg), Section IB (medium cells 2.7 to 35 kg), and Section II (small cells under 2.7 kg). State of charge limits (max 30% for standalone lithium-ion batteries), packaging group requirements, and marking/labeling apply. We handle the entire compliance process end-to-end.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, batteries and electronics can ship by air from China with the correct documentation. Lithium-ion and lithium-metal batteries require MSDS, UN38.3 test report, and IATA-compliant packaging. We handle the entire compliance process end-to-end.' }
     },
     {
       '@type': 'Question',
       name: 'What is an Air Waybill (AWB)?',
-      acceptedAnswer: { '@type': 'Answer', text: 'An Air Waybill (AWB) is the contract of carriage between the shipper and the airline or forwarder. It serves as a receipt for the cargo and contains shipper/consignee details, flight information, cargo description, and charges. Unlike a Bill of Lading (B/L) for ocean freight, an AWB is not a document of title - cargo is released to the named consignee on arrival without presenting the original. A Master Air Waybill (MAWB) is issued by the airline, and a House Air Waybill (HAWB) is issued by the freight forwarder like Dantful.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'An Air Waybill (AWB) is the contract of carriage between the shipper and the airline or forwarder. It serves as a receipt for the cargo and contains shipper/consignee details, flight information, cargo description, and charges. Unlike a Bill of Lading for ocean freight, an AWB is not a document of title.' }
     }
   ]
 });
@@ -70,7 +75,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/">Home</a> / <a href="/services/">Services</a> / <span>Air Freight</span>
       </nav>
       <h1>China Air Freight Forwarder</h1>
-      <p class="route-hero-sub">Air freight from China in 3-7 days from from USD 3.5 per KG. Express, economy and charter air cargo from PVG, CAN, HKG to 200+ global destinations. Daily departures, DDP door-to-door delivery.</p>
+      <p class="route-hero-sub">Air freight from China in 3-7 days from USD 3.5 per KG. Get cheap air shipping from China, air freight from China to US and 200+ global destinations. Express, economy and charter cargo from PVG, CAN, HKG. Daily departures, DDP door-to-door.</p>
       <div class="route-hero-cta">
         <a href="/contact/" class="btn btn-primary">Get a Quote</a>
         <a href="#transit" class="btn btn-outline">View Transit Times</a>
@@ -81,8 +86,8 @@ const faqJsonLd = JSON.stringify({
   <section>
     <div class="container">
       <div class="prose route-overview">
-        <p>Dantful Logistics is a licensed air freight forwarder based in Shenzhen since 2008. We hold long-term allotment contracts with Cathay Pacific, China Southern, China Eastern, Air China, Lufthansa Cargo, Emirates SkyCargo and Turkish Cargo. This secures preferential rates and guaranteed block space even during Q4 holiday rush, Apple launch windows and Pre-CNY peak. We move thousands of air shipments every year across Trans-Pacific, Europe, UK, Australia, Canada, Mexico and Intra-Asia lanes.</p>
-        <p>This page covers transit times by origin and destination airport, price ranges for express and economy service, the 5-step air freight workflow, the documents you need to prepare, and the questions shippers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP or airport-to-airport rate within 2 hours.</p>
+        <p>Dantful Logistics is a licensed air freight forwarder based in Shenzhen since 2008. We hold long-term allotment contracts with Cathay Pacific, China Southern, China Eastern, Air China, Lufthansa Cargo, Emirates SkyCargo and Turkish Cargo. This secures preferential rates and guaranteed block space even during Q4 holiday rush, Apple launch windows and Pre-CNY peak. For air freight from China to US, we operate daily direct flights from PVG, CAN and HKG to LAX, JFK and ORD. We move thousands of air shipments every year across Trans-Pacific, Europe, UK, Australia, Canada, Mexico and Intra-Asia lanes.</p>
+        <p>This page covers transit times by origin and destination airport including China to USA flight time shipping, price ranges with cheap air shipping from China options for express and economy service, the 5-step air freight workflow, the documents you need to prepare, and the questions shippers ask most. <a href="/contact/">Request a quote</a> and you will receive an all-in DDP or airport-to-airport rate within 2 hours.</p>
       </div>
 
       <h2 class="block-title" id="transit">Transit Times: China to Global Airports</h2>
@@ -176,6 +181,9 @@ const faqJsonLd = JSON.stringify({
       <div class="faq-block">
         <h3>How long does air freight from China take?</h3>
         <p>Air freight from China takes 1 to 3 days on express service (direct flight) and 3 to 7 days on economy service (consolidated). Transit time depends on origin airport (PVG Shanghai, CAN Guangzhou, HKG Hong Kong, SZX Shenzhen), destination airport, customs clearance, and whether service is direct or consolidated. Door-to-door adds 1 to 2 days for factory pickup and last-mile delivery. <a href="#transit">See the transit table</a> for airport-by-airport detail.</p>
+
+        <h3>What is the China to USA flight time for shipping?</h3>
+        <p>China to USA flight time for shipping varies by route and service level. Express air freight from PVG or HKG to LAX takes 3 to 5 days with direct flights daily. Economy air freight via hub or consolidation takes 5 to 7 days. To East Coast destinations (JFK, ORD), add 1 to 2 days for connection. Door-to-door service adds 1 to 2 days for factory pickup and US customs clearance. The fastest air freight from China to US on a direct express service is typically 3 days from factory pickup in China to warehouse delivery in the US.</p>
 
         <h3>How much does air freight from China cost?</h3>
         <p>Air freight from China starts around from USD 3.5 per KG on economy service and from USD 3.5 per KG on express. Chargeable weight is the higher of actual gross weight or volumetric weight, where 1 CBM = 167 KG. Rates vary by season (Q4 +30 to 50%), fuel surcharge (FSC), security surcharge (SSC), currency, hazardous goods surcharge, and oversized cargo. We quote transparent all-in rates with no hidden surcharges. <a href="/contact/">Request a quote</a> for a confirmed rate.</p>
