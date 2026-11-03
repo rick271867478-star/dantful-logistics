@@ -32,28 +32,43 @@ const faqJsonLd = JSON.stringify({
   mainEntity: [
     {
       '@type': 'Question',
+      name: 'How long are shipping containers?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Shipping containers come in two primary lengths: 20 feet and 40 feet. A 20ft standard container (20GP) is 19 ft 10-1/2 in internal length, 7 ft 8-1/8 in width, 7 ft 10-5/8 in height, with 33.2 CBM volume. A 40ft standard (40GP) is 39 ft 5-3/8 in internal length, same width and height, 67.6 CBM. The 40ft High Cube adds 1 foot of height for 76.3 CBM.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What size are shipping containers?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Standard shipping container sizes: 20GP (20 ft x 8 ft x 8 ft 6 in, 33.2 CBM), 40GP (40 ft x 8 ft x 8 ft 6 in, 67.6 CBM), 40HQ High Cube (40 ft x 8 ft x 9 ft 6 in, 76.3 CBM). Also available: 45HQ, 20RF/40RF reefer, 20OT open top, 40FR flat rack.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the volume of a 40ft container?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A 40ft standard dry van has 67.6 CBM (2,389 cu ft) internal volume. The 40ft High Cube has 76.3 CBM (2,694 cu ft). Maximum gross weight is 30,480 KG for both.' }
+    },
+    {
+      '@type': 'Question',
       name: 'How long does sea freight from China take?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight from China to US West Coast (Los Angeles, Long Beach) takes 14 to 20 days. To US East Coast (New York, Savannah) 26 to 32 days. To Europe (Rotterdam, Hamburg) 30 to 38 days. To UK (Felixstowe) 28 to 35 days. To Australia (Sydney) 18 to 24 days. To Southeast Asia (Singapore) 7 to 12 days. Door-to-door adds 4 to 7 days for customs and inland delivery.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea freight from China to US West Coast takes 14 to 20 days. To US East Coast 26 to 32 days. To Europe 30 to 38 days. To UK 28 to 35 days. To Australia 18 to 24 days. To Southeast Asia 7 to 12 days. Door-to-door adds 4 to 7 days.' }
     },
     {
       '@type': 'Question',
       name: 'What is the difference between FCL and LCL shipping?',
-      acceptedAnswer: { '@type': 'Answer', text: 'FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM. LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers faster transit (no consolidation or deconsolidation delay).' }
+      acceptedAnswer: { '@type': 'Answer', text: 'FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container — pay per container. LCL (Less than Container Load) means your cargo shares a container — pay per CBM. LCL is cheaper under 15 CBM; FCL is cheaper over 15 CBM.' }
     },
     {
       '@type': 'Question',
       name: 'How much does ocean freight from China cost?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ container from Shenzhen Yantian to Los Angeles starts around from USD 2,000 per 40HQ in low season, rising 30 to 60% during Q4 peak. LCL consolidation starts around from USD 2.5 per CBM with a 1 CBM minimum. Rates vary by destination, season, carrier, BAF and PSS. We quote transparent all-in rates with no hidden surcharges. Request a quote for a confirmed rate.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ from Shenzhen to Los Angeles starts from USD 2,000 per 40HQ low season. LCL starts from USD 2.5 per CBM. Rates rise 30 to 60% in Q4 and Pre-CNY peaks.' }
     },
     {
       '@type': 'Question',
-      name: 'What is a House Bill of Lading (HBL)?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder like Dantful to the shipper. It serves as a receipt for cargo, evidence of the contract of carriage, and a document of title. The Master Bill of Lading (MBL) is issued by the carrier (Maersk, MSC, etc.) to the NVOCC. The HBL is what you use to claim your cargo at destination. As a licensed NVOCC, we issue HBLs with telex release or original options.' }
+      name: 'What are demurrage and detention fees?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Demurrage and detention fees are carrier charges for holding containers beyond free time. Demurrage applies at destination port after discharge; detention applies when the empty container is with the shipper. Typical free time: 5-7 days destination, 10 days export.' }
     },
     {
       '@type': 'Question',
-      name: 'Do I need cargo insurance for ocean freight from China?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Cargo insurance is optional but recommended. Carrier liability is limited under the Hague-Visby Rules to 2 SDR per kg or 666.67 SDR per package, whichever is lower. This means a USD 50,000 shipment insured by the carrier may only recover USD 1,000 if lost. We offer all-risk cargo insurance at 0.3 to 0.5% of declared value. For high-value or fragile cargo, insurance is strongly recommended.' }
+      name: 'What is a House Bill of Lading?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder to the shipper. It is a receipt for cargo, evidence of carriage contract, and document of title. The Master B/L is issued by the carrier to the NVOCC.' }
     }
   ]
 });
@@ -175,13 +190,40 @@ const faqJsonLd = JSON.stringify({
         </ul>
       </div>
 
+      <h2 class="block-title" id="container-sizes">Container Sizes Chart: How Big is a Shipping Container?</h2>
+      <p style="font-size:15px;color:#5a6b7c;margin:-4px 0 12px;">Exact 20ft and 40ft container dimensions, internal measurements, volume and max gross weight — your complete sea can size reference.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Container Type</th><th>External L × W × H (ft)</th><th>Internal L × W × H (ft)</th><th>Volume (CBM)</th><th>Max Gross Wt (KG)</th><th>Best For</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>20GP Standard</td><td>20' × 8' × 8' 6"</td><td>19' 4-1/2" × 7' 8-1/8" × 7' 10-5/8"</td><td>33.2</td><td>28,000</td><td>Smaller shipments, dense cargo</td></tr>
+            <tr><td>40GP Standard</td><td>40' × 8' × 8' 6"</td><td>39' 5-3/8" × 7' 8-1/8" × 7' 10-5/8"</td><td>67.6</td><td>30,480</td><td>Most general cargo</td></tr>
+            <tr><td>40HQ High Cube</td><td>40' × 8' × 9' 6"</td><td>39' 5-3/8" × 7' 8-1/8" × 8' 10-5/16"</td><td>76.3</td><td>30,480</td><td>Bulky light cargo, pallet stacks</td></tr>
+            <tr><td>45HQ High Cube</td><td>45' × 8' × 9' 6"</td><td>44' 6" × 7' 8-1/8" × 8' 10-5/16"</td><td>86.0</td><td>30,480</td><td>Extended-length cargo</td></tr>
+            <tr><td>20RF Reefer</td><td>20' × 8' × 8' 6"</td><td>18' 11-3/4" × 7' 6-1/8" × 7' 5-7/8"</td><td>28.3</td><td>26,000</td><td>Temperature-controlled cargo</td></tr>
+            <tr><td>40RF Reefer HC</td><td>40' × 8' × 9' 6"</td><td>38' 0-1/8" × 7' 4-5/8" × 8' 6-1/4"</td><td>67.0</td><td>30,000</td><td>Perishables, pharmaceuticals</td></tr>
+            <tr><td>20OT Open Top</td><td>20' × 8' × 8' 6"</td><td>19' 4-1/2" × 7' 8-1/8" × 7' 10-5/8"</td><td>32.4</td><td>28,000</td><td>Over-height cargo (steel, pipes)</td></tr>
+            <tr><td>40FR Flat Rack</td><td>40' × 8' × 8' 6"</td><td>39' 6" × 7' 10-1/4" (no sides)</td><td>—</td><td>35,000</td><td>Oversized project cargo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">All dimensions are nominal. Actual measurements vary slightly by manufacturer and container age. TEU = Twenty-foot Equivalent Unit; a 40ft container counts as 2 TEU. All our rates include the container type appropriate for your cargo. <a href="/contact/">Tell us what you're shipping</a> and we recommend the right sea can size.</p>
+
       <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
       <div class="faq-block">
+        <h3>How long are shipping containers? What size are they?</h3>
+        <p>The most common ocean container sizes are 20 feet and 40 feet in length. A 20 ft standard shipping container (20GP) is exactly 6.058m (19' 10-1/2") long, 2.438m (8') wide, and 2.591m (8' 6") tall — that's approximately 1,172 cubic feet (33.2 CBM) inside. A 40 ft standard container (40GP) doubles the length to 12.192m (40'), with internal dimensions of 40' × 8' × 8' 6" and 2,389 cubic feet (67.6 CBM). The popular 40 foot high cube (40HQ) adds one foot of height (9' 6" / 2.896m) for 2,694 cubic feet (76.3 CBM) — ideal for bulky but light cargo. See our <a href="#container-sizes">container sizes chart</a> below for exact internal and external measurements of all sea can types including 20ft container dimensions, 40ft container dims, and 40' container internal dimensions.</p>
+
+        <h3>What is the volume of a 40ft container?</h3>
+        <p>A standard 40ft dry van has a shipping container volume of approximately 67.6 cubic meters (2,389 cubic feet). The 40ft High Cube (40HQ) has a volume of about 76.3 CBM (2,694 cu ft). Maximum gross weight is 30,480 KG for both 40GP and 40HQ. A 20ft container holds about 33.2 CBM (1,172 cu ft) with a 28,000 KG max gross weight. We recommend 40HQ over 40GP whenever you need more height for pallets or overstacked cartons.</p>
+
         <h3>How long does sea freight from China take?</h3>
-        <p>Sea freight from China to US West Coast (Los Angeles, Long Beach) takes 14 to 20 days port-to-port. To US East Coast (New York, Savannah) 26 to 32 days via Panama. To Europe (Rotterdam, Hamburg) 30 to 38 days. To UK (Felixstowe) 28 to 35 days. To Australia (Sydney) 18 to 24 days. To Southeast Asia (Singapore) 7 to 12 days. Door-to-door adds 4 to 7 days for customs and inland delivery. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+        <p>Sea freight from China to US West Coast (Los Angeles, Long Beach) takes 14 to 20 days port-to-port. To US East Coast (New York, Savannah) 26 to 32 days. To Europe (Rotterdam, Hamburg) 30 to 38 days. To UK (Felixstowe) 28 to 35 days. To Australia (Sydney) 18 to 24 days. To Southeast Asia (Singapore) 7 to 12 days. Door-to-door adds 4 to 7 days for customs and inland delivery. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
 
         <h3>What is the difference between FCL and LCL shipping?</h3>
-        <p>FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM. LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers faster transit, as there is no consolidation or deconsolidation delay. FCL also reduces handling damage risk since the container stays sealed from origin to destination.</p>
+        <p>FCL (Full Container Load) means your cargo fills a 20GP, 40GP or 40HQ container. You pay a flat rate per container regardless of how full it is. LCL (Less than Container Load) means your cargo shares a container with other shipments. You pay per CBM. LCL is cheaper for shipments under 15 CBM. FCL is cheaper for shipments over 15 CBM and offers faster transit, as there is no consolidation or deconsolidation delay.</p>
 
         <h3>How much does ocean freight from China cost?</h3>
         <p>A 40HQ container from Shenzhen Yantian to Los Angeles starts around from USD 2,000 per 40HQ in low season, rising 30 to 60% during Q4 peak. LCL consolidation starts around from USD 2.5 per CBM with a 1 CBM minimum. Rates vary by destination, season, carrier, BAF and PSS. We quote transparent all-in rates with no hidden surcharges. <a href="/contact/">Request a quote</a> for a confirmed rate.</p>
@@ -190,7 +232,10 @@ const faqJsonLd = JSON.stringify({
         <p>A House Bill of Lading (HBL) is issued by an NVOCC freight forwarder like Dantful to the shipper. It serves as a receipt for cargo, evidence of the contract of carriage, and a document of title. The Master Bill of Lading (MBL) is issued by the carrier (Maersk, MSC, etc.) to the NVOCC. The HBL is what you use to claim your cargo at destination. As a licensed NVOCC, we issue HBLs with telex release (electronic) or original paper B/L options. <a href="/services/customs-clearance/">See our customs clearance service</a>.</p>
 
         <h3>Do I need cargo insurance for ocean freight from China?</h3>
-        <p>Cargo insurance is optional but recommended. Carrier liability is limited under the Hague-Visby Rules to 2 SDR per kg or 666.67 SDR per package, whichever is lower. This means a USD 50,000 shipment insured by the carrier may only recover around USD 1,000 if lost. We offer all-risk cargo insurance at 0.3 to 0.5% of declared value with immediate claim support. For high-value, fragile or temperature-sensitive cargo, insurance is strongly recommended.</p>
+        <p>Cargo insurance is optional but recommended. Carrier liability is limited under the Hague-Visby Rules to 2 SDR per kg or 666.67 SDR per package, whichever is lower. This means a USD 50,000 shipment insured by the carrier may only recover around USD 1,000 if lost. We offer all-risk cargo insurance at 0.3 to 0.5% of declared value with immediate claim support.</p>
+
+        <h3>What are demurrage and detention fees?</h3>
+        <p>Demurrage and detention fees are carrier charges for holding containers beyond the free time allowance. Demurrage applies when the loaded container is held at the destination port after discharge (import side) or when an empty container is held past the return deadline (export side). Detention applies when the empty container is with the shipper/trucker outside the port. Typical free time is 5 to 7 days at destination and 10 days on the export side. Rates vary by carrier, port and container type. As your sea freight broker, we monitor free time windows and alert you 48 hours before expiry to avoid demurrage cost. We also negotiate extended free time with carriers for regular customers.</p>
       </div>
 
       <h2 class="block-title">Related Routes &amp; Services</h2>

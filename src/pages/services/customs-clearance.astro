@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
 const title = 'Customs Clearance & Freight Forwarding | Dantful';
-const description = 'Customs clearance and freight forwarding from China. Class-A licensed brokerage. ISF, AMS, ENS, CO, FORM A/E, HS classification, DDP clearance and duty optimization.';
+const description = 'Customs clearance and freight forwarding from China. Class-A licensed brokerage. File ISF-10, AMS, ENS, CO, FORM A/E, HS classification, Schedule B vs HTS code, CCC certification, DDP clearance and duty optimization.';
 const waNumber = SITE.phone.replace(/[^\d]/g, '');
 
 const breadcrumbJsonLd = JSON.stringify({
@@ -190,6 +190,15 @@ const faqJsonLd = JSON.stringify({
 
         <h3>How to reduce import duty legally?</h3>
         <p>Legal duty reduction strategies include: (1) correct HS classification - we classify under 3 alternative codes to find the lowest legal rate; (2) FTA origin preference - using FORM A/E/F/RCEP to claim 0-100% duty savings; (3) duty drawback - refunds on duties paid for goods re-exported; (4) bonded warehouse - duty deferral until goods are sold or re-exported; (5) first-sale valuation - using earlier sale in the supply chain as the customs value. We review each shipment for the lowest legal landed duty.</p>
+
+        <h3>Schedule B vs HTS code: what's the difference?</h3>
+        <p>HTS (Harmonized Tariff Schedule) code is used for <strong>import</strong> into the US — it determines the duty rate. Schedule B is used for <strong>export</strong> from the US to any country. For China exporters shipping to the US, you need the <strong>HTS code</strong> (10 digits) on the import side, not Schedule B. China uses the 8-digit China H.S. Code for export declaration, which maps closely to the international 6-digit HS base with 2 extra digits for China-specific tariff lines. Our HS classification team maps China export codes to US HTS (and EU/UK CN codes) to ensure accurate import declarations.</p>
+
+        <h3>What is CCC certification for China export?</h3>
+        <p>CCC (China Compulsory Certification, 中国强制性产品认证) is required for 17 categories of products manufactured in or imported into China for sale or use. This includes electronics, home appliances, lighting, toys, automotive parts, and safety equipment. For export purposes, CCC is generally <strong>not required</strong> unless your goods will be sold or used within China. However, if you're shipping goods through a China bonded warehouse or using China domestic logistics before export, CIQ may request CCC documentation. Our team advises on whether CCC is needed for your specific export scenario and handles the certification process if required.</p>
+
+        <h3>What does ISF filing involve?</h3>
+        <p>To file ISF, we need: factory name and address (manufacturer), US buyer name and EIN, Importer of Record details, consignee, HTS code, port of loading, vessel name and voyage number, bill of lading number, and ship-to address. We collect these 10+2 elements from your invoice and B/L within 2 hours of vessel booking, file ISF-10 electronically with CBP 24+ hours before sailing, and send you a confirmation receipt. The ISF document stays valid for one voyage only. We also file AMS (Automated Manifest System) simultaneously — both ISF and AMS are required for all US ocean imports.</p>
       </div>
 
       <h2 class="block-title">Related Routes &amp; Services</h2>
