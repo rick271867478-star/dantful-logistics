@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
 const title = 'Shipping from China to Canada | Dantful';
-const description = 'Shipping from China to Canada. Sea FCL 16-30 days from from USD 2,800 per 40HQ, LCL consolidation, air freight 3-7 days. DDP clearance, CBSA filing, Amazon FBA delivery.';
+const description = 'Shipping from China to Canada. Sea FCL 16-30 days from USD 2,800 per 40HQ, LCL consolidation, air freight 3-7 days. DDP clearance, CBSA filing, Amazon FBA delivery.';
 const waNumber = SITE.phone.replace(/[^\d]/g, '');
 
 const breadcrumbJsonLd = JSON.stringify({
@@ -33,7 +33,7 @@ const faqJsonLd = JSON.stringify({
     {
       '@type': 'Question',
       name: 'How long does shipping from China to Canada take?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Sea FCL from Shenzhen or Shanghai to Vancouver takes 16 to 22 days port-to-port, 20 to 28 days door-to-door. To Prince Rupert (fastest Pacific port) 14 to 18 days. To Montreal or Toronto via Vancouver rail, 24 to 32 days. Air freight from PVG, CAN or HKG to YVR or YYZ takes 3 to 7 days.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea FCL from Shenzhen or Shanghai to Vancouver takes 20 to 28 days port-to-port, 20 to 28 days door-to-door. To Prince Rupert (fastest Pacific port) 14 to 18 days. To Montreal or Toronto via Vancouver rail, 24 to 32 days. Air freight from PVG, CAN or HKG to YVR or YYZ takes 3 to 7 days.' }
     },
     {
       '@type': 'Question',
@@ -70,7 +70,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/">Home</a> / <a href="/ship-by-region/">Routes</a> / <span>China to Canada</span>
       </nav>
       <h1>Shipping from China to Canada</h1>
-      <p class="route-hero-sub">Ship from China to Canada with an NVOCC-licensed forwarder. Sea FCL in [16-22 days] port-to-port from from USD 2,800 per 40HQ, LCL consolidation, air freight in [3-7 days], DDP clearance, CBSA eManifest filing and Amazon FBA delivery to Vancouver, Toronto and Montreal.</p>
+      <p class="route-hero-sub">Ship from China to Canada with an NVOCC-licensed forwarder. Sea FCL in 20-28 days port-to-port from USD 2,800 per 40HQ, LCL consolidation, air freight in 3-7 days, DDP clearance, CBSA eManifest filing and Amazon FBA delivery to Vancouver, Toronto and Montreal.</p>
       <div class="route-hero-cta">
         <a href="/contact/" class="btn btn-primary">Get a Quote</a>
         <a href="#transit" class="btn btn-outline">View Transit Times</a>
@@ -93,13 +93,13 @@ const faqJsonLd = JSON.stringify({
           </thead>
           <tbody>
             <tr><td>Shenzhen (Yantian)</td><td>Vancouver (VTR)</td><td>16-22</td><td>20-26</td><td>Direct Trans-Pacific, weekly</td></tr>
-            <tr><td>Shenzhen (Yantian)</td><td>Prince Rupert (PRUP)</td><td>[14-18]</td><td>[18-24]</td><td>Fastest Pacific port, rail to Toronto</td></tr>
-            <tr><td>Shanghai (Yangshan)</td><td>Vancouver (VTR)</td><td>16-22</td><td>[20-28]</td><td>Direct, weekly</td></tr>
-            <tr><td>Ningbo</td><td>Vancouver (VTR)</td><td>[18-24]</td><td>[22-30]</td><td>Direct, weekly</td></tr>
-            <tr><td>Qingdao</td><td>Prince Rupert (PRUP)</td><td>[15-20]</td><td>[19-26]</td><td>PNW route, fastest to Midwest</td></tr>
-            <tr><td>Guangzhou (Nansha)</td><td>Montreal (MTL)</td><td>[28-34]</td><td>32-40</td><td>Via Panama, East Canada</td></tr>
+            <tr><td>Shenzhen (Yantian)</td><td>Prince Rupert (PRUP)</td><td>18-25</td><td>24-30</td><td>Fastest Pacific port, rail to Toronto</td></tr>
+            <tr><td>Shanghai (Yangshan)</td><td>Vancouver (VTR)</td><td>16-22</td><td>24-32</td><td>Direct, weekly</td></tr>
+            <tr><td>Ningbo</td><td>Vancouver (VTR)</td><td>24-30</td><td>24-30</td><td>Direct, weekly</td></tr>
+            <tr><td>Qingdao</td><td>Prince Rupert (PRUP)</td><td>18-25</td><td>22-28</td><td>PNW route, fastest to Midwest</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>Montreal (MTL)</td><td>32-40</td><td>32-40</td><td>Via Panama, East Canada</td></tr>
             <tr><td>Hong Kong (HKG)</td><td>Vancouver (VTR)</td><td>16-22</td><td>20-26</td><td>Air alternative: 3-7 days days</td></tr>
-            <tr><td>All China airports</td><td>YVR / YYZ / YUL</td><td>Air: 3-7 days</td><td>Air DDP: [5-10]</td><td>PVG, CAN, HKG departures</td></tr>
+            <tr><td>All China airports</td><td>YVR / YYZ / YUL</td><td>Air: 3-7 days</td><td>Air DDP: 6-10 days</td><td>PVG, CAN, HKG departures</td></tr>
           </tbody>
         </table>
       </div>
@@ -178,7 +178,7 @@ const faqJsonLd = JSON.stringify({
       <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
       <div class="faq-block">
         <h3>How long does shipping from China to Canada take?</h3>
-        <p>Sea FCL from Shenzhen Yantian to Vancouver takes 16 to 22 days port-to-port, 20 to 26 days door-to-door. To Prince Rupert (the fastest Pacific port) 14 to 18 days. To Montreal or Toronto via Vancouver rail, 24 to 32 days. Air freight from PVG, CAN or HKG to YVR or YYZ takes 3 to 7 days. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+        <p>Sea FCL from Shenzhen Yantian to Vancouver takes 20 to 28 days port-to-port, 20 to 26 days door-to-door. To Prince Rupert (the fastest Pacific port) 14 to 18 days. To Montreal or Toronto via Vancouver rail, 24 to 32 days. Air freight from PVG, CAN or HKG to YVR or YYZ takes 3 to 7 days. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
 
         <h3>How much does it cost to ship from China to Canada?</h3>
         <p>A 40HQ container from Shenzhen Yantian to Vancouver starts around from USD 2,800 per 40HQ in low season, rising 25 to 50% during Q4 and pre-Chinese New Year. LCL starts around from USD 3.0 per CBM with a 1 CBM minimum. Air freight starts around from USD 4.0 per KG. Canadian MFN duty rates range from 0 to 20% depending on HS code; we confirm duty before quoting an all-in DDP rate.</p>

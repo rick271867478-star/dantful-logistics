@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../consts';
 
 const title = 'Freight Forwarder China to Australia | Dantful';
-const description = 'Freight forwarder China to Australia. Sea FCL 18-28 days from from USD 3,200 per 40HQ, LCL consolidation, air freight 5-9 days. DDP clearance, Amazon FBA delivery to Sydney, Melbourne, Brisbane.';
+const description = 'Freight forwarder China to Australia. Sea FCL 18-28 days from USD 3,200 per 40HQ, LCL consolidation, air freight 5-9 days. DDP clearance, Amazon FBA delivery to Sydney, Melbourne, Brisbane.';
 const waNumber = SITE.phone.replace(/[^\d]/g, '');
 
 const breadcrumbJsonLd = JSON.stringify({
@@ -33,7 +33,7 @@ const faqJsonLd = JSON.stringify({
     {
       '@type': 'Question',
       name: 'How long does shipping from China to Australia take?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Sea FCL from Shenzhen or Shanghai to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 16 to 22 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Sea FCL from Shenzhen or Shanghai to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 20 to 28 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days.' }
     },
     {
       '@type': 'Question',
@@ -70,7 +70,7 @@ const faqJsonLd = JSON.stringify({
         <a href="/">Home</a> / <a href="/ship-by-region/">Routes</a> / <span>China to Australia</span>
       </nav>
       <h1>Freight Forwarder China to Australia</h1>
-      <p class="route-hero-sub">Ship from China to Australia with an NVOCC-licensed forwarder. Sea FCL in [18-24 days] port-to-port from from USD 3,200 per 40HQ, LCL consolidation, air freight in [5-9 days], DDP clearance, ABF FID filing and Amazon FBA delivery to Sydney, Melbourne, Brisbane and Perth.</p>
+      <p class="route-hero-sub">Ship from China to Australia with an NVOCC-licensed forwarder. Sea FCL in 20-26 days port-to-port from USD 3,200 per 40HQ, LCL consolidation, air freight in 5-9 days, DDP clearance, ABF FID filing and Amazon FBA delivery to Sydney, Melbourne, Brisbane and Perth.</p>
       <div class="route-hero-cta">
         <a href="/contact/" class="btn btn-primary">Get a Quote</a>
         <a href="#transit" class="btn btn-outline">View Transit Times</a>
@@ -92,14 +92,14 @@ const faqJsonLd = JSON.stringify({
             <tr><th>Origin Port</th><th>Australian Port</th><th>Sea FCL (days)</th><th>Door-to-Door (days)</th><th>Notes</th></tr>
           </thead>
           <tbody>
-            <tr><td>Shenzhen (Yantian)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Direct, weekly sailing</td></tr>
-            <tr><td>Shenzhen (Yantian)</td><td>Melbourne (VIC)</td><td>[20-26]</td><td>[24-30]</td><td>Direct, weekly</td></tr>
-            <tr><td>Shanghai (Yangshan)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Direct Trans-Pacific</td></tr>
-            <tr><td>Ningbo</td><td>Brisbane (QLD)</td><td>[18-24]</td><td>[22-28]</td><td>Direct, weekly</td></tr>
-            <tr><td>Guangzhou (Nansha)</td><td>Fremantle (WA)</td><td>[16-22]</td><td>[20-26]</td><td>Fastest to Perth</td></tr>
-            <tr><td>Qingdao</td><td>Adelaide (SA)</td><td>[22-28]</td><td>[26-32]</td><td>Direct, weekly</td></tr>
-            <tr><td>Hong Kong (HKG)</td><td>Sydney (Port Botany)</td><td>[18-24]</td><td>[22-28]</td><td>Air alternative: [5-9] days</td></tr>
-            <tr><td>All China airports</td><td>SYD / MEL / BNE / PER</td><td>Air: [5-9]</td><td>Air DDP: [7-12]</td><td>PVG, CAN, HKG departures</td></tr>
+            <tr><td>Shenzhen (Yantian)</td><td>Sydney (Port Botany)</td><td>24-30</td><td>24-30</td><td>Direct, weekly sailing</td></tr>
+            <tr><td>Shenzhen (Yantian)</td><td>Melbourne (VIC)</td><td>24-30</td><td>24-30</td><td>Direct, weekly</td></tr>
+            <tr><td>Shanghai (Yangshan)</td><td>Sydney (Port Botany)</td><td>24-30</td><td>24-30</td><td>Direct Trans-Pacific</td></tr>
+            <tr><td>Ningbo</td><td>Brisbane (QLD)</td><td>24-30</td><td>24-30</td><td>Direct, weekly</td></tr>
+            <tr><td>Guangzhou (Nansha)</td><td>Fremantle (WA)</td><td>20-28</td><td>24-30</td><td>Fastest to Perth</td></tr>
+            <tr><td>Qingdao</td><td>Adelaide (SA)</td><td>24-30</td><td>30-38</td><td>Direct, weekly</td></tr>
+            <tr><td>Hong Kong (HKG)</td><td>Sydney (Port Botany)</td><td>24-30</td><td>24-30</td><td>Air alternative: 5-9 days</td></tr>
+            <tr><td>All China airports</td><td>SYD / MEL / BNE / PER</td><td>Air: 5-9</td><td>Air DDP: 7-12 days</td><td>PVG, CAN, HKG departures</td></tr>
           </tbody>
         </table>
       </div>
@@ -178,7 +178,7 @@ const faqJsonLd = JSON.stringify({
       <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
       <div class="faq-block">
         <h3>How long does shipping from China to Australia take?</h3>
-        <p>Sea FCL from Shenzhen Yantian to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 16 to 22 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
+        <p>Sea FCL from Shenzhen Yantian to Sydney takes 18 to 24 days port-to-port, 22 to 28 days door-to-door. To Melbourne 20 to 26 days. To Brisbane 18 to 24 days. To Fremantle (Perth) 20 to 28 days. Air freight from PVG, CAN or HKG to SYD, MEL or BNE takes 5 to 9 days. <a href="#transit">See the transit table</a> for port-by-port detail.</p>
 
         <h3>How much does it cost to ship a container from China to Australia?</h3>
         <p>A 40HQ container from Shenzhen Yantian to Sydney starts around from USD 3,200 per 40HQ in low season, rising 20 to 40% during Q4 and pre-Chinese New Year. LCL starts around from USD 3.0 per CBM with a 1 CBM minimum. Air freight starts around from USD 4.0 per KG. Australian duty is 5% for most general goods, 0% under ChAFTA for many HS codes; we confirm duty before quoting an all-in DDP rate.</p>
