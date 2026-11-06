@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Product Certification Services | SONCAP, SABER, GOST R, CCC, AQIS';
+const description = 'Product certification services for China exporters: SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CCC, AQIS (Australia), CE/UKCA, FORM A/E/RCEP FTA certificates. In-house experts, fast turnaround, compliant pricing.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: 'Product Certification', item: '/services/product-certification/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Product Certification Services',
+  serviceType: 'Conformity Certification',
+  provider: { '@type': 'Organization', name: SITE.name },
+  description: 'In-house product certification for Chinese exporters shipping to Nigeria (SONCAP), Saudi Arabia (SABER), Russia (GOST R), EU/UK (CE/UKCA), Australia (AQIS), and ASEAN (FORM E/RCEP).'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which countries require pre-shipment certification?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Nigeria (SONCAP), Saudi Arabia (SABER), Russia (GOST R), Belarus (TR Customs Union), Kazakhstan (EAC), Egypt (GOECP), Kenya (KEBS/Consumer Goods), Tanzania (TBS/Consumer Goods), Philippines (PSIC) and several others all require pre-shipment conformity certificates for regulated products.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does certification take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'SONCAP: 7-14 days. SABER: 5-10 days. GOST R: 10-20 days. CE self-declaration: 2-5 days (no lab test needed for most goods). AQIS: 3-7 days. FORM E/F/RCEP: 2-4 days. Urgent 24-hour express available for most services at double fee.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="svc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/">Services</a> / <span>Product Certification</span>
+      </nav>
+      <h1>Product Certification Services</h1>
+      <p class="svc-sub">Don't let a missing certificate delay your shipment or trigger a customs penalty. We handle SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CCC, AQIS (Australia), CE/UKCA, FORM E/F/RCEP FTA certificates and more — all in-house, fast turnaround, transparent pricing.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} class="btn btn-outline" target="_blank" rel="noopener">WhatsApp: {SITE.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="block-title">Certifications We Handle</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>🇳🇬 SONCAP — Nigeria</h3>
+          <p><strong>Mandatory</strong> for solar panels, batteries, electronics, electrical appliances, furniture, toys and most consumer goods. Our service: product testing at SASO-recognized labs, SCG application, Pre-Shipment Inspection (PSI), Certificate of Conformity (CoC). <strong>Turnaround: 7-14 days.</strong> Without SONCAP, Nigerian Customs refuses clearance or charges 150% penalty.</p>
+          <p class="cert-price">Starting from USD 350 per product group</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🇸🇦 SABER — Saudi Arabia</h3>
+          <p>Replaced SASO IECEE and SASO COC. <strong>Mandatory</strong> for building materials (ceramic tiles, steel, sanitary ware), electronics, appliances, auto parts, toys and most consumer goods. Two-stage: Product Certificate (PC) per product + Shipment Certificate (SC) per shipment. <strong>Turnaround: 5-10 days.</strong></p>
+          <p class="cert-price">Starting from USD 250 per product</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🇷🇺 GOST R + EAC — Russia</h3>
+          <p>GOST R = Russian national conformity certification (auto parts, electronics, machinery). EAC = Eurasian Economic Union customs declaration (covers Russia + Kazakhstan + Belarus + Armenia + Kyrgyzstan). Our team handles both in one package. <strong>Turnaround: 10-20 days.</strong></p>
+          <p class="cert-price">Starting from USD 200 per product / USD 300 per EAC</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🇦🇺 AQIS — Australia</h3>
+          <p>Biosecurity compliance for food, animal and plant products, timber packaging, used machinery and construction materials (steel, pipes). We handle AQIS inspection appointments, import permits for restricted items, ISPM 15 certificate for wood packaging. <strong>Turnaround: 3-7 days.</strong></p>
+          <p class="cert-price">Starting from USD 200</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🇪🇺 CE / 🇬🇧 UKCA — EU &amp; UK</h3>
+          <p>CE marking for EU: toys, low-voltage electrical equipment, medical devices, machinery, PPE, construction products. Most goods can self-declare (2-5 days). UKCA marking for UK post-Brexit. We prepare technical documentation and declaration of conformity. <strong>Turnaround: 2-5 days.</strong></p>
+          <p class="cert-price">Starting from USD 100</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🗺️ FORM A / E / F / RCEP — FTA</h3>
+          <p>Free Trade Area certificates to reduce or eliminate import duty. FORM E (ASEAN-China FTA), FORM A (Generalized System of Preferences), FORM F (China-Chile FTA) and RCEP certificate (covers ASEAN + Australia + New Zealand + South Korea + Japan + China). <strong>Turnaround: 2-4 days.</strong></p>
+          <p class="cert-price">Starting from USD 50 per certificate</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">How It Works</h2>
+      <div class="grid grid-4 step-grid">
+        <div class="card step-card"><span class="step-num">1</span><h3>Send Details</h3><p>Product specs, photos, HS code, destination country.</p></div>
+        <div class="card step-card"><span class="step-num">2</span><h3>Quotation</h3><p>We confirm required cert scope and quote in 2 hours.</p></div>
+        <div class="card step-card"><span class="step-num">3</span><h3>Processing</h3><p>Testing, lab approval, registration, PSI inspection.</p></div>
+        <div class="card step-card"><span class="step-num">4</span><h3>Cert Issued</h3><p>We send the digital certificate and handle customs filing.</p></div>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>Which countries need pre-shipment certs?</h3>
+        <p>Nigeria (SONCAP), Saudi Arabia (SABER), Russia (GOST R), Belarus, Kazakhstan, Egypt (GOECP), Kenya (KEBS), Tanzania (TBS), Philippines (PSIC), plus some others. Many countries also require FTA certificates (FORM A/E/RCEP) to reduce duty. If you're not sure, ask — we check for you.</p>
+
+        <h3>How long does it take?</h3>
+        <p>SONCAP 7-14 days, SABER 5-10 days, GOST R 10-20 days, CE self-declaration 2-5 days, AQIS 3-7 days, FORM E/RCEP 2-4 days. Urgent 24-hour express available for most services at double fee.</p>
+
+        <h3>What happens if I ship without certification?</h3>
+        <p>Nigerian Customs can charge 150% penalty duty or refuse entry. Saudi Customs rejects without SABER PC. Russian Customs seizes uncertified GOST R goods. These penalties typically cost more than the certification itself — getting cert is always cheaper than not getting one.</p>
+
+        <h3>Can you handle certification + shipping?</h3>
+        <p>Yes. We handle the full package: certification → factory pickup → export customs → ocean/air freight → destination clearance → door delivery. One point of contact, one timeline, one invoice. Ask for an all-in quote.</p>
+      </div>
+
+      <h2 class="block-title">Explore Related Services</h2>
+      <div class="grid grid-3">
+        <a href="/services/customs-clearance/" class="card svc-card"><h3>Customs Clearance</h3><p>Class-A licensed brokerage. ISF, AMS, ENS, DDP, HS classification, duty minimization.</p></a>
+        <a href="/routes/china-to-nigeria-solar/" class="card svc-card"><h3>Nigeria DG + SONCAP</h3><p>Solar panels and lithium battery shipping to Nigeria with SONCAP included.</p></a>
+        <a href="/routes/china-to-saudi-arabia/" class="card svc-card"><h3>Saudi SABER Included</h3><p>Building materials to Saudi Arabia with SABER certification.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-cta">
+    <div class="container" style="text-align:center;">
+      <h2>Need a Certification Before You Ship?</h2>
+      <p>Send product details, photos and destination country. We confirm required certifications and quote within 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .svc-hero { background: linear-gradient(135deg, #0c326e 0%, #1a4a8f 100%); color: #fff; padding: 56px 0 40px; }
+  .breadcrumb a { color: #d9e6ff; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: #fff; }
+  .svc-hero h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 16px 0 12px; font-weight: 800; line-height: 1.25; }
+  .svc-sub { max-width: 720px; line-height: 1.7; margin: 0 0 20px; color: rgba(255,255,255,0.9); }
+  .btn { display: inline-block; padding: 11px 22px; border-radius: 4px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: #ff6b35; color: #fff; }
+  .btn-primary:hover { background: #e55a2a; }
+  .btn-outline { border: 2px solid #fff; color: #fff; }
+  .btn-outline:hover { background: #fff; color: #0c326e; }
+  .block-title { font-size: 1.35rem; font-weight: 800; color: #0c326e; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e6ed; }
+  .grid { display: grid; gap: 16px; margin: 12px 0 20px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .card { background: #fff; border: 1px solid #e0e6ed; border-radius: 8px; padding: 20px; }
+  .svc-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+  .svc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(12, 50, 110, 0.12); }
+  .svc-card h3 { font-size: 1.05rem; color: #0c326e; margin: 0 0 8px; line-height: 1.4; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.65; color: #2c3e50; margin: 0 0 10px; }
+  .cert-price { color: #ff6b35 !important; font-weight: 700; font-size: 0.88rem !important; margin-top: auto !important; }
+  .step-card { position: relative; padding-top: 60px; }
+  .step-num { position: absolute; top: 16px; left: 18px; width: 32px; height: 32px; border-radius: 50%; background: #ff6b35; color: #fff; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+  .step-card h3 { font-size: 1rem; margin: 0 0 6px; color: #0c326e; }
+  .step-card p { margin: 0; font-size: 0.88rem; color: #2c3e50; }
+  .faq-block h3 { font-size: 1.05rem; color: #0c326e; margin: 20px 0 8px; font-weight: 700; }
+  .faq-block p { color: #2c3e50; line-height: 1.75; margin: 0 0 14px; padding-left: 14px; border-left: 3px solid #e0e6ed; }
+  .svc-cta { background: #0c326e; color: #fff; padding: 48px 0; margin-top: 36px; }
+  .svc-cta h2 { color: #fff; font-size: 1.5rem; margin: 0 0 8px; }
+  .svc-cta p { color: #d9e6ff; margin: 0 0 16px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+  @media (max-width: 900px) { .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+</style>
+</BaseLayout>

@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Auto Parts &amp; Machinery Shipping to Russia | Block Train &amp; Compliance';
+const description = 'Auto parts, construction machinery and general cargo shipping to Russia. China-Europe block train, EAC customs, sanctions compliance review, payment channel solutions (对敲). Licensed NVOCC.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ship by Region', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'Russia', item: '/ship-by-region/russia/' },
+    { '@type': 'ListItem', position: 4, name: 'Auto Parts & Machinery', item: '/routes/china-to-russia-auto-parts/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Auto Parts & Machinery Shipping to Russia',
+  serviceType: ['Freight Forwarding', 'Sanctions Compliance', 'Customs Brokerage'],
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['Russia', 'Kazakhstan', 'China'],
+  description: 'China-Europe block train, ocean FCL and air freight from China to Russia for auto parts, construction machinery, electronics and general cargo. EAC customs clearance, GOST R certification, sanctions compliance review and payment channel solutions.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do you handle sanctions compliance for Russia shipping?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We run every shipment through a dual compliance check before booking: (1) OFAC, EU and UK sanctions list screening of all parties (shipper, consignee, bank, BIC/SWIFT codes), (2) HS code review to exclude military/dual-use items (munitions, encryption, certain microchips, night vision). We will not ship sanctioned items. For ambiguous products, we recommend EU/US legal counsel. We maintain a 99.8% customs clearance rate on non-sensitive cargo.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What payment channels do you support for Russia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We support: (1) 对敲 (barter/mirror payment) — Russian importer pays RUB to your Russian bank partner; you pay CNY from China. This is the most common method, 3-5 day settlement, 1-3% fee. (2) Singapore third-party USD transfer — both sides pay USD via a Singapore intermediary bank. (3) CNY direct via China UnionPay / CIPS for some Kazakh/Russian banks. We do NOT handle cryptocurrency (USDT/BTC) — high regulatory risk. We also do NOT offer SWIFT transfers to sanctioned Russian banks.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which is faster: block train or ocean freight to Russia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'China-Europe Railway Express block train from Yiwu or Xi\'an to Moscow Kuntsevo: 14-18 days. Ocean FCL from Shanghai to Vladivostok: 12-16 days (Russian Far East). Ocean FCL via Suez to St. Petersburg: 35-42 days. For Moscow and western Russia, block train is fastest and most cost-effective (half the cost of air, double the speed of ocean Suez route).' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is EAC customs and GOST R certification?',
+      acceptedAnswer: { '@type': 'Answer', text: 'EAC (Eurasian Economic Union) customs clearance replaces the old single-country customs declarations for Russia, Kazakhstan, Belarus, Armenia and Kyrgyzstan. One EAC declaration covers all five countries. GOST R is the Russian national product conformity certification — mandatory for auto parts, electronics, machinery, toys, food and many consumer goods. We handle both EAC customs declarations and GOST R certification in-house.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does shipping auto parts to Russia cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Block train from Yiwu to Moscow: from USD 3.0 per CBM. Ocean FCL 40HQ from Shanghai to Vladivostok: from USD 1,800. Air freight from Guangzhou to Moscow SVO: from USD 5.0 per KG. EAC customs clearance: USD 300-500 per shipment. Payment channel fee: 1-3%. GOST R certification: USD 200-500 per product. All-in DDP block train from China to Moscow auto parts: typically USD 3,500-5,500 for a 40HQ.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What auto parts and machinery do you ship to Russia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Auto spare parts (brake pads, filters, engine parts, suspension kits), heavy construction machinery (excavators, wheel loaders, bulldozers), light construction tools and hardware, industrial equipment, electronics (non-military, non-dual-use), consumer electronics, home appliances, furniture, building materials, and general e-commerce goods for Ozon and Wildberries marketplaces. We do NOT ship chips with encryption, military hardware, night vision or dual-use items.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cargo%20train%20on%20China%20Europe%20Railway%20Express%20transporting%20auto%20parts%20containers%20to%20Moscow%20photorealistic%20snow&image_size=landscape_16_9" alt="China-Europe block train transporting auto parts containers from China to Moscow via the Trans-Siberian Railway" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <a href="/ship-by-region/russia/">Russia</a> / <span>Auto Parts &amp; Machinery</span>
+      </nav>
+      <h1>Auto Parts &amp; Machinery Shipping to Russia</h1>
+      <p class="route-hero-sub">Since Western brands and distributors pulled out of Russia, Chinese suppliers have filled the gap — but only freight forwarders who solve the sanctions maze can deliver. We are a licensed NVOCC offering China-Europe block train, EAC customs clearance, GOST R certification, sanctions compliance review, and practical payment channel solutions (对敲) from Shenzhen. Get an all-in quote in 2 hours.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit &amp; Prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>The Russian import gap left by Western sanctions creates an unprecedented opportunity for Chinese exporters — but two giant obstacles stand in the way: <strong>sanctions compliance</strong> and <strong>payment channels</strong>. Most international banks and SWIFT either won't process Russia payments or charge prohibitive fees. Meanwhile, Russian Customs is increasingly strict on declaring dual-use or military-controlled items.</p>
+        <p>We navigate this maze daily. As a Shenzhen NVOCC that has operated the Russia lane since 2015, we maintain a <strong>dual compliance team</strong> that screens every shipment against OFAC/EU/UK sanctions lists, and offer proven <strong>payment channel solutions</strong> (对敲 mirror payments, Singapore intermediary transfers, CNY via CIPS) that bypass SWIFT entirely. We ship auto parts, construction machinery, electronics and general cargo via the China-Europe Block Train (14-18 days to Moscow) or ocean freight to Vladivostok, handling EAC customs and GOST R certification in-house.</p>
+      </div>
+
+      <h2 class="block-title" id="specialties">What We Solve That Others Can't</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>🛡️ Sanctions Compliance Review</h3>
+          <p>Every shipment screened against OFAC SDN List, EU Sanctions Regime and UK Sanctions List. HS code review excludes military/dual-use items (munitions, encryption, certain chips, night vision). Zero tolerance for sanctions evasion.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>💳 Payment Channel Solutions</h3>
+          <p>对敲 mirror payments (most popular: 对敲), Singapore USD intermediary transfers, CNY via CIPS. 3-5 day settlement, 1-3% fee. No SWIFT, no cryptocurrency, no sanctioned banks.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🚆 China-Europe Block Train</h3>
+          <p>Weekly block trains from Yiwu, Xi'an, Chengdu and Chongqing to Moscow Kuntsevo (14-18 days) and St. Petersburg. Half ocean cost, double air speed. EAC customs at border included.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times &amp; Pricing</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin</th><th>Russian Destination</th><th>Mode</th><th>Transit (days)</th><th>Door-to-Door (days)</th><th>Starting From</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Yiwu / Xi'an</td><td>Moscow (Kuntsevo)</td><td>Block Train</td><td>14-18</td><td>18-24</td><td>USD 3.0 per CBM</td></tr>
+            <tr><td>Yiwu / Chengdu</td><td>St. Petersburg</td><td>Block Train</td><td>16-20</td><td>20-26</td><td>USD 3.5 per CBM</td></tr>
+            <tr><td>Shanghai</td><td>Vladivostok</td><td>Sea FCL 40HQ</td><td>12-16</td><td>16-22</td><td>USD 1,800</td></tr>
+            <tr><td>Shanghai</td><td>St. Petersburg</td><td>Sea FCL 40HQ (Suez)</td><td>35-42</td><td>40-50</td><td>USD 3,500</td></tr>
+            <tr><td>Guangzhou</td><td>Moscow (SVO)</td><td>Air</td><td>4-6</td><td>6-9</td><td>USD 5.0 per KG</td></tr>
+            <tr><td>Shenzhen</td><td>Any Russian city</td><td>LCL Consolidation</td><td>Block train +2 days</td><td>20-28</td><td>USD 3.5 per CBM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">EAC customs clearance: USD 300-500 per shipment. GOST R certification: USD 200-500 per product group. Payment channel fee: 1-3%. Russian import duty varies by HS code (average 5-10%). VAT: 20% on all goods. <a href="/contact/">Request a quote</a> for an exact all-in DDP rate.</p>
+
+      <h2 class="block-title">Cargo Categories We Ship to Russia</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>Auto Spare Parts</h3>
+          <p>Brake pads, oil filters, engine gaskets, suspension kits, ball joints, CV boots. GOST R certified. Ozon/Wildberries marketplace-ready packaging.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Construction Machinery</h3>
+          <p>Excavators, wheel loaders, bulldozers, skid steers, cranes, diesel generators. Oversized handling, project cargo, export from Shandong/Inner Mongolia.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Tools &amp; Hardware</h3>
+          <p>Power tools, hand tools, fasteners, welding equipment, electrical tools. General cargo, GOST R tested where required.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Electronics &amp; Appliances</h3>
+          <p>Consumer electronics (non-military, non-dual-use), home appliances, smartphones (non-crypto-mining), kitchenware. EAC + GOST R required.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>E-Commerce (Ozon &amp; Wildberries)</h3>
+          <p>Consolidated LCL to Yiwu warehouse, repackaged, labeled, block train to Moscow distribution center, last-mile to marketplace warehouse.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>General Consumer Goods</h3>
+          <p>Furniture, textiles, bedding, toys (GOST R certified), sports equipment, cosmetics. Direct to warehouse or e-commerce seller.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>How do you handle sanctions compliance?</h3>
+        <p>Every shipment goes through a two-stage compliance check: (1) OFAC SDN List, EU Sanctions Regime and UK Sanctions List screening of all parties (shipper, consignee, bank, SWIFT/BIC codes). (2) HS code review to identify potential dual-use or military items. We maintain a 99.8% customs clearance rate on non-sensitive cargo. We do NOT ship munitions, encryption chips, night vision, military hardware or other controlled items. For ambiguous products, we recommend EU/US legal counsel before quoting.</p>
+
+        <h3>What payment channels do you offer?</h3>
+        <p>We offer three practical options: (1) 对敲 mirror payment — Russian importer pays RUB to a Russian bank partner; you pay CNY from your Chinese bank. Settlement: 3-5 days, fee: 1-3%. <strong>Most popular method.</strong> (2) Singapore intermediary — both sides pay USD via a Singapore-based intermediary bank. (3) CNY direct via CIPS for some Kazakh/Russian banks. We do NOT handle USDT/BTC cryptocurrency (high regulatory risk) and do NOT offer SWIFT transfers to sanctioned Russian banks.</p>
+
+        <h3>Block train vs ocean: which is best?</h3>
+        <p>For Moscow and western Russia: <strong>Block train wins</strong>. Yiwu → Moscow in 14-18 days at half the cost of air freight, double the speed of ocean Suez route. For Russian Far East (Vladivostok): Ocean direct from Shanghai at 12-16 days is cheaper. For St. Petersburg: Block train from Chengdu or Chongqing at 16-20 days beats ocean Suez (35-42 days).</p>
+
+        <h3>What is EAC and GOST R?</h3>
+        <p><strong>EAC</strong> (Eurasian Economic Union) customs declaration covers Russia + Kazakhstan + Belarus + Armenia + Kyrgyzstan with a single filing, replacing old single-country declarations. <strong>GOST R</strong> is the Russian national conformity certification — mandatory for auto parts, electronics, machinery, toys and many consumer goods. We handle both in-house — EAC customs filing for USD 300-500 per shipment, GOST R certification for USD 200-500 per product group.</p>
+
+        <h3>How much does it cost?</h3>
+        <p>Block train: from USD 3.0 per CBM. Ocean FCL 40HQ to Vladivostok: from USD 1,800. Ocean FCL to St. Petersburg (Suez): from USD 3,500. Air freight to Moscow: from USD 5.0 per KG. EAC customs: USD 300-500. GOST R cert: USD 200-500. Payment channel fee: 1-3%. All-in DDP block train from Yiwu to Moscow auto parts: typically USD 3,500-5,500 for a 40HQ including payment processing.</p>
+
+        <h3>Can you help with 对敲 mirror payment setup?</h3>
+        <p>Yes. We coordinate the mirror payment between the Russian importer's bank and your Chinese bank. We have established bank partners in Russia, Dubai, Singapore and Hong Kong. The process takes 3-5 days and costs 1-3% of the transaction value. You send us your bank details and the Russian buyer sends theirs — we coordinate the mirror transfer.</p>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/russia/" class="chip region-chip">All Russia Routes</a>
+        <a href="/ship-by-region/central-asia/" class="chip region-chip">Central Asia</a>
+        <a href="/services/ocean-freight/" class="chip">Ocean Freight</a>
+        <a href="/services/air-freight/" class="chip">Air Freight</a>
+        <a href="/services/warehousing/" class="chip">Warehousing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ship Your Auto Parts &amp; Machinery to Russia</h2>
+      <p class="section-sub">Send your product specs, carton count, Russian destination city and payment preference. We run a sanctions check, confirm the best mode, and reply with an all-in DDP quote including EAC customs in 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero { position: relative; min-height: 440px; display: flex; align-items: center; overflow: hidden; padding: 60px 0 48px; }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%); }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2; }
+  .route-hero-sub { color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.7; max-width: 720px; margin: 0 0 24px; }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+  .block-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
+  .route-overview { max-width: 860px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(strong) { color: var(--navy); font-weight: 700; }
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .faq-block h3 { font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px; font-weight: 700; line-height: 1.4; }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin: 4px 6px 4px 0; text-decoration: none; }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+  .svc-card { color: inherit; text-decoration: none !important; display: flex; flex-direction: column; }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .grid { display: grid; gap: 16px; margin: 16px 0 24px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .route-hero { min-height: 380px; } }
+</style>
+</BaseLayout>

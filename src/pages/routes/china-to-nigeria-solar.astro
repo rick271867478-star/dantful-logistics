@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Solar Panels & Lithium Battery Shipping to Nigeria | Dantful';
+const description = 'Solar panels shipping to Nigeria, lithium battery UN3480 DG cargo to West Africa. SONCAP certification, Lagos customs clearance, DDP door-to-door. Licensed NVOCC since 2008.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ship by Region', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'Africa', item: '/ship-by-region/africa/' },
+    { '@type': 'ListItem', position: 4, name: 'Nigeria Solar & Energy Storage', item: '/routes/china-to-nigeria-solar/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Solar Panels & Lithium Battery Shipping to Nigeria',
+  serviceType: ['Freight Forwarding', 'Dangerous Goods Shipping', 'Certification Service'],
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['Nigeria', 'Ghana', 'Ivory Coast', 'China'],
+  description: 'Specialized ocean and air freight forwarding for solar panels, lithium-ion batteries (UN3480), and energy storage systems from China to West Africa. SONCAP certification, Lagos customs clearance and DDP door-to-door delivery included.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do you ship lithium batteries to Nigeria?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Lithium-ion batteries (UN3480 Class 9 DG) to Nigeria require IATA/IMDG-compliant packaging, UN38.3 test reports, MSDS, and proper DG labeling. Many carriers refuse or surcharge DG cargo. As an IATA-certified DG handler, we hold contracts with Maersk, MSC and Emirates SkyCargo that accept UN3480. Air freight to Lagos: 5-7 days. Ocean FCL: 35-42 days via Cape Town or Suez + transshipment in Tema.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is SONCAP certification and do I need it?',
+      acceptedAnswer: { '@type': 'Answer', text: 'SONCAP (Standards Organization of Nigeria Conformity Assessment Program) is mandatory for regulated products imported into Nigeria, including solar panels, batteries, inverters, and most electronics. Without SONCAP, Nigerian Customs will refuse clearance or charge 150% penalty duty. We handle the full SONCAP process: product testing, SCG application, Certificate of Conformity (CoC) and Pre-Shipment Inspection (PSI) at origin. Turnaround: 7-14 days.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does sea freight from China to Lagos take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ocean FCL from Shanghai, Shenzhen or Guangzhou to Lagos (Apapa or Tin Can Island) takes 35-42 days port-to-port via Cape Town, or 32-38 days via Suez Canal with transshipment in Tema (Ghana). LCL consolidation from Shenzhen takes 38-46 days. Door-to-door DDP including SONCAP, Nigerian customs and Lagos delivery adds 7-10 days.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to ship a 40HQ solar container to Nigeria?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A 40HQ container of solar panels from Shenzhen to Lagos starts around USD 4,200 FCL sea freight. Adding SONCAP certification (~USD 350), Nigerian import duty (5-10% for solar panels), VAT (7.5%), Apapa port charges and clearance agency fees, an all-in DDP quote typically ranges USD 6,800-8,500 depending on cargo value, season and routing. DG battery surcharges add USD 800-1,500 per 40HQ. Air freight from Shenzhen to Lagos starts USD 6.5-8.0 per KG including DG handling.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you handle off-grid solar kits with batteries?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — we specialize in complete off-grid solar systems including solar panels, lithium iron phosphate (LiFePO4) battery banks, inverters, charge controllers and mounting structures. We handle DG classification for batteries, SONCAP for all components, combined loading plans for mixed FCL, and DDP delivery to warehouses in Lagos, Ibadan, Port Harcourt and Kano. We also serve Ghana (Accra/Tema), Ivory Coast (Abidjan) and Kenya (Nairobi/Mombasa) on request.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed for Nigeria import?',
+      acceptedAnswer: { '@type': 'Answer', text: 'SONCAP Certificate of Conformity (CoC), commercial invoice, packing list, bill of lading, Nigerian Customs Import Declaration Form (Form M), certificate of origin, product photos for PSI, and for DG cargo: MSDS, UN38.3 test report, dangerous goods declaration and IMDG/IATA shippers declaration. We prepare 100% of these documents as part of the DDP service.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=solar%20panels%20and%20lithium%20battery%20containers%20at%20Lagos%20port%20Nigeria%20Africa%20cargo%20shipment%20photorealistic&image_size=landscape_16_9" alt="Solar panels and lithium battery containers at Lagos port — specialized shipping from China to West Africa" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <a href="/ship-by-region/africa/">Africa</a> / <span>Nigeria Solar</span>
+      </nav>
+      <h1>Solar Panels &amp; Lithium Battery Shipping to Nigeria</h1>
+      <p class="route-hero-sub">West Africa's off-grid energy boom runs on Chinese solar and battery technology. We are a licensed NVOCC with IATA DG certification, moving solar panels, LiFePO4 battery banks (UN3480 Class 9), inverters and complete solar kits from China to Lagos, Ghana and Ivory Coast with SONCAP certification included and DDP door-to-door delivery. Get a quote in 2 hours.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit &amp; Prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Nigeria faces rolling blackouts across 70% of its population. The off-grid solar and energy storage market is growing 35% annually, with Lagos, Ibadan, Port Harcourt and Kano importing container loads of solar panels and lithium battery packs from Shenzhen, Guangzhou and Shanghai every month. Ghana and Ivory Coast follow the same trajectory.</p>
+        <p>Most international carriers either refuse lithium-ion DG cargo or add 2-3x surcharges. Nigerian importers also face SONCAP certification requirements, Apapa port congestion, and customs agencies that demand 2x the normal clearance fees from Chinese suppliers. As a Shenzhen-based NVOCC since 2008 with an <strong>IATA-certified Dangerous Goods team</strong> and <strong>in-house SONCAP certification desk</strong>, we solve every pain point with one all-in DDP quote.</p>
+      </div>
+
+      <h2 class="block-title" id="specialties">Why This Lane Is Different (And Why We Handle It)</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>🔋 UN3480 Lithium Battery DG</h3>
+          <p>IATA/IMDG-compliant packaging, UN38.3 test verification, MSDS review and DG declaration. Contracted space with Maersk, MSC and Emirates SkyCargo for Class 9 battery shipments most forwarders refuse. DG handling added into your all-in quote.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>📋 SONCAP Certification Included</h3>
+          <p>Full SONCAP service: product testing (1-3 days), SCG application, Pre-Shipment Inspection (PSI), Certificate of Conformity (CoC). Turnaround 7-14 days. Avoid 150% Nigerian Customs penalty duty. We handle the paperwork — you just ship.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🚚 Lagos Customs + Door Delivery</h3>
+          <p>DDP delivery to Lagos, Ibadan, Port Harcourt, Kano and major Ghana/Ivory Coast cities. In-country clearance agency at Apapa and Tin Can Island ports with 98% first-time clearance success rate. No hidden customs fees or bribes.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times &amp; Pricing</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin</th><th>Destination</th><th>Mode</th><th>Port-to-Port (days)</th><th>Door-to-Door (days)</th><th>Starting From</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shenzhen / Shanghai</td><td>Lagos (Apapa)</td><td>Sea FCL 40HQ</td><td>35-42</td><td>45-55</td><td>USD 4,200 + SONCAP</td></tr>
+            <tr><td>Shenzhen / Shanghai</td><td>Lagos (Tin Can Island)</td><td>Sea FCL 40HQ</td><td>32-38</td><td>42-50</td><td>USD 4,500 (faster vessel)</td></tr>
+            <tr><td>Guangzhou</td><td>Accra / Tema (Ghana)</td><td>Sea FCL 40HQ</td><td>33-40</td><td>44-52</td><td>USD 4,000 + SONCAP</td></tr>
+            <tr><td>Shenzhen</td><td>Abidjan (Ivory Coast)</td><td>Sea FCL 40HQ</td><td>38-45</td><td>48-58</td><td>USD 4,800 + SONCAP</td></tr>
+            <tr><td>Shenzhen (SZX)</td><td>Lagos (LOS)</td><td>Air (incl DG)</td><td>5-7</td><td>7-10</td><td>USD 6.5-8.0 per KG</td></tr>
+            <tr><td>Shenzhen</td><td>Lagos</td><td>LCL</td><td>38-46</td><td>48-58</td><td>USD 3.5 per CBM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">DG surcharge of USD 800-1,500 per 40HQ applies to lithium battery cargo. SONCAP certification: USD 350-600 per product group, 7-14 day turnaround. Nigerian import duty on solar panels: 5-10%. VAT: 7.5%. <a href="/contact/">Request a quote</a> for an exact all-in DDP rate.</p>
+
+      <h2 class="block-title">Cargo Types We Handle to West Africa</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>Solar Panels</h3>
+          <p>Mono/polycrystalline 54-72 cell panels, bifacial, flexible thin-film. FCL consolidation from multiple Guangdong factories. SONCAP tested and compliant.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Lithium Battery Packs</h3>
+          <p>LiFePO4, NMC and LFP battery banks 48V-512V for residential and industrial storage. UN3480 Class 9 DG. Proper UN38.3-tested packaging.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Complete Solar Kits</h3>
+          <p>Panel + battery + inverter + charge controller + mounting in one FCL container. Mixed cargo DG handling, weight distribution planning, consolidated SONCAP.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Inverters &amp; Chargers</h3>
+          <p>Off-grid, hybrid and grid-tie inverters 1-100 KW. Included in SONCAP scope. Palletized or bulk loaded.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Transformers &amp; Power Distribution</h3>
+          <p>Step-up/down transformers, distribution boxes, cables, switchgear. Often oversized — we handle project cargo and oversize FCL.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Street Lighting &amp; Telecom Power</h3>
+          <p>Solar street lights, telecom tower backup batteries, satellite dish power kits. Compact LCL-friendly packaging.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">5-Step Shipping Workflow</h2>
+      <div class="grid grid-3 step-grid">
+        <div class="card step-card">
+          <span class="step-num">1</span>
+          <h3>Product Audit &amp; Quote</h3>
+          <p>Send product specs, photos, carton dimensions and Lagos delivery address. We confirm SONCAP scope, DG classification (if batteries), and issue an all-in DDP rate within 2 hours.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">2</span>
+          <h3>SONCAP Certification</h3>
+          <p>Our in-house certification team conducts product testing, applies for SCG, arranges PSI at origin factory, and issues the Certificate of Conformity within 7-14 days. We manage the entire process.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">3</span>
+          <h3>Pickup &amp; DG Packaging</h3>
+          <p>We collect from any factory in mainland China. DG batteries receive UN38.3-compliant packaging, proper labeling and IMDG/IATA declaration at our Shenzhen warehouse.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">4</span>
+          <h3>Ship &amp; Track</h3>
+          <p>Cargo sails on scheduled Maersk or MSC vessel. You receive weekly tracking with carrier link, ETA and PSI confirmation. Air freight ships daily from SZX/CAN via Dubai.</p>
+        </div>
+        <div class="card step-card">
+          <span class="step-num">5</span>
+          <h3>Lagos Clearance &amp; Delivery</h3>
+          <p>Our Nigerian clearance agent files all customs docs, pays duty/VAT, and delivers to your Lagos warehouse or project site. No agent fees, no customs bribes, no hidden charges.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>How do you ship lithium batteries to Nigeria?</h3>
+        <p>Lithium-ion batteries fall under UN3480 Class 9 Dangerous Goods. Most carriers refuse or surcharge 2-3x. We are IATA-certified DG handlers with contracted space on Maersk, MSC and Emirates SkyCargo that accept UN3480. We require UN38.3 test reports and MSDS before booking. Air freight to Lagos: 5-7 days. Ocean FCL via Suez/Tema transshipment: 35-42 days. DG surcharge USD 800-1,500 per 40HQ.</p>
+
+        <h3>What is SONCAP and do I need it?</h3>
+        <p>SONCAP (Standards Organization of Nigeria Conformity Assessment Program) is mandatory for solar panels, batteries, inverters, and most electronics entering Nigeria. Without SONCAP CoC, Nigeria Customs refuses clearance or charges 150% penalty duty. We handle the full process: product testing, SCG application, PSI inspection, CoC issuance. Turnaround: 7-14 days, cost USD 350-600 per product group.</p>
+
+        <h3>How long does sea freight to Lagos take?</h3>
+        <p>Ocean FCL from Shenzhen to Lagos Apapa: 35-42 days via Cape Town. Via Suez + Tema transshipment (faster): 32-38 days. Door-to-door DDP including SONCAP, Nigerian Customs and Lagos delivery: 45-55 days. Air freight from SZX to LOS: 5-7 days including DG handling.</p>
+
+        <h3>What's the all-in cost for a solar kit container to Nigeria?</h3>
+        <p>Sea freight FCL 40HQ: USD 4,200. SONCAP certification: USD 350-600. Nigerian duty: 5-10% on solar panels, 0-5% on batteries. VAT: 7.5%. Port clearance + agent fees: USD 300-500. All-in DDP quote: typically USD 6,800-8,500 depending on cargo value and season. DG battery surcharge: USD 800-1,500. We give one all-in number — no separate invoices.</p>
+
+        <h3>Can you handle Ghana and Ivory Coast too?</h3>
+        <p>Yes. We ship FCL/LCL to Tema (Ghana) and Abidjan (Ivory Coast) with similar SONCAP-equivalent certification (Ghana GCDS, Ivory Coast COC). Transit to Tema: 33-40 days. Transit to Abidjan: 38-45 days. Same DDP door-to-door model.</p>
+
+        <h3>Why should I use Dantful instead of a local Nigerian agent?</h3>
+        <p>Nigerian agents can't handle export from China, don't have carrier contracts, and can't navigate SONCAP or DG issues. We are a Shenzhen-based licensed NVOCC that handles the ENTIRE chain: factory pickup → SONCAP → DG packaging → export customs → ocean/air freight → Lagos clearance → door delivery. One point of contact, one all-in quote, zero surprises.</p>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/africa/" class="chip region-chip">All Africa Routes</a>
+        <a href="/services/ocean-freight/" class="chip">Ocean Freight</a>
+        <a href="/services/air-freight/" class="chip">Air Freight</a>
+        <a href="/services/dangerous-goods/" class="chip">DG Cargo</a>
+        <a href="/services/product-certification/" class="chip">Product Certification</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ship Your Solar &amp; Battery Container to Nigeria</h2>
+      <p class="section-sub">Send your product specs, carton details and Lagos delivery address. We reply with an all-in DDP quote including SONCAP certification and DG handling within 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero { position: relative; min-height: 440px; display: flex; align-items: center; overflow: hidden; padding: 60px 0 48px; }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%); }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2; }
+  .route-hero-sub { color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.7; max-width: 700px; margin: 0 0 24px; }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+
+  .block-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
+  .route-overview { max-width: 820px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(strong) { color: var(--navy); font-weight: 700; }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .step-grid { margin-bottom: 8px; }
+  .step-card { position: relative; padding-top: 56px; }
+  .step-num { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+  .step-card h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .step-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .faq-block h3 { font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px; font-weight: 700; line-height: 1.4; }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin: 4px 6px 4px 0; text-decoration: none; }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+
+  .svc-card { color: inherit; text-decoration: none !important; display: flex; flex-direction: column; }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .grid { display: grid; gap: 16px; margin: 16px 0 24px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .route-hero { min-height: 380px; } }
+</style>
+</BaseLayout>

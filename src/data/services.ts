@@ -104,6 +104,28 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: 'dangerous-goods',
+    title: 'DG Cargo',
+    short:
+      'IATA and IMDG certified DG cargo shipping from China. UN3480 lithium batteries, Class 3/8/9 chemicals and all dangerous goods with proper packaging, documentation and carrier contracts.',
+    description:
+      'IATA-certified dangerous goods shipping from China covering all UN Classes 1-9. We ship UN3480 lithium-ion batteries, flammable liquids, corrosives, oxidizers and all hazardous cargo with proper UN specification packaging, MSDS review and carrier contracts that accept DG.',
+    icon: 'M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z',
+    highlights: ['IATA certified', 'UN3480 batteries', 'Proper packaging', 'Competitive DG rates'],
+    body: ['DG cargo body placeholder'],
+  },
+  {
+    slug: 'product-certification',
+    title: 'Product Certification',
+    short:
+      'In-house certification for Chinese exporters: SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CCC, AQIS (Australia), CE/UKCA, FORM A/E/RCEP FTA certificates.',
+    description:
+      'In-house product certification handling SONCAP for Nigeria, SABER for Saudi Arabia, GOST R for Russia, EAC Customs Union, AQIS for Australia, CE/UKCA for EU/UK, and FORM A/E/RCEP FTA certificates to legally reduce or eliminate import duty.',
+    icon: 'M9 12l2 2 4-5m5.4-3A9 9 0 1112 3a9 9 0 009 3z',
+    highlights: ['SONCAP Nigeria', 'SABER Saudi Arabia', 'GOST R Russia', 'FTA certificates'],
+    body: ['Certification body placeholder'],
+  },
+  {
     slug: 'door-to-door',
     title: 'Door to Door (DDP)',
     short:

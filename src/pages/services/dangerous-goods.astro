@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'DG Cargo &amp; Dangerous Goods Shipping from China | IATA Certified';
+const description = 'DG cargo and dangerous goods shipping from China. IATA/IMDG certified handler. UN3480 lithium batteries, Class 3/4/5/8/9 cargo, chemical transport, MSDS review, proper packaging, competitive rates from carriers that accept DG.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: '/services/' },
+    { '@type': 'ListItem', position: 3, name: 'DG Cargo', item: '/services/dangerous-goods/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'DG Cargo & Dangerous Goods Shipping from China',
+  serviceType: ['Dangerous Goods Shipping', 'Hazmat Logistics'],
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['China']
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What dangerous goods classes do you handle?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We handle UN Classes 1-9: Class 1 explosives, Class 2 gases, Class 3 flammable liquids, Class 4 flammable solids, Class 5 oxidizers and peroxides, Class 6 toxic/Poison, Class 7 radioactive (limited), Class 8 corrosives, Class 9 miscellaneous (including UN3480 lithium-ion batteries). We do NOT handle illegal or extremely hazardous items.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do carriers accept lithium batteries (UN3480)?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most carriers either refuse UN3480 batteries or add 2-3x surcharges. We hold direct contracts with Maersk, MSC, ONE and Emirates SkyCargo that accept Class 9 DG cargo at competitive rates. We require UN38.3 test reports and MSDS before booking.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are needed for DG cargo?',
+      acceptedAnswer: { '@type': 'Answer', text: 'MSDS (Material Safety Data Sheet), UN38.3 test report for lithium batteries, Dangerous Goods Declaration (DGD), proper UN specification packaging certificate, and for air freight: IATA Shippers Declaration. We review all documents before booking and file DG declarations with carriers on your behalf.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="svc-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/services/">Services</a> / <span>DG Cargo</span>
+      </nav>
+      <h1>DG Cargo &amp; Dangerous Goods Shipping</h1>
+      <p class="svc-sub">IATA and IMDG certified. We ship lithium-ion batteries (UN3480), chemicals, explosives, corrosives and all UN Class 1-9 cargo from China with proper packaging, documentation and carrier contracts that accept DG. Get a quote in 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} class="btn btn-outline" target="_blank" rel="noopener">WhatsApp: {SITE.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="block-title">Why Most Freight Forwarders Can't Handle DG — And We Can</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>📄 IATA Certified Team</h3>
+          <p>Our in-house DG handler holds a valid IATA Dangerous Goods certification (valid every 2 years). We conduct proper MSDS reviews, UN number verification, packaging inspections and DGD preparation — no corner cutting.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🚢 Carrier Contracts That Accept DG</h3>
+          <p>We maintain direct contracts with Maersk, MSC, ONE, CMA CGM and Emirates SkyCargo — carriers that actively accept Class 8 (corrosives) and Class 9 (batteries) DG. This lets us pass through competitive rates that third-party brokers can't access.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>📦 Packaging &amp; Labeling Expertise</h3>
+          <p>UN specification corrugated boxes, inner packaging, absorbent material, proper DG hazard labels, handling labels (THIS SIDE UP, LITHIUM ION BATTERY) and shipper declarations. We inspect every pallet before loading.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title">UN Classes We Handle</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card"><h3>Class 9 — Lithium Batteries</h3><p>UN3480 (loose), UN3481 (in equipment), UN3090 (metal), UN3091 (in equipment). UN38.3 report required. Air + Sea options.</p></div>
+        <div class="card svc-card"><h3>Class 3 — Flammable Liquids</h3><p>Paints, varnishes, solvents, adhesives, alcohol-based products. Proper UN corrugated packaging with absorbent material.</p></div>
+        <div class="card svc-card"><h3>Class 8 — Corrosives</h3><p>Acids, bases, cleaning chemicals, battery electrolyte. Requires steel drums or UN spec jerry cans.</p></div>
+        <div class="card svc-card"><h3>Class 4 — Flammable Solids</h3><p>Matches, fire extinguishers, pyrophoric substances, self-heating materials. Special handling needed.</p></div>
+        <div class="card svc-card"><h3>Class 5 — Oxidizers &amp; Peroxides</h3><p>Hydrogen peroxide, bleach, fertilizers, pool chemicals. Strict separation from organic cargo.</p></div>
+        <div class="card svc-card"><h3>Class 2 — Gases</h3><p>Compressed, liquefied and dissolved gases. Sealed pressure vessels, proper labeling.</p></div>
+      </div>
+
+      <h2 class="block-title">Documents We Need From You</h2>
+      <div class="doc-list">
+        <p>Before we can book your DG shipment, we need: <strong>MSDS (Material Safety Data Sheet)</strong> — Section 14 (Transport Information) must include UN number, proper shipping name, hazard class, packing group. <strong>UN38.3 Test Report</strong> for lithium-ion battery cargo. <strong>Product photos</strong> showing current packaging. We then generate the full Dangerous Goods Declaration (DGD) for carriers, handle IATA Shippers Declaration for air freight, and prepare proper UN specification packaging advice.</p>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>What DG classes do you handle?</h3>
+        <p>All UN Classes 1-9, with focus on Class 9 lithium-ion batteries (UN3480/UN3481), Class 3 flammable liquids, Class 8 corrosives, Class 5 oxidizers and Class 4 flammable solids. We do NOT handle illegal or extremely hazardous items (radioactive Class 7 highly restricted).</p>
+
+        <h3>Do carriers refuse lithium batteries?</h3>
+        <p>Most forwarders can't ship UN3480 because carriers either refuse or charge 2-3x surcharges. We hold contracts with Maersk, MSC, ONE and Emirates SkyCargo that accept Class 9 DG at standard rates. We require UN38.3 test report and MSDS before booking.</p>
+
+        <h3>What documents do you need?</h3>
+        <p>MSDS (Section 14 transport info required), UN38.3 test report for batteries, product photos. We generate: Dangerous Goods Declaration, IATA Shippers Declaration (air), carrier DG booking confirmation, and UN spec packaging guidelines — all included in your quote.</p>
+
+        <h3>How much extra does DG cost?</h3>
+        <p>DG surcharges vary: Class 9 battery surcharge is typically USD 800-1,500 per 40HQ. Class 3/4/5/8 surcharges are lower, around USD 300-600 per FCL or USD 50-100 per CBM LCL. Air DG surcharge: USD 2-4 per KG on top of base air rate. We give one all-in quote.</p>
+      </div>
+
+      <h2 class="block-title">Related Services</h2>
+      <div class="grid grid-3">
+        <a href="/services/ocean-freight/" class="card svc-card"><h3>Ocean Freight</h3><p>DG cargo FCL and LCL from China to all global ports with weekly sailings.</p></a>
+        <a href="/services/air-freight/" class="card svc-card"><h3>Air Freight</h3><p>Daily air cargo departures from PVG/SZX/CAN with IATA-certified DG handling.</p></a>
+        <a href="/services/customs-clearance/" class="card svc-card"><h3>Customs Clearance</h3><p>MSDS review, HS classification for DG cargo, import/export customs documentation.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-cta">
+    <div class="container" style="text-align:center;">
+      <h2>Need to Ship DG Cargo from China?</h2>
+      <p>Send your UN number, MSDS file and destination. We confirm carrier availability and quote in 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .svc-hero { background: linear-gradient(135deg, #0c326e 0%, #1a4a8f 100%); color: #fff; padding: 56px 0 40px; }
+  .breadcrumb a { color: #d9e6ff; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: #fff; }
+  .svc-hero h1 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 16px 0 12px; font-weight: 800; line-height: 1.25; }
+  .svc-sub { max-width: 720px; line-height: 1.7; margin: 0 0 20px; color: rgba(255,255,255,0.9); }
+  .btn { display: inline-block; padding: 11px 22px; border-radius: 4px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: #ff6b35; color: #fff; }
+  .btn-primary:hover { background: #e55a2a; }
+  .btn-outline { border: 2px solid #fff; color: #fff; }
+  .btn-outline:hover { background: #fff; color: #0c326e; }
+  .block-title { font-size: 1.35rem; font-weight: 800; color: #0c326e; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e6ed; }
+  .grid { display: grid; gap: 16px; margin: 12px 0 20px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: #fff; border: 1px solid #e0e6ed; border-radius: 8px; padding: 20px; }
+  .svc-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+  .svc-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(12, 50, 110, 0.12); }
+  .svc-card h3 { font-size: 1.05rem; color: #0c326e; margin: 0 0 8px; line-height: 1.4; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.65; color: #2c3e50; margin: 0; }
+  .doc-list { background: #f6f8fb; border-left: 4px solid #ff6b35; padding: 16px 20px; margin: 16px 0; border-radius: 0 6px 6px 0; }
+  .doc-list p { margin: 0; line-height: 1.8; color: #2c3e50; }
+  .faq-block h3 { font-size: 1.05rem; color: #0c326e; margin: 20px 0 8px; font-weight: 700; }
+  .faq-block p { color: #2c3e50; line-height: 1.75; margin: 0 0 14px; padding-left: 14px; border-left: 3px solid #e0e6ed; }
+  .svc-cta { background: #0c326e; color: #fff; padding: 48px 0; margin-top: 36px; }
+  .svc-cta h2 { color: #fff; font-size: 1.5rem; margin: 0 0 8px; }
+  .svc-cta p { color: #d9e6ff; margin: 0 0 16px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+</style>
+</BaseLayout>

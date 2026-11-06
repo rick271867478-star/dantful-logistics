@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../consts';
+
+const title = 'Shipping from China to Saudi Arabia | SABER Certification &amp; DDP';
+const description = 'Shipping from China to Saudi Arabia. SABER certification, DDP door-to-door, Dubai hub and spoke warehousing. Sea freight to Dammam/Jeddah, air freight to Riyadh. Licensed NVOCC.';
+const waNumber = SITE.phone.replace(/[^\d]/g, '');
+
+const breadcrumbJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
+    { '@type': 'ListItem', position: 2, name: 'Ship by Region', item: '/ship-by-region/' },
+    { '@type': 'ListItem', position: 3, name: 'Middle East', item: '/ship-by-region/middle-east/' },
+    { '@type': 'ListItem', position: 4, name: 'Saudi Arabia', item: '/routes/china-to-saudi-arabia/' }
+  ]
+});
+
+const serviceJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Shipping from China to Saudi Arabia',
+  serviceType: ['Freight Forwarding', 'Certification Service', 'Warehousing'],
+  provider: { '@type': 'Organization', name: SITE.name },
+  areaServed: ['Saudi Arabia', 'UAE', 'China'],
+  description: 'Ocean and air freight forwarding from China to Saudi Arabia with SABER certification, DDP door-to-door delivery, and Dubai hub-and-spoke warehousing for building materials and e-commerce cargo.'
+});
+
+const faqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is SABER certification and do I need it for Saudi Arabia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'SABER (Saudi Arabia Product Certification Program) is mandatory for regulated products imported to Saudi Arabia, replacing the older SASO IECEE and SASO COC systems. Building materials (ceramic tiles, sanitary ware, steel, cement), electrical appliances, auto parts and many consumer products require SABER. Without SABER Product Certificate (PC) and Shipment Certificate (SC), Saudi Customs refuses clearance. We handle the full SABER process including SASO testing, registration and certificate issuance. Turnaround: 5-10 days.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does shipping from China to Saudi Arabia take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ocean FCL from Shanghai or Shenzhen to Dammam takes 24-30 days port-to-port. To Jeddah via Suez: 22-28 days. Air freight from Guangzhou to Riyadh (RUH) takes 4-6 days via Dubai or Doha. Door-to-door DDP including SABER, Saudi Customs, VAT (15%) and delivery to Riyadh, Jeddah, Dammam or Khobar adds 5-7 days.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does shipping to Saudi Arabia cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ocean FCL 40HQ from Shenzhen to Dammam: from USD 3,800. LCL: from USD 3.2 per CBM. Air freight: from USD 4.5 per KG. SABER certification: USD 250-500 per product. Saudi import duty: 5-15% for building materials, 0% under some GCC/SFTA conditions. VAT: 15% on all goods. All-in DDP quote: USD 5,500-7,200 for a 40HQ of ceramic tiles to Riyadh.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you handle Dubai hub-and-spoke warehousing for Middle East distribution?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We offer bonded warehousing in Dubai Jebel Ali Free Zone (JAFZA). Cargo ships FCL from China to Dubai (20-28 days), unloads into our warehouse, then re-distributes via air or road to Saudi Arabia, Oman, Qatar, Kuwait and Bahrain. Ideal for e-commerce sellers and businesses supplying multiple GCC countries. Free 14-day storage, re-labeling, repacking and DDP to all GCC states.' }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which building materials do you ship to Saudi Arabia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ceramic tiles, porcelain tiles, sanitary ware (toilets, sinks, bathtubs), faucets and valves, steel reinforcement bars (rebar), structural steel, prefab container houses, cement additives, paint and coatings, doors and windows, aluminum profiles, and construction hardware. Saudi 2030 Vision projects drive strong demand — we ship to Riyadh, Dammam, Jeddah and Yanbu construction sites.' }
+    }
+  ]
+});
+---
+
+<BaseLayout {title} {description}>
+  <section class="route-hero">
+    <div class="route-hero-bg">
+      <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shipping%20container%20with%20ceramic%20tiles%20and%20building%20materials%20at%20Jebel%20Ali%20port%20Dubai%20Saudi%20Arabia%20construction%20photorealistic&image_size=landscape_16_9" alt="Building materials shipping from China to Saudi Arabia — containers at Jebel Ali port for Dubai hub distribution" loading="eager" />
+    </div>
+    <div class="route-hero-overlay"></div>
+    <div class="container route-hero-content">
+      <nav class="breadcrumb breadcrumb-light" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/ship-by-region/">Ship by Region</a> / <a href="/ship-by-region/middle-east/">Middle East</a> / <span>Saudi Arabia</span>
+      </nav>
+      <h1>Shipping from China to Saudi Arabia</h1>
+      <p class="route-hero-sub">Saudi Arabia's 2030 Vision mega-projects drive constant demand for Chinese building materials, e-commerce cargo and industrial equipment. We are a Shenzhen NVOCC with SABER certification expertise, Dubai hub-and-spoke warehousing, and DDP door-to-door delivery to Riyadh, Dammam and Jeddah. Get an all-in quote in 2 hours.</p>
+      <div class="route-hero-cta">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href="#transit" class="btn btn-outline">View Transit &amp; Prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prose route-overview">
+        <p>Saudi Arabia is the largest Middle Eastern economy and the fastest-growing construction market in the region. NEOM, Riyadh Air Base expansion, Red Sea Project, Saudi Entertainment Boulevard and dozens of industrial zones import massive volumes of ceramic tiles, sanitary ware, steel rebar, prefab houses and building hardware from Guangdong, Fujian, Shandong and Jiangsu provinces.</p>
+        <p>Every Saudi import requires <strong>SABER certification</strong> — the mandatory Saudi product conformity program that replaced SASO IECEE and SASO COC. Most Chinese exporters find SABER opaque and expensive, and many freight forwarders can't help. <strong>We have an in-house SABER desk</strong> that handles testing, registration and certificate issuance in 5-10 days, plus a <strong>Dubai JAFZA bonded warehouse</strong> for businesses distributing across multiple GCC countries.</p>
+      </div>
+
+      <h2 class="block-title" id="specialties">What Makes Our Saudi Lane Different</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>📜 SABER Certification Included</h3>
+          <p>Full SABER service: SASO-recognized lab testing, SABER platform registration, Product Certificate (PC) and Shipment Certificate (SC). Turnaround 5-10 days. We handle the paperwork — exporter just provides product specs and photos.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🏭 Dubai Hub &amp; Spoke</h3>
+          <p>Bonded warehouse in Jebel Ali Free Zone (JAFZA). Ship FCL from China to Dubai, split into LCL, re-label for GCC markets, and distribute to Saudi, Oman, Qatar, Kuwait, Bahrain. Free 14-day storage. 30% cheaper than direct FCL to each country.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>🚛 DDP to All Saudi Cities</h3>
+          <p>DDP door-to-door to Riyadh, Dammam, Jeddah, Khobar, Makkah, Medina, Tabuk, Abha and Yanbu. Saudi Customs clearance, 15% VAT, customs duties and last-mile delivery all included in one quote.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="transit">Transit Times &amp; Pricing</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Origin</th><th>Saudi Destination</th><th>Mode</th><th>Port-to-Port (days)</th><th>Door-to-Door (days)</th><th>Starting From</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shanghai / Shenzhen</td><td>Dammam</td><td>Sea FCL 40HQ</td><td>24-30</td><td>32-40</td><td>USD 3,800 + SABER</td></tr>
+            <tr><td>Shanghai / Shenzhen</td><td>Jeddah</td><td>Sea FCL 40HQ</td><td>22-28</td><td>30-38</td><td>USD 3,600 + SABER</td></tr>
+            <tr><td>Guangzhou</td><td>Jebel Ali (Dubai)</td><td>Sea FCL 40HQ</td><td>20-28</td><td>—</td><td>USD 3,200 (hub option)</td></tr>
+            <tr><td>Shenzhen</td><td>Riyadh (RUH)</td><td>Air</td><td>4-6</td><td>6-8</td><td>USD 4.5-6.0 per KG</td></tr>
+            <tr><td>Shenzhen</td><td>Saudi (any port)</td><td>LCL</td><td>26-34</td><td>34-42</td><td>USD 3.2 per CBM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">SABER certification: USD 250-500 per product group, 5-10 day turnaround. Saudi import duty: 5-15% for building materials, 0% under GCC/SFTA. VAT: 15% on all goods. Dubai hub transshipment to Saudi: +7-10 days. <a href="/contact/">Request a quote</a> for an exact all-in DDP rate.</p>
+
+      <h2 class="block-title">Top Cargo Categories to Saudi Arabia</h2>
+      <div class="grid grid-3">
+        <div class="card svc-card">
+          <h3>Ceramic &amp; Porcelain Tiles</h3>
+          <p>Fujian and Guangdong tiles in 20GP/40HQ FCL. SABER tested, palletized or bulk. Destination: Riyadh, Dammam, Jeddah construction sites.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Sanitary Ware &amp; Bathrooms</h3>
+          <p>Toilets, sinks, bathtubs, showers, faucets. FCL from Zhongshan and Kaiping. Fragile cargo handled with corner protectors and crating.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Steel Rebar &amp; Construction Steel</h3>
+          <p>HSB400/500 steel rebar, wire rod, angles, channels. Bulk cargo or in 20GP/40F containers. NEOM and construction project sites.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Prefab Container Houses</h3>
+          <p>Flat-pack or fully assembled 20ft/40ft prefab houses. SABER certification required. Shipped as FCL to construction camps.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Electrical &amp; Lighting</h3>
+          <p>LED panels, downlights, switches, cables, distribution boxes. SABER mandatory. Air or sea freight options.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>E-Commerce &amp; General Cargo</h3>
+          <p>Consumer goods, electronics, furniture, textiles. Consolidated LCL or express air. Dubai hub for multi-GCC distribution.</p>
+        </div>
+      </div>
+
+      <h2 class="block-title" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-block">
+        <h3>What is SABER and why do I need it?</h3>
+        <p>SABER (Saudi Arabia Product Certification Program) replaced SASO IECEE and SASO COC. All regulated products (building materials, electronics, appliances, automotive parts, toys) require a SABER Product Certificate (PC) before export and a Shipment Certificate (SC) for each shipment. Without SABER, Saudi Customs refuses clearance. Our in-house team handles SASO testing, platform registration and certificate issuance in 5-10 days for USD 250-500 per product group.</p>
+
+        <h3>How long does shipping to Saudi Arabia take?</h3>
+        <p>Ocean FCL from Shenzhen to Dammam: 24-30 days port-to-port. To Jeddah via Suez: 22-28 days. Air freight from Guangzhou to Riyadh: 4-6 days. Door-to-door DDP including SABER, Saudi Customs, 15% VAT and delivery: +5-7 days. Dubai hub option: ship to Dubai (20-28 days), transship to Saudi (+7-10 days).</p>
+
+        <h3>What's the all-in cost for a container?</h3>
+        <p>Sea FCL 40HQ to Dammam: USD 3,800. SABER: USD 250-500. Saudi duty: 5-15%. VAT: 15%. Port clearance + agent: USD 200-400. Typical all-in DDP for a 40HQ of ceramic tiles to Riyadh: USD 5,500-7,200 depending on season, vessel and cargo value.</p>
+
+        <h3>Dubai hub warehouse — how does it work?</h3>
+        <p>You ship FCL from China to our Jebel Ali Free Zone (JAFZA) warehouse (20-28 days). We unload, store free for 14 days, re-label if needed, then ship via air freight to Saudi (2-3 days) or road to Oman/Qatar/Kuwait. Cheaper than direct FCL to each country, perfect for e-commerce sellers and multi-market businesses.</p>
+
+        <h3>Do you handle air freight to Saudi?</h3>
+        <p>Yes. Daily flights from Guangzhou (CAN) via Dubai (DXB) or Doha (DOH) to Riyadh (RUH), Jeddah (JED) and Dammam (DMM). Transit: 4-6 days. Economy from USD 4.5/KG, express from USD 6.0/KG. DDP door-to-door including SABER and Saudi Customs clearance.</p>
+
+        <h3>Can you handle EXW terms from Chinese factories?</h3>
+        <p>Absolutely. We collect from any factory in Guangdong, Fujian, Shandong, Jiangsu, Zhejiang or other provinces within 48 hours. We handle export customs, SABER certification, ocean/air booking, and Saudi import. You just send the factory address — we take care of everything.</p>
+      </div>
+
+      <h2 class="block-title">Explore Other Routes</h2>
+      <div class="chip-row">
+        <a href="/ship-by-region/middle-east/" class="chip region-chip">All Middle East</a>
+        <a href="/services/ocean-freight/" class="chip">Ocean Freight</a>
+        <a href="/services/air-freight/" class="chip">Air Freight</a>
+        <a href="/services/warehousing/" class="chip">Warehousing</a>
+        <a href="/services/product-certification/" class="chip">SABER Certification</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft route-cta">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Ship Your Cargo to Saudi Arabia</h2>
+      <p class="section-sub">Send your product details, carton count and Saudi delivery address. We reply with an all-in DDP quote including SABER certification, customs and delivery within 2 hours.</p>
+      <div class="cta-row">
+        <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp: {SITE.phone}</a>
+        <a href={`mailto:${SITE.email}`} class="btn btn-outline">{SITE.email}</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  <script type="application/ld+json" set:html={serviceJsonLd} />
+  <script type="application/ld+json" set:html={faqJsonLd} />
+</BaseLayout>
+
+<style>
+  .route-hero { position: relative; min-height: 440px; display: flex; align-items: center; overflow: hidden; padding: 60px 0 48px; }
+  .route-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .route-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .route-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(11,42,74,0.85) 0%, rgba(11,42,74,0.6) 60%, rgba(11,42,74,0.35) 100%); }
+  .route-hero-content { position: relative; z-index: 2; }
+  .route-hero-content h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 16px 0 14px; letter-spacing: 0.3px; line-height: 1.2; }
+  .route-hero-sub { color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.7; max-width: 700px; margin: 0 0 24px; }
+  .route-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .breadcrumb-light a, .breadcrumb-light span { color: rgba(255,255,255,0.85); }
+  .breadcrumb-light a:hover { color: #fff; }
+  .block-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 18px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
+  .route-overview { max-width: 820px; }
+  .route-overview :global(p) { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.75; }
+  .route-overview :global(strong) { color: var(--navy); font-weight: 700; }
+  .table-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .table-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .faq-block h3 { font-size: 1.05rem; color: var(--navy); margin: 24px 0 8px; font-weight: 700; line-height: 1.4; }
+  .faq-block p { color: var(--ink-soft); line-height: 1.75; margin: 0 0 14px; }
+  .faq-block a { color: var(--blue); text-decoration: underline; }
+  .chip-row { display: flex; flex-wrap: wrap; margin: 8px 0 4px; }
+  .chip { display: inline-block; background: var(--blue-light); color: var(--blue); font-size: 0.82rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin: 4px 6px 4px 0; text-decoration: none; }
+  .region-chip { background: rgba(255, 138, 0, 0.12); color: var(--orange); }
+  .region-chip:hover { background: var(--orange); color: #fff; }
+  .svc-card { color: inherit; text-decoration: none !important; display: flex; flex-direction: column; }
+  .svc-card h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 8px; }
+  .svc-card p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); transition: all 0.2s ease; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .grid { display: grid; gap: 16px; margin: 16px 0 24px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } .route-hero { min-height: 380px; } }
+</style>
+</BaseLayout>
