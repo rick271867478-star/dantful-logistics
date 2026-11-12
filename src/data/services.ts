@@ -1,5 +1,5 @@
 /**
- * 服务数据（需求文档板块 2：OUR SERVICES 共 6 个）
+ * 服务数据（需求文档板块 2：OUR SERVICES）
  * 增删服务只改这里，导航下拉、首页卡片、详情页都会自动同步。
  */
 export interface Service {
@@ -48,6 +48,28 @@ export const services: Service[] = [
       'We specialize in sensitive and restricted cargo. This includes built-in battery electronics with MSDS and UN38.3 reports. Lithium-ion batteries, magnetic goods with degaussing certificates. Cosmetics and food with CIQ health certificates and FDA pre-notification. Branded goods with trademark authorization. Medical devices requiring NMPA, CE or FDA.',
       'For FBA sellers, we consolidate air cargo into our overseas trucking networks. Door-to-door DDP to US, EU, UK, Canada, Australia, Japan, Korea and Southeast Asia. All duties, VAT and bonds pre-paid. No extra charges on delivery.'
     ],
+  },
+  {
+    slug: 'dangerous-goods',
+    title: 'DG Cargo',
+    short:
+      'IATA and IMDG certified DG cargo shipping from China. UN3480 lithium batteries, Class 3/8/9 chemicals and all dangerous goods with proper packaging, documentation and carrier contracts.',
+    description:
+      'IATA-certified dangerous goods shipping from China covering all UN Classes 1-9. We ship UN3480 lithium-ion batteries, flammable liquids, corrosives, oxidizers and all hazardous cargo with proper UN specification packaging, MSDS review and carrier contracts that accept DG.',
+    icon: 'M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z',
+    highlights: ['IATA certified', 'UN3480 batteries', 'Proper packaging', 'Competitive DG rates'],
+    body: ['DG cargo body placeholder'],
+  },
+  {
+    slug: 'product-certification',
+    title: 'Product Certification',
+    short:
+      'In-house certification for Chinese exporters: SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CCC, AQIS (Australia), CE/UKCA, FORM A/E/RCEP FTA certificates.',
+    description:
+      'In-house product certification handling SONCAP for Nigeria, SABER for Saudi Arabia, GOST R for Russia, EAC Customs Union, AQIS for Australia, CE/UKCA for EU/UK, and FORM A/E/RCEP FTA certificates to legally reduce or eliminate import duty.',
+    icon: 'M9 12l2 2 4-5m5.4-3A9 9 0 1112 3a9 9 0 009 3z',
+    highlights: ['SONCAP Nigeria', 'SABER Saudi Arabia', 'GOST R Russia', 'FTA certificates'],
+    body: ['Certification body placeholder'],
   },
   {
     slug: 'amazon-fba',
@@ -102,28 +124,6 @@ export const services: Service[] = [
       'Premium services include: CONSOLIDATION — combine goods from multiple factories into one container. Cut per-unit shipping cost by 30 to 55 percent. ISPM-15 pallets, shrink wrap and corner boards. QC INSPECTION — AQL Level II from USD 85 per man-day. 100% inspection for critical SKUs. Includes 15 to 25 photos, defect report and PASS or FAIL recommendation.',
       'LABELING AND KITTING — FNSKU, UPC, EAN labeling. FCC, CE, UKCA stickers. Multi-SKU kitting and polybagging. ORDER FULFILLMENT — pick-pack-ship same-day China express via SF, STO, JD. CROSS-DOCKING — de-consolidate 40HQ or air pallets for immediate re-dispatch. Ideal for retail restocking and JIT programs.'
     ],
-  },
-  {
-    slug: 'dangerous-goods',
-    title: 'DG Cargo',
-    short:
-      'IATA and IMDG certified DG cargo shipping from China. UN3480 lithium batteries, Class 3/8/9 chemicals and all dangerous goods with proper packaging, documentation and carrier contracts.',
-    description:
-      'IATA-certified dangerous goods shipping from China covering all UN Classes 1-9. We ship UN3480 lithium-ion batteries, flammable liquids, corrosives, oxidizers and all hazardous cargo with proper UN specification packaging, MSDS review and carrier contracts that accept DG.',
-    icon: 'M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z',
-    highlights: ['IATA certified', 'UN3480 batteries', 'Proper packaging', 'Competitive DG rates'],
-    body: ['DG cargo body placeholder'],
-  },
-  {
-    slug: 'product-certification',
-    title: 'Product Certification',
-    short:
-      'In-house certification for Chinese exporters: SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CCC, AQIS (Australia), CE/UKCA, FORM A/E/RCEP FTA certificates.',
-    description:
-      'In-house product certification handling SONCAP for Nigeria, SABER for Saudi Arabia, GOST R for Russia, EAC Customs Union, AQIS for Australia, CE/UKCA for EU/UK, and FORM A/E/RCEP FTA certificates to legally reduce or eliminate import duty.',
-    icon: 'M9 12l2 2 4-5m5.4-3A9 9 0 1112 3a9 9 0 009 3z',
-    highlights: ['SONCAP Nigeria', 'SABER Saudi Arabia', 'GOST R Russia', 'FTA certificates'],
-    body: ['Certification body placeholder'],
   },
   {
     slug: 'door-to-door',

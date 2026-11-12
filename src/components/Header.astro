@@ -27,6 +27,9 @@ const menu = [
   { href: '/services/', label: 'SERVICES', drop: services.map((s) => ({ href: `/services/${s.slug}/`, label: s.title })) },
   { href: '/ship-by-region/', label: 'SHIP BY REGION', drop: [
     ...regions.map((r) => ({ href: `/ship-by-region/${r.slug}/`, label: r.name })),
+    { href: '/routes/china-to-nigeria-solar/', label: '🇳🇬 Nigeria Solar & DG' },
+    { href: '/routes/china-to-saudi-arabia/', label: '🇸🇦 Saudi Arabia' },
+    { href: '/routes/china-to-russia-auto-parts/', label: '🇷🇺 Russia Auto & Machinery' },
     { href: '/routes/', label: 'All Country Routes' },
   ] },
   { href: '/resources/', label: 'RESOURCES', drop: [
