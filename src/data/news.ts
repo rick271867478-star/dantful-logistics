@@ -153,7 +153,7 @@ export const news: NewsItem[] = [
       '<h2>Amazon FBA Shipping from China to USA</h2>',
       '<p>Amazon FBA sellers need to ship inventory directly to Amazon fulfillment centers. We handle the entire process.</p>',
       '<p>Our FBA prep services include: FNSKU labeling, polybagging, suffocation warning labels, bubble wrapping, and palletization. We ensure 100% compliance with Amazon FBA requirements. We ship to all major US FCs including ONT8 (California), LGB8 (California), LAX9 (California), DFW6 (Texas), and MEM1 (Tennessee).</p>',
-      '<p>Sea-express is the most popular FBA route. Ocean freight from Shenzhen to Los Angeles takes 18-18-25 days. Then trucking to the Amazon FC takes 1-3 days. Total door-to-Amazon time is about 25-35 days. <a href="/services/amazon-fba/">Learn more about our Amazon FBA prep service</a>.</p>',
+      '<p>Sea-express is the most popular FBA route. Ocean freight from Shenzhen to Los Angeles takes 18-25 days. Then trucking to the Amazon FC takes 1-3 days. Total door-to-Amazon time is about 25-35 days. <a href="/services/amazon-fba/">Learn more about our Amazon FBA prep service</a>.</p>',
       '<h2>Get a Quote in 2 Hours</h2>',
       '<p>Ready to ship from China to the USA? We provide quotes within 2 hours. No obligations. Just tell us your cargo details and destination. We will recommend the best shipping method for your needs and budget.</p>',
       '<p><a href="/contact/">Contact us now</a> or WhatsApp +86 15143552568. Our team is ready to help you ship smarter from China to the USA.</p>',

@@ -26,6 +26,18 @@ const otherRegions = regions.filter((r) => r.slug !== region.slug);
 const regionServices = region.relatedServices
   .map((slug) => services.find((s) => s.slug === slug))
   .filter(Boolean);
+
+const faqJsonLd = region.faq
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: region.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a }
+      }))
+    })
+  : null;
 ---
 
 <BaseLayout title={region.seoTitle} description={region.seoDescription}>
@@ -117,6 +129,20 @@ const regionServices = region.relatedServices
         </Fragment>
       )}
 
+      {region.faq && (
+        <Fragment>
+          <h2 class="block-title">Frequently Asked Questions</h2>
+          <div class="region-faq">
+            {region.faq.map((f) => (
+              <div class="region-faq-item">
+                <h3>{f.q}</h3>
+                <p>{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </Fragment>
+      )}
+
       <h2 class="block-title">Explore Other Regions</h2>
       <div class="chip-row">
         {otherRegions.map((r) => (
@@ -134,6 +160,7 @@ const regionServices = region.relatedServices
     </div>
   </section>
   <script type="application/ld+json" set:html={breadcrumbJsonLd} />
+  {faqJsonLd && <script type="application/ld+json" set:html={faqJsonLd} />}
 </BaseLayout>
 
 <style>
@@ -196,6 +223,12 @@ const regionServices = region.relatedServices
     color: var(--orange);
   }
   .region-chip:hover { background: var(--orange); color: #fff; }
+
+  /* FAQ */
+  .region-faq { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+  .region-faq-item { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; background: #fff; }
+  .region-faq-item h3 { font-size: 1rem; color: var(--navy); margin: 0 0 8px; }
+  .region-faq-item p { color: var(--ink-soft); line-height: 1.7; margin: 0; }
 
   /* 卡片 */
   .svc-card, .case-card, .news-card {

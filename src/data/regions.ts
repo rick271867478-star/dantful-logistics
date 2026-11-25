@@ -20,6 +20,7 @@ export interface Region {
   highlights: string[];
   relatedServices: string[];
   routes: RegionRoute[];
+  faq?: { q: string; a: string }[];
 }
 
 export const regions: Region[] = [
@@ -45,6 +46,12 @@ export const regions: Region[] = [
       { from: 'Shenzhen', to: 'New York', mode: 'Ocean FCL', transit: '34-42 days' },
       { from: 'Guangzhou', to: 'Chicago', mode: 'Air', transit: '4-6 days' },
     ],
+    faq: [
+      { q: 'How long does shipping from China to North America take?', a: 'Sea FCL from Shanghai or Shenzhen to Los Angeles and Long Beach takes 14 to 18 days port-to-port, and to the US East Coast (New York, Savannah) via the Panama Canal 25 to 30 days. Air freight to Chicago or New York takes 4 to 6 days. Vancouver is the fastest China-to-Canada ocean port.' },
+      { q: 'Do you handle ISF-10 and US customs clearance?', a: 'Yes. We file ISF-10 and AMS 24 hours before vessel loading and run full import clearance through our licensed US brokerage, including the customs bond and duty payment, so your DDP door-to-door shipment clears without delay.' },
+      { q: 'What duties and tariffs apply to China-US imports?', a: 'Duty depends on the HTS code, and many China-origin goods carry an additional 7.5% to 25% Section 301 tariff. We classify your goods under the correct HTS code and pre-pay all duties, merchandise processing fees and bonds under DDP.' },
+      { q: 'Can you deliver to Amazon FBA fulfillment centers?', a: 'Yes. We deliver to ONT8, LGB8, LAX9, EWR4, BFI3 and YYZ4, with FNSKU labeling, poly-bagging, palletization and direct FC appointment booking, plus sea express and air express modes.' }
+    ],
   },
   {
     slug: 'europe',
@@ -67,6 +74,12 @@ export const regions: Region[] = [
       { from: 'Ningbo', to: 'Hamburg', mode: 'Ocean FCL', transit: '34-42 days' },
       { from: 'Hong Kong', to: 'Frankfurt', mode: 'Air', transit: '4-6 days' },
     ],
+    faq: [
+      { q: 'How long does shipping from China to Europe take?', a: 'Ocean FCL from Shanghai or Ningbo to Rotterdam takes 28 to 35 days, and to Hamburg 30 to 38 days via the Suez Canal. Air freight to Frankfurt, Amsterdam, Paris or London takes 4 to 6 days door-to-door.' },
+      { q: 'Do I need an EORI number and ENS declaration?', a: 'Yes. EU imports require EORI registration and an ENS/ICS2 pre-manifest filed 24 hours before loading. Our customs team files ENS, ICS2 and the full import entry in-house.' },
+      { q: 'Can you lower my import duty using an FTA?', a: 'Yes. We issue FORM E ASEAN FTA and RCEP certificates of origin where your goods qualify, which can reduce or eliminate import duty across the EU 27.' },
+      { q: 'Do you ship to the UK after Brexit?', a: 'Yes. We serve Felixstowe and other UK ports, and handle UK customs declarations separately from the EU under your own EORI or our IOR.' }
+    ],
   },
   {
     slug: 'middle-east',
@@ -88,6 +101,12 @@ export const regions: Region[] = [
       { from: 'Shanghai', to: 'Dubai (Jebel Ali)', mode: 'Ocean FCL', transit: '20-28 days' },
       { from: 'Shenzhen', to: 'Dammam', mode: 'Ocean FCL', transit: '24-30 days' },
       { from: 'Guangzhou', to: 'Dubai', mode: 'Air', transit: '3-5 days' },
+    ],
+    faq: [
+      { q: 'How long does shipping from China to the Middle East take?', a: 'Ocean FCL to Jebel Ali (Dubai) takes 18 to 22 days, and to Dammam (Saudi Arabia) 22 to 26 days. Air freight via Emirates SkyCargo from Guangzhou to Dubai takes 3 to 5 days.' },
+      { q: 'What duties and VAT apply in the GCC?', a: 'Standard GCC import duty is 5% plus 5% VAT in most states. We issue a GCC certificate of origin to cut duty under FTA terms and pre-pay all duties, VAT and clearance fees under DDP.' },
+      { q: 'Do you handle SABER certification for Saudi Arabia?', a: 'Yes. We manage SABER registration and conformity certificates for regulated products bound for Saudi Arabia so your cargo clears Saudi customs without delay.' },
+      { q: 'What air freight options are available?', a: 'We offer Emirates SkyCargo and Qatar Airways Cargo block space from Guangzhou, Shenzhen and Shanghai to Dubai, Doha and Riyadh, with door-to-door DDP delivery across the UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain.' }
     ],
   },
   {
@@ -112,6 +131,12 @@ export const regions: Region[] = [
       { from: 'Guangzhou', to: 'Mombasa', mode: 'Ocean LCL', transit: '34-42 days' },
       { from: 'Shenzhen', to: 'Lagos', mode: 'Air', transit: '5-7 days' },
     ],
+    faq: [
+      { q: 'How long does shipping from China to Africa take?', a: 'Ocean FCL from Shanghai to Durban takes 28 to 32 days, and LCL to Mombasa 25 to 30 days. Air freight from Shenzhen to Lagos takes 5 to 7 days.' },
+      { q: 'What is the cheapest way to ship to Africa?', a: 'LCL consolidation is the most cost-effective for SME importers shipping under 15 CBM. We combine goods from multiple Chinese suppliers at our Shenzhen warehouse to cut the per-CBM cost.' },
+      { q: 'Do you offer storage for consolidation?', a: 'Yes, we offer 30 days of free bonded storage in Shenzhen, where we collect, combine, repack and label your goods before shipping to reduce cost.' },
+      { q: 'Which African countries do you cover door-to-door?', a: 'Our DDP door-to-door service covers South Africa, Kenya, Nigeria and Ghana, with full import clearance and last-mile delivery.' }
+    ],
   },
   {
     slug: 'australia',
@@ -134,6 +159,12 @@ export const regions: Region[] = [
       { from: 'Shanghai', to: 'Sydney', mode: 'Ocean FCL', transit: '20-26 days' },
       { from: 'Shenzhen', to: 'Melbourne', mode: 'Ocean FCL', transit: '20-28 days' },
       { from: 'Guangzhou', to: 'Auckland', mode: 'Air', transit: '3-5 days' },
+    ],
+    faq: [
+      { q: 'How long does shipping from China to Australia take?', a: 'Ocean FCL from Shanghai to Sydney takes 16 to 20 days, and to Melbourne 18 to 22 days. Air freight to Sydney or Melbourne takes 3 to 5 days.' },
+      { q: 'Do I need AQIS biosecurity clearance?', a: 'Yes. Australia requires AQIS biosecurity quarantine inspection. We handle AQIS documentation, fumigation and ISPM-15 inspection, plus full import clearance in-house.' },
+      { q: 'What taxes apply when shipping to Australia?', a: 'Australia applies 10% GST on most imports plus duty based on the HS code. Under DDP we pre-pay all import duty, GST and AQIS fees in one all-in quote.' },
+      { q: 'Do you deliver to Amazon AU FBA?', a: 'Yes, we deliver to SYD1, MEL1, BNE3 and PER3 fulfillment centers with FNSKU labeling, poly-bagging, palletization and direct FC appointment booking.' }
     ],
   },
   {
@@ -158,6 +189,12 @@ export const regions: Region[] = [
       { from: 'Guangzhou', to: 'Bangkok', mode: 'Ocean LCL', transit: '7-10 days' },
       { from: 'Shenzhen', to: 'Manila', mode: 'Air', transit: '2-3 days' },
     ],
+    faq: [
+      { q: 'How long does shipping from China to Southeast Asia take?', a: 'Ocean FCL from Shenzhen to Singapore takes 5 to 7 days, and LCL to Bangkok 7 to 10 days. Air freight from Shenzhen to Manila takes 2 to 3 days.' },
+      { q: 'Can I reduce import duty with an FTA?', a: 'Yes. ASEAN-China FTA and RCEP can reduce or eliminate duty. We issue FORM E and RCEP certificates of origin to lower your landed cost.' },
+      { q: 'Do you offer LCL consolidation to ASEAN?', a: 'Yes, weekly LCL consolidation runs from Shenzhen with 30 days of free bonded storage so you can combine goods from multiple suppliers before shipping.' },
+      { q: 'Which countries do you cover door-to-door?', a: 'We provide DDP door-to-door to Singapore, Thailand, Vietnam, Philippines, Malaysia, Indonesia and Cambodia, pre-paying import duties, VAT and last-mile delivery.' }
+    ],
   },
   {
     slug: 'south-america',
@@ -179,6 +216,12 @@ export const regions: Region[] = [
       { from: 'Shanghai', to: 'Santos', mode: 'Ocean FCL', transit: '40-48 days' },
       { from: 'Shenzhen', to: 'Buenos Aires', mode: 'Ocean FCL', transit: '42-50 days' },
       { from: 'Guangzhou', to: 'Callao (Peru)', mode: 'Air', transit: '5-7 days' },
+    ],
+    faq: [
+      { q: 'How long does shipping from China to South America take?', a: 'Ocean FCL from Shanghai to Santos takes 38 to 42 days, and from Shenzhen to Buenos Aires 40 to 45 days. Air freight from Guangzhou to Sao Paulo or Lima takes 5 to 7 days.' },
+      { q: 'Why does shipping to South America take so long?', a: 'South America is far from China, so vessels route via the Cape of Good Hope or the Panama Canal, adding transit time. Air freight is recommended for time-sensitive cargo.' },
+      { q: 'Do you offer DDP to Brazil and other South American countries?', a: 'Yes. We pre-pay import duties, IGV (Peru), IPI and customs clearance fees under DDP for Brazil, Argentina, Peru and Chile.' },
+      { q: 'Can you transship via Mexico?', a: 'Yes. For cargo moving to Central America and the Pacific coast of South America, we can transship via Manzanillo, Mexico.' }
     ],
   },
   {
@@ -204,6 +247,12 @@ export const regions: Region[] = [
       { from: 'Yiwu', to: 'Moscow', mode: 'Block Train', transit: '14-18 days' },
       { from: 'Guangzhou', to: 'Moscow (SVO)', mode: 'Air', transit: '4-6 days' },
     ],
+    faq: [
+      { q: 'How long does shipping from China to Russia take?', a: 'Ocean FCL from Shanghai to Vladivostok takes 10 to 14 days. The China-Europe block train to Moscow takes 12 to 15 days - roughly half the time of ocean shipping. Air freight to Moscow SVO takes 4 to 6 days.' },
+      { q: 'What is the best mode for time-sensitive cargo to Moscow?', a: 'The block train is the best balance: about half the transit of ocean freight and roughly one-third the cost of air. We run weekly block trains from Yiwu, Xi\'an, Chengdu, Chongqing and Shijiazhuang to Moscow.' },
+      { q: 'Do I need EAC and GOST R certification?', a: 'Yes. Russia requires EAC declaration and, for regulated products, GOST R conformity certification. We handle full EAC clearance, import duty (5-15% depending on HS code) and VAT (20%) under DDP.' },
+      { q: 'Do you ship to Ozon and Wildberries sellers?', a: 'Yes. We consolidate from Yiwu, Guangzhou and Shenzhen warehouses to Moscow distribution centers via block train plus last-mile trucking, with labeling and repacking at our Shenzhen bonded warehouse.' }
+    ],
   },
   {
     slug: 'central-asia',
@@ -227,6 +276,12 @@ export const regions: Region[] = [
       { from: 'Lianyungang', to: 'Almaty', mode: 'Block Train', transit: '8-12 days' },
       { from: 'Xi\'an', to: 'Tashkent', mode: 'Block Train', transit: '12-16 days' },
       { from: 'Urumqi', to: 'Almaty (ALA)', mode: 'Air', transit: '1-2 days' },
+    ],
+    faq: [
+      { q: 'How long does shipping from China to Central Asia take?', a: 'Block train from Lianyungang to Almaty takes 8 to 12 days, and from Xi\'an to Tashkent 12 to 16 days. Air freight from Urumqi to Almaty takes 1 to 2 days.' },
+      { q: 'What shipping modes are available to Central Asia?', a: 'We offer China-Europe Railway block trains via the Khorgos and Alashankou crossings, ocean-plus-rail intermodal via Lianyungang, and air freight - plus trucking for LCL and e-commerce cargo.' },
+      { q: 'What customs and certification are required?', a: 'EAC clearance applies for Kazakhstan, Kyrgyzstan and Russia. Uzbekistan, Tajikistan and Turkmenistan have separate customs regimes, and we handle national conformity certificates and GOST for each.' },
+      { q: 'What are the VAT rates in Central Asia?', a: 'Import VAT is 12% in Kazakhstan, 12% in Uzbekistan and 18% in Tajikistan. We pre-pay these under DDP so you get one all-in landed cost.' }
     ],
   },
 ];

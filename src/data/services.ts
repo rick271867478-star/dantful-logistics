@@ -10,6 +10,7 @@ export interface Service {
   icon: string;
   highlights: string[];
   body: string[];
+  faq?: { q: string; a: string }[];
 }
 
 export const services: Service[] = [
@@ -58,7 +59,9 @@ export const services: Service[] = [
       'IATA-certified dangerous goods shipping from China covering all UN Classes 1-9. We ship UN3480 lithium-ion batteries, flammable liquids, corrosives, oxidizers and all hazardous cargo with proper UN specification packaging, MSDS review and carrier contracts that accept DG.',
     icon: 'M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z',
     highlights: ['IATA certified', 'UN3480 batteries', 'Proper packaging', 'Competitive DG rates'],
-    body: ['DG cargo body placeholder'],
+    body: [
+      'Our IATA and IMDG certified team ships UN3480 lithium-ion batteries, Class 3 flammable liquids, Class 8 corrosives and other UN Class 1-9 dangerous goods from China with proper UN specification packaging, MSDS review and direct contracts with carriers that accept DG cargo.'
+    ],
   },
   {
     slug: 'product-certification',
@@ -69,7 +72,9 @@ export const services: Service[] = [
       'In-house product certification handling SONCAP for Nigeria, SABER for Saudi Arabia, GOST R for Russia, EAC Customs Union, AQIS for Australia, CE/UKCA for EU/UK, and FORM A/E/RCEP FTA certificates to legally reduce or eliminate import duty.',
     icon: 'M9 12l2 2 4-5m5.4-3A9 9 0 1112 3a9 9 0 009 3z',
     highlights: ['SONCAP Nigeria', 'SABER Saudi Arabia', 'GOST R Russia', 'FTA certificates'],
-    body: ['Certification body placeholder'],
+    body: [
+      'Our in-house team handles SONCAP (Nigeria), SABER (Saudi Arabia), GOST R (Russia), CE/UKCA (EU/UK), AQIS (Australia) and FORM A/E/RCEP FTA certificates, with fast turnaround and compliant documentation so your cargo clears customs without delay.'
+    ],
   },
   {
     slug: 'amazon-fba',
@@ -87,6 +92,12 @@ export const services: Service[] = [
       'Delivered by UPS or FedEx in 7 to 12 days. Ideal for Q4 replenishment and Prime Day. FBA DIRECT COURIER: DHL, UPS or FedEx in 3 to 6 days for samples under 300 KG. FBA RAILWAY: China-Europe rail to Poland or Germany in 15 to 20 days.',
       'Our FREE FBA PREP service saves thousands in Amazon labeling fees. We reduce shipment refusal and FC processing delays. Prep services in our Shenzhen warehouse: FNSKU barcode labeling per unit. Polybag bundling with suffocation warning labels. Bubble wrap and corner protectors for fragile goods.',
       'ISPM-15 palletization with stretch wrap. MADE IN CHINA marking per carton. FCC, CE, UKCA, RoHS, CPSIA stickers. Expiration date coding. Photo proof before every shipment. Extras include AQL Level II inspection, return re-labeling and Seller Central shipping plan sync.'
+    ],
+    faq: [
+      { q: 'Which Amazon marketplaces and fulfillment centers do you deliver to?', a: 'We deliver to the USA, Canada, UK, EU 27, Australia, Mexico and Japan. US fulfillment centers include ONT8, LGB8, LAX9, EWR4 and BFI3, plus EU FCs like FRA1 and DUS2. We schedule direct FC appointments and match your Seller Central shipping plan.' },
+      { q: 'What is the difference between sea express and air express?', a: 'FBA sea express ships by ocean to our overseas warehouse then trucks to Amazon by UPS, FedEx or DHL — best for 50+ CBM with 22 to 35 day transit. FBA air express flies via PVG, SZX, CAN or HKG and delivers in 7 to 12 days, ideal for Q4 and Prime Day replenishment. Direct courier covers samples under 300 KG in 3 to 6 days.' },
+      { q: 'Do you handle FBA prep like labels and poly-bagging?', a: 'Yes, FBA prep is free. We do FNSKU barcode labeling per unit, poly-bagging with suffocation warnings, bubble wrap for fragile goods, ISPM-15 palletization, MADE IN CHINA marking, FCC/CE/UKCA stickers and expiration date coding — with photo proof before every shipment.' },
+      { q: 'What is included in your FBA pricing?', a: 'Our all-in FBA quote covers factory pickup, export clearance, sea/air main carriage, destination import clearance, duties and VAT, bonded trucking to the FC and last-mile delivery. No hidden charges or surprise destination fees.' }
     ],
   },
   {
@@ -121,8 +132,14 @@ export const services: Service[] = [
       'Every facility has 12m racking for 10,000+ pallet positions. We use reach trucks, VNA turret trucks and forklifts. Our cloud WMS integrates with Amazon Seller Central, ShipStation and Linnworks for real-time inventory visibility.',
       'Free services for all partners include: 30-day temporary storage for export consolidation. Collect from 5 to 20 suppliers without daily charges. Free supplier pickup for combined shipments over 2 CBM within 200 km. Free inbound unloading, quantity count and barcode receiving with photos.',
       'Damaged goods quarantine and same-day email notification. Free monthly physical inventory reconciliation. We maintain 24/7 HD CCTV with 90-day backup. Fire sprinklers, pest control and 24/7 security. Insurance up to USD 5 million per event.',
-      'Premium services include: CONSOLIDATION — combine goods from multiple factories into one container. Cut per-unit shipping cost by 30 to 55 percent. ISPM-15 pallets, shrink wrap and corner boards. QC INSPECTION — AQL Level II from USD 85 per man-day. 100% inspection for critical SKUs. Includes 15 to 25 photos, defect report and PASS or FAIL recommendation.',
+      'Premium services include: CONSOLIDATION — combine goods from multiple factories into one container. Cut per-unit shipping cost by 30 to 55 percent. ISPM-15 pallets, shrink wrap and corner boards. QC INSPECTION — AQL Level II competitive rates. 100% inspection for critical SKUs. Includes 15 to 25 photos, defect report and PASS or FAIL recommendation.',
       'LABELING AND KITTING — FNSKU, UPC, EAN labeling. FCC, CE, UKCA stickers. Multi-SKU kitting and polybagging. ORDER FULFILLMENT — pick-pack-ship same-day China express via SF, STO, JD. CROSS-DOCKING — de-consolidate 40HQ or air pallets for immediate re-dispatch. Ideal for retail restocking and JIT programs.'
+    ],
+    faq: [
+      { q: 'How long is free storage?', a: 'We offer 30 days of free temporary storage for export consolidation. This lets you collect goods from 5 to 20 suppliers, combine, repack and label before shipping without paying daily storage charges.' },
+      { q: 'Where are your warehouses located?', a: 'We operate 58,000 sqm across three facilities: 22,000 sqm in Shenzhen Longhua (30 min from Yantian Port), 20,000 sqm in Shanghai Songjiang (near Hongqiao Airport and Yangshan Port), and 16,000 sqm bonded space in Guangzhou Nansha beside Nansha Port.' },
+      { q: 'What services are included for free?', a: 'Free services include 30-day temporary storage, free supplier pickup for combined shipments over 2 CBM within 200 km, inbound unloading with quantity count and barcode receiving, damaged-goods quarantine with same-day notice, and monthly physical inventory reconciliation.' },
+      { q: 'Can you do quality inspection and FBA prep in your warehouse?', a: 'Yes. We offer AQL Level II inspection and 100% inspection for critical SKUs with photo reports, plus FNSKU/UPC/EAN labeling, kitting, poly-bagging and ISPM-15 palletization. Our cloud WMS integrates with Amazon Seller Central, ShipStation and Linnworks.' }
     ],
   },
   {
@@ -141,6 +158,12 @@ export const services: Service[] = [
       'Step 3: goods arrive at our warehouse for free quantity count, label check and palletization. Step 4: cargo ships with live tracking and weekly email updates. Step 5: goods clear customs with all duties paid by us and are delivered to your door. You sign with zero extra charges.',
       'We cover 60+ countries with our own IOR network. Four transit modes: SEA DDP (28 to 45 days, lowest cost for 5+ CBM). AIR DDP (7 to 14 days, most popular for 200 to 3000 KG). RAIL DDP (18 to 28 days, mid-price via Central Asia to Europe). EXPRESS DDP (3 to 7 days, DHL or FedEx for samples under 300 KG).',
       'We hold IOR and EORI numbers for USA, Canada, EU 27, UK, Australia, Japan, Korea, Mexico, Southeast Asia, Middle East and Turkey. We work directly with our own subsidiaries or audited 10+ year partners. Lower cost, faster clearance and 24/7 support. We also offer DAP and DDU if you use your own importer number.'
+    ],
+    faq: [
+      { q: 'What is the difference between DDP and DAP/DDU?', a: 'DDP (Delivered Duty Paid) means we pre-pay all import duties, VAT, GST and customs bonds, so you receive one all-in price with no destination surprises. DAP/DDU means you use your own importer number and pay destination duties and taxes yourself — we still handle freight and clearance up to the destination.' },
+      { q: 'What does the all-in DDP quote include?', a: 'One quote covers factory pickup, export clearance, origin handling, sea/air/rail main carriage, destination import clearance, all duties and VAT, bonded trucking and last-mile delivery to your door. You get one invoice and one point of contact.' },
+      { q: 'How long does door-to-door shipping take?', a: 'Sea DDP takes 28 to 45 days (lowest cost for 5+ CBM), air DDP 7 to 14 days (best for 200 to 3000 KG), rail DDP 18 to 28 days via Central Asia to Europe, and express DDP 3 to 7 days via DHL or FedEx for samples under 300 KG.' },
+      { q: 'Do you provide the importer of record (IOR)?', a: 'Yes, we hold IOR and EORI numbers for 60+ countries including the USA, Canada, EU 27, UK, Australia, Japan, Korea, Mexico, Southeast Asia, Middle East and Turkey, working through our own subsidiaries or audited 10+ year partners.' }
     ],
   },
 ];
